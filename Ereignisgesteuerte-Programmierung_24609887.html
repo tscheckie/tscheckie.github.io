@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Ereignisgesteuerte Programmierung</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Ereignisgesteuerte Programmierung
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="EreignisgesteuerteProgrammierung-CallBack-Funktionen">CallBack-Funktionen</h1><p>Wir haben nun schon einige Formen des Programmablaufs kennengelernt. Der static Mode zum Beispiel, bei dem einfach nur linear eine Zeile nach der anderen abgearbeitet wird und zwar genau einmal. Und den active Mode, ein quasi endloser Modus, der zwar auch Zeile für Zeile abarbeitet, aber dies ständig wiederholt. Hier war es uns bereits möglich Interaktion einzubauen, indem wir zum Beispiel an der Stelle der Mauskoordinaten etwas gezeichnet haben. Der nächste Schritt Richtung Interaktion ist die ereignisgesteuerte Programmierung.</p><p>Ereignisgesteuert bedeutet in diesem Fall, dass es Programmcode gibt, der nur dann ausgeführt wird, wenn ein bestimmtes Ereignis eintrifft - zum Beispiel, wenn der Nutzer eine bestimmte Taste auf der Tastatur drückt. Da dieser Programmcode nicht immer ausgeführt werden soll, steht dieser auch nicht in setup oder draw, sondern außerhalb. Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {} 
+
+void draw() {} 
+
+void keyPressed() { 
+   // Dieser Code wird durchgeführt, sobald eine Taste gedrückt wird
+}</pre>
+</div></div><pre><br/></pre><p>Die Funktion <code>keyPressed</code> wird hier als eine sogenannte <strong><em>CallBack</em></strong>-Funktion (auf deutsch = &quot;Rückruf&quot;) bezeichnet. Als CallBack-Funktionen bezeichnet man Funktionen, die von anderen Funktionen aufgerufen werden. Da wir selber in unserem Code <code>keyPressed</code> niemals aufrufen, muss dies logischerweise an einer anderen Stelle geschehen. Dies übernimmt Processing für uns im Hintergrund und stellt uns einfach nur die Funktion zur Verfügung, die wir mit unserem Code füllen dürfen. Du kannst dir das in etwa so vorstellen:</p><ul style="list-style-type: square;"><li>Nutzer drückt Taste → System erkennt: Taste gedrückt → Processing bekommt die Info: Taste gedrückt → Processing ruft <code>keyPressed</code> auf</li></ul><p>CallBack-Funktionen kommen in der ereignisgesteuerten Programmierung häufig zum Einsatz, da mit ihnen auf die &quot;Befehle&quot; (oder auch die <em>Eingabe</em>) des Nutzers reagiert werden kann. Einige dieser Funktionen bei Processing hast du teilweise auch schon verwendet. In diesem Kapitel wollen wir noch einmal etwas tiefer in die Interaktion mit Tastatur und Maus einsteigen.</p><h1 id="EreignisgesteuerteProgrammierung-InteraktionmitTasten">Interaktion mit Tasten</h1><p>Nachdem wir die If-Anweisung kennengelernt haben, können wir wesentlich differenzierter mit Benutzereingabe umgehen als zuvor. Wir können z.B. unterscheiden, <em>welche</em> Taste gedrückt wurde. Du weißt, dass du auf einen Tastendruck reagieren kannst, indem du die Funktion <code>keyPressed() </code>einfügst. Der Code in dieser Funktion wird immer dann ausgeführt, wenn du <strong>eine beliebige Taste</strong> drückst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {}
+
+void draw() {}
+
+void keyPressed() {
+  println(&quot;Bravo! Eine Taste! Yeah!&quot;);
+}</pre>
+</div></div><p><br/></p><h2 id="EreignisgesteuerteProgrammierung-Systemvariablekey">Systemvariable key</h2><p>Die Systemvariable <code>
+        key
+    </code> enthält immer <strong>die zuletzt gedrückte Taste</strong>. Wichtig: Wenn du 'a' drückst und die Taste loslässt, enthält <code>
+        key
+    </code> immer noch 'a'. Im folgenden Code ist das dennoch kein Problem, weil <code>keyPressed()</code> nur ein Mal aufgerufen wird, wenn du die Taste 'a' drückst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+}
+
+void draw() {
+}
+
+void keyPressed() {
+  if (key == &#39;a&#39;) {  // key ist vom Datentyp char, daher die einfachen Anführungszeichen &#39;
+    println(&quot;A ha.&quot;);
+  }
+}</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Die Systemvariable <code>
+        key</code> ist vom Datentyp <sub>char </sub>und kann somit immer nur genau <em>ein </em>Zeichen enhalten. Außerdem werden in Verbindung mit <code>key </code>auch die einfachen Anführungszeichen ' verwendet, anstatt die doppelten &quot;.</div></div><p><br/></p><h4 id="EreignisgesteuerteProgrammierung-KontinuierlicheTastenabfrage(boolescheVariablekeyPressed)">Kontinuierliche Tastenabfrage (boolesche Variable keyPressed)</h4><p>Problem mit dem obigen Code: Wenn du damit ein Spiel steuern willst, reagiert Processing nicht, wie du möchtest:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Kreis-Steuerung: suboptimale Lösung
+int x = 50;
+
+void setup() {
+}
+
+void draw() {
+  background(255);
+  ellipse(x, 50, 20, 20); // Kreis malen
+}
+
+void keyPressed() {
+  if (key == &#39;a&#39;) {
+    x++; // Kreis nach rechts bewegen =&gt; es hakt leider
+  }
+}</pre>
+</div></div><p><br/></p><p><strong><em>Probiere den Code in Processing aus!</em></strong></p><p><br/></p><p>Auch hier kommt uns Processing zu Hilfe. Die Variable <code>
+        keyPressed
+    </code> ist eine <strong>boolesche Variable</strong>, d.h. sie enthält entweder den Wert <code>
+        true
+    </code> oder den Wert <code>
+        false</code>. Diese Variable ist immer dann <code>
+        true</code>, wenn eine Taste im gedrückten Zustand ist. Das können wir ausnutzen, um direkt im <code>draw() </code>unsere Tastaturabfrage zu machen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 50;
+
+void setup() {
+}
+
+void draw() {
+  background(200);
+  ellipse(x, 50, 20, 20);
+
+  // Abfrage direkt in draw() statt in Funktion
+  if (keyPressed) {
+    if (key == &#39;a&#39;) {
+      x++; // Kreis nach rechts bewegen
+    }
+  }
+}</pre>
+</div></div><p><br/></p><p><strong><em>Probiere den Code in Processing aus!</em></strong><em><br/></em></p><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Warum ist die <code>keyPressed</code>-Abfrage überhaupt notwendig? → Wenn du sie weglässt, bewegt sich der Kreis nach Drücken und Loslassen der Taste 'a' ständig weiter, da <code>
+        key
+    </code> immer die zuletzt gedrückte Taste enthält.</div></div><h2 id="EreignisgesteuerteProgrammierung-VariablekeyCode">Variable keyCode</h2><p>Häufig willst du Bewegung an die Cursortasten binden. Diese Tasten lassen sich, ähnlich wie ENTER, BACKSPACE, ESCAPE etc. nicht einfach zwischen zwei Anführungszeichen schreiben. Deshalb verwendet man die Variable <code>
+        keyCode</code>, die einen numerischen Code für jede Taste enthält. Wenn du den keyCode von den Cursortasten kennst, kannst du per Vergleich die Tasten abfragen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 50;
+
+void setup() {
+}
+
+void draw() {
+  background(200);
+  ellipse(x, 50, 20, 20);
+
+  if (keyPressed) {
+    if (keyCode == RIGHT) {
+      x++; // Kreis nach rechts
+    }
+    if (keyCode == LEFT) {
+      x--; // Kreis nach links
+    }
+  }
+}</pre>
+</div></div><p><br/></p><p>Im Code siehst du einen Vergleich von keyCode (enthält eine Zahl, nämlich den Code der zuletzt gedrückten Taste) und der Variablen RIGHT, welche die Zahl enthält, die die linke Cursortaste repräsentiert.</p><h1 id="EreignisgesteuerteProgrammierung-InteraktionmitMaustasten">Interaktion mit Maustasten</h1><p>Bei den Maustasten verhält es sich ähnlich wie mit der Tastatur. Du hast wieder zwei Möglichkeiten.</p><h2 id="EreignisgesteuerteProgrammierung-Möglichkeit1:FunktionmousePressed()schreiben">Möglichkeit 1: Funktion mousePressed() schreiben</h2><p>Du kannst die Funktion <code>
+            mousePressed()
+        </code> schreiben. Diese wird immer dann aufgerufen, wenn eine der Maustasten gedrückt wird:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+}
+
+void mousePressed() {
+  println(&quot;hello&quot;);
+}</pre>
+</div></div><p><br/></p><p>Beachte , dass du <strong>innerhalb des Grafikfensters</strong> klicken musst!</p><p>Über die Systemvariable <code>
+            mouseButton
+        </code> kannst du unterscheiden, welche der Maustasten gedrückt wurde:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+}
+
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    println(&quot;hello&quot;);
+  }
+  if (mouseButton == RIGHT) {
+    println(&quot;again&quot;);
+  }
+  if (mouseButton == CENTER) {
+    println(&quot;in the middle&quot;);
+  }
+}</pre>
+</div></div><p><br/></p><p>Ähnlich wie <code>
+            keyCode
+        </code> enthält diese Variable eine Zahl. Diese Zahl kannst du mit einer der Systemvariablen LEFT, RIGHT, CENTER vergleichen, um zu prüfen, welche der drei Tasten gedrückt wurde.</p><h2 id="EreignisgesteuerteProgrammierung-Möglichkeit2:boolescheVariablemousePressedindraw()">Möglichkeit 2: boolesche Variable mousePressed in draw()</h2><p>Analog zu keyPressed gibt es eine boolesche Variable mousePressed, die solange true ist, wie der Benutzer eine der Maustasten gedrückt hält. Das erlaubt eine kontinuierliche Abfrage innerhalb der draw()-Funktion wie hier:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  if (mousePressed) {
+    if (mouseButton == LEFT) {
+      println(&quot;hello&quot;);
+    }
+    if (mouseButton == RIGHT) {
+      println(&quot;again&quot;);
+    }
+    if (mouseButton == CENTER) {
+      println(&quot;in the middle&quot;);
+    }
+  }
+}</pre>
+</div></div><p><br/></p><p>Du siehst, dass 60 Mal pro Sekunde die Ausgabe gemacht wird, sofern du eine der Tasten gedrückt hältst.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="EreignisgesteuerteProgrammierung-Übungsaufgaben">Übungsaufgaben</h1><h4 id="EreignisgesteuerteProgrammierung-Schwarzweiß">Schwarzweiß</h4><p>Der Hintergrund soll <strong>schwarz</strong> eingefärbt werden, wenn man eine Tastatur-Taste drückt, und weiß, wenn man eine Maustaste drückt.</p><p>Verwende folgenden Basiscode und achten darauf, dass das Rechteck <strong>nicht</strong> übermalt wird, wenn du den Hintergrund änderst.</p><p>Verwenden KEINE Zeichenbefehle (<code>background</code>, <code>rect</code>) <u><strong>in</strong></u> keyPressed() oder mousePressed().</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  rectMode(CENTER);
+  rect(50, 50, 40, 40);
+}</pre>
+</div></div><p><br/></p><p><strong>Wichtig:</strong> Verwende eine Variable, die du in <code>keyPressed</code> bzw. <code>mousePressed</code> veränderst (sonst funktioniert die Folge-Aufgabe nicht).</p><h4 id="EreignisgesteuerteProgrammierung-Schwarzweiß2">Schwarzweiß 2</h4><p>Ersetze im obigen Programm das Quadrat durch einen Kreis, der komplementär zum Hintergrund schwarz oder weiß ist.</p><p>Verwenden Sie KEINE Zeichenbefehle (background, ellipse) <u><strong>in</strong></u> keyPressed() oder mousePressed().</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="EreignisgesteuerteProgrammierung-Zusammenfassung">Zusammenfassung</h1><p>Du hast gesehen, dass du prinzipiell <strong>zwei</strong> Möglichkeiten hast, eine Tastaturabfrage durchzuführen:</p><ol><li>Indem du eine eigene <em>Funktion</em> <code>keyPressed()</code> schreibst oder</li><li>Indem du in draw() eine If-Anweisung einbaust, die auf die <em>boolesche Variable</em> <code>keyPressed</code> reagiert.</li></ol><p>In beiden Fällen kannst du mit weiteren If-Anweisungen zwischen verschiedenen Tasten unterscheiden. Dabei verwendet man die Systemvariable <code>
+            key
+        </code> für die 'normalen' Tasten (a, b, c, ...) und die Variable <code>
+            keyCode
+        </code> für solche Tasten, die kein Zeichen auf dem Bildschirm produzieren (ESCAPE, ENTER, Cursortasten etc.).</p><p>Beachte , dass die Variable <code>key</code> vom Typ <code>char</code> ist (nicht String), so dass du <code>key == 'a'</code> schreiben musst (einfache Anführungszeichen).</p><p>Die Abfrage der Maustasten funktioniert analog zu der Tastaturabfrage. Du verwendest die Funktion <code>mousePressed()</code>, wenn du nur einmal auf den Druck reagieren möchtest. Du verwendest die boolesche Variable <code>mousePressed</code> innerhalb von draw(), wenn du eine kontinuierliche Steuerung benötigst (z.B. Dauerfeuer in einem Shooter oder eine fließende Links-Rechts-Bewegung über Maustasten).</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

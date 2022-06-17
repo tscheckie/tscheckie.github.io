@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Bibliotheken (Audio)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Bibliotheken (Audio)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Eine Bibliothek (engl. library) ist nichts anderes als Code, den jemand programmiert hat und zur Verfügung stellt, damit du ihn verwenden kannst. Processing hat &quot;von Haus aus&quot; nicht die Funktionalität Sound abzuspielen bzw. wenn du das machen möchtest, muss du Processing selber so programmieren, dass es das kann und macht. Das haben aber andere Menschen bereits getan. Du kannst somit den Code von anderen verwenden und sparst dir somit viel Arbeit. Du musst somit nicht jedes mal das Rad neu erfinden, sondern kannst auf dem aufbauen, was andere bereits entwickelt haben. Im Java - und auch in anderen Programmiersprachen - ist es sehr überlich Libraries zu verwenden. Wir schauen uns das hier einmal exemplarisch an einer Audio-Bibliothek an.</p><h2 id="Bibliotheken(Audio)-Libraryimportieren">Library importieren</h2><p>Wenn man in Processing Sounds abspielen will, kann man die Sound von Processing verwenden. Diese Library ist sehr gut geeigent.  Diese Bibliothek muss man zunächst aus dem Internet laden. Processing macht es einem sehr leicht. Es gibt den Menüpunkt <strong>Sketch →  Library importieren ... → Library hinzufügen. </strong>Hier im Suchfeld &quot;Sound&quot; eingeben und die<strong>  Sound Library </strong>von der Processing Foundation auswählen und installieren. Danach findest du die Library unter dem Menüpunkt <strong>Library importieren ...,</strong> wo du sie nur anklicken musst. Un dann passiert folgendes:</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">import processing.sound.*;</pre>
+</div></div><p>Was ist hier passiert?</p><ol><li>Processing hat für dich die Library aus dem Internet <strong>runtergeladen</strong> und in Processing <strong>gespeichert </strong>(du musst sie für andere PRojekte nicht erneut runterladen).</li><li>Processing hat für dich automatisch die Library <strong>zu deinem Projekt hinzugefügt</strong> mithilfe des Befehls <code><em>import</em></code>.</li></ol><p>Dabei haben Libraries immer solche Namen aus mehreren Worten, die mit Punkten verbunden sind. Jeder Punkt beschreibt eine neue Unterkategorie, ähnlich wie bei einem Ordner-System mit Unterordnern. In der ersten Zeile wird somit die Hautkategorie <code>processing</code> hinzugefügt. <code>sound</code> ist eine Unterkategorie innerhalb der <code>processing</code>-Bibliothek.  Der Stern hinter dem letzten Punkt funktioniert wie eine Art Wildcard und sagt, dass wir alles innerhalb der Kategorie <code>sound</code>  verwenden wollen.</p><p><br/></p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Wichtig</strong>: Bibliotheken müssen zunächst heruntergeladen werden. Danach müssen sie in das jeweilige Projekt importiert werden mithilfe von <code>import</code>.</p></div></div><h2 id="Bibliotheken(Audio)-Libraryverwenden">Library verwenden</h2><p>Nach dem Importieren kannst du alle Funktionen, Datentypen, etc. verwenden, die in der Library enthalten sind. Beim Verwenden von Libraries ist es immer sinnvoll sich die Dokumentation der Library anzusehen, damit man weiß, wie sie funktioniert. Die Anleitung von der Sound-Library findest du unter:</p><p><a href="http://www.processing.org" class="external-link" rel="nofollow">www.processing.org</a> → Documentation → Libraries → Sound.</p><p>Hier kannst du sehen, was alles an Befehlen und Funktionen in der Library enthalten ist. Ganz schön viel. Wir wollen eigentlich nur den Teil SoundFile (den findest du, wenn du in der Liste etwas runterscrollst). Da kannst du zum einen sehen, wie man ein SoundFile anlegt (oberster Eintrag), aber auch, was du alles mit diesem SoundFile dann machen kannst, z.B. <code>play()</code>, <code>pause()</code>, <code>loop()</code>.</p><p>Wenn du auf den obersten Eintrag <code>SoundFile </code>klickst, dann kommst du auf eine <a href="https://processing.org/reference/libraries/sound/SoundFile.html" class="external-link" rel="nofollow"> Seite </a>mit einem ganz einfachen Beispiel, wie du ein <code>SoundFile </code>anlegen und abspielen kannst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">import processing.sound.*;
+SoundFile file;
+
+void setup() {
+  size(640, 360);
+  background(255);
+    
+  // Load a soundfile from the /data folder of the sketch and play it back
+  file = new SoundFile(this, &quot;sample.mp3&quot;);
+  file.play();
+}      
+
+void draw() {
+} </pre>
+</div></div><p>Was geschieht hier? Ganz oben wird zunächst die Library importiert. Als nächstes wird eine Variable vom Typ <code>SoundFile </code>mit dem Namen <code>file </code>angelegt - darin ist aber noch nichts gespeichert, ihr Wert ist <code>null</code>. In setup wird die Variable <code>file </code>dann initialisiert mit<code> file = new SoundFile(this, &quot;sample.mp3&quot;);</code> Das Stichwort <code>new </code>kennen wir bereits von Arrays. Was das <code>this </code>bedeutet ist momentan irrelevant - viel wichtiger ist das, was danach kommt: Hier gibst du an, wie die Datei heißt, die du abspielen möchtest. Diese Datei muss im data Ordner von deinem Processing Projekt liegen, sonst findet sie Processing nicht.</p><p>Wenn du nun eine Audiodatei in deinen data-Ordner legst und sample.mp3 durch den Dateinamen deiner Datei ersetzt, dann sollte ein Sound abgespielt werden.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Wichtig:</strong> Deine Sound-Datei  muss im Verzeichnis deines Processing-Programms liegen, genauer in einem <strong>Unterverzeichnis mit Namen &quot;data&quot;</strong>.</p><p>Du kannst Dateien entweder <em>händisch </em>hinzufügen, indem du selber einen data-Ordner anlegst und die Datei dorthin verschiebst <strong>ODER </strong>du klickst in Processing auf <em>Sketch → Datei hinzufügen</em> und wählst eine Datei aus <strong>ODER </strong>du ziehst die Datei einfach per <em>drag-and-drop</em> in dein Processing-Editor-Fenster hinein. Dann übernimmt Processing den Rest.</p></div></div><p><br/></p><p>Vielleicht willst du aber auch, dass deine Musik nicht direkt bei Programmstart spielt, sondern erst, wenn eine Taste gedrückt wurde. Das lässt sich mit <code>keyPressed()</code> realisieren.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Wenn dein Sound länger ist, kann es sein, dass dein Play-Kommando nichts tut, weil der Sound <em>noch läuft.</em> Um das zu beheben, musst du vor jedem <code>play()</code> den <strong>Sound auf die Nullposition zurücksetzen</strong>. Dazu verwendest du die Methode <code>cue()</code>. Diese Methode bekommt die gewünschte Position in Millisekunden. Wir nehmen einfach Null.</p></div></div><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">import processing.sound.*;
+SoundFile file;
+
+void setup() {
+  size(640, 360);
+  background(255);
+    
+  // Load a soundfile from the /data folder of the sketch and play it back
+  file = new SoundFile(this, &quot;sample.mp3&quot;);
+
+}      
+
+void draw (){}
+
+void keyPressed() {
+   file.cue(0); 
+   file.play(); 
+} </pre>
+</div></div><p><br/></p><p>Willst du Hintergrundmusik laufen lassen und gleichzeitig &quot;auf Kommando&quot; einen Soundeffelt abspielen, dann brauchst du zwei SoundFiles. Eines starten wir in setup und das andere triggern wir mir keyPressed:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">import processing.sound.*;
+SoundFile music;
+SoundFile effect;
+
+void setup() {
+  size(640, 360);
+  background(255);
+    
+  // Music file
+  music = new SoundFile(this, &quot;music.mp3&quot;);
+  music.play();
+
+  // Sound effect file
+  effect = new SoundFile(this, &quot;effect.mp3&quot;);
+}      
+
+void draw (){}
+
+void keyPressed() {
+   effect.cue(0); 
+   effect.play(); 
+} </pre>
+</div></div><p>Mit dem Befehl <code>loop()</code> läuft die Musik im Wiederholmodus. Du kannst die Hintergrundmusik mit <code>pause()</code> und <code>play()</code> steuern, z.B. per Tastendruck. Wir hängen den Effect-Sound an die Leertaste und das Play/Pause an die Taste P. Um zwischen Play und Pause umzuschalten, nutzen wir die Methode <code>isPlaying()</code>, die zurückgibt, ob der Player im Play- oder Pause-Modus ist (boolean).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">import processing.sound.*;
+SoundFile music;
+SoundFile effect;
+
+void setup() {
+  size(640, 360);
+  background(255);
+    
+  // Music file
+  music = new SoundFile(this, &quot;music.mp3&quot;);
+  music.loop();  // Musik in Endlosschleife abspielen
+
+  // Sound effect file
+  effect = new SoundFile(this, &quot;effect.mp3&quot;);
+}      
+
+void draw (){}
+
+void keyPressed() {
+  if (key == &#39; &#39;) { 
+    effect.cue(0); 
+    effect.play();     
+  }
+   
+  if (key == &#39;p&#39;) {
+    if (music.isPlaying()) {       
+      music.pause();
+    } else {       
+      music.loop();   // Musik ist immer noch im loop-Modus und muss nur wieder auf play gesetzt werden.   
+    }
+  }
+}</pre>
+</div></div><p><br/></p><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Kostenlose Sounds für deine Spiele bekommst du u.a. von</p><ul><li><a href="https://soundbible.com" class="external-link" rel="nofollow">https://soundbible.com</a></li><li><a href="https://freesound.org" class="external-link" rel="nofollow">https://freesound.org</a></li></ul><p>Bitte achte darauf, welche <strong>Lizenz</strong> ein Sound hat. Du musst zunächst darauf achten, dass der Sound kostenlos ist, aber darüber hinaus, ob eine kommerzielle Nutzung zulässig ist. Ebenfalls wichtig ist, ob die Nennung des Erschaffers notwendig ist (z.B. bei der <a href="https://creativecommons.org/licenses/by/3.0/de/" class="external-link" rel="nofollow">Creative Commons Attribution 3.0</a>). Wenn ja, übe gleich das &quot;Credit geben&quot;, indem du in deinem Code-Kommentar die Sound-Erschaffer angibst. Lies dir unbedingt die Lizenzbedingungen auf der jeweiligen Download-Webseite durch.</p></div></div><p><br/></p><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Bibliotheken(Audio)-Zusammenfassung">Zusammenfassung</h1><p><br/></p><p>Bibliotheken bzw. Libraries sind Code, den anderen Programmierer erstellt und zur Verfügung gestellt haben. Man verwendet Libraries, um gewisse Funkionalitäten verwenden zu können und diese nicht selber programmieren zu müssen. Über eine Library verwenden zu können, muss diese</p><ul style="list-style-type: square;"><li>aus dem Internet <strong>runtergeladen</strong> und gespeichert werden (reicht einmal pro PC)</li><li>in das Projekt <strong>importiert</strong> werden mithilfe von <code>import</code> (für jedes Projekt nötig, das die Library verwenden soll)</li></ul><p>Eine gute Bibliothek für Audio in Processing ist <code>Sound</code>. Wir verwenden davon folgende Elemente und Funktionen:</p><ul style="list-style-type: square;"><li><code>SoundFile</code>: Ist das Objekt, das die Audiodatei enthält und mit dem man die Musik steuern kann.<br/><ul style="list-style-type: square;"><li><code>= new Soundfile(this, &quot;sample.mp3&quot;) </code>: Weißt einem <code>SoundFile </code>eine neue Datei hinzu.</li><li><code>.play()</code>: Startet die Audio-Datei des <code>SoundFiles</code></li><li><code>.isPlaying(</code>): Zeigt an, ob das <code>SoundFile </code>gerade etwas abspiel (<code>boolean</code> → gibt <code>true</code> oder <code>false</code> zurück)</li><li><code>.pause()</code>: Pausiert den <code>SoundFile</code></li><li><code>.cue(sekunden)</code>:  Setzt den Marker, ab wo die Audio-Datei gespielt werden soll auf eine bestimmte Stelle, die mit <code>sekunden</code> angegeben wird.</li></ul></li></ul><p>Weitere Informationen zur SoundFile Library findest du unter <a href="https://processing.org/reference/libraries/sound/SoundFile.html" class="external-link" rel="nofollow">SoundFile</a>.</p><p><br/></p><p>Ein einfaches Programm, das nach dem Start Musik abspielt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">import processing.sound.*;
+SoundFile file;
+
+void setup() {
+  size(640, 360);
+  background(255);
+    
+  // Load a soundfile from the /data folder of the sketch and play it back
+  file = new SoundFile(this, &quot;sample.mp3&quot;);
+  file.play();
+}      
+
+void draw() {
+}   </pre>
+</div></div></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-30147261"></a>
+                                    <font class="smallfont"><p>Die Links hinter &quot;Minim&quot; und &quot;AudioPlayer&quot; sind nicht mehr verfügbar.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by joris.willrodt@student.fh-kiel.de at Dez 09, 2019 11:02
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

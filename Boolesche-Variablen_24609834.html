@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Boolesche Variablen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Boolesche Variablen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified on Okt 20, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Du kannst jetzt Bedingungen in If-Anweisungen und sogar boolesche Ausdrücke mit AND und OR. Boolesche Variablen sind ganz primitive Zeitgenossen, da sie lediglich einen von zwei möglichen Werten speichern können: <code>
+        true
+    </code> oder <code>
+        false
+    </code> .</p><p>Wozu braucht man sowas? In Processing will man sich zum Beispiel einen Zustand <em>merken</em>. Wenn du zum Beispiel eine Animation hast, möchtest du dir merken, ob die Animation laufen soll (play) oder anhalten (pause).</p><p>Nehmen wir mal eine einfache Animation:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+
+void draw() {
+  background(255);
+  ellipse(x, 50, 20, 20);
+  x++;
+
+  // immer wieder von links reinkommen
+  if (x &gt;= 100) {
+    x = 0;
+  }
+}</pre>
+</div></div><p><br/></p><p>Um einen einfachen play/pause Mechanismus zu implementieren, führen wir eine boolesche Variable <code>
+        play
+    </code> ein. Wenn diese <code>
+        true
+    </code> ist, soll die Animation laufen. Wenn sie <code>
+        false
+    </code> ist, nicht:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+boolean play = true;
+
+void draw() {
+  background(255);
+  ellipse(x, 50, 20, 20);
+
+  // NEU: bewege dich nur, wenn play true ist
+  if (play) {
+    x++;
+  }
+
+  // immer wieder von links reinkommen
+  if (x &gt;= 100) {
+    x = 0;
+  }
+}</pre>
+</div></div><p>Es hat sich nicht viel geändert, aber du kannst die Variable play von Hand auf false setzen, dann bleibt der Ball links stehen. Beachte, dass du <strong>nicht play == true</strong> in die Bedingung schreiben musst (obwohl das auch funktionieren würde). Wenn play true ist, wird direkt true eingesetzt - das gleiche gilt für den Fall, dass play false ist. Keine Notwendigkeit also, nochmal == true hinzuschreiben.</p><p>Jetzt musst du nur noch &quot;zur Laufzeit&quot;, also während das Programm läuft, die Variable play umsetzen. Das funtioniert, indem du die folgende Funktion hinzufügst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void keyPressed() {
+  if (play) {
+    play = false;
+  } else {
+    play = true;
+  }
+}</pre>
+</div></div><p><em><br/></em></p><p>Du setztst also die Variable play in Abhängigkeit von ihrem aktuellen Zustand, nämlich auf ihr 'Gegenteil'. In der Logik nennt man das auch die Negation ihres Zustands. Das kann man ganz elegant formulieren als:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void keyPressed() {
+  play = !play; // setze play auf seine eigene Negation
+}</pre>
+</div></div><p>Das Negationszeichen funktioniert also ähnlich wie das Minuszeichen in der Arithmetik. Natürlich sind beide Code-Varianten völlig legitim und in Ordnung.</p><h1 id="BoolescheVariablen-BoolescheVariablenundboolescheAusdrücke">Boolesche Variablen und boolesche Ausdrücke</h1><p>In eine boolesche Variable kann ein beliebiger boolescher Ausdruck per Zuweisung hineingetan werden. Im folgenden Beispiel wird der Ball in der x-Zone 30-70 rot gefärbt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+boolean inTheZone = false;
+
+void draw() {
+  background(255);
+
+  // boolescher Ausdruck
+  inTheZone = x &gt; 30 &amp;&amp; x &lt; 70;
+
+  if (inTheZone) {
+    fill(255, 0, 0); // rot
+  }
+  else {
+    fill(255); // weiß
+  }
+
+  ellipse(x, 50, 20, 20);
+  x++;
+}</pre>
+</div></div><p>Auch hier zeigt sich der Vorteil der Varible erst, wenn die Information an anderer Stelle bzw. zu anderer Zeit verwendet wird. Willst du etwa per Tastendruck den Ball wieder auf x=0 setzten <strong>unter der Bedingung</strong>, dass der Ball in 'der Zone' ist, dann fügst du hinzu:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void keyPressed() {
+  if (inTheZone) {
+    x = 0;
+  }
+}</pre>
+</div></div><h1 id="BoolescheVariablen-BoolescheVariablenalsTeilboolescherAusdrücke">Boolesche Variablen als Teil boolescher Ausdrücke</h1><p>Boolesche Variablen können natürlich auch Bestandteil von booleschen Ausdrücken sein. Hier zwei Beispiele:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean foo = true;
+boolean goo = false;
+int x = 10;
+
+boolean ausdruck1 = foo &amp;&amp; goo;
+boolean ausdruck2 = foo || x &gt; 5;
+
+println(ausdruck1);
+println(ausdruck2);</pre>
+</div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="BoolescheVariablen-Fingerübungen">Fingerübungen</h1><h4 id="BoolescheVariablen-Richtig/falsch">Richtig/falsch</h4><p>Gegeben sei eine boolesche Variable <code>istKorrekt</code>. Wenn diese wahr ist, soll &quot;richtig&quot; ausgegeben werden, sonst &quot;falsch&quot;.</p><h4 id="BoolescheVariablen-Vergeich">Vergeich</h4><p>Gegeben seien zwei boolesche Variablen foo und bar. Gib &quot;gleich&quot; aus, wenn bei Variablen gleich sind, sonst &quot;ungleich&quot;.</p><h4 id="BoolescheVariablen-Größer/kleiner">Größer/kleiner</h4><p>Erstelle drei Variablen a (int), b (int) und agb (boolean). Setze a und b auf beliebige Werte. Die Variable agb soll true enthalten, wenn a größer b ist. Gib agb auf der Konsole aus. Teste dein Programm mit verschiedenen Werten für a und b.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="BoolescheVariablen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="BoolescheVariablen-Umschalten">Umschalten</h4><p>Ergänze den folgenden Code so, dass die Variable <code>foo</code> erst auf false und dann auf true geschaltet wird. An beiden Stellen soll <strong>der gleiche Code</strong> stehen!</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean foo = true;
+
+// Dein Code
+
+println(foo);
+
+// Gleicher Code wie oben
+
+println(foo);</pre>
+</div></div><pre>
+</pre><p>Die Ausgabe soll sein:</p><pre class="console">false
+true
+</pre><p><strong>Hinweis:</strong> Es gibt zwei Möglichkeiten. Entweder du verwendest ein <code>if-else</code> oder du überlegst dir, wie du eine boolesche Variable &quot;umkehrst&quot; - das funktioniert so ähnlich wie das Umkehren des Vorzeichens bei einer Zahl.</p><h4 id="BoolescheVariablen-Nowyouseeme...">Now you see me...</h4><p>Schreibe ein Programm, dass einen schwarz gefüllten Kreis malt. Wenn man auf die Maustaste drückt, verschwindet er. Beim nächsten Klick erscheint er usw.</p><h4 id="BoolescheVariablen-KreisoderBox">Kreis oder Box</h4><p>Wo immer der Mauszeiger ist, wird ein weiß gefüllter Kreis gezeichnet (Durchmesser 30). Wenn du auf die Maustaste drückst, wird stattdessen ein schwarz gefülltes Quadrat gezeichnet (Kantenlänge 20). Wenn du wieder die Taste drückst, kommen wieder Kreise usw.</p><h4 id="BoolescheVariablen-Horizontalodervertikal">Horizontal oder vertikal</h4><p>Ein Kreis fliegt von links nach rechts und erscheint wieder am linken Rand, wenn er rechts rausfliegt. Wenn man die Maustaste drückt, fliegt der Kreis nach unten und erscheint wieder oben, wenn er den unteren Rand erreicht. Beim nächsten Klick fliegt er wieder horizontal usw.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="BoolescheVariablen-Zusammenfassung">Zusammenfassung</h1><p>Boolesche Variablen können einen <strong>binären Zustand</strong> speichern, d.h. eine Variable enthält entweder den Wert true oder den Wert false. Eine boolesche Variable kann z.B. in einer If-Bedingung verwendet werden.</p><p>Ein Anwendungsbeispiel ist der Unterschied zwischen &quot;Play&quot; und &quot;Pause&quot; bei einer Animation. Dies kann in einer booleschen Variable <code>play</code> gespeichert werden. Hier würde true bedeuten &quot;Objekt bewegt sich&quot; und false &quot;Objekt bewegt sich nicht&quot;.</p><p>Eine boolesche Variable kann mit dem Negationsoperator <strong>invertiert</strong> werden, z.B. die Variable <code>play</code></p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">play = !play;</pre>
+</div></div><p><br/></p><p><br/></p><p>Eine boolesche Variable ist selbst ein <strong>boolescher Ausdruck</strong>, kann also allein in einer If-Bedingung stehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">if (play) {
+  x++;
+}</pre>
+</div></div><pre class="auto-cursor-target"><br/></pre></div></div><pre class="auto-cursor-target"><br/></pre>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

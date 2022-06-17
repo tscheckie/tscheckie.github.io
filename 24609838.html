@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Translation, Rotation, Skalierung</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-3_24609610.html">Sprint 3</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Translation, Rotation, Skalierung
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 23, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In Processing verwendest hauptsächlich drei sogenannte <em>affine Transformationen</em>:</p><ol><li>Translation (Verschiebung)</li><li>Rotation (Drehung)</li><li>Skalierung (Vergrößerung/Verkleinerung)</li></ol><p>Diese Transformationen heißen <em>affin</em> (= verwandt, übereinstimmend), weil sie die prinzipielle Form eines Objekts nicht verändern.</p><p>Dank eines Tricks, den homogenen Koordinaten, lässt sich jede dieser Transformationen als eine <strong>Matrix</strong> ausdrücken. Und noch besser: Wenn man zwei Transformationen A und B hintereinander ausführen möchte, muss man lediglich die zugehörigen Matrizen MA und MB miteinander multiplizieren. Die resultierende Matrix repräsentiert dann die Kombination dieser zwei Transformationen. Das bedeutet, dass selbst tausende von Transformationen nach Multiplikation sich auf eine einzige Matrix verdichten.</p><h1 id="Translation,Rotation,Skalierung-Translation">Translation</h1><p>Mit einer Translation verschiebt man das aktuelle Koordinatensystem um einen <strong>Vektor</strong>: <code>translate(x, y);</code></p><p>Das bedeutet, dass <strong>alle nachfolgenden Befehle sich auf dieses neue, verschobene Koordinatensystem</strong> beziehen, d.h. man kann komplexe Zeichnungen leicht verschieben, indem man die Befehle gemeinsam der Translation nachstellt. Wie hier das Gesicht, das der Maus folgt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  background(255);
+  translate(mouseX, mouseY);
+
+  // Gesicht
+  ellipse(0,0,50,50);
+  ellipse(-10,-10,8,8);
+  ellipse(10,-10,8,8);
+}</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/translate_1.png" data-image-src="https://michaelkipp.de/processing/img/translate_1.png"></span></p><p><br/></p><p>Natürlich kannst du<code> translate()</code> auch zur Animation verwenden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+
+void draw() {
+  background(255);
+  translate(x, height/2);
+
+  // Gesicht
+  ellipse(0,0,50,50);
+  ellipse(-10,-10,8,8);
+  ellipse(10,-10,8,8);
+
+  x++;
+  if (x &gt; width) {
+    x = 0;
+  }
+}</pre>
+</div></div><p><br/></p><h1 id="Translation,Rotation,Skalierung-Rotation">Rotation</h1><p>Rotation bedeutet, dass das gesamte Koordinatensystem <strong>um den Ursprung</strong> gedreht wird. Der Winkel wird im <strong>Bogenmaß</strong> angegeben, d.h. der Wert sollte zwischen 0 und 2*PI liegen: <code>rotate(angle);</code></p><p>Wem das Bogenmaß nicht geheuer ist, der kann mit Grad rechnen (also 0° bis 360°) und die Funktion <code>
+										radians()</code> benutzen, um von Grad zu Bogenmaß (engl. radian) umzurechnen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Rechteck ohne Rotation
+rect(width/2, 0, 40, 20);
+
+// Rotation um 45°
+rotate(radians(45));
+
+// Rechteck mit Rotation (schwarz)
+fill(0);
+rect(width/2, 0, 40, 20);</pre>
+</div></div><p class="general"><br/></p><p>Hier sieht man deutlich, dass nicht etwa um eine Ecke des Objekts gedreht wird, sondern eben um den Ursprung (oben-links) des Koordinatensystems.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/rotate_1.png" data-image-src="https://michaelkipp.de/processing/img/rotate_1.png"></span></p><p>Wie dreht man dann z.B. um die linke obere Ecke des Rechtecks? Dazu verschiebt man das Koordinatensystem zunächst zum gewünschten Rotationspunkt und dreht erst dann:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Rechteck ohne Rotation (weiß)
+rect(width/2, 0, 40, 20);
+
+// Translation zum linken, oberen Rechteckpunkt
+translate(width/2, 0);
+
+// Rotation um 45°
+rotate(radians(45));
+
+// Rechteck mit Rotation (schwarz)
+// Jetzt bei (0, 0), da Koord.system verschoben
+fill(0);
+rect(0, 0, 40, 20);</pre>
+</div></div><p><br/></p><p>Jetzt hat man die gewünschte Rotation:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/rotate_2.png" data-image-src="https://michaelkipp.de/processing/img/rotate_2.png"></span></p><p>Du willst um den Mittelpunkt rotieren? Dann bewege das Koordinatensystem in die Mitte des Rechtecks:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Rechteck ohne Rotation (weiß)
+rect(width/2, 0, 40, 20);
+
+// Translation zur Mitte des Rechtecks
+translate(width/2 + 20, 10);
+
+// Rotation um 45°
+rotate(radians(45));
+
+// Rechteck mit Rotation (schwarz)
+// Jetzt mit (0, 0) als Mitte
+fill(0);
+rect(-20, -10, 40, 20);</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/rotate_2b.png" data-image-src="https://michaelkipp.de/processing/img/rotate_2b.png"></span></p><p>Auch Rotation kann man gut zur Animation verwenden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float angle = 0;
+
+void draw() {
+  background(0);
+
+  translate(50, 50); // geh zur Mitte
+  rotate(angle); // drehe
+  rect(0, -3, 50, 6); // zeichne Zeiger
+
+  angle += radians(5); // in 5° Schritten
+}</pre>
+</div></div><p><br/></p><h1 id="Translation,Rotation,Skalierung-Skalierung">Skalierung</h1><p>Skalierung wird auch vom Ursprung des Koordinatensystems aus gerechnet. Der Skalierungsfaktor liegt zwischen 0 und 1 (verkleinern) oder über 1 (vergrößern): <code>scale(factor);</code></p><p>Da die Skalierung vom Ursprung ausgeht, verschiebt sich das Objekt auch, wenn es nicht direkt auf dem Ursprung liegt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(10, 10, 30, 20); // vorher
+
+scale(2); // alles verdoppeln
+fill(0); // schwarz
+
+rect(10, 10, 30, 20); // nachher</pre>
+</div></div><p><br/></p><p>Hier wird z.B. auch der Abstand der linken, oberen Ecke zum Ursprung verdoppelt:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/scale_1.png" data-image-src="https://michaelkipp.de/processing/img/scale_1.png"></span></p><p>Auch hier wieder der Trick mit dem vorherigen Verschieben. Die Endposition ist jetzt durch ein halbtransparentes Rechteck dargestellt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(10, 10, 30, 20); // vorher
+
+translate(10, 10);
+scale(2); // alles verdoppeln
+fill(0, 100); // schwarz, transparent
+rect(0, 0, 30, 20); // nachher (jetzt auf 0, 0)</pre>
+</div></div><p><br/></p><p>Jetzt wird das Rechteck vom linken, oberen Punkt aus skaliert, was intuitiver ist. Beachte, dass auch der Rand (stroke) sich verdoppelt hat.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/scale_2.png" data-image-src="https://michaelkipp.de/processing/img/scale_2.png"></span></p><p>Auch hier ein Beispiel für eine Animation:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float factor = 1;
+
+void draw() {
+  background(0);
+  rectMode(CENTER);
+
+  translate(50, 50); // geh zur Mitte
+  scale(factor);
+  rect(0, 0, 10, 10);
+
+  factor += .1;
+  if (factor &gt; 12) {
+    factor = 1;
+  }
+}</pre>
+</div></div><p><br/></p><h2 id="Translation,Rotation,Skalierung-SkalierunginzweiDimensionen">Skalierung in zwei Dimensionen</h2><p>Du kannst die Skalierung für die x- und y-Dimension getrennt angeben. Dann bekommt <code>scale()</code> zwei Parameter, jeweils für x- und y-Achse.</p><p>Hier wird nur in x-Richtung um Faktor 2 skaliert:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(10, 10, 30, 20);
+
+scale(2, 1); // nur x verdoppeln
+fill(0);
+
+rect(10, 10, 30, 20);</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="scale in x-Richtung" src="https://michaelkipp.de/processing/img/trans-scale-x.png" data-image-src="https://michaelkipp.de/processing/img/trans-scale-x.png"></span></p><p>Hier wird nur in y-Richtung um Faktor 2 skaliert:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(10, 10, 30, 20);
+
+scale(1, 2); // nur y verdoppeln
+fill(0);
+
+rect(10, 10, 30, 20);</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="scale in y-Richtung" src="https://michaelkipp.de/processing/img/trans-scale-y.png" data-image-src="https://michaelkipp.de/processing/img/trans-scale-y.png"></span></p><h1 id="Translation,Rotation,Skalierung-Koordinatensystemsichtbargemacht">Koordinatensystem sichtbar gemacht</h1><p>Der Befehl <code>
+										translate()
+									</code> verschiebt das aktuelle Koordinatensystem, <strong>nicht</strong> die Objekte. Das ist etwas ungewohnt, da du bisher gewohnt bist, Objekte zu verschieben. Es ist aber wichtig, dies so zu denken, damit die Reihenfolge deiner Operationen stimmt.</p><p>Folgendes Programm zeichnet das &quot;aktuelle&quot; Koordinatensystem aus Grid, um das Verständnis zu erleichtern:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+}
+
+void draw() {
+  background(255);
+  drawGrid(200); // normales Koord.sys.
+
+  translate(50,50);
+  drawGrid(150); // um (50,50) verschoben
+
+  rotate(PI/8);
+  drawGrid(0); // um 22,5° gedreht
+
+  fill(255,0,0);
+  rect(0,0,20,10); // Rechteck im Koord.sys
+}
+
+// Zeichnet das Koordinatensystem als Grid
+void drawGrid(int greyscale) {
+  stroke(greyscale);
+  for (int x = 0; x &lt; width; x += 10) {
+    line(x, 0, x, height);
+  }
+    for (int y = 0; y &lt; height; y += 10) {
+    line(0, y, width, y);
+  }
+}</pre>
+</div></div><p><br/></p><p>Man sieht, dass das rote Rechteck als Teil des verschobenen Koordinatensystems gezeichnet wird.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/coord_system_1.png" data-image-src="https://michaelkipp.de/processing/img/coord_system_1.png"></span></p><p>Verändert man die Reihenfolge der Operationen, <strong>ergibt sich ein gänzlich anderes Bild:</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  background(255);
+  drawGrid(200);
+
+  rotate(PI/8);
+  drawGrid(150); // um 22,5° gedreht
+
+  translate(50, 50);
+  drawGrid(0); // um (50,50) verschoben
+
+  fill(255, 0, 0);
+  rect(0, 0, 20, 10);
+}</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/coord_system_2.png" data-image-src="https://michaelkipp.de/processing/img/coord_system_2.png"></span></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Translation,Rotation,Skalierung-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Translation,Rotation,Skalierung-Transformationenkombinieren">Transformationen kombinieren</h4><p>Versuche, die folgenden Formen herzustellen, indem du die drei Transformationen translate, rotate und scale verwendest.</p><p>Zeichne die Formen am besten <strong>immer um den Nullpunkt herum</strong> und schalte entsprechende Transformation davor. Denke daran, dass du bei jeder Transformation das gesamte Koordinatensystem bewegst.</p><p>Versuche, jede Form zunächst &quot;theoretisch&quot; zu lösen (im Kopf oder auf Papier). Wenn du lediglich Code-Zeilen hin- und herschiebst oder kopierst, baust du evtl. kein wirkliches Verständnis auf...</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue1.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue1.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue2.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue2.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue3.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue3.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue4.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue4.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue5.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue5.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue6.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue6.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-ue7.png" data-image-src="https://michaelkipp.de/processing/img/trans-ue7.png"></span> </p><h4 id="Translation,Rotation,Skalierung-RotierendesQuadrat">Rotierendes Quadrat</h4><p>Programmiere ein Quadrat, das sich im Uhrzeigersinn um seine Mitte dreht. Verwende <code>rotate</code> und <code>translate</code> (in welcher Reihenfolge?).</p><h4 id="Translation,Rotation,Skalierung-RotationmitzweiFormen">Rotation mit zwei Formen</h4><p>Lass einen Kreis um ein Rechteck in der Mitte rotieren. Programmiere zwei Varianten. In der ersten bewegt sich das Rechteck nicht. In der zweiten dreht es sich mit dem Kreis mit.</p><h4 id="Translation,Rotation,Skalierung-PulsierenderKreis">Pulsierender Kreis</h4><p>Programmiere einen Kreis mit Durchmesser 50, der pulsiert. Er vergrößert sich auf das Doppelte und verkleinert sich dann auf die Hälfte usw. Verwende <code>scale</code> und <code>translate</code> (in welcher Reihenfolge?).</p><p>Lass den Skalierungsfaktor nie negativ werden.</p><h4 id="Translation,Rotation,Skalierung-SchiebenundDrehen">Schieben und Drehen</h4><p>Lasse ein Quadrat von links nach rechts fliegen, das sich währenddessen um seinen Mittelpunkt dreht.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h2 id="Translation,Rotation,Skalierung-Zusammenfassung">Zusammenfassung</h2><ul style="list-style-type: square;"><li>Es gibt 3 Arten der Transformation:<ul style="list-style-type: square;"><li><strong>Translation</strong> (Verschieben): <code>translate(x, y);</code> → Verschiebt in die Richtung des Vektors</li><li><strong>Rotation</strong> (Drehen): <code>rotate(angle);</code>  → Dreht um den Ursprung des (jeweiligen) Koordinatensystems</li><li><strong>Skalierung</strong> (Vergrößern/-kleinern): <code>scale(factor);</code>  → Skaliert um den Faktor (0-1 bzw. &gt;1)</li></ul></li></ul></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

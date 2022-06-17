@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Arithmetische Operatoren</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Arithmetische Operatoren
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Elric Rochow</span> on Nov 04, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Operatoren sind Symbole, die ein oder zwei <em>Operanden</em> verbinden. Hier ist eine Übersicht über die grundlegenden arithmetischen Operatoren in den Programmierung:</p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 45.305676%;"><colgroup><col style="width: 20.04831%;"/><col style="width: 25.845411%;"/><col style="width: 54.10628%;"/></colgroup><tbody><tr><th class="confluenceTh">Operator</th><th class="confluenceTh">Bezeichnung</th><th class="confluenceTh">Beispiel</th></tr><tr><td class="confluenceTd">+</td><td class="confluenceTd">Addition</td><td class="confluenceTd"><code>result = 5 + 3; // 8</code></td></tr><tr><td class="confluenceTd">-</td><td class="confluenceTd">Substraktion</td><td class="confluenceTd"><code>result = 13 - 8; // 5<br/></code></td></tr><tr><td class="confluenceTd">*</td><td class="confluenceTd">Multiplikation</td><td class="confluenceTd"><code>result = 3 * 9; // 27<br/></code></td></tr><tr><td colspan="1" class="confluenceTd">/</td><td colspan="1" class="confluenceTd">Division</td><td colspan="1" class="confluenceTd"><code>result = 8 / 4; // 2<br/></code></td></tr><tr><td colspan="1" class="confluenceTd">%</td><td colspan="1" class="confluenceTd">Modulo</td><td colspan="1" class="confluenceTd"><p><code>result = 5 % 2; // 1<br/></code></p></td></tr></tbody></table></div><h2 id="ArithmetischeOperatoren-GanzzahligeDivisionundModulo">Ganzzahlige Division und Modulo</h2><p>Du kennst das Symbol / als Operator für die &quot;geteilt durch&quot; Operation. Was du noch nicht weist, ist, dass es <strong>zwei unterschiedliche Divisionen</strong> gibt: die ganzzahlige Division und die Gleitkommazahlen-Division. Beide Divisionen verwenden aber <strong>das gleiche Symbol /</strong>. Bei der ganzzahligen Division haben wir zwei Resultate: das Ergebnis der Division und den Rest (Modulo).</p><h2 id="ArithmetischeOperatoren-GanzzahligeDivision">Ganzzahlige Division</h2><p>Sehen wir uns das im Beispiel an. Hier haben wir eine ganzzahlige Division:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(5 / 2); // Ausgabe: 2 </pre>
+</div></div><p>Wie entscheidet Processing, ob eine ganzzahlige Division verwendet wird, oder die Gleitkomma-Division? Die Regel lautet: <strong>Wenn beide Operanden des Operators (hier: die 5 und die 2) vom Typ int sind, dann verwende die ganzzahlige Division</strong>.</p><p>Hier haben wir ein Beispiel für eine Gleitkomma-Division:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(5.0 / 2); // Ausgabe: 2.5 </pre>
+</div></div><p>Achte darauf, dass bei komplexeren Rechnungen nicht immer offensichtlich ist, von welchem Typ die jeweiligen Operanden sind. Du musst dir genau überlegen, in welcher Reihenfolge gerechnet wird und welchen Typ die Operanden zu dem Zeitpunkt haben, wo der Divisions-Operator an der Reihe ist:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(2.5 + 5 / 2 + 5.0); </pre>
+</div></div><p>Bekommst du hier eine 10.0 oder eine 9.5? Versuche dir zuerst klarzumachen, was herauskommt. Probier es dann in Processing aus.</p><h2 id="ArithmetischeOperatoren-Modulo-Operator">Modulo-Operator</h2><p>Wir haben gelernt, dass Processing eine ganzzahlige Division durchführt, wenn zwei Integer-Werte die Operanden sind. Das Resultat einer ganzzahligen Division hat zwei Bestandteile: den Ganzzahlquotient und den Rest.</p><pre class="general">5 / 2 ergibt 2 (Quotient) mit Rest 1
+7 / 5 ergibt 1 (Quotient) mit Rest 2</pre><p>Mathematisch ist das wie folgt definiert:</p><pre class="general">x / y ergibt Quotient q mit Rest <br/>x = q * y + r</pre><p>Der Modulo-Operator % gibt dir für eine ganzzahlige Division den Rest zurück:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(5 % 2); // Ausgabe: 1
+println(7 % 5); // Ausgabe: 2</pre>
+</div></div><p>Der Modulo-Operator erlaubt es dir zu testen, <strong>ob eine Zahl gerade oder ungerade ist</strong>, denn wenn man eine gerade Zahl durch 2 teilt, ist der Rest gleich Null:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int zahl = 7;
+
+if (zahl % 2 == 0) {
+  println(&quot;gerade&quot;);
+} else {
+  println(&quot;ungerade&quot;);
+}</pre>
+</div></div><p>Ein Grund, warum der Modulo-Operator in der Informatik und insbesondere im Bereich Animation so interessant ist, ist seine <strong>Ring-Eigenschaft</strong>. Dazu sehen wir uns an, was passiert, wenn man sich den Rest von einer Zahlenreihe (0, 1, 2, 3, ...) mit einer festen Zahl (z.B. 3) ansieht:</p><pre class="general">0 % 3 = 0
+1 % 3 = 1
+2 % 3 = 2
+3 % 3 = 0
+4 % 3 = 1
+5 % 3 = 2
+6 % 3 = 0
+7 % 3 = 1
+8 % 3 = 2
+...
+</pre><p>Fällt dir etwas auf? Richtig. Obwohl der erste Operand immer größer wird, bewegt sich das Ergebnis der Modulo-Operation immer im Bereich 0 bis 2.</p><p><strong>Allgemein bewegt sich bei einer Restoperation mit der Zahl N das Resultat immer im Bereich von 0 bis N-1.</strong></p><p>Das ist sehr nützlich bei Animationen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+
+void draw() {
+  background(255);
+  int y = x % 100;
+  ellipse(y, 50, 20, 20);
+  x = x +1;
+}</pre>
+</div></div><p>Obwohl x immer größer wird, bleibt y im Bereich 0 bis 99, so dass der Ball immer von links nach rechts im sichtbaren Bereich fliegt.</p><h1 id="ArithmetischeOperatoren-Additions-Zuweisung">Additions-Zuweisung</h1><p>Was machst du, wenn du so eine Erhöhung hast?</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x = x + 2;</pre>
+</div></div><p>Ganz einfach: Du nutzt die Additions-Zuweisung:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x += 2;</pre>
+</div></div><p>Du denkst vielleicht: Naja, soviel Schreibarbeit hab ich hier nicht gespart! Schau mal:</p><pre>ziemlichLangerVariablennameMitExtras += 2;</pre><p>Schon praktisch. Diese Art der Zuweisung gibt's auch in anderen Geschmacksrichtungen:</p><pre>            x -= 3; // x = x - 3
+            x *= 5; // x = x * 5
+            x /= 2; // x = x / 2</pre><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Tipp:</strong> Wie merkst du dir , ob es jetzt &quot;+=&quot; oder &quot;=+&quot; heißt? Überleg dir, dass &quot;x =+ 2&quot; von Processing gelesen würde wie &quot;x = +2&quot;, d.h. das Plus-Zeichen wird der Zahl zugeordnet und x daher nicht um 2 erhöht, sondern auf 2 gesetzt.</div></div><h1 id="ArithmetischeOperatoren-IncrementundDecrement">Increment und Decrement</h1><h2 id="ArithmetischeOperatoren-Inkrement-Operator">Inkrement-Operator</h2><p>Eine nützliche Kurzform für folgende Operation (x sei eine int-Variable)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x = x + 1;</pre>
+</div></div><p>ist die folgende Zeile</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x++;</pre>
+</div></div><p>Das bedeutet, dass der Inhalt der Variable <code>
+                x
+            </code> um 1 erhöht wird. Das &quot;++&quot; nennt man einen <em>Operator</em>, und zwar den <strong>Inkrement-Operator</strong>.</p><h2 id="ArithmetischeOperatoren-Dekrement-Operator">Dekrement-Operator</h2><p>Passend dazu gibt es einen Operator zum Runterzählen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x--;</pre>
+</div></div><p>Dieser sog. <strong>Dekrement-Operator</strong> reduziert den Wert von <code>
+                x
+            </code> um 1.</p><h2 id="ArithmetischeOperatoren-Ausführungsreihenfolge">Ausführungsreihenfolge</h2><p>Du kannst den Inkrement-Operator nicht nur allein auf einer Zeile ausführen, sondern auch in Befehle oder Rechnungen einbetten.</p><p>Beispiel 1:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int foo = 5;
+println(foo++);</pre>
+</div></div><p>Beispiel 2:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int boo = 10;
+int goo = 100 + boo++;</pre>
+</div></div><p>Was passiert hier? Wir haben hier zwei Vorgänge, die wir unterscheiden müssen:</p><ol><li>Verwendung/Substitution der Variable, d.h. die Variable wird durch ihren aktuellen Wert ersetzt</li><li>Inkrementierung, d.h. der Wert der Variable wird um eins erhöht.</li></ol><p>Jetzt wird offenbar, dass es eine große Rolle spielt, ob erst (1.) oder (2.) durchgeführt wird! Wenn du Beispiel 1 ausführst, siehst du:</p><pre class="console">5</pre><p>Der Wert der Variable <code>foo</code> ist aber 6. Das liegt daran, dass beim Einsetzen (1.) der alte Wert 5 verwendet wurde. Im Anschluss wurde dann die Variable foo erst um eins auf 6 erhöht (2.).</p><p>Verstehst du dann auch Beispiel 2? Probiere es aus und überlege, warum das Ergebnis so ist, wie es ist. Insbesondere verstehst du jetzt auch, warum der folgende Anfängerfehler so gravierend ist:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+x = x++; </pre>
+</div></div><p>Hier passiert folgendes:</p><ol><li>x wird eingesetzt, d.h. dort steht x = 0, aber dies wird noch nicht umgesetzt</li><li>x wird um eins erhöht, d.h. x hat jetzt den Wert eins</li><li>die gesamte Zeile, also x = 0, wird jetzt erst ausgeführt, d.h. x wird auf 0 gesetzt</li></ol><p>Im Endeffekt bleibt x also immer Null.</p><h2 id="ArithmetischeOperatoren-Unterschied++iundi++:PrefixundPostfix">Unterschied ++i und i++: Prefix und Postfix</h2><p>Jetzt kann man sich vorstellen, dass man diese Reihenfolge umkehren möchte:</p><ul><li>(b) Inkrementierung, d.h. der Wert der Variable wird um eins erhöht.</li><li>(a) Verwendung/Substitution der Variable, d.h. die Variable wird durch ihren aktuellen Wert ersetzt</li></ul><p>Das heißt, du möchtest erst die Variable erhöhen (b) und dann den neuen Wert einsetzen (a). Dies erreichst mit der Formulierung</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">++i</pre>
+</div></div><p>Sehen wir uns die Beispiele an, um uns davon zu überzeugen, dass das funktioniert:</p><p>Beispiel 1:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int foo = 5;
+println(++foo);</pre>
+</div></div><pre>6</pre><p>Beispiel 2:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int boo = 10;
+int goo = 100 + ++boo;</pre>
+</div></div><pre>111</pre><pre><br/></pre><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p class="console">Diese Unterscheidung wird auch jeweils als Prefix bzw. Profix bezeichnet. &quot;fix&quot; steht in diesem Fall dafür, dass der Variablenwert verändert, also &quot;gefixed&quot; wird.</p><ul style="list-style-type: square;"><li class="console"><strong>Pre</strong>fix bedeutet somit, dass der Variablenwert <strong>geändert</strong> wird, <strong>bevor </strong>die <strong>Variable verwendet </strong>wird<strong>. </strong><ul style="list-style-type: square;"><li class="console">Beispiel: <strong>++foo</strong>.</li></ul></li><li><strong>Post</strong>fix bedeutet somit, dass der Variablenwert <strong>geändert</strong> wird, <strong>nachdem </strong>die <strong>Variable verwendet </strong>wurde<strong>. </strong><ul style="list-style-type: square;"><li>Beispiel: <strong>foo++</strong>.</li></ul></li></ul></div></div><h1 class="auto-cursor-target" id="ArithmetischeOperatoren-RangfolgeundKlammern">Rangfolge und Klammern</h1><p>Auch in der Programmierung haben Operatoren eine gewisse Rangfolge, die festlegt, in welcher Reihenfolge sie verwendet werden. Aus dem Mathematik-Unterricht kennst du bestimmt die Regel &quot;Punkt vor Strich&quot;, die besagt, dass Multiplikation/Division vor Addition/Subtraktion kommt. Solche bzw. dieselben und noch ein paar weitere Regeln gelten in der Programmierung auch. Die musst du (noch) nicht alle kennen. Für den Moment reicht es, dass du weißt, dass z.B. &quot;Punkt vor Strich&quot; auch in der Programmierung gilt.</p><p>Außerdem kannst du - genau wie in der Mathematik - die Reihenfolge durch das setzen von Klammern beeinflussen. So ergeben z.B. folgdende Operationen unterschiedliche Ergebnisse:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int erg1 = 2 + 3 * 2;     // ergibt 8
+int erg2 = (2 + 3) * 2;   // ergibt 10</pre>
+</div></div><p>Hier siehst du die Rangfolge der Operatoren aus diesem Abschnitt:</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Rang</th><th class="confluenceTh">Operator</th><th class="confluenceTh">Bezeichnung</th></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">++<br/>--</td><td class="confluenceTd">Increment<br/>Decrement</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">*<br/>/<br/>%</td><td class="confluenceTd">Multiplikation<br/>Division<br/>Modulo</td></tr><tr><td class="confluenceTd">3</td><td class="confluenceTd">+<br/>-<br/>+</td><td class="confluenceTd">Addition<br/>Substraktion<br/>String-Verkettung (z.B. &quot;A&quot; + b)</td></tr></tbody></table></div><p><strong>Für Neugierige</strong>: Im Abschnitt <a class="createlink" href="/pages/createpage.action?spaceKey=PML&amp;title=Rangfolge+der+Operatoren&amp;linkCreation=true&amp;fromPageId=40862620">Rangfolge der Operatoren</a> in Sprint 4 findest du eine große Tabelle mit vielen Operatoren in Java und deren Rang. Wenn du möchtest, kannst du ja mal einen Blick drauf werfen (auch, wenn wir <em>eigentlich </em>noch gar nicht in Sprint 4 sind).</p><h1 class="auto-cursor-target" id="ArithmetischeOperatoren-String-Verkettung">String-Verkettung</h1><p>Den Operator für die String-Verkettung hast du bereits im Abschnitt <a href="Datentypen_24609468.html">Datentypen</a> kennengelernt: Das Plus-Zeichen. Wenn du zwei Strings kombinieren möchtest, kannst du das mit diesem Operator tun. Dabei wird der zweite Operand hinten an den ersten Operan hinzugefügt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String vorname = &quot;Max&quot;;
+String nachname = &quot;Mustermann&quot;;
+println(vorname + nachname); // ergibt &quot;MaxMustermann&quot;</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Wichtig: Wenn du zwei Strings mithilfe des Plus-Zeichens kombinierst, dann verwendest du den String-Verkettungs-Operator, <strong>nicht</strong> den Additions-Operator.</p></div></div><p class="auto-cursor-target">Das kann ganz schön verwirrend sein, da beide ja dasselbe Zeichen verwenden. Aber wie entscheidet denn das Programm, welchen Operator es verwendet? Hier gibt es 2 Regeln:</p><ol><li class="auto-cursor-target">Sobald <strong>einer der Operanden ein String oder char</strong> ist, verwendet das Programm den String-Verkettungs-Operator</li><li class="auto-cursor-target">Bei mehreren unterschiedlichen Operanden muss hierbei auf die <strong>Rangfolge</strong> der Operatoren geachtet werden.</li></ol><p><br/></p><p>Schauen wir uns einmal folgendes Beispiel an, welches einen häufigen <strong>Anfängerfehler</strong> zeigt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int a = 2;
+int b = 3;
+String ergebnis = &quot;Die Summe ist &quot; + a + b;</pre>
+</div></div><p>Du wirst erstaunt sein, aber wemm du <code>ergebnis</code> in der Konsole ausgibst, wirst du lesen &quot;<code>Die Summe ist 23</code>&quot;. Gehen wir es mal Schritt für Schritt durch - was passiert hier?</p><ol><li><strong>Substitution</strong>: die Variablen werden durch die Werte 2 und 3 ersetzt</li><li><strong>Verarbeitung/Auswertung</strong>: Die Verarbeitung geschieht von links nach rechts. Beim ersten Plus stellt das Programm fest, dass der erste Operand ein <code>String</code> ist, also handelt es sich bei dem Plus um den Operator für die String-Verkettung und er fügt dem ersten <code>String</code> die Zahl 2 hinzu, als wäre sie ein <code>String</code> (obwohl sie eigentlich ein <code>int</code> ist). Beim zweiten Plus liegt derselbe Fall vor: Der erste Operand ist wieder ein <code>String,</code> also String-Verkettung ...</li><li><strong>Zuweisung:</strong> Der <code>String</code> &quot;<code>Die Summe ist 23</code>&quot; wird <code>ergebnis</code> zugewiesen.</li></ol><p>Vermeiden können wir das, indem wir <strong>Klammern</strong> <strong>setzen</strong> und so die <strong>Reihenfolge</strong> <strong>manipulieren</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int a = 2;
+int b = 3;
+String ergebnis = &quot;Die Summe ist &quot; + (a + b); // ergibt &quot;Die Summe ist 5&quot;</pre>
+</div></div><p>Durch das Setzen der <strong>Klammern</strong> wird <code>(a + b)</code> <strong>zuerst</strong> ausgewertet. Da es sich in beiden Fällen um eine Zahl handelt, wird nun die Addition angewandt. Danach erst wird das Ergebnis von a + b zum <code>String</code> hinzugefügt.</p><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="ArithmetischeOperatoren-Übungsaufgaben">Übungsaufgaben</h1><h4 id="ArithmetischeOperatoren-Muster">Muster</h4><p>Versuche zu verstehen, wie folgender Code funktioniert:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+int y = 0;
+
+void draw() {
+  line(x, 0, x, y);
+  x++;
+  y++;
+}</pre>
+</div></div><p><br/></p><p>Verändere den Code um jeweils eines der folgenden Muster zu erzeugen:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/var_ue_muster.png" data-image-src="https://michaelkipp.de/processing/img/var_ue_muster.png"></span></p><h4 id="ArithmetischeOperatoren-AnimationmitModulo">Animation mit Modulo</h4><p>Die Systemvariable <code>frameCount</code> zählt von Beginn deines Programms an, wieviele Frames bereits vergangen sind, d.h. die Variable enthält 0, 1, 2, 3 etc.</p><p>Verwende <code>frameCount</code> zusammen mit dem Modulo-Operator, um einen Ball immer wieder von links nach rechts fliegen zu lassen. Dein <code>draw()</code> besteht dabei lediglich aus zwei Code-Zeilen.</p><h4 id="ArithmetischeOperatoren-PulsierenderCursor">Pulsierender Cursor</h4><p>Verwende den Modulo-Trick aus der vorigen Aufgabe, um an die Stelle der Maus einen pulsierenden Cursor zu stellen.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="ArithmetischeOperatoren-Zusammenfassung">Zusammenfassung</h1><ul style="list-style-type: square;"><li>Operatoren sind Symbole, die ein oder zwei <em>Operanden</em> verbinden</li><li>Die grundlegenden arithmetischen Operatoren sind +, -, *, /, %</li><li><strong>Modulo</strong>: Der Operator Modulo (%) liefert bei der Division zweier Zahlen den <em>Rest, </em>z.B. 5 % 2 ergibt 1.</li><li><strong>Additions-Zuweisung</strong>: Wird ein Wert mit sich selber und einem weiteren Wert addiert, kann die Schreibweise mithilfe der Additionszuweisung verkürzt werden.<ul style="list-style-type: square;"><li>Beispiel: <code>x = x + 2</code> kann auf <code>x += 2</code> verkürzt werden.</li><li>Das selbe gilt auch für <strong>Subtraktion</strong>, <strong>Multiplikation</strong> und <strong>Division</strong>.</li></ul></li><li><strong>Increment &amp; Decrement:</strong> Soll ein Wert um 1 erhöht oder verringert werden, kann dies durch die Schreibweise x++ oder x--  bzw. ++x oder --x erfolgen.</li><li><strong>Prefix &amp; Postfix: </strong>Bezeichnet zwei unterschiedliche Ausführungsreihenfolgen<ul style="list-style-type: square;"><li><strong>Prefix</strong>: Die Variable wird <strong>zuerst</strong> geändert, dann verwendet ( z.B. ++x). Der Operator kommt <strong>vor</strong> dem Operanden.</li><li><strong>Postfix</strong>: Die Variable wird geändert, <strong>nachdem</strong> sie verwendet wurde (z.B. x++). Der Operator kommt <strong>nach</strong> dem Operanden.</li></ul></li></ul></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/40862620/40864056.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

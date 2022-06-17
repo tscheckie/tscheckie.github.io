@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Assertions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-4_24609612.html">Sprint 4</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Assertions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Nov 01, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Neben den if-Abfragen bieten sogenannte <em>Assertions</em> eine weitere <strong>Kontrollstruktur</strong>. Das Wort Assertion bedeutet auf deutsch so viel wie Behauptung oder Annahme. Ich kann also mithilfe von Asserstions gewisse Annahmen über den aktuellen Zustandes meines meines Programmes überprüfen. <strong>Eine Assertion sorgt dafür, dass das Programm dann nur weiterläuft, wenn die Assertion wahr ist.</strong></p><p>Ein anschauliches Beispiel wäre folgendes:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int age = 16;
+assert age  &gt; 18 : &quot;Zu jung. Du musst 18 oder älter sein, um fortzufahren.&quot;; // Das Programm endet in diesem Fall in dieser Zeile
+print (&quot;Herzlich Willkommen!&quot;);</pre>
+</div></div><p>Die Zeile &quot;Herzlich Willkommen!&quot; wird nicht ausgegeben, weil das Programm aufgrund der Assertion in der Zeile davor endet und nicht weiter läuft.  Das Programm wird - wenn die Assertion <code>false</code> ist - <strong>sofort</strong> beendet und der Code danach nicht mehr ausgeführt wird.</p><h2 id="Assertions-Aufbau">Aufbau</h2><p>Eine Assertion beginnt mit dem Schlüsselwort <code>assert,</code> darauf folgt ein logischer Ausdruck gefolgt von einem Semikolon oder Doppelpunkt. Der Doppelpunkt ist der Anfang der <em>optionalen </em>Fehlermeldung bzw. Feedback-Nachricht.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">assert LOGISCHER_AUSDRUCK;
+
+assert LOGISCHER_AUSDRUCK : FEHLERMELDUNG; // Fehlermeldung = optional</pre>
+</div></div><p>Der logische Ausdruck kann verschiedene Formen haben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">assert true: &quot;Das hier ist immer wahr&quot;; // technisch korrekt, aber natürlich nicht sinnvoll, besser ...
+
+boolean foo = false;
+assert foo : &quot;Dieser Wert kann sich ändern&quot;;
+
+int a = 10;
+int b = 6;
+assert a &gt; b : &quot;Fehler: a darf nicht kleiner als b sein&quot;;
+
+int c = 5;
+assert a &gt; b &amp;&amp; a % c == 0 : &quot;Fehler: a darf nicht kleiner als b und bzw. oder muss durch c teilbar sein!&quot;;</pre>
+</div></div><h1 id="Assertions-Verwendung">Verwendung</h1><p>Schauen wir uns nochmal an, wozu man Assertions verwenden kann. Assertions werden verwendet, wenn eine Annahme überprüft werden soll und wenn <strong>die Annahme nicht</strong> <strong>zutrifft</strong>, das Programm<strong> (mit einer Fehlermeldung)</strong> <strong>beendet</strong> werden soll.</p><p>Assertions werden zum Beispiel am häufigsten zum <strong>Testen von Code</strong> eingesetzt. Schauen wir uns mal an, wie wir unseren eigenen kleinen Code-Test mithilfe von Assertions schreiben können ...</p><p>Wir möchten eine Funktion schreiben, die überprüft, ob ein gewisser Buchstabe in einem Text enthalten ist. Sowohl der Text als auch der Buchstabe sollen als Parameter übergeben werden. Der Rückgabewert der Funktion soll ein <code>boolean</code> sein. Der Code für diese Funktion könnte z.B. folgendemaßen aussehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean checkChar( String txt, char c) {
+  
+  // Die String-Methode indexOf() liefert -1, wenn der Buchstabe nicht im String vorkommt
+  boolean kommtVor = txt.indexOf(c) &gt; 0; 
+  return kommtVor;
+}
+</pre>
+</div></div><p><br/></p><p>Nun können wir unsere eben geschriebene Funktion testen, indem wir eine Assertion formulieren.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup () {
+
+   // Wir gehen davon aus, dass die Buchstaben &#39;H&#39; und &#39;i&#39; vorkommen, &#39;o&#39; aber nicht.
+
+  assert  checkChar(&quot;Hi&quot;, &#39;i&#39;) == true : &quot;Fehler (i)! Erwartet: true. Tatsächlich: &quot; + checkChar(&quot;Hi&quot;, &#39;i&#39;);
+  assert  checkChar(&quot;Hi&quot;, &#39;H&#39;) : &quot;Fehler (H)! Erwartet: true. Tatsächlich: &quot; + checkChar(&quot;Hi&quot;, &#39;H&#39;);   // Das == können wir auch weglassen, da wir bereits einen booleschen Wert haben
+  assert !checkChar(&quot;Hi&quot;, &#39;o&#39;) : &quot;Fehler(o)! Erwartet: false. Tatsächlich: &quot; + checkChar(&quot;Hi&quot;, &#39;o&#39;);  // für false setzen wir einfach ein ! vor die Funktion
+
+  println(&quot;Alle Tests bestanden&quot;);
+}</pre>
+</div></div><p>Wenn wir diesen Code auführen wird unser Programm mit folgender Fehlermeldung beendet: <strong><span style="color: rgb(255,0,0);"><code>AssertionError: Fehler (H)! Erwartet: true. Tatsächlich: false</code></span></strong></p><p>Unsere Funktion verhält sich also nicht wie <em>erwartet.</em> Das liegt daran, dass die Funktion indexOf() bei 0 anfängt zu zählen. Daher müssen wir in unserer Funktion aus dem &gt; ein &gt;= machen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean checkChar( String txt, char c) {
+  
+  // Die String-Methode indexOf() liefert -1, wenn der Buchstabe nicht im String vorkommt
+  boolean kommtVor = txt.indexOf(c) &gt;= 0;  // So ist es korrekt
+  return kommtVor;
+}
+</pre>
+</div></div><p class="auto-cursor-target">Wenn wir unseren Code nun ausführen bekommen wir am Ende die  Ausgabe: <strong>Alle Tests bestanden</strong>.</p><p class="auto-cursor-target">In solchen Fällen ist der Einsatz von Assertions sehr sinnvoll, da das Programm in beiden Fällen &quot;zu Ende&quot; ist, wenn die Assertions überprüft wurden. Nur einmal Endet das Programm mit und einmal ohne Fehlermeldung. Du kannst Assertions also verwenden, um zu überprüfen, ob eine Funktion, die du geschrieben hast <em>tatsächlich </em>das macht, was sie soll.</p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Hinweis am Rande: Wenn du deine Anwendung aus dem Processing Editor heraus startest mit &quot;Play&quot; und dann eine Assertion ausgelöst wird, dann friert das Anwendungsfenster ein und stürzt ab. Wenn du deine Anwendung aber exportierst und daraus eine .exe machst, dann wird das Programm im Falle eine Assertion einfach beendet und friert nicht ein.</div></div><br/><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Assertions beenden das Programm <strong>sofort</strong>. Eine andere Möglichkeit das Programm zu beenden ist dei Verwendung der Funktion <code>exit()</code>. Allerdings beendet <code>exit()</code> das Programm erst <strong>nach</strong> Beendigung des aktuellen Durchlaufs von <code>draw</code>.</p></div></div><br/><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Assertions-Übungsaufgaben">Übungsaufgaben</h1><p><strong>Pin überprüfen</strong></p><p>Schreibe ein Programm, dass dem Nutzer Zugriff auf seine Nutzerdaten gewährt, wenn er den richtigen Pin angibt. Simuliere das eingeben des Pin in Form einer von dir festgelegten Variable.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int korrekterPIN = 1234;  
+int nutzerEingabe = 4567;     
+</pre>
+</div></div><p class="auto-cursor-target">Wenn der eingegebene Pin korrekt ist, so dem Nutzer in der Konsole angezeigt werden &quot;Hallo Nutzer, hier sind ihre Nutzerdaten ...&quot;. Bei falscher Eingabe soll das Programm beendet werden und in der Konsole eine Fehlermeldung und der falsche Pin angezeigt werden.</p><p class="auto-cursor-target"><strong>Array addieren</strong></p><p class="auto-cursor-target">Schreibe eine Funktion, die einen int-Array als Parameter übergeben bekommt und alle Zahlen im Arrays miteinander addiert. Das Ergebnis soll als int-Wert zurückgegeben werden.</p><p class="auto-cursor-target">Schreibe außerdem 3 Assertions, die deine Funktion überprüfen. Verwende für die Assertions folgende Beispiel-Arrays:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int [] foo = {  1,  2,  3};  // Erwartetes Ergebnis: 6
+int [] bar = {-50, 25, 78};  // Erwartetes Ergebnis: 103
+int [] foobar = {};          // Erwartetes Ergebnis: 0
+</pre>
+</div></div></div></div><br/><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Assertions-Zusammenfassung">Zusammenfassung</h1><p>Assertions werden verwendet, um Annahmen in der Porgrammierung zu überprüfen und das Programm zu beenden, wenn diese Annahmen nicht eintreffen. Diese Annahmen werden in Form von booleschen Ausdrücken formuliert. Einer der häufigsten Anwendungsfälle für Assertions ist das Testen von Software. Hier wird überprüft, ob eine Funktion oder ein Programm die gewünschten bzw. die erwarteten Ergebnisse liefert.</p><p>Assertions sind folgendermaßen aufgebaut:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">assert LOGISCHER_AUSDRUCK;
+
+assert LOGISCHER_AUSDRUCK : FEHLERMELDUNG; // Fehlermeldung = optional</pre>
+</div></div><p class="auto-cursor-target">Wichtig: Assertions beenden das Programm <strong>sofort</strong>, wenn der logische Ausdruck false ist. Aller Code, der danach kommt wird nicht mehr ausgeführt.</p></div></div></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

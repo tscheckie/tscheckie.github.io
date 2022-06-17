@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Arrays mit Schleifen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Arrays mit Schleifen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Bislang scheinen Arrays nur eine umständliche Art zu sein, schnell viele Variablen zu erzeugen. Ihre volle Kraft entfalten Arrays aber erst im Zusammenspiel mit <strong>Schleifen</strong>.</p><p><br/></p><h1 id="ArraysmitSchleifen-Arrayinitialisieren">Array initialisieren</h1><p>Wenn du einen <strong>großen</strong> Array erschaffst, möchtest du die Anfangswerte <strong>nicht für jedes Element einzeln setzen</strong>. Das Setzen der Anfangswerte nennt man auch <strong>Initialisieren</strong>. Also verwenden wir eine Schleife, um z.B. <strong>alle Werte auf 10</strong> zu setzen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] foo = new int[1000]; // integer-Array mit 1000 Elementen
+
+for (int i = 0; i &lt; 1000; i++) {
+  foo[i] = 10;
+}</pre>
+</div></div><p>Vielleicht möchtest du die Elemente auch <strong>auf die Werte 100, 110, 120, ...</strong> setzen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; 1000; i++) {
+  foo[i] = 100 + i * 10;
+}</pre>
+</div></div><h1 id="ArraysmitSchleifen-Arraywerteeinsetzen">Arraywerte einsetzen</h1><p>Schleifen spielen nicht nur beim initialisieren von Arrays eine wichtige Rolle. Wenn du z.B. Koordinaten von zufällig platzierten Rechtecken in zwei Arrays speicherst, dann erschaffst und initialisierst du zunächst zwei Arrays (mit Zufallswerten) und verwendest dafür eine Schleife.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xArray = new int[100];
+int[] yArray = new int[100];
+
+for (int i = 0; i &lt; 100; i++) {   
+  xArray[i] = int(random(100));   // Zufallswerte von 0-100 generieren
+  yArray[i] = int(random(100));   // Zufallswerte von 0-100 generieren
+}</pre>
+</div></div><p>Dann verwendest du zum <strong>Zeichnen der Rechtecke</strong> ebenfalls eine Schleife:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; 100; i++) {
+  rect(xArray[i], yArray[i], 30, 30);
+}</pre>
+</div></div><p>Vielleicht möchtest auch alle Werte der zwei Arrays <strong>auf der Konsole ausgeben</strong>. Auch dazu kannst du eine Schleife verwenden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; 100; i++) {
+  println(&quot;x: &quot; + xArray[i] + &quot;, y: &quot; + yArray[i]);
+}</pre>
+</div></div><p>In diesem speziellen Fall könnte man das Zeichnen und das Print auch in die obere Schleifen mit einbauen. Bei einer Animation findet das Initialisieren aber oft im <code>setup</code> statt und das Zeichnen in <code>draw</code>. Wir sehen dazu gleich ein Beispiel.</p><h1 id="ArraysmitSchleifen-Beispiel:AnimationvielerBälle">Beispiel: Animation vieler Bälle</h1><p>Jetzt ein praktisches Beispiel: Wir lassen drei Bälle über den Bildschirm fliegen. Dazu verwenden wir einen Array für die x-Koordinate der drei Bälle. Zunächst mal ohne Schleifen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray = new int[3]; // erzeugen
+
+void setup() {
+  // initialisieren
+  xarray[0] = 0;
+  xarray[1] = 20;
+  xarray[2] = 40;
+}
+
+void draw() {
+  background(255);
+
+  // Werte verwenden
+  ellipse(xarray[0], 50, 10, 10);
+  ellipse(xarray[1], 50, 10, 10);
+  ellipse(xarray[2], 50, 10, 10);
+
+  // Werte hochzählen
+  xarray[0]++;
+  xarray[1]++;
+  xarray[2]++;
+}</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/array-3baelle.png" data-image-src="https://michaelkipp.de/processing/img/array-3baelle.png"></span></p><p>Wir haben jetzt drei Bälle und ein Array mit drei Elementen. Wir hätten genauso schreiben können:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x1;
+int x2;
+int x3;
+
+void setup() {
+  x1 = 0;
+  x2 = 20;
+  x3 = 40;
+}
+
+void draw() {
+  background(255);
+  ellipse(x1, 50, 10, 10);
+  ellipse(x2, 50, 10, 10);
+  ellipse(x3, 50, 10, 10);
+  x1++;
+  x2++;
+  x3++;
+}</pre>
+</div></div><p>Der Vorteil der Array-Lösung? Wir können die einzelnen Elemente mit Hilfe einer Schleife durchlaufen. Nehmen wir an, wir wollen ein Array mit lauter 5en füllen. Das müsste man so machen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] fuenfer = new int[10];
+
+fuenfer[0] = 5;
+fuenfer[1] = 5;
+fuenfer[2] = 5;
+fuenfer[3] = 5;
+fuenfer[4] = 5;
+fuenfer[5] = 5;
+fuenfer[6] = 5;
+fuenfer[7] = 5;
+fuenfer[8] = 5;
+fuenfer[9] = 5;</pre>
+</div></div><p>Wir sehen aber: alles bleibt gleich, bis auf den Index (die Zahl in Klammern). Also könnten wir diese Zahl durch eine <strong>Laufvariable</strong> in einer <strong>Schleife</strong> ersetzen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; 10; i++) {
+  fuenfer[i] = 5;
+}</pre>
+</div></div><p>Sehen wir uns die Entwicklung der Dinge in der Schleife an. Es wird die Laufvariable <code>
+        i</code> rundenweise hochgezählt. Bevor der Code ausgeführt wird, wird noch die Schleifenbedingung <code>
+        i &lt; 10</code> geprüft. Ist diese <code>
+        false</code>, ist die Schleife fertig.</p><div class="table-wrap"><table class="wrapped relative-table confluenceTable" style="width: 34.4487%;"><colgroup><col style="width: 24.0829%;"/><col style="width: 13.5566%;"/><col style="width: 4.6252%;"/><col style="width: 9.40989%;"/><col style="width: 21.2121%;"/><col style="width: 13.5566%;"/><col style="width: 5.90112%;"/><col style="width: 7.6555%;"/></colgroup><tbody><tr><th colspan="1" class="confluenceTh">Code</th><th class="confluenceTh">Durchlauf</th><th class="confluenceTh">i</th><th colspan="1" class="confluenceTh">i &lt; 10</th><th colspan="1" class="confluenceTh">Code</th><th colspan="1" class="confluenceTh">Durchlauf</th><th colspan="1" class="confluenceTh">i</th><th class="confluenceTh">i &lt; 10</th></tr><tr><td colspan="1" class="confluenceTd"><code>fuenfer[0] = 5</code></td><td class="confluenceTd">1</td><td class="confluenceTd">0</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>fuenfer[6] = 5</code></td><td colspan="1" class="confluenceTd">7</td><td colspan="1" class="confluenceTd">6</td><td class="confluenceTd">true</td></tr><tr><td colspan="1" class="confluenceTd"><code>fuenfer[1] = 5</code></td><td class="confluenceTd">2</td><td class="confluenceTd">1</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>fuenfer[7] = 5</code></td><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">7</td><td class="confluenceTd">true</td></tr><tr><td colspan="1" class="confluenceTd"><code>fuenfer[2] = 5</code></td><td class="confluenceTd">3</td><td class="confluenceTd">2</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>fuenfer[8] = 5</code></td><td colspan="1" class="confluenceTd">9</td><td colspan="1" class="confluenceTd">8</td><td class="confluenceTd">true</td></tr><tr><td colspan="1" class="confluenceTd"><code>fuenfer[3] = 5</code></td><td class="confluenceTd">4</td><td class="confluenceTd">3</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>fuenfer[9] = 5</code></td><td colspan="1" class="confluenceTd">10</td><td colspan="1" class="confluenceTd">9</td><td class="confluenceTd">true</td></tr><tr><td colspan="1" class="confluenceTd"><code>fuenfer[4] = 5</code></td><td class="confluenceTd">5</td><td class="confluenceTd">4</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd">---</td><td colspan="1" class="confluenceTd">11</td><td colspan="1" class="confluenceTd">10</td><td class="confluenceTd">false</td></tr><tr><td colspan="1" class="confluenceTd"><code>fuenfer[5] = 5</code></td><td class="confluenceTd">6</td><td class="confluenceTd">5</td><td colspan="1" class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td colspan="1" class="confluenceTd"><br/></td><td class="confluenceTd"><br/></td></tr></tbody></table></div><p><br/></p><p>In unserem Ball-Beispiel von oben kann man zwei Schleifen einfügen. In der ersten Schleife wird die x-Startposition mit <code>
+        i * 20</code> berechnet. In drei Durchläufen ergibt sich jeweils: 0 * 20, 1 * 20 und 2 * 20, also 0, 20, 40.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray = new int[3];
+
+void setup() {
+  for (int i = 0; i &lt; 3; i++) {
+    xarray[i] = i * 20; // berechne x-Startposition
+  }
+}
+
+void draw() {
+  background(255);
+  for (int i = 0; i &lt; 3; i++) {
+    ellipse(xarray[i], 50, 10, 10); // zeichnen
+    xarray[i]++; // hochzählen
+  }
+}</pre>
+</div></div><p>Diese Lösung ist nicht nur kürzer, sondern auch mächtiger. Wir können nämlich mit einem Fingerschnipp die Anzahl der Bälle erhöhen, z.B. auf 5. Dazu müssen wir an drei Stellen im Code die 3 durch 5 ersetzen.</p><h1 id="ArraysmitSchleifen-GrößedesArraysverwenden">Größe des Arrays verwenden</h1><p>Die Lösung oben lässt sich verbessern, indem man in die For-Schleife die Größe des Arrays mit <code>
+            xarray.length</code> einsetzt, zum Beispiel in der unteren Schleife:</p><pre><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; xarray.length; i++) {
+  ellipse(xarray[i], 50, 10, 10); // zeichnen
+  xarray[i]++; // hochzählen
+}</pre>
+</div></div><p>Wenn wir dies für beide Schleifen tun, dann müssen wir nur noch eine Stelle ändern, um die Anzahl der Bälle anzupassen: ganz oben.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// optimale Lösung
+int[] xarray = new int[3];
+
+void setup() {
+  for (int i = 0; i &lt; xarray.length; i++) {
+    xarray[i] = i * 20;
+  }
+}
+
+void draw() {
+  background(255);
+  for (int i = 0; i &lt; xarray.length; i++) {
+    ellipse(xarray[i], 50, 10, 10);
+    xarray[i]++;
+  }
+}</pre>
+</div></div><p>Probier es aus: setze bei <code>
+            int[3]</code> oben eine andere Zahl ein. Versuche 2 oder 10 oder nur eine 1. Alles kein Problem.</p><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="ArraysmitSchleifen-Übungsaufgaben">Übungsaufgaben</h1><p>In den folgenden Aufgaben sollte immer eine For-Schleife zum Einsatz kommen.</p><h4 id="ArraysmitSchleifen-Befüllen">Befüllen</h4><p>Erstelle einen Array für 10 ganze Zahlen und befüllen Sie die Elemente mit 1, 2, ..., 10.</p><p>Das Programm soll so allgemein geschrieben sein, dass du auch Arrays mit 20 oder 100 Elementen befüllen kannst.</p><p><strong>Varianten: </strong> Befülle den Array mit</p><ul><li>-10, -9, ..., -2, -1</li><li>2, 4, 6, ..., 20</li><li>100, 110, 120, ..., 190</li></ul><h4 id="ArraysmitSchleifen-BefüllenvonzweiArrays">Befüllen von zwei Arrays</h4><p>Befülle <strong>zwei Arrays gleichzeitig</strong> in einer Schleife. Beide Arrays haben Länge 10. Das eine Array wird mit 1, 2, 3, ... befüllt, das zweite Array mit -10, -9, -8, ...</p><h4 id="ArraysmitSchleifen-Summe">Summe</h4><p>Berechne die Summe von allen Elementen des Array und gib diese auf der Konsole aus. Der Code sollte ohne weitere Änderungen funktionieren, wenn du Zahlen zu foo hinzufügst oder entfernst.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] foo = { 22, -10, 8, 10 };
+
+// Hier Code schreiben</pre>
+</div></div><p>Du sollltest das hier auf der Konsole sehen:</p><pre class="console">30</pre><h4 id="ArraysmitSchleifen-Arrayfiltern">Array filtern</h4><p>Gegeben sei Array a. Drucke alle negativen Elemente untereinander auf der Konsole aus.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] a  = { 1, -2, -25, 6, -3, 5 };</pre>
+</div></div><p><br/></p><h4 id="ArraysmitSchleifen-MehrereArraysaddieren">Mehrere Arrays addieren</h4><p>Gegeben sind drei Arrays a, b und c. Verändere Array c dahingehend, dass im Element c[0] die Summe a[0] und b[0] steht und entsprechend für die Elemente 1, 2, 3, ...</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] a  = { 1, 2, 25, 6 };
+int[] b  = { 9, 18, 5, 34 };
+int[] c = new int[4];</pre>
+</div></div><p>// Hier Code schreiben println(c);</p><p>Du solltest das hier auf der Konsole sehen:</p><pre class="console">[0] 10
+[1] 20
+[2] 30
+[3] 40
+</pre><h4 id="ArraysmitSchleifen-Arrayszusammenfügen">Arrays zusammenfügen</h4><p>Gegeben sind zwei Arrays a und b. Erzeuge einen neuen Array c, der so lang ist wie a und b zusammengenommen und auch die Werte von a und b (in dieser Reihenfolge) enthält.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] a  = { 1, 2, 25 };
+int[] b  = { 9, 18 };
+
+// Hier Code schreiben
+
+println(c);</pre>
+</div></div><p><br/></p><p>Du solltest das hier auf der Konsole sehen:</p><pre class="console">[0] 1
+[1] 2
+[2] 25
+[3] 9
+[4] 18
+</pre><p>Verwende <strong>nicht</strong> die Processing-Funktionen <code>concat()</code> oder <code>splice()</code>. Dein Code sollte auch funktionieren, wenn du bei a und/oder b Elemente hinzufügst oder entfernst. <br/><br/></p><h4 id="ArraysmitSchleifen-Arrayrückwärts">Array rückwärts</h4><p>Gegeben sei ein Array:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] foo = { 1, 2, 3, 4 };</pre>
+</div></div><p><br/></p><p>Erstelle einen neuen Array <code>bar</code>, wo die Elemente in umgekehrter Reihenfolge abgelegt sind. Wenn du <code>bar</code> ausgibst, siehst du also:</p><pre class="console">[0] 4
+[1] 3
+[2] 2
+[3] 1
+</pre><p>Verwende <strong>nicht</strong> die Processing-Funktion <code>reverse()</code>. Wie immer soll dein Code auch für andere Arrays funktionieren. <br/><br/></p><h4 id="ArraysmitSchleifen-Elementeverschieben">Elemente verschieben</h4><p>Gegeben sei ein Array:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] foo = { 10, 20, 30, 40, 50 };</pre>
+</div></div><p><br/></p><p>Verschiebe alle Elemente ab Index 1 um eine Stelle nach rechts. Als Ergebnis sollte hinterher das folgende in foo stehen:</p><pre class="console">[0] 50
+[1] 10
+[2] 20
+[3] 30
+[4] 40
+</pre><h4 id="ArraysmitSchleifen-Nachbarnaddieren">Nachbarn addieren</h4><p>Gegeben sei ein Array mit einer geraden Anzahl von Elementen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] foo = { 1, 2, 3, 4, 5, 6 };</pre>
+</div></div><p><br/></p><p>Erstelle einen neuen Array <code>bar</code>, das halb so lang ist wie <code>foo</code> und wo jeweils zwei benachbarte Elemente von <code>foo</code> addiert wurden, also hier 1+2 und 3+4 und 5+6. Wenn du <code>bar</code> ausgibst, siehst du also:</p><pre class="console">[0] 3
+[1] 7
+[2] 11</pre></div></div><pre class="console"><br/></pre><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="ArraysmitSchleifen-Zusammenfassung">Zusammenfassung</h1><p>Arrays und For-Schleifen sind die perfekten Partner. Mit einer For-Schleife kannst du ganz leicht einen kompletten Array <strong>befüllen</strong> (z.B. alle Elemente mit der Zahl 0 oder mit einer Zufallszahl).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray = new int[3];
+
+for (int i = 0; i &lt; 3; i++) {
+  xarray[i] = 0;
+}</pre>
+</div></div><p><br/></p><p>Außerdem kannst du mit einer Schleife alle Elemente eines Arrays <strong>abrufen</strong>, z.B. um Dinge zu zeichnen (wenn ein Array etwa die x-Koordinate enthält).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; 3; i++) {
+  ellipse(xarray[i], 50, 10, 10);
+}</pre>
+</div></div><p><br/></p><p>Arrays sind eigentlich Objekte. Mit der Objekteigenschaft <code>length</code> kannst du die Länge eines Arrays herausfinden. Das nutzen wir in allen For-Schleifen, um den Code möglichst flexibel zu halten (d.h. der Code funktioniert auch dann, wenn die Länge sich ändert).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int i = 0; i &lt; xarray.length; i++) {
+  ellipse(xarray[i], 50, 10, 10);
+}</pre>
+</div></div></div></div><pre>
+</pre><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

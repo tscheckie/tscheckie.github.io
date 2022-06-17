@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Koordinaten &amp; Befehle</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Koordinaten &amp; Befehle
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h1 id="Koordinaten&amp;Befehle-Koordinaten">Koordinaten</h1><p>Computermonitore und Bildschirme im allgemeinen bestehen aus einem Gitter kleinster Punkte, aus denen sich das Bild zusammensetzt. Diese Punkte nennt man <strong>Pixel</strong> (für engl. <em>picture element</em>). Bilder werden erzeugt, indem die Pixel mit verschiedenen Farben belegt werden, im einfachsten Fall mit Schwarz und Weiß. Um jeden einzelnen Pixel gezielt ansprechen zu können, verwendet man Koordinaten. Eine Koordinate gibt die x-Position an (links nach rechts), die andere gibt die y-Position an (oben nach unten). Das Koordinatensystem ist ähnlich zu dem, das ihr aus der Schule kennt, <strong>steht aber auf dem Kopf.</strong></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/pixelkoord.png" data-image-src="https://michaelkipp.de/processing/img/pixelkoord.png"></span></p><p>In der Abbildung oben hat der obere Punkt die Koordinaten x=0 und y=1 oder kurz (0, 1). Der untere Punkt hat die <strong>Koordinaten</strong> (3, 3).  Das Pixel-Koordinatensystem <strong>beginnt bei Null</strong>. Das heißt, wenn ein Fenster eine Auflösung von 800x600 hat, dann gibt es die x-Koordinaten 0, 1, ..., 799 und die y-Koordinaten 0, 1, ..., 599.</p><h1 id="Koordinaten&amp;Befehle-Befehle">Befehle</h1><p>Beim Programmieren geht es darum, dem Computer <strong>Befehle</strong> zu geben. Ein Computerprogramm ist eine Liste von Befehlen. Ein Beispiel für einen Befehl ist</p><pre>Zeichne einen Punkt an der Stelle (10, 50) !</pre><p>In Processing sieht das so aus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">point(10,50);</pre>
+</div></div><p>Der Befehl hat drei Teile:</p><ul><li>der <strong>Name</strong> &quot;point&quot; umschreibt, was die Aufgabe ist (Punkt zeichnen!)</li><li>die zwei <strong>Parameter</strong> &quot;(10, 50)&quot; geben Details zur Aufgabe (kommt an die Stelle 10, 50)</li><li>das <strong>Semicolon</strong> zeigt an, dass der Befehl hier aufhört</li></ul><p>Der Computer führt die Befehle aus, wie ein gut erzogener Hund. Wenn man dem Hund &quot;Sitz!&quot; sagt, dann sitzt er und wenn man ihm sagt &quot;Hol Stöckchen!&quot;, dann holt er das Stöckchen. Wichtig ist, dass der Hund aber nur die Befehle ausführen kann, die er kennt und die man ihm beigebracht hat. Genauso ist es mit dem Computer. Kennt er einen Befehl nicht - oder <em>erkennt </em>er einen Befehl nicht, z.B. weil wir uns vertippt haben - dann gibt er uns eine Fehlermeldung anstatt den Befehl auszuführen. Da unterscheidet er sich vom Hund. Die meisten Hunden würden wahrscheinlich, wenn man statt &quot;Sitz!&quot; z.B. &quot;Blitz!&quot; sagt, trotzdem sitzen. Der Computer würde an dieser Stelle gar nichts tun.</p></div>
+</div>
+</div>
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="Koordinaten&amp;Befehle-Befehle&amp;Funktionen">Befehle &amp; Funktionen</h2><p>Ein anderes bzw. ähnliches Wort für Befehle ist das Wort <em>Funktionen</em>. Wenn du deinem Programm den Befehl gibst, einen Punkt zu zeichnen, dann reagiert es, <strong>indem es den Befehl ausführt.</strong> Genauso könnte man aber auch sagen <strong>es führt eine <em>Funktion</em> aus.</strong> Was ist hier der Unterschied?</p><p>Bleiben wir bei dem Beispiel mit dem <strong>gut erzogenen Hund</strong>. Angenommen ich gebe ihm den Befehl &quot;Hol Stöckchen!&quot;, dann reagiert der Hund, indem er meinen <em>Befehl</em> ausführt. Die Aktion(en), die er druchführt, kann man als Funktion bezeichnen: Er rennt los, beobachtet, wo das Stöckchen landet, er sucht ggf. danach, nimmt es in den Mund, rennt zurück und gibt es mir.  Das ist eine Funktion (eine festgelegte Reihenfolge von Aktionen), die der Hund &quot;selbstständig&quot; ausführt. Mir ist im Endeffekt egal, wie schnell er rennt, wo er sucht, wie lange er sucht, etc. ... Hauptsache er bringt mir am Ende das Stöckchen zurück und führt somit meinen Befehl aus (&quot;Hol Stöckchen!&quot;).</p><p>Für den Anfang reicht es, wenn du diesen <strong>Zusammenhang zwischen Funktion und Befehl verstanden</strong> hast. Momentan geht es darum, dass du lernst deinem Programm - korrekte - Befehle zu geben. Im nächsten Sprint schauen wir uns dann an, wie du deinem Hund selber neue Tricks beibringen kannst - ich meine natürlich wie du deinem Programm eigene Funktionen beibringen kannst.</p></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="200" src="attachments/24609416/40862734.png" data-image-src="attachments/24609416/40862734.png" data-unresolved-comment-count="0" data-linked-resource-id="40862734" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="dog_icon_131131.png" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24609416" data-linked-resource-container-version="9" alt=""></span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Koordinaten&amp;Befehle-Zusammenfassung">Zusammenfassung</h1><ul style="list-style-type: square;"><li>Das <strong>Koordinatensystem</strong> bei Processing beginnt <strong>oben</strong> <strong>links</strong> mit den Koordinaten 0 | 0.</li><li>Ein Befehl besteht aus <strong>Name</strong>, <strong>Parameter</strong> und <strong>Semikolon</strong> am Ende.</li><li>Das, was Programm macht, wenn man ihm einen Befehl erteilt,wird als <strong>Funktion</strong> bezeichnet.</li></ul></div></div></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609416/40862734.png">dog_icon_131131.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

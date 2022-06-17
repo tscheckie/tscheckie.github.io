@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Transformation: Einführung</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-3_24609610.html">Sprint 3</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Transformation: Einführung
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jacqueline Rähse</span>, last modified on Sep 23, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Transformation:Einführung-EinführungamBeispielderTranslation">Einführung am Beispiel der Translation</h1><p>Eine <em>Translation</em> ist eine Verschiebung, zunächst mal im 2D-Raum. In Processing gibt es dafür den Befehl <code>translate()</code>.</p><p>Nehmen wir ein Rechteck an einer bestimmten Position (10, 10).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Unser Rechteck...
+rect(10, 10, 30, 20);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate1.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate1.png"></span></p><p>Wenn wir das an Position (50, 50) zeichnen wollen, dann können wir (50, 50) als neue Koordinaten angeben.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// ...soll an Position (50, 50)
+// Lösung 1:
+rect(50, 50, 30, 20);</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate2.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate2.png"></span></p><p>Alternative: Wir lassen das Rechteck bei (10, 10) und &quot;verschieben die Leinwand&quot; 40 Pixel runter und 40 Pixel nach links - anders gesagt: wir verschieben die Leinwand um den <a href="https://www.youtube.com/watch?v=9C1OOlLng2Q" class="external-link" rel="nofollow"><strong>Vektor</strong> </a>(40, 40). <strong>Analogie</strong>: Bild und Rahmen. Der Rahmen ist das Grafikfenster, das Bild ist das Koordinatensystem, das du verschiebst. Das kannst du mit dem Befehl <code>translate()</code> machen und gibst dort den Verschiebungsvektor (40, 40) an.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Lösung 2: verschiebe erst Koordinatensystem um (40, 40)
+// und zeichne dann
+translate(40, 40);
+rect(10, 10, 30, 20);</pre>
+</div></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate2.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate2.png"></span></p><p>Stell dir das wie folgt vor: erst wird die Leinwand um (40, 40) verschoben, dann wird das Rechteck an Position (10, 10) im verschobenen Koordinatensystem gezeichnet.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate4.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate4.png"></span></p><p>Der Vorteil?!? Du kannst ganze Bilder (oder Spielfiguren, Hindernisse, etc. <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.svg" data-emoticon-name="wink" alt="(Zwinkern)"/>) verschieben! Erinnere dich an eine der ersten Übungen, wo man eine Figur an die Maus klebt? Man wählte einen Ankerpunkt <code>(mouseX, mouseY)</code> und definierte die anderen Koordinaten relativ dazu. Ziemlich umständlich:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Zeichnung klebt an Maus 1
+// Arbeit mit Offsets vom Ankerpunkt (mouseX, mouseY)
+
+void draw() {
+  background(100);
+
+
+  // Haus:
+  rect(mouseX,mouseY+20,30,20);
+  triangle(mouseX,mouseY+20,mouseX+30,mouseY+20,
+           mouseX+15,mouseY);
+ 
+}</pre>
+</div></div><p><br/></p><p>Mit dem Befehl <code>translate()</code> kannst du das Bild auf das feste Koordinatensystem malen und später das gesamte Koordinatensystem bewegen, in diesem Fall mit <code>translate(mouseX, mouseY)</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Zeichnung klebt an Maus 2
+// Verschiebung des Koordinatensystems um (mouseX, mouseY)
+
+void draw() {
+  background(100);
+
+  // Verschiebe Koordinatensystem zur Maus
+  translate(mouseX, mouseY);
+
+  // Haus:
+  rect(0,20,30,20);
+  triangle(0,20,30,20,15,0);
+}</pre>
+</div></div><p><br/></p><p>Translationen können <em>mehrfach</em> durchgeführt werden. Dabei wird das Koordinatensystem (das &quot;Bild&quot;) immer weitergeschoben. Nehmen wir wieder das Beispiel mit dem Rechteck:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">translate(40, 40);
+translate(10, 20);
+rect(10, 10, 30, 20);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate5.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate5.png"></span></p><p><br/></p><p>Wird &quot;zwischendurch&quot; etwas gezeichnet, wird immer die aktuelle Position des Koordinatensystems zugrunde gelegt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">translate(40, 40);      // erste Verschiebung
+ellipse(0, 0, 20, 20);
+translate(10, 20);      // zweite Verschiebung
+rect(10, 10, 30, 20);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate7.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate7.png"></span></p><p><br/></p><p>Das Koordinatensystem kann man sich auch als eine Art Schablone vorstellen, mit Hilfe derer ein Bild gezeichnet wird. Mit <code>translate()</code> wird die Schablone weitergeschoben.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/trans-translate8.png" data-image-src="https://michaelkipp.de/processing/img/trans-translate8.png"></span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Zeichnung klebt an Maus
+// Lösung durch Verschiebung des Koordinatensystems
+
+void draw() {
+  background(100);
+  fill(255,100);
+  DrawKoord(color(255, 0, 0));
+
+  translate(mouseX, mouseY);
+  DrawKoord(color(0, 255, 0));
+
+  // Haus:
+  rect(0, 20, 30, 20);
+  triangle(0, 20, 30, 20, 15, 0);
+
+  // 50 Pixel nach rechts
+  translate(50, 0);
+  DrawKoord(color(0, 0, 255));
+
+  ellipse(0, 0, 20, 20);
+}
+
+void DrawKoord(color col) {
+  stroke(col);
+  strokeWeight(4);
+  line(0, 0, 10, 0); // x-Achse
+  line(0, 0, 0, 10); // y-Achse
+  strokeWeight(1);
+  stroke(0);
+}</pre>
+</div></div><p><br/></p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>WICHTIG:</strong> <strong>Sobald draw() beendet ist, wird das Koordinatensystem wieder an seinen &quot;normalen&quot; Platz gestellt</strong> mit (0,0) in der linken, oberen Ecke, d.h. das Bild sitzt also wieder bündig in seinem Rahmen, wenn draw() neu startet.</div></div><h1 id="Transformation:Einführung-Objekt-RaumundWelt">Objekt-Raum und Welt</h1><p>Was genau ist eine Transformation? Wenn du ein Rechteck nimmst...</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(0,0,50,30);</pre>
+</div></div><p>... dann kannst du es z.B. verschieben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">translate(20, 20);
+rect(0,0,50,30);</pre>
+</div></div><p>Das bedeutet, dass z.B. der linke oberen Punkt jetzt nicht mehr bei (0, 0) liegt, sondern bei (20, 20). Eine Transformation ist also eine Abbildung (ein Mapping) von Punkten aus einem <em>Ursprungsraum </em>(wo das Rechteck ohne Transformation gezeichnet werden würde) in einen <em>Zielraum</em>. Wir nennen den Ursprungsraum auch <strong>Objektraum</strong> (object space) und den Zielraum einfach die <strong>Welt</strong> (world space).</p><p>In grafischen Anwendungen zeichnest du ein Objekt (z.B. Spielerfigur oder Küchenschrank) zunächst im Objektraum und wählst dort einen günstigen Ursprungspunkt und Maßstab. Erst in der Applikation (z.B. Computerspiel oder Küchenplanungs-Tool) wird das Objekt zunächst skaliert, falls in der Welt ein anderer Maßstab herrscht, und dann an die richtige Position geschoben (Translation) und rotiert.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>WICHTIG:</strong> Da du in den meisten Fällen um den Mittelpunkt eines Objekts rotieren willst und auch von der Mitte aus ein Objekt skalieren willst, <strong>setzt du den Ursprung in die Mitte deines Objekts</strong>.</div></div><p>Programmiertechnisch kannst du das deutlich machen, indem du den Zeichencode in eine Funktion auslagerst. <strong>Innerhalb</strong> <strong>der Funktion</strong> <strong>zeichnest</strong> <strong>du im Objektraum</strong>. Processing sorgt aber dafür, dass alle zuvor angegebenen Transformationen das Objekt korrekt &quot;in die Welt&quot; zeichnet:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  background(100);
+  translate(mouseX, mouseY);
+  DrawHaus();
+}
+
+// Haus im Objekt-Raum
+void DrawHaus() {
+  rect(0,20,30,20);
+  triangle(0,20,30,20,15,0);
+}</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Problem Kollisionsberechnung:</strong> Ein Problem, das sich daraus ergibt, ist, dass verschiedene Objekte in verschiedenen Koordinatensystemen leben. Bei der Kollisionsberechnung muss man dies berücksichtigen.</div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h2 id="Transformation:Einführung-Zusammenfassung">Zusammenfassung</h2><ul><li>Bei der Transformation wird nicht das Objekt, sondern der gesamte Raum transformiert.<ul><li>Eine Transformation ist eine Abbildung (ein Mapping) von Punkten aus einem <em>Ursprungsraum</em> in einen <em>Zielraum</em>.<ul><li> Ursprungsraum = <strong>Objektraum</strong> (object space) und den</li><li>Zielraum = <strong>Welt</strong> (world space).</li></ul></li><li>Diese Abbildungen bzw. Mappings lassen sich auch in Form eine <strong>Matrix</strong> darstellen. Mithilfe einer Matrix lassen sich mehrere Transformationen leicht miteinerander kombinieren bzw. <strong>verrechnen</strong>.</li></ul></li><li>Der Vorteil der Transformation ist, dass man den Raum verschieben kann und dann innerhalb dieses Raums mehrere Objekte zeichnen kannm bevor man den Raum wieder zurücksetzt</li><li>Das Ende des draw-Durchlaufs setzt die Transformation wieder zurück auf den Ursprung.</li></ul></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

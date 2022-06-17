@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Dateien erzeugen und lesen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-4_24609612.html">Sprint 4</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Dateien erzeugen und lesen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified on Jan 14, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Eine Datei ist zunächst mal für unsere Zwecke ein Text, der auf der Festplatte unter einem Namen wie z.B. &quot;foo.txt&quot; gespeichert wird. Die Datei können wir dann nicht nur mit Processing, sondern auch mit handelsüblichen Text-Editoren wie Notepad, Word etc. lesen und ändern.</p><h1 id="Dateienerzeugenundlesen-Datenschreiben">Daten schreiben</h1><p>Das Schreiben von Daten nennt man auch <em>save</em> (engl. für Retten). Wir können mit der Methode <code>saveStrings</code> einen beliebig großen Array von Strings abspeichern. Dazu übergeben wir der Funktion den Namen der Datei und den Array. Die Datei wird im Verzeichnis unseres Processing-Programms gespeichert. Sie enthält auf jeder Zeile einen String. Im folgenden Beispiel wird eine Textdatei mit Namen &quot;meineDaten.txt&quot; mit drei Zeilen erzeugt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// drei Zeilen speichern
+
+String[] zeilen = new String[3];
+
+zeilen[0] = &quot;Das ist&quot;;
+zeilen[1] = &quot;ein Text&quot;;
+zeilen[2] = &quot;auf drei Zeilen&quot;;
+
+saveStrings(&quot;meineDaten.txt&quot;, zeilen);</pre>
+</div></div><p><br/></p><p>Wenn wir &quot;meineDaten.txt&quot; mit einem Texteditor öffnen, sehen wir:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Das ist
+ein Text
+auf drei Zeilen</pre>
+</div></div><h1 id="Dateienerzeugenundlesen-Datenlesen">Daten lesen</h1><p>Das Lesen von Daten nennt man auch <em>load</em> (engl. für Laden). Die Funktion <code>loadStrings</code> erwartet einen Dateinamen und liefert ein Array von Strings zurück, welches den Text in der Datei zeilenweise enthält.</p><p>Das Beispielprogramm liest eine Datei mit Namen &quot;meineDaten.txt&quot;, die sich im Verzeichnis des Processing-Programms befinden muss, und schreibt den Inhalt zeilenweise auf die Konsole:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Textdatei lesen
+
+String[] lines = loadStrings(&quot;meineDaten.txt&quot;);
+
+for (int i = 0; i &lt; lines.length; i++) {
+  println(&quot;&gt; &quot; + lines[i]);
+}</pre>
+</div></div><p>Wir müssen nicht unbedingt die gleichen Daten einlesen wie die, die wir oben erzeugt haben. Probiere folgendes: Schreibe einen Text mit einem Editor und lade ihn mit obigen Programm (Dateiname anpassen!).</p><p><br/></p><h1 id="Dateienerzeugenundlesen-Objektspeichern">Objekt speichern</h1><p>Inwiefern helfen mir Dateien, wenn ich in einem Spiel den Punktestand und die Position der Spielerfigur und der gegnerischen Figuren etc. abspeichern will? Wir sehen uns dazu Beispiele an. Da wir in Dateien mit Texten arbeiten, müssen wir dafür sorgen, dass z.B. numerische Daten beim Schreiben in Text umgewandelt werden. Umgekehrt, wenn wir den Text wieder lesen, muss der Text wieder in eine Zahl umgewandelt werden.</p><p>Als Beispiel nehmen wir uns einen Ball, der umherfliegt und von den Wänden abprallt. Als Code:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x;
+int y;
+int xspeed;
+int yspeed;
+
+void setup() {
+  size(200, 200);
+  x = width/2;
+  y = height/2;
+  xspeed = (int)random(1, 2);
+  yspeed = (int)random(2, 4);
+}
+
+void draw() {
+  background(100);
+  noStroke();
+  fill(255);
+
+  ellipse(x, y, 20, 20);
+  x += xspeed;
+  y += yspeed;
+
+  if (x &lt; 0 || x &gt; width) {
+    xspeed = -xspeed;
+  }
+  if (y &lt; 0 || y &gt; height) {
+    yspeed = -yspeed;
+  }
+}</pre>
+</div></div><p><br/></p><p>Die Frage, die man sich stellen muss, wenn man ein Objekt speichern und später wieder laden will, lautet: <em>Welches sind die Eigenschaften, die das Objekt beschreiben?</em> Unser Ball wird beschrieben durch vier Integer-Werte: x-Position, y-Position, x-Geschwindigkeit, y-Geschwindigkeit. Diese Werte wollen wir speichern. Das machen wir ganz einfach, indem wir jeden Wert auf eine Zeile schreiben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void saveConf() {
+  String[] data = new String[4];
+
+  // Zahlen werden hier in Strings umgewandelt ...
+  data[0] = &quot;&quot; + x;        // einmal mithilfe von &quot;&quot; +
+  data[1] = &quot;&quot; + y;        // Wichtig: Kein Leerzeichen einbauen!
+  data[2] = nf(xspeed);    // Alternativ geht auch nf()
+  data[3] = nf(yspeed);
+
+  saveStrings(&quot;conf.txt&quot;, data);
+}</pre>
+</div></div><p>Beachte, dass wir die <strong>Zahlen in Strings</strong> <strong>umwandeln</strong>, indem wir die <strong>doppelten</strong> <strong>Quotes</strong> voranstellen. Das ist aber keine richtig schöne Lösung. Alternativ kannst du die Zahl auch mithilfe von nf() in einen String umwandeln. Hier hast du auch die Möglichkeit den String nochmal etwas zu formatieren, z.B. mit vorangestellten Nullen (siehe <a href="Strings-verarbeiten_24610226.html">Strings verarbeiten</a>. Dann wird der String-Array mit <code>saveStrings()</code> gespeichert.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Vorsicht:</strong> Setze kein Leerzeichen zwischen die Quotes, sonst gibt es Probleme beim Einlesen, da Processing eine Zahl mit führendem Leerzeichen nicht als Zahl erkennt.</div></div><p><br/></p><p>Jetzt brauchen wir eine Funktion, welche die Daten aus der Datei wieder ausliest. Hier verwenden wir die Processing-Funktion <code>int()</code>, um aus einem String (z.B. in <code>data[0]</code>, wo die erste Zeile steht) eine Integer-Zahl zu machen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void loadConf() {
+  String[] data = loadStrings(&quot;conf.txt&quot;);
+
+  // Strings jeweils in Zahlen umwandeln
+  x = int(data[0]);
+  y = int(data[1]);
+  xspeed = int(data[2]);
+  yspeed = int(data[3]);
+}</pre>
+</div></div><p><br/></p><p>Um das Ganze auszuprobieren, bauen wir eine Tastatursteuerung ein, die die aktuelle Ball-Konfiguration mit &quot;s&quot; speichert und mit &quot;l&quot; wieder lädt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void keyPressed() {
+  if (key == &#39;s&#39;) {
+    saveConf();
+  }
+  if (key == &#39;l&#39;) {
+    loadConf();
+  }
+}</pre>
+</div></div><p><br/></p><p>Wir können jetzt jederzeit die aktuelle Position mit &quot;s&quot; speichern. Sobald wir &quot;l&quot; drücken, springt der Ball an die gespeicherte Position zurück. Sieh dir auch die Datei &quot;conf.txt&quot; auf deiner Festplatte an.</p><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Dateienerzeugenundlesen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Dateienerzeugenundlesen-Textdateiladen">Textdatei laden</h4><p>Du sollst eine gegebene Datei laden und auf der Konsole ausgeben. Zunächst musst du ein leeres Programm erstellen und speichern, damit Processing ein Verzeichnis für Ihr Programm erzeugt.</p><p>Starte einen Text-Editor deiner deiner Wahl (NotePad, WordPad, Atom, Emacs ...) und speichere folgenden Text als Datei &quot;data.txt&quot; in das Programmverzeichnis:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Auf der Mauer,
+auf der Lauer
+sitzt ne kleine Wanze</pre>
+</div></div><p class="textfile"><br/></p><p>Schreibe anschließend Code (statischer Modus), der den Text einliest und auf der Konsole ausgibt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Auf der Mauer,
+auf der Lauer
+sitzt ne kleine Wanze</pre>
+</div></div><p class="console"><br/></p><h4 id="Dateienerzeugenundlesen-ZahleninArrayladen">Zahlen in Array laden</h4><p>Du sollst wieder eine gegebene Datei laden. Diesmal handelt es sich um Zahlen, jeweils getrennt durch ein Semikolon.</p><pre class="textfile">25;1;-42;13;88
+</pre><p>Schreiben die Funtion <code>loadToIntArray</code>, die einen Dateinamen (<code>String</code>) bekommt und die in der entsprechenden Datei gespeicherten Zahlen als <strong>int-Array</strong> zurückgibt. Lies nochmal in Abschnitt <a href="Strings-verarbeiten_24610226.html">Strings verarbeiten</a> nach, wie man Strings in Zahlen umwandelt.</p><p>Teste deine Funktion, indem du eine Datei &quot;data.txt&quot; mit den obigen Zahlen befüllst und dann folgenden Code ausführst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  println(loadToIntArray(&quot;data.txt&quot;));
+}</pre>
+</div></div><p>Du solltest sehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">[0] 25
+[1] 1
+[2] -42
+[3] 13
+[4] 88</pre>
+</div></div><h4 id="Dateienerzeugenundlesen-Wörterzeilenweisespeichern">Wörter zeilenweise speichern</h4><p>Der Satz &quot;Once upon a time in a galaxy far, far away.&quot; sei in einer Variablen <code>mydata</code> gespeichert. Deine Aufgabe ist es, den Inhalt dieser Variable so in einer Datei zu speichern, dass in der Datei jedes Wort auf einer eigenen Zeile erscheint (Komma gehört zum vorigen Wort).</p><p>Verwende dazu die String-Methode <code>split</code> (s. <a href="Strings-verarbeiten_24610226.html">Strings verarbeiten</a>).</p><h4 id="Dateienerzeugenundlesen-EinfacherTexteditor">Einfacher Texteditor</h4><p>Schreibe einen einfachen Texteditor mit einem Fenster der Größe 300x150 und 7 Zeilen.</p><p>Als Cursor verwendest das Hashsymbol (#). Erlaube nur einen eingeschränken Zeichensatz (z.B. nur 'a' bis 'z'). Die Cursortasten hoch/runter können zum Zeilenwechsel genutzt werden, der Cursor steht aber immer am Ende der Zeile. Mit der Backspace-Taste löschst du das letzte Zeichen der Zeile, wo der Cursor steht. Mit Enter kommst du in die nächste Zeile.</p><p>Wenn  du die Eingabe programmiert hast, implementiere das <strong>Speichern</strong> und <strong>Laden</strong> des Textes.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Dateienerzeugenundlesen-Zusammenfassung">Zusammenfassung</h1><p>Eine wichtige Möglichkeit zum lesen und und speichern von Daten in der Programmierung ist das Erzeugen und Lesen von Dateien. Mithilfe von Processing ist dies sehr leicht möglich in Verbindung mit den Funktionen saveStrings() und loadString(). </p><ul style="list-style-type: square;"><li>Mithilfe von saveStrings() kann eine Datei erzeugt werden. Die Funktion benötigt 2 Parameter: Den Text, der gespeichert werden soll und den Namen der Text-Datei, die angelegt werden soll. Der Text liegt in Form eines einfachen String-Arrays vor. Dabei ist jedes Element im Arrays später eine neue Zeile im Text-Dokument.</li><li>Mithilfe von loadStrings() kann eine Datei gelesen werden. Die Funktion benötigt als Parameter den Namen der Text-Datei, die gelesen werden soll. Außerdem liefert die Funktion als Rückgabewert einen einfachen String-Array. Jedes Element im Array enthält genau eine Zeile der Text-Datei.</li></ul><p>Die Text-Datei, die Gelesen bzw. erzeugt wird, befindet sich im selben Ordner, in dem sich auch dein Processing-Projekt befindet.</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

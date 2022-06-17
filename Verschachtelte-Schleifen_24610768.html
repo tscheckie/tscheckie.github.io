@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Verschachtelte Schleifen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Verschachtelte Schleifen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified on Okt 20, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Eine Tabelle in einer Tabellenkalkulation besteht aus Zeilen und Spalten, die durchnumeriert sind. So kann man jede Zelle über Zeilen- und Spaltennummer ansprechen:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Tabelle mit 3 Zeilen und 3 Spalten" width="115" src="https://michaelkipp.de/processing/img/for_grid.png" data-image-src="https://michaelkipp.de/processing/img/for_grid.png"></span></p><p>Das gleiche Prinzip findest du bei mathematischen Matrizen oder einem Schachbrett wieder. Jetzt kann es sein, dass du alle Zellen einer Tabelle oder alle Einträge einer Matrix auf Null (oder einen andere Standardwert) setzen musst. Dazu musst du also alle Kombinationen von Zeilen- und Spaltennummer durchlaufen.</p><p>Du kannst dir denken, dass du mit einer For-Schleife leicht alle Zeilen durchlaufen kannst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int z = 0; z &lt; 3; z++) {
+  println(&quot;Zeile &quot; + z);
+}
+
+
+</pre>
+</div></div><pre>Zeile 0<br/>Zeile 1<br/>Zeile 2</pre><pre><br/></pre><p>Genauso leicht kannst du alle Spalten durchlaufen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int s = 0; s &lt; 3; s++) {
+  println(&quot;Spalte &quot; + s);
+}
+
+</pre>
+</div></div><pre>Spalte 0<br/>Spalte 1<br/>Spalte 2</pre><pre><br/></pre><p>Jetzt möchtest du für Zeile 0 alle Spalten 0, 1, 2 durchlaufen, dann für Zeile 1 nochmal und zum Schluss für Zeile 2.</p><p>Das erreichen wir, indem wir <em>innerhalb</em> der ersten For-Schleife (Zeilen) die zweite For-Schleife (Spalten) laufen lassen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int z = 0; z &lt; 3; z++) {
+
+  for (int s = 0; s &lt; 3; s++) {
+    println(&quot;Zeile &quot; + z + &quot;, Spalte &quot; + s);
+  }
+
+}</pre>
+</div></div><pre>Zeile 0, Spalte 0<br/>Zeile 0, Spalte 1<br/>Zeile 0, Spalte 2<br/>Zeile 1, Spalte 0<br/>Zeile 1, Spalte 1<br/>Zeile 1, Spalte 2<br/>Zeile 2, Spalte 0<br/>Zeile 2, Spalte 1<br/>Zeile 2, Spalte 2</pre><pre><br/></pre><p>Man spricht hier von zwei <em>verschachtelten</em> For-Schleifen. Dabei ist die Zeilenschleife die <strong>äußere Schleife</strong> und die Spaltenschleife die <strong>innere Schleife</strong>.</p><p>Man kann die Ausgabe so ändern, dass nur die Spaltennummer der jeweiligen &quot;Zelle&quot; ausgegeben wird (Laufvariable s):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int z = 0; z&lt;3; z++) {
+
+  // eine Zeile drucken
+  for (int s = 0; s&lt;4; s++) {
+    print(s);
+  }
+  println(); // Umbruch nach fertiger Zeile
+
+}
+
+</pre>
+</div></div><pre>0123<br/>0123<br/>0123</pre><pre><br/></pre><p>Alternativ könntest du dir die Zeilennummern (Laufvariable z) ansehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int z = 0; z&lt;3; z++) {
+  for (int s = 0; s&lt;4; s++) {
+    print(z);
+  }
+  println();
+}
+
+</pre>
+</div></div><pre>0000<br/>1111<br/>2222</pre><pre><br/></pre><p>Verschachtelte Schleifen kommen immer dann zum Einsatz, wenn eine zweidimensionale Struktur abgeschritten werden soll, dazu gehören auch Spreadsheet-Tabellen, mathematische Matrizen und Bitmap-Bilder.</p><p>Auch im grafischen Bereich kann man 2-dimensionale Strukturen gebrauchen, z.B das folgende Gittermuster:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Gitter aus Kreisen" src="https://michaelkipp.de/processing/img/for_grid1.png" data-image-src="https://michaelkipp.de/processing/img/for_grid1.png"></span></p><p>Wir sehen, dass wir hier systematisch die x-Koordinaten durchlaufen können: 0, 25, 50, 75, 100. Das gleiche gilt für die y-Koordinaten: 0, 25, 50, 75, 100. Jetzt wollen wir auf jeder Kombination dieser Koordinaten einen Kreis zeichen. Also: zwei verschachtelte For-Schleifen!</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int x = 0; x &lt;= 100; x = x + 25) {
+  for (int y = 0; y &lt;= 100; y = y + 25) {
+    ellipse(x, y, 10, 10);
+  }
+}</pre>
+</div></div><pre>
+</pre><p>Beachte, dass wir hier <em>spaltenweise</em> zeichnen. Erst die die x-Koordinate auf 0 fixiert und wir durchlaufen y=0, y=25 usw. Als setzen wir x auf 25 und durchlaufen y=0, y=25 usw. Natürlich könnten wir in diesem Beispiel auch zeilenweise zeichnen, dazu müsste man y in die äußere Schleife verlagern.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="VerschachtelteSchleifen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="VerschachtelteSchleifen-KleinesEinmaleins">Kleines Einmaleins</h4><p>Schreibe das kleine Einmaleins auf die Konsole. Das soll ungefähr so aussehen:</p><pre class="console">Die 1er-Reihe:
+   1 x 1 ist 1
+   1 x 2 ist 2
+   1 x 3 ist 3
+   // (und so weiter bis 10...)
+   1 x 10 ist 10
+Die 2er-Reihe:
+   2 x 1 ist 2
+   2 x 2 ist 4
+   2 x 3 ist 6
+   2 x 4 ist 8
+   2 x 5 ist 10
+
+   // (und so weiter...)
+</pre><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh"><h4 id="VerschachtelteSchleifen-ASCII-Art">ASCII-Art</h4></th><th class="confluenceTh"><br/></th><th class="confluenceTh"><br/></th><th class="confluenceTh"><br/></th></tr><tr><td colspan="4" class="confluenceTd"><span class="inline-comment-marker" data-ref="71aaeb2f-69eb-43cd-8094-8253f9c9363b">Verwenden</span> zwei For-Schleifen, um folgendes Muster in der Konsole zu produzieren. Das Programm sollte so flexibel sein, dass auch Quadrate mit mehr als vier Zeilen/Spalten erzeugt werden können.</td></tr><tr><td class="confluenceTd"><pre>##### <br/>##### <br/>#####</pre></td><td class="confluenceTd"><pre>#... <br/>.#.. <br/>..#. <br/>...#</pre></td><td class="confluenceTd"><pre>#### <br/>.### <br/>..## <br/>...#</pre></td><td class="confluenceTd"><pre>...# <br/>..## <br/>.### <br/>####</pre></td></tr></tbody></table></div><p class="console"><br/></p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 32.6825%;"/><col style="width: 22.7039%;"/><col style="width: 44.6136%;"/></colgroup><tbody><tr><th class="confluenceTh"><h4 id="VerschachtelteSchleifen-GittermitKopfspalte">Gitter mit Kopfspalte</h4></th><th class="confluenceTh"><h4 id="VerschachtelteSchleifen-Schachbrett">Schachbrett</h4></th><th class="confluenceTh"><h4 id="VerschachtelteSchleifen-Radial">Radial</h4></th></tr><tr><td colspan="3" class="confluenceTd">Zeichne folgende Muster (unter Verwendung zweier verschachtelter Schleifen):</td></tr><tr><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" width="100" src="https://michaelkipp.de/processing/img/ue_grid_a.png" data-image-src="https://michaelkipp.de/processing/img/ue_grid_a.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Schachbrett" width="100" src="https://michaelkipp.de/processing/img/for_chess2.png" data-image-src="https://michaelkipp.de/processing/img/for_chess2.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Radiales Muster mittig" width="100" src="https://michaelkipp.de/processing/img/for_radial1.png" data-image-src="https://michaelkipp.de/processing/img/for_radial1.png"></span></p></div></td></tr><tr><td class="confluenceTd"><div class="content-wrapper"><p>Vielleicht hilft es, zunächst dieses Muster zu zeichnen, und später die Rechtecke hinzuzufügen.<br/><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" width="100" src="https://michaelkipp.de/processing/img/ue_grid_b.png" data-image-src="https://michaelkipp.de/processing/img/ue_grid_b.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p>Als Zwischenschritt zeichne zunächst das Brett ohne Einfärbung.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Schachbrett" width="100" src="https://michaelkipp.de/processing/img/for_chess1.png" data-image-src="https://michaelkipp.de/processing/img/for_chess1.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p>Als Zwischenschritt kannst du zunächst das Muster am Ursprung zeichnen und dann &quot;verschieben&quot;:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Radiales Muster in der Ecke" width="100" src="https://michaelkipp.de/processing/img/for_radial2.png" data-image-src="https://michaelkipp.de/processing/img/for_radial2.png"></span></p></div></td></tr></tbody></table></div><p><br/></p><p><br/></p><p><br/></p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="VerschachtelteSchleifen-Zusammenfassung">Zusammenfassung</h1><p>Wenn du systematisch 2-dimensionale Daten durchlaufen möchtest, benötigest du zwei ineinander verschachtelte Schleifen. Beispiele sind: die Felder eines Schachbretts, die Zellen einer Tabelle, die Einträge einer mathematischen Matrix oder die Pixel eines Bitmap-Bildes.</p><p>Wenn wir das Beispiel einer Tabelle oder Matrix nehmen, können wir von Zeilen und Spalten sprechen. Eine <strong>äußere Schleife</strong> könnte dann die Zeilen durchlaufen und eine <strong>innere Schleife</strong> die Spalten.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">for (int z = 0; z&lt;2; z++) {
+  for (int s = 0; s&lt;2; s++) {
+    println(&quot;Zeile &quot; + z + &quot;, Spalte &quot; + s);
+  }
+}</pre>
+</div></div><pre>
+</pre><p>Auf der Konsole sehen wir:</p><pre class="console">Zeile 0, Spalte 0
+Zeile 0, Spalte 1
+Zeile 1, Spalte 0
+Zeile 1, Spalte 1</pre></div></div><pre class="console auto-cursor-target">
+</pre><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610768/40865061.pde">Das1x1.pde</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610768/40866479.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

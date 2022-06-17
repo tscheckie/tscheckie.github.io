@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Funktionsweise eines Computers</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Funktionsweise eines Computers
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Wer programmiert, &quot;sagt&quot; dem Computer, was er zu tun hat. Dabei spricht der Computer offensichtlich eine andere Sprache, als wir Menschen und &quot;tickt&quot; auch etwas anders als wir. Um gut mit dem Computer kommunizieren zu können (und das meint guten Code schreiben zu können) ist es wichtig zu verstehen, welche Sprache Maschinen sprechen, wie mein Code in die Maschinensprache übersetzt wird und worauf ich achten muss, damit mein Code verstanden wird.</p><h1 id="FunktionsweiseeinesComputers-Maschinensprache">Maschinensprache</h1><p>Das Kernstück eines Computers ist der Hauptprozessor oder auch <strong>CPU</strong> (Central Processing Unit). Diese wichtigsten Komponenten der CPU sind das <strong>Rechenwerk </strong>und das <strong>Steuerwerk </strong>und haben unterschiedliche Aufgaben:</p><ul style="list-style-type: square;"><li>Das <strong>Rechenwerk</strong> kann arithmetische und logische Operationen im <strong>Binärsystem mit 0 und 1</strong> durchfühen. </li><li>Das <strong>Steuerwerk</strong>  hingegen arbeitet verschiedene <strong>Befehle aus dem Befehlsregister</strong> ab und kümmert sich um den <strong>Datentransfer</strong>. </li></ul><p>Die Maschinenbefehle, die in der CPU verarbeitet werden, sind für den Menschen praktisch unlesbar, da diese aus 0 und 1 bestehen, die Sprache der Maschinen. Hier ein Beispiel für einen 16-Bit Maschinenbefehl:</p><pre>0000000011000010</pre><p>Durch die Zuordnung von symbolische Namen (sog. <em>Assembler-Befehle</em>, z.B. <code>ADD</code> für die Addition zweier Werte) für Maschinenbefehle entstand eine erste abstrakte „Programmiersprache“. In dieser wurde ganz früher auch programmiert (für komplexe Programme ist das aber absolut unbrauchbar). Mit der Zeit wurden noch höhere Abstraktionen dieser Maschinensprache entwickelt: die <em>höheren Programmiersprachen</em>. Davon gibt es heutzutage sehr viele. Eine davon ist <strong>Java</strong>, welche wir in diesem Modul lernen. Da jede Plattform (Windows, Linux, Mac, ...) allerdings verschiedene Maschinenbefehle verwendet, müssen Programme in höheren Programmiersprachen erst für die jeweilige Plattofrm &quot;übersetzt&quot; werden. Diese Übersetzung übernehmen <strong>Compiler</strong> oder <strong>Interpreter</strong>.</p><div class="table-wrap"><table class="confluenceTable"><colgroup><col style="width: 115.0px;"/><col style="width: 33.0px;"/><col style="width: 77.0px;"/><col style="width: 33.0px;"/><col style="width: 117.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p>Porgrammcode</p></td><td style="text-align: center;" class="confluenceTd">🔁</td><td class="confluenceTd"><p>Compiler/Interpreter</p></td><td style="text-align: center;" class="confluenceTd">🔁</td><td colspan="1" class="confluenceTd"><p>Maschinencode</p></td></tr></tbody></table></div><h1 id="FunktionsweiseeinesComputers-Compiler&amp;Interpreter">Compiler &amp; Interpreter</h1><p>Der <strong>Compiler</strong> erzeugt <strong>vor</strong> dem Ausführen des Programms Plattform-abhängigen Maschinencode, der nur auf bestimmten Rechnerarchitekturen/Betriebssystemen ausgeführt werden kann. Das bedeutet, dass für jede Plattform ein eigenes Programm übersetzt werden muss.</p><p>Beispiel:</p><div class="table-wrap"><table class="wrapped relative-table confluenceTable" style="width: 32.2746%;"><colgroup><col style="width: 37.3794%;"/><col style="width: 30.3789%;"/><col style="width: 32.2894%;"/></colgroup><tbody><tr><th class="confluenceTh">Programmierer</th><th class="confluenceTh">Compiler</th><th class="confluenceTh">Ausgabe im Programm</th></tr><tr><td class="confluenceTd"><code>print(&quot;Hello World!&quot;);</code></td><td class="confluenceTd"><p><code>0010100011101110</code></p></td><td class="confluenceTd"><code>Hello World!</code></td></tr></tbody></table></div><pre><br/></pre><p>Der <strong>Interpreter</strong> hingegen interpretiert <em>zur Ausführungszeit</em>, sprich während das Programm läuft, den Maschinencode und übersetzt ihn &quot;live&quot;. Diese Programme sind plattformunabhängig, aber der Sourcecode bleibt unübersetzt und sichtbar, was in vielen Anwendungen nicht erwünscht ist.</p><p>Ob ein Compiler oder ein Intepreter verwendet wird, hängt von der jeweiligen Programmiersprache ab.</p><h2 id="FunktionsweiseeinesComputers-WieistdasbeiJava?">Wie ist das bei Java?</h2><p>Java geht hier einen kleinen &quot;Kompromiss&quot; ein:</p><ul style="list-style-type: square;"><li>Der Quellecode wird übersetzt in Bytecode, der plattformunabhängig verwendet werden kann.</li><li>Bytecode wird von einer &quot;virtuellen Maschine&quot; ausgeführt (interpretiert).</li><li>Die virtuelle Maschine gibt es in verschiedenen Versionen für verschiedene Plattformen (JVM = Java Virtual Machine, Teil des JRE = Java Runtime Environment).</li><li>Der Bytecode sorgt dafür, dass das Programm nicht mehr (Menschen-)lesbar ist, die JVM übersetzt den Bytecode in die speziellem Maschinenbefehle der CPU.</li></ul><p>Das ist für euch zum aktuellen Zeitpunkt gar nicht so relevant, es ist aber gut das schonmal gehört zu haben.</p><h2 id="FunktionsweiseeinesComputers-Syntax">Syntax</h2><p>Damit Compiler oder Interpreter in der Lage sind die Programmiersprache richtig zu übersetzen, ist es wichtig sich an gewisse Regeln und Vorgaben bei der Programmierung zu halten. Diese bezeichnet man auch als <strong>Syntax</strong>. Jede Programmiersprache hat ihre eigene Syntax. Hier findet ihr eine Übersicht über die Syntaxregeln von Java im Abschnitt <a href="24609473.html">Syntax &amp; Konventionen</a>.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Wichtig</strong>: <strong>Die Maschine denkt nicht mit!</strong> Wenn die Maschine etwas nicht versteht, dann kann sie den jeweiligen Befehl bzw. auch das gesamte Programm nicht ausführen. Aus diesem Grund muss Code immer <strong>korrekt</strong> und <strong>eindeutig</strong> sein!</div></div><p><br/></p><h1 id="FunktionsweiseeinesComputers-SpeicherundRegister">Speicher und Register</h1><p>Gerade haben wir gesagt, dass eine Maschine nicht mitdenkt. Sie führt blind einen Befehl nach dem anderen aus. Wir, als ProgrammiererInnen, geben der Maschine die Befehle und die Maschine führt die Befehle einfach &quot;blind&quot; aus.</p><h2 id="FunktionsweiseeinesComputers-Beispiel:Abakus">Beispiel: Abakus</h2><p>Stell dir einen Abakus vor, mit 4 Reihen. Diese nennen wir Register. Sie sind unsere &quot;Zahlenspeicher&quot;. Stell dir dabei den Abakus als <strong>Akteur </strong>vor, der Befehle blind ausführt.</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 41.0638%;"/><col style="width: 59.0278%;"/></colgroup><tbody><tr><td class="confluenceTd">Register 1</td><td class="confluenceTd">        </td></tr><tr><td class="confluenceTd">Register 2</td><td class="confluenceTd"><br/></td></tr><tr><td class="confluenceTd">Register 3</td><td class="confluenceTd"><br/></td></tr><tr><td colspan="1" class="confluenceTd">Register 4</td><td colspan="1" class="confluenceTd"><br/></td></tr></tbody></table></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><br/></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="100" src="attachments/24609437/40863373.png" data-image-src="attachments/24609437/40863373.png" data-unresolved-comment-count="0" data-linked-resource-id="40863373" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="abacus.png" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24609437" data-linked-resource-container-version="19" alt=""></span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Programmieren bedeutet in diesem Bespiel Anweisungen zu schreiben, die vom <strong>Akteur </strong>verstanden und ausgeführt werden.</p><p><strong>Beispiel 1: Addiere 2 Zahlen</strong></p><p>Anweisungen:</p><ol><li><p>Nimm die erste Zahl und &quot;speichere&quot; sie in Register 1 (also auf der obstersten Stange)</p></li><li><p>Nimm die zweite Zahl und &quot;speichere&quot; in Register 2 (2. Stange von oben)</p></li><li><p>Addiere beide Zahlen und &quot;speichere&quot; das Ergebnis ins (Ergebnis-) Register 3 (die 3. Stange)</p></li></ol><p>Wir sehen: Wir müssen nicht <em>jede mögliche</em> Addition fest in des Programm reinprogrammieren. Unabhängig davon welche Zahlen in Register 1 und 2 stehen, führt der Akteur den Befehl aus und liefert das Ergebnis.</p><p><br/></p><p><strong>Beispiel 2: Berechne den Mittelwert einer Liste positiver Zahlen und gebe die größte Zahl aus.</strong></p><p><strong>Liste</strong>: 13, 2, 456, 23, 53, 34, 91, 12</p><p><strong>Anweisungen:</strong></p><p><u>Version 1:</u></p><p>Das Register 1 soll verwendet werden, um die laufende Summe der Zahlen zu speichern, Register 2 soll die Anzahl der bearbeiteten Zahlen speichern und Register 3 speichert die größte der bearbeiteten Zahlen. Für jede Zahl aus der Liste ist folgendes zu tun: addiere sie zu Register 1; addiere den Wert 1 zu Register 2; wenn die aktuelle Zahl größer ist als die Zahl in Register 3, speichere sie in Register 3. Wenn alle Zahlen gelesen sind, dividiere die Zahl in Register 1 durch die Zahl in Register 2, um den Mittelwert zu errechnen, und lese die Zahl aus Register 3 als größte Zahl aus.</p><hr/><p>Dieser Fließtext ist allerings sehr unübersichtlich. Wenn wir ihn etwas strukturieren, ist er einfacher zu lesen:</p><p><u>Version 2:</u></p><p><code>Register 1 soll verwendet werden, um die laufende Summe der Zahlen zu speichern, <br/></code><code>Register 2 soll die Anzahl der bearbeiteten Zahlen speichern<br/></code><code>Register 3 speichert die größte der bearbeiteten Zahlen. </code></p><p><code>Für jede Zahl aus der Liste ist folgendes zu tun: <br/></code><code>         addiere sie zu Register 1; <br/></code><code>         addiere den Wert 1 zu Register 2; <br/></code><code>         wenn die aktuelle Zahl größer ist als die Zahl in Register 3, <br/></code><code>                  speichere sie in Register 3. </code></p><p><code>Wenn alle Zahlen gelesen sind, <br/></code><code>         dividiere die Zahl in Register 1 durch die Zahl in Register 2, um den Mittelwert zu errechnen <br/></code><code>         lese die Zahl aus Register 3 als größte Zahl aus.</code></p><hr/><p>Nun sind die Anweisungen übersichtlicher. Aber ist jede Zeile eine echte Anweisung? Sind alle Anweisungen klar?</p><p><span style="color: rgb(255,102,0);"><code>Register 1 soll verwendet werden, um die laufende Summe der Zahlen zu speichern, <br/></code><code>Register 2 soll die Anzahl der bearbeiteten Zahlen speichern<br/></code></span><code><span style="color: rgb(255,102,0);">Register 3 speichert die größte der bearbeiteten Zahlen.</span> </code></p><p><code><span style="color: rgb(51,102,255);">Für jede Zahl aus der Liste</span> ist folgendes zu tun: <br/></code><code>         addiere <span style="color: rgb(51,102,255);">sie</span> zu Register 1; <br/></code><code>         addiere den Wert 1 zu Register 2; <br/></code><code>         wenn die <span style="color: rgb(51,102,255);">aktuelle Zahl</span> größer ist als die Zahl in Register 3, <br/></code><code>                  speichere <span style="color: rgb(51,102,255);">sie</span> in Register 3. </code></p><p><code>Wenn alle Zahlen gelesen sind, <br/></code><code>         dividiere die Zahl in Register 1 durch die Zahl in Register 2, <span style="color: rgb(255,102,0);">um den Mittelwert zu errechnen</span> <br/></code><code>         lese die Zahl aus Register 3 als größte Zahl aus.</code></p><hr/><p>Anmerkungen:</p><ul><li>Die <strong><span style="color: rgb(255,102,0);">orange</span> </strong>markierten Zeilen sind Kommentare und für die Ausführung nicht wichtig. Die Maschine braucht sie nicht.</li><li>Die <strong><span style="color: rgb(0,0,255);">blau</span> </strong>markierten Stellen sind vage oder ungenau. Der Bezug auf die Liste in Zeile 4 setzt voraus, dass der Akteur Wissen über die Liste hat (Anfang, Ende, Beschaffenheit, ...). In den folgenden Zeilen ist die Bezeichnugn von &quot;die Zahl&quot; nicht eindeutig.</li><li>Außerdem wurden die Register nicht &quot;initialisiert&quot;, sprich es wurde kein Start-Wert eingetragen. Bei der ersten Durchführung würde dann in Zeile 6 die erste Zahl in der Liste mit Register 1 addiert werden - aber womit? In Register 1 befindet sich nichts. Hier muss der Startwert 0 eingetragen werden.</li></ul><p><br/></p><p><u>Version 3:</u></p><p><strong><span style="color: rgb(0,0,0);"><code>Speichere 0 in die Register 1, 2 und 3.</code></span></strong></p><p><span style="color: rgb(0,0,0);"><code>Lies <strong>die nächste Zahl</strong> aus der Liste.<br/></code></span><strong><span style="color: rgb(0,0,0);"><code>Falls keine ungelesene Zahl mehr vorhanden ist,<br/></code></span></strong><strong><span style="color: rgb(0,0,0);"><code>         sind wir fertig.</code></span></strong></p><p><span style="color: rgb(0,0,0);"><code>Andernfalls,<br/></code></span><span style="color: rgb(0,0,0);"><code>         speichere die Zahl in <strong>Register 4</strong>.<br/></code></span><span style="color: rgb(0,0,0);"><code>         Addiere Register 4 zu Register 1.<br/></code></span><span style="color: rgb(0,0,0);"><code>         Addiere den Wert 1 zu Register 2.<br/></code></span><span style="color: rgb(0,0,0);"><code>         Wenn Register 4 größer ist als Register 3,<br/></code></span><span style="color: rgb(0,0,0);"><code>                  speichere Register 4 in Register 3.</code></span></p><p><span style="color: rgb(0,0,0);"><code>Wenn wir fertig sind, <br/>         </code></span><span style="color: rgb(0,0,0);"><code>dividiere Register 1 durch Register 2 und drucke das Ergebnis.<br/></code></span><span style="color: rgb(0,0,0);"><code>         Drucke den Inhalt von Register 3.</code></span></p><hr/><p>Man könnte dieses Bespiel auch noch weiter verbessern und verfeinern, aber für den Moment reicht das erstmal. Anhand von diesem &quot;maschinennahem&quot; Beispiel können wir folgendes sehen:</p><ul><li>Anweisungen beim Programmieren müssen präzise und eindeutig sein - der Computer interpretiert nicht.</li><li>Der Detailgrad eines Programms geht weit über den Detailgrad von Anweisungen im normalen Leben hinaus.</li><li>Strukturierte Anweisungen sind besser lesbar und somit verständlicher.</li></ul><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="FunktionsweiseeinesComputers-Zusammenfassung">Zusammenfassung</h1><ul style="list-style-type: square;"><li>Das Kernstück eines Rechners ist die <strong>CPU</strong>. Die CPU verarbeitet Befehle in form von Maschinenbefehlen (bestehend 0 und 1)</li><li><strong>Compiler</strong> und <strong>Interpreter</strong> &quot;übersetzen&quot; Programmiersprachen in Maschinencode. Jede Plattformbenötigt ihre eigen Übersetzung.</li><li>Damit Compiler und Interpreter den Programmcode richtig übersetzen können, müssen Programmierer sich an <strong>Syntax</strong>-Vorgaben halten.</li><li>Computer (bzw. die CPU) speichert Daten in <strong>Registern</strong>. Diese können dann mit logischen oder arithmetischen Anweisungen verarbeitet werden.</li><li><strong>Programmieranweisungen</strong> muss präzise und eindeutig sein und weisen einen hohen Detailgrad auf.</li></ul></div></div></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609437/24609475.png">image2019-8-28_12-53-31.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609437/40863374.png">abacus.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609437/40863373.png">abacus.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609437/40863482.png">image.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609437/40863481.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Kollisionserkennung</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-3_24609610.html">Sprint 3</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Kollisionserkennung
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 23, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Wenn wir Programme schreiben, dann sollen Nutzer in der Regel mit diesen Programmen interagieren können. Eine kleine Einführung in Interaktion hatten wir bereits in vorherigen Sprints. Nun wollen wir weiter in das Thema einsteigen:</p><p>Das einfachste interaktive Element ist eine Form, die &quot;aktiv&quot; wird, sobald der Mauszeiger auf ihr liegt, und &quot;inaktiv&quot;, sobald der Mauszeiger wieder fort ist. Dazu müssen wir zunächst wissen, wie wir feststellen, dass der Mauszeiger auf einem Objekt liegt. Das nennt man auch <strong>Kollisionerkennung</strong> und ist in <strong>Computerspielen</strong> von hoher Bedeutung.</p><h1 id="Kollisionserkennung-Rechteck">Rechteck</h1><p>Kollisionserkennung zwischen einem Punkt (Mauszeiger) und eine Rechteck, das parallel zu den Achsen des Koordinatensystems liegt, ist sehr einfach. Wenn der Punkt (<code>x</code>, <code>y</code>) ist und das rechteck über <code>rx</code>, <code>ry</code>, <code>rwidth</code>, <code>rheight</code> definiert ist, dann liegt eine Kollision vor, wenn die folgenden zwei Bedingungen gelten (bei <code>rectMode(CORNER)</code>) :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rx &lt;= x &amp;&amp; x &lt;= rx + rwidth // Ausformuliert: x liegt zwischen rx und rwidth  
+ry &lt;= y &amp;&amp; y &lt;= ry + rheight // Ausformuliert: y liegt zwischen ry und rheight</pre>
+</div></div><p>Im Code sieht das so aus (statt <code>x</code>, <code>y</code> findest du <code>mouseX</code>, <code>mouseY</code>):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// interface_1
+// Kollision mit Rechteck (Selektion per Rollover)
+
+int rx = 50;
+int ry = 50;
+int rwidth = 150; // Breite
+int rheight = 200; // Höhe
+
+void setup() {
+  size(300, 300);
+  noStroke(); // Das bedeutet: Das Rechteck hat keinen Rand
+}
+
+void draw() {
+
+  // setze Füllfarbe ...
+  if (rx &lt;= mouseX &amp;&amp; 
+      ry &lt;= mouseY &amp;&amp; 
+      mouseX &lt;= rx + rwidth &amp;&amp;
+      mouseY &lt;= ry + rheight) {
+    // ... wenn Mauszeiger im Rechteck =&gt; rot
+    fill(255, 0, 0);
+  }
+  else {
+    // ... sonst: weiß
+    fill(255);
+  }
+  rect(rx, ry, rwidth, rheight);
+}</pre>
+</div></div><p><br/></p><p>Kopiere diesen Code in Processing und du wirst sehen: Das Rechteck wird rot, sobald du mit der Maus drüber fährst.<em><br/></em></p><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Tip: </strong>Sieh dir an, wie die Bedingung in des if-Anweisung geschrieben wurde. Was fällt dir auf? Richtig: Hinter dem <code>&amp;&amp;</code> beginnt immer eine neue Zeile. Das ist eine <em>Codestyle Konvention</em>, die deinen Code übersichtlicher macht. Die Konvention lautet:</p><p><em>     Wenn eine Bedingung aus mehreren booleschen Ausdrücken besteht, dann wir mit jedem Logik-Operator eine neu Zeile begonnen.</em></p></div></div><p><br/></p><h1 id="Kollisionserkennung-Kreis">Kreis</h1><p>Kollisionserkennung zwischen einem Punkt und einem <strong>Kreis</strong> ist sogar<em> noch einfacher.</em> Dazu vergleicht man die Distanz des Punkts (<code>x</code>, <code>y</code>) mit dem Mittelpunkt (<code>cx</code>, <code>cy</code>) des Kreises. Ist die Distanz geringer als der Radius, so ist der Punkt im Kreis:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">dist(x, y, cx, cy) &lt; radius</pre>
+</div></div><p>Die Funktion <code>dist()</code> berechnet den Abstand zweier Punkte. Im folgenden Code nehmen wieder <code>mouseX</code>, <code>mouseY</code> den Platz von <code>x</code>, <code>y</code> ein und der Radius errechnet sich aus <code>diameter/2</code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// interface_2
+// Kollision mit Kreis (Selektion per Rollover)
+
+int cx = 170;
+int cy = 160;
+int diameter = 180; // Durchmesser
+
+void setup() {
+  size(300, 300);
+  noStroke();
+}
+
+void draw() {
+  // setze Füllfarbe ...
+  if (dist(mouseX, mouseY, cx, cy) &lt; diameter/2) {
+    // ... wenn Mauszeiger im Rechteck =&gt; rot
+    fill(255, 0, 0);
+  }
+  else {
+    // ... sonst: weiß
+    fill(255);
+  }
+  ellipse(cx, cy, diameter, diameter);
+}</pre>
+</div></div><p><br/></p><p><em><br/></em></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Kollisionserkennung-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Kollisionserkennung-Farb-Buttons">Farb-Buttons</h4><p>Erstelle drei weiße Buttons mit den Beschriftungen &quot;Rot&quot;, &quot;Grün&quot; und &quot;Blau&quot;.</p><ul><li>Solange der Mauszeiger über einem der Buttons schwebt, soll der entsprechende Button hellgrau sein.</li><li>Wenn der User auf einen der Buttons klickt, soll der Hintergrund die entsprechende Farbe annehmen.</li><li>Wenn der User außerhalb der Buttons auf den Hintergrund klickt, wird dieser wieder grau.</li></ul><h4 id="Kollisionserkennung-ÜberlappendeButtons">Überlappende Buttons</h4><p>Du hast zwei Quadrate mit Seitenlänge 50px. Färbe den &quot;Mauszeiger&quot; (Kreis) farbig ein, sobald er innerhalb der Bereiche ist. Konkret: <strong>rot</strong> im ersten Quadrat, <strong>grün</strong> im zweiten Quadrat und <strong>blau</strong> in der Schnittmenge.</p><p>Verwende den Basiscode und versuche, den Code so zu schreiben, dass das Programm auch funktioniert, wenn man die Werte von x1, y1, x2, y2 ändert.</p><p>Basiscode:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x1 = 30;
+int y1 = 10;
+int x2 = 10;
+int y2 = 40;
+
+void draw() {
+  background(255);
+  noFill();
+  rect(x1, y1, 50, 50);
+  rect(x2, y2, 50, 50);
+
+  ellipse(mouseX, mouseY, 20, 20);
+}</pre>
+</div></div><h4 id="Kollisionserkennung-KollisionPunkt-Linie">Kollision Punkt-Linie</h4><p>Gegeben sind ein Punkt <strong>a</strong> und eine Linie <strong>b</strong>. Die Linie kannst du mit den Pfeiltasten bewegen. Ergänze den Basiscode unten so, dass immer sich die Linie unterhalt des Punkts (also nicht links oder rechts davon) befindet, die Linie rot gefärbt erscheint.</p><p>Hier ist der Basiscode. Fokussiere dich ganz bewusst auf die x-Werte.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float ax = 50; // x-Position von Punkt a
+
+float bx = 5; // x-Position des Startpunkts der Linie b
+float bwidth = 30; // Breite der Linie b
+
+void draw() {
+  background(0);
+  strokeWeight(5);
+
+  stroke(0,255,0);
+  point(ax, 50);
+
+  stroke(255);
+
+  // HIER DEINCODE
+
+  line(bx, 60, bx+bwidth, 60);
+
+  if (keyPressed) {
+    if (keyCode == LEFT) {
+      bx -= 2;
+    } else if (keyCode == RIGHT) {
+      bx += 2;
+    }
+  }
+}</pre>
+</div></div><h4 id="Kollisionserkennung-KollisionLinie-Linie">Kollision Linie-Linie</h4><p>Wir erweitern das Szenario aus der letzten Aufgabe so, dass <strong>a</strong> jetzt auch eine Linie ist. Wie musst du den Code erweitern, damit die untere Linie <strong>b</strong> immer dann rot wird, während sich die beiden Linien <strong>überschneiden</strong>?</p><p>Und wieder Basiscode:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float ax = 60; // x-Position des Startpunkts der Linie a
+float awidth = 30; // Breite der Linie a
+
+float bx = 5; // x-Position des Startpunkts der Linie b
+float bwidth = 40; // Breite der Linie b
+
+void setup() {
+  size(150, 100);
+}
+
+void draw() {
+  background(0);
+  strokeWeight(4);
+
+  stroke(0,255,0);
+  line(ax, 50, ax+awidth, 50);
+
+  stroke(255);
+
+  // HIER DEIN CODE
+
+  line(bx, 60, bx+bwidth, 60);
+
+  if (keyPressed) {
+    if (keyCode == LEFT) {
+      bx -= 2;
+    } else if (keyCode == RIGHT) {
+      bx += 2;
+    }
+  }
+}</pre>
+</div></div></div></div><h1 id="Kollisionserkennung-Mini-GameChallenge"><br/>Mini-Game Challenge</h1><p>Hier siehst du zwei Programmieraufgaben für Mini-Games. Beides Aufgaben sind etwas aufwändiger als die normalen Übungsaufgaben, aber eben auch sehr lehrreich, da du hier viele Programmierfertigkeiten üben und einbinden kannst. Und am Ende kommt ein richtiges kleines Mini-Game raus. Nutze diese Challenge zum üben - was du hier lernst, kannst du ebenso in eurem Projekt anwenden.</p><h2 id="Kollisionserkennung-Pong🏓">Pong 🏓</h2><p>Programmiere den Spiele-Klassiker Pong als Ein-Spieler-Version.</p><ul><li>Zunächst soll auf dem Bildschirm &quot;PRESS SPACE&quot; stehen. Sobald der Spieler die Leertaste drückt, geht das Spiel los und der Text verschwindet.</li><li>Der &quot;Schläger&quot; des Spielers soll am unteren Bildschirmrand sein. Der Ball prallt links, rechts und oben ab. Wenn der Ball den unteren Rand berührt und dem Spieler sozusagen &quot;entwischt&quot;,  ist das Spiel zu Ende und es wird wieder &quot;PRESS SPACE&quot; angezeigt.</li></ul><p><strong>Tipps:</strong> Um die Kollision zwischen &quot;Ball&quot; und dem Balken zu berechnen, helfen dir vielleicht die zwei vorigen Aufgaben. Um den Zustand &quot;Game Over&quot; vom eigentlichen Spiel zu trennen, verwendest du eine boolesche Variable <code>gameOver</code>, die anfangs <code>false</code> ist. In draw() packst dann gleich zu Beginn ein <code>if (gameOver) ...</code>, wo entweder der Schriftzug &quot;Press SPACE&quot; gezeigt wird oder (im Else-Teil) das Spiel verarbeitet wird.</p><h2 id="Kollisionserkennung-Raincatcher🌧️☔">Raincatcher <span class="emoji">🌧️☔</span></h2><p>Wir schreiben das Spiel &quot;Raincatcher&quot;. Es geht darum, einen Eimer zu steuern, der Regentropfen einfängt.</p><p>Achte darauf, deine Variablen &quot;gut&quot; zu benennen, damit du im weiteren Verlauf nicht den Überblick verlierst. Also besser <code>eimerX</code> statt <code>ex</code> oder <code>x</code>.</p><h3 id="Kollisionserkennung-Eimer">Eimer</h3><p>Programmiere einen &quot;Eimer&quot;, den du mit den Cursortasten (links/rechts) steuern kannst. Achte darauf, dass der Eimer flüssig nach links und rechts fährt, und dass er nie die Grenzen des Bildschirms verlässt.</p><h3 id="Kollisionserkennung-Tropfen">Tropfen</h3><p>Programmiere die Tropfen: Drei Tropfen (oder andere Gegenstände) fliegen von oben nach unten. Der x- und y-Startpunkt sind beide zufällig zu Beginn (verwende die Funktion <code>random()</code> von Processing). Sobald ein Tropfen den Boden erreicht, verschwindet er und ein &quot;neuer&quot; Tropfen erscheint an zufälliger Position am oberen Rand, mit einer zufälligen neuen Farbe. Vermeide es, dass Tropfen am Rand &quot;angeschnitten&quot; erscheinen.</p><p><strong>Tipp:</strong> Beginne mit einem einzigen Tropfen.</p><h3 id="Kollisionserkennung-Tropfenfangen">Tropfen fangen<em><br/></em></h3><p>Jetzt kannst du deine Regentropfen einsammeln! Zähle einen Punkt hoch, wenn du einen Tropfen fängst. Zähle ein &quot;Leben&quot; runter, wenn dir ein Tropfen entwischt. Beginne evtl. nur mit einem Tropfen. Das Programm wird bereits recht umfangreich. Achte also auf gute Kommentierung und gute Benennung deiner Variablen.</p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

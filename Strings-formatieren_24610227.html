@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Strings formatieren</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-4_24609612.html">Sprint 4</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Strings formatieren
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Nov 01, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Stringsformatieren-Formatierenmitformat()">Formatieren mit format()</h1><p>Immer wieder müssen Zahlen, Datumsangaben und Text auf verschiedenste Art und Weise formatiert werden. Die Klasse <em><span class="clisting">String</span> </em>stellt mit der Methode<code> <span class="clisting">format()</span> </code>eine Möglichkeit bereit, Zeichenketten nach einer Vorgabe zu formatieren.</p><p>Die grundlegende Schreibweise ist wie folgt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Deklaration &amp; Initialisierung 
+String s = String.format(TEXT, ARGUMENTE);
+
+// Ausgabe
+println(String.format(TEXT, ARGUMENTE));
+</pre>
+</div></div><p>Dabei ist <code>TEXT</code>, der Text, der formatiert werden soll, auch <strong>Format-String</strong> genannt. Die <code>ARGUMENTE</code> sind Werte, die in den <code>TEXT</code> eingefügt werden können.</p><p>Schau dir einmal folgendes Beispiel an:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String s = String.format( &quot;Hallo %s. Es gab einen Anruf von %s.&quot;, &quot;Chris&quot;, &quot;Joy&quot; );
+println( s );           // Hallo Chris. Es gab einen Anruf von Joy.</pre>
+</div></div><pre class="prettyprint"><span class="com"><br/></span></pre><p><strong>Erläuterung</strong></p><ul><li>Der erste übergebene String ist der <strong><span class="ckursiv">Format-String</span></strong>.<ul><li>Er enthält neben auszugebenden Zeichen weitere so genannte <strong><span class="ckursiv">Format-Spezifizierer</span></strong>, die dem Formatierer darüber Auskunft geben, <em>wie</em> er das Argument <em>formatieren</em> soll. <code><span class="clisting">%s</span></code> steht für eine <em>unformatierte</em> Ausgabe eines <em>Strings</em>.</li></ul></li><li>Nach dem Format-String folgen <strong>Argumente </strong>mit den Werten, auf die sich die Format-Spezifizierer beziehen.<ul><li>In diesem Fall sind dies Arguemente zwei <em>Strings</em> (&quot;Chris&quot; und &quot;Joy&quot;), die an die Stellen der <em>Format-Spezifierer</em> eingefügt werden.</li></ul></li></ul><h1 id="Stringsformatieren-Format-Spezifierer">Format-Spezifierer</h1><p>Schauen wir uns den <strong>Format-String</strong> mal genauer an. Er besteht aus Literalen (im Beispiel oben ist das &quot;Hallo&quot; und &quot;Es gab einen Anruf&quot;) und <strong>Format-Spezifizieren</strong>.  <br/>Format-Spezifizierer bestehen aus<strong> Flags, Breite, Genauigkeit und Konvertierungszeichen </strong>in dieser Reihenfolge:</p><p><code class="text plain">%[flags][breite][.genauigkeit]konvertierungszeichen</code></p><p>Die Formatspezifizierer in den eckigen Klammern sind <em>optional</em>.</p><h2 id="Stringsformatieren-Konvertierungszeichen">Konvertierungszeichen</h2><p><strong>Das Konvertierungszeichen ist zwingend erforderlich und legt fest, wie das Argument formatiert ist. </strong>Konvertierungszeichen sind nur für bestimmte Datentypen gültig. Ein paar wichtige sind folgende:</p><ul><li><em>s </em>– formatiert Strings</li><li><em>d</em> – formatiert Ganz- bzw. Dezimalzahlen</li><li><em>f</em> – formatiert Gleitkommakommazahlen</li><li><em>t </em>– formatiert Datum und Zeit</li><li>b – formatiert Wahrheitswerte</li></ul><p>Wir schauen uns diese später noch genauer an.</p><h2 id="Stringsformatieren-OptionaleModifikatoren">Optionale Modifikatoren</h2><p>Die anderen Modifikatoren sind optional:</p><ul><li><strong><em>[flags]</em> definieren standardisierte Wege die Ausgabe zu formatieren </strong>und werden am häufigsten für Integers und Gleitkommazahlen verwendet.</li><li><strong><em>[breite]</em> legt die Breite für das Argument fest.</strong> Die Zahl legt das Minimum an Zeichen fest, die in der Ausgabe vorkommen müssen.</li><li><strong><em>[.genauigkeit] </em>legt die Nummer an Zeichen für die Genauigkeit  bei Gleitkommazahlen fest. </strong>Außerdem können wir damit die Länge eines Substrings festlegen.<strong><br/></strong></li></ul><h2 id="Stringsformatieren-Zeilenumbruch">Zeilenumbruch</h2><p>Für einen Zeilenumbruch haben wir den %n Spezifierer:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">System.out.printf(&quot;Java%nZeilen%numbruch&quot;);
+// Ausgabe:
+// Java
+// Zeilen
+// umbruch</pre>
+</div></div><h1 id="Stringsformatieren-BooleanFormatierung">Boolean Formatierung</h1><p><strong>Um Booleans zu formatieren verwenden wir %b. </strong>Das funktioniert wie folgt: Wenn der <strong>Wert </strong><code>true</code> ist, wird <code>true</code> ausgegeben. Ansonsten wir <code>false</code> ausgegeben.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;%b%n&quot;, null));           // Ausgabe false
+print(String.format(&quot;%B%n&quot;, false));          // Ausgabe FALSE
+print(String.format(&quot;%B%n&quot;, 5.3));            // Ausgabe TRUE
+print(String.format(&quot;%b%n&quot;, &quot;random text&quot;));  // Ausgabe true</pre>
+</div></div><pre><br/></pre><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Hinweis:</strong> Wir können %B verwenden, um die Ausgabe in Großbuchstaben zu konvertieren. </div></div><h1 id="Stringsformatieren-StringFormatierung">String Formatierung</h1><p><strong>Um einen einfachen String zu formatieren, verwenden wir s%.  </strong>Auch hier können wir %S verwenden, um Großbuchstaben zu erhalten:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;&#39;%s&#39; %n&quot;, &quot;Processing&quot;)); // Ausgabe &#39;Processing&#39;
+print(String.format(&quot;&#39;%S&#39; %n&quot;, &quot;Processing&quot;)); // Ausgabe &#39;PROCESSING&#39;</pre>
+</div></div><p>Wir können auch eine minimale <em>Breite</em> festlegen, also wie lang der String mindestens sein soll. Der String wird dann mit Leerzeichen &quot;aufgefüllt&quot;:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;Ich lerne &#39;%15s&#39;&quot; %n&quot;, &quot;Processing&quot;)); // Ausgabe: Ich lerne &#39;     Processing&#39;!</pre>
+</div></div><p>Wenn wir unseren String linksbündig haben wollen, können wir das '-' <em>Flag</em> verwenden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;Ich lerne &#39;%-15s&#39;! %n&quot;, &quot;Processing&quot;)); // Ausgabe: Ich lerne &#39;Processing     &#39;! </pre>
+</div></div><p>Wir können auch ein Limit an Zeichen festlegen indem wir <em>Genauigkeit </em>verwenden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;Ich lerne &#39;%6.4s&#39;! %n&quot;, &quot;Processing&quot;)); // Ausgabe: Ich lerne &#39;  Proc&#39;!</pre>
+</div></div><p>Die 4 gibt an, wieviele Zeichen wir von dem String haben wollen. 4 Zeichen bedeutet bei uns die ersten 4 Buchstaben von <em>Processing</em>, sprich <em>Proc</em>. <br/>Die 6 ist <em>optional</em> und gibt an, wieviele Zeichen der String haben soll, den wir als Ausgabe zurückbekommen. Ist diese Zahl höher, als die Zahl nach dem Punkt, werden Leerzeichen eingefügt. In diesem Fall werden 2 Leerzeichen <strong>vor</strong> <em>Proc</em> eingefügt.</p><h1 id="Stringsformatieren-GanzzahlFormatierung">Ganzzahl Formatierung</h1><p>Die format Funktion akzeptiert alle Ganzahlen, die in Java vorkommen (byte, short, int, long). Für diese verwenden wir %d:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;eine Ganzzahl: %d%n&quot;, 10000)); // Ausgabe: eine Ganzzahl: 10000</pre>
+</div></div><p>Wenn wir ein Tausender-Trennzeichen in unserer Zahl möchten, können wir die &quot;,&quot; <em>flag</em> verwenden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;eine Ganzzahl: %,d%n&quot;, 10000)); // Ausgabe: eine Ganzzahl: 10.000</pre>
+</div></div><p>Eine weitere mögliche <em>flag</em> ist die Klammer. Wir können problemlos flags kombienieren, wenn wir mehrere verwenden möchten. Die Reihenfolge der flags ist egal:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;eine Ganzzahl: %(,d%n&quot;, 10000)); // Ausgabe: eine Ganzzahl: (10.000)
+print(String.format(&quot;eine Ganzzahl: %,(d%n&quot;, 10000)); // Ausgabe: eine Ganzzahl: (10.000)</pre>
+</div></div><h1 id="Stringsformatieren-FloatundDoubleFormatierung">Float und Double Formatierung</h1><p>Um eine Fließkommazahl zu formatieren benötigen wir %f:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;%f%n&quot;, 5.1473f)); // Ausgabe: 5,147300</pre>
+</div></div><p>Wir sehen, dass der %f Spezifierer standardmäßig 6 Nachkommastellen darstellt. Um das zu vermeiden müssen wir die <em>Genauigkeit</em> anpassen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;%7.2f%n&quot;, 125.1473f)); // Ausgabe: 125,15</pre>
+</div></div><p>Hier legen wir mit 7 die Breite der Zahl fest und mit 2 die Nachkommastellen. Die Breite von 7 hat hier die Folge, dass vor der Zahl 1 Leerzeichen ist. Dieses können wir auch mit Nullen füllen, indem wir vor die 7 eine 0 setzen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;%07.2f%n&quot;, 125.1473f)); // Ausgabe: 0125,15</pre>
+</div></div><pre><br/></pre><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Hinweis</strong>: Das Komma wird hier auch als Zeichen für die Breite gewertet.</div></div><p>Auf diese Weise können wir Zahlen aufgeben, die alle dieselbe Breite haben unabhängig davon wieviele Zeichen sie tatsächlich haben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">print(String.format(&quot;%07.1f%n&quot;, 1.1d));     // Ausgabe: 00001,1
+print(String.format(&quot;%07.1f%n&quot;, 10.1d));    // Ausgabe: 00010,1
+print(String.format(&quot;%07.1f%n&quot;, 100.1d));   // Ausgabe: 00100,1
+print(String.format(&quot;%07.1f%n&quot;, 1000.1d));  // Ausgabe: 01000,1
+print(String.format(&quot;%07.1f%n&quot;, 10000.1d)); // Ausgabe: 10000,1
+</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Hinweis</strong>: Ist die hinter den Gleitkommazahlen das f bzw. das d aufgefallen? Bei einer Gleitkommazahl kann es sich ja <em>entweder </em>um einen float oder einen double handeln. Damit dein Progamm funktioniert musst du der format Funktion <em>genau</em> sagen, was du meinst. Das kannst du mithilfe der Buchstaben. Hängst du an die Kommazahl ein f, dann behandelt und speichert dein Programm die Zahl als float, mit einem d hingegen wird sie als double interpretiert.</div></div><h1 id="Stringsformatieren-VariableninFormat-Spezifieren">Variablen in Format-Spezifieren</h1><p>In manchen Fällen kann es vorkommen, dass ein String, der mithilfe von format formatiert wird z.B. ein <em>variable</em> Breite haben soll. Auch das ist möglich. Da es sich beim ersten Parameter in der format Funktion um einen &quot;ganz normalen&quot; String handelt, kannst du in diesen String auch genau so wie du es bisher kennst, Variablen einbinden mithilfe der Stringverkettung.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int kommastellen = 1;
+
+while (kommastellen &lt; 4) {
+  print(String.format(&quot;%.&quot;+kommastellen+&quot;f%n&quot;, 1f));  
+  kommastellen++;
+}
+
+// Ausgabe: 
+// 1,0
+// 1,00
+// 1,000
+</pre>
+</div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Stringsformatieren-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Stringsformatieren-Durchzählen">Durchzählen</h4><p>Schreibe Code, der mithilfe einer For-Schleife von 0 bis 100 in 10er-Schritten durchzählt und die jeweilige Zahl ausgibt. Die Zahlen sollen alle eine Breite von 3 Zeichen haben und die Leerzeichen sollen mit Nullen gefüllt werden. Außerdem sollen alle Zahlen 2 Nachkommastellen haben.</p><p>Verwende hierfür die format-Funktion. Die Ausgabe sollte wie folgt aussehen:</p><pre>000,00<br/>010,00<br/>020,00<br/>030,00<br/>040,00<br/>050,00<br/>060,00<br/>070,00<br/>080,00<br/>090,00<br/>100,0</pre><p><strong>Taschenrechner</strong></p><p>Schreibe eine Funktion <code>add()</code>, die zwei Kommazahlen als String übergeben bekommt, diese in einen float parst/konvertiert (siehe <a href="Strings-verarbeiten_24610226.html">Strings verarbeiten</a>) und diese Zahlen dann addiert. Die Funktion soll als Rückgabewert die Rechenoperation (also a + b = c) ausgeben. Dabei sollen die Zahlen ...</p><ul style="list-style-type: square;"><li>eine Breite von 10 haben (der Rest soll mit Leerzeichen gefüllt werden)</li><li>eine Genaugikeit von 3</li><li>Tausendertrennzeichen aufweisen.</li></ul><p>Teste deinen Code mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup () {
+  println(add(&quot;2.50&quot;, &quot;600.432&quot;));
+  println(add(&quot;30000.20000003&quot;, &quot;123.456&quot;));
+  println(add(&quot;-3&quot;, &quot;2.01&quot;));
+}
+
+// Ausgabe: 
+//      2,500 +    600,432 =    602,932
+// 30.000,199 +    123,456 = 30.123,654
+//     -3,000 +      2,010 =     -0,990
+</pre>
+</div></div></div></div><pre><br/></pre><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Stringsformatieren-Zusammenfassung">Zusammenfassung</h1><p>In diesem Abschnitt haben wir gelernt, wie wir Strings formatieren können. <code> format()</code> formatiert einen Format-String mithilfe von Format-Spezifizieren und Argumenten:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">String s = String.format(TEXT, ARGUMENTE);</pre>
+</div></div><p><strong>Format-Spezifizierer </strong>bestehen <strong>aus Flags, Breite, Genauigkeit und Konvertierungszeichen</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">%[flags][breite][.genauigkeit]konvertierungszeichen </pre>
+</div></div><ul style="list-style-type: square;"><li><strong>Flags</strong>: Typische flags sind z.B. das Minus-Zeichen (-),  das Komma (,) als Tausender-Trennzeichen, das Leerzeichen (' ') bzw. die Null (0) und die Klammer (</li><li><strong>Breite</strong>: Gibt an wie breit (wieviele Zeichen) der String sein soll. Hier werden auch Kommas und Nachkommastellen miteinberechnet</li><li><strong>Genaugikeit</strong>: Gibt die Nachkommastellen an</li><li><strong>Konvertierungszeichen: </strong>Legt fest von welchem Typ der vorliegende Wert ist, z.B. float, int oder boolean. Wird das Konvertierungszeichen groß geschrieben, wird auch der String groß geschrieben.</li></ul></div></div><pre class="console">
+</pre><p><br/><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

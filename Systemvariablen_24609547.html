@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Systemvariablen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Systemvariablen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Processing ist so freundlich, dir eine Handvoll Variablen zu &quot;schenken&quot;. Das bedeutet: diese Variablen sind immer vorhanden, du brauchst sie nicht deklarieren oder setzen, sondern du verwendest sie nur. Zum Beispiel, um die aktuelle Position der Maus rauszukriegen oder um die Bildschirmbreite zu erfahren.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Achte darauf, dass du dein Variablen <strong>nicht so benennst wie Systemvariablen</strong> und dass du Systemvariablen nie selbst setztst.</div></div><h1 id="Systemvariablen-GrößedesGrafikfensters">Größe des Grafikfensters</h1><p>Hier ein Beispiel, wo du ein Rechteck malst, das das linke obere Viertel des Bildschirms besetzt. Benutze die Systemvariablen <code>
+                width
+            </code> und <code>
+            height</code>, welche die Breite und Höhe deines Grafikfensters beinhalten:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(0, 0, width/2, height/2);</pre>
+</div></div><pre>
+</pre><p>Achte darauf, <strong>dass die Systemvariablen <code>width</code> und <code>height</code> erst ab <code>setup()</code> zur Verfügung stehen</strong> und auch dort sinnvollerweise erst nach dem Kommando <code>size()</code> abgegriffen werden sollten. Das heißt, dass dieser Code nicht funktionieren wird:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int w = width;  // Problem! width noch nicht gesetzt!
+int h = height; // Problem! height noch nicht gesetzt!
+
+void setup() {
+}
+
+void draw() {
+  ellipse(w/2, h/2, 40, 40);
+}</pre>
+</div></div><pre>
+</pre><h1 id="Systemvariablen-PositionderMaus">Position der Maus</h1><p>Anderes typisches Beispiel: Ein Kreis soll an deiner Maus kleben. Dazu verwendest du <code>
+            mouseX
+        </code> und <code>
+            mouseY
+        </code> :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+}
+
+void draw() {
+  background(255); // wir wollen ja keine Schlieren
+  ellipse(mouseX, mouseY, 20, 20);
+}</pre>
+</div></div><pre><br/></pre><h1 id="Systemvariablen-Refresh-Geschwindigkeit">Refresh-Geschwindigkeit</h1><p>Einen Aufruf von <code>draw()</code> nennt man auch einen <strong>Frame</strong>. Das kommt aus der Filmbranche, ein Frame ist ein Einzelbild eines Films. Normalerweise wird <code>draw()</code> 60 Mal pro Sekunde aufgerufen. Diese 60 nennt man auch die <strong>frame rate</strong>. Dies ist allerdings nur das Idealverhalten. Wenn du viele Programme laufen hast, die viel Rechenzeit benötigen, wird dieser Wert unterschritten. In der Variable <code>
+            frameRate
+        </code> steht der derzeit erreichte Wert. Den kann man sich ruhig mal anzeigen lassen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">void setup() {
+}
+
+void draw() {
+  println(frameRate);
+}</pre>
+</div></div><pre><br/></pre><p>Überfordere auch mal den Rechner und sieh, wo die Grenzen liegen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">void setup() {
+  frameRate(100000); // setze meine gewünschte frame rate
+}
+
+void draw() {
+  println(frameRate); // zeige echte frame rate
+}</pre>
+</div></div><pre><br/></pre><h1 id="Systemvariablen-Übersicht:NützlicheSystemvariablen">Übersicht: Nützliche Systemvariablen</h1><p>Hier eine Liste nützlicher Systemvariablen. Jede dieser Variablen hat auch einen Datentyp.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Systemvariable/n</th><th class="confluenceTh">Typ</th><th class="confluenceTh">Beschreibung</th></tr><tr><td class="confluenceTd"><code>mouseX, mouseY</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">aktuelle Position des Mauszeigers</td></tr><tr><td class="confluenceTd"><code>pmouseX, pmouseY</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">Position des Mauszeigers im vorherigen Frame</td></tr><tr><td class="confluenceTd"><code>width, height</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">Pixelgröße des Grafikfensters (Breite und Höhe)</td></tr><tr><td class="confluenceTd"><code>frameRate</code></td><td class="confluenceTd"><code>float</code></td><td class="confluenceTd">Anzahl der Frames pro Sekunde, d.h. wie oft draw() aufgerufen wird</td></tr><tr><td class="confluenceTd"><code>frameCount</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">Anzahl der bisherigen Aufrufe von draw() seit Programmstart</td></tr><tr><td class="confluenceTd"><code>keyPressed</code></td><td class="confluenceTd"><code>boolean</code></td><td class="confluenceTd">ob eine Taste derzeit gedrückt ist</td></tr><tr><td class="confluenceTd"><code>key</code></td><td class="confluenceTd"><code>char</code></td><td class="confluenceTd">zuletzt gedrückte Taste</td></tr><tr><td class="confluenceTd"><code>keyCode</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">zuletzt gedrückte Taste als Zahlencode (z.B. für Cursortasten)</td></tr><tr><td class="confluenceTd"><code>mousePressed</code></td><td class="confluenceTd"><code>boolean</code></td><td class="confluenceTd">ob ein Mausbutton derzeit gedrückt ist</td></tr><tr><td class="confluenceTd"><code>mouseButton</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">welche der Maustasten aktuell gedrückt ist</td></tr><tr><td class="confluenceTd"><code>displayHeight, displayWidth</code></td><td class="confluenceTd"><code>int</code></td><td class="confluenceTd">Maße des <em>gesamten Bildschirms</em> in Pixeln</td></tr></tbody></table></div><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Systemvariablen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Systemvariablen-Zeichen-Ticker">Zeichen-Ticker</h4><p>Zeichne das Zeichen der zuletzt gedrückten Taste in die Mitte des Fensters.</p><h4 id="Systemvariablen-Mitte">Mitte</h4><p>Zeichne einen Kreis genau in die Mitte des Fensters (Größe 111 x 77). Verwende dazu <code>width</code> und <code>height</code>. Wenn du die Fenstergröße änderst, sollte der Kreis immer in der Mitte bleiben, ohne dass du den Ellipse-Befehl änderst.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/var_sys_ue2.png" data-image-src="https://michaelkipp.de/processing/img/var_sys_ue2.png"></span></p><h4 id="Systemvariablen-Zähler">Zähler</h4><p>Mithilfe von <code>frameRate()</code> und  <code>frameCount</code>  kannst dueinen Sekundenzähler realisieren. Bei Mausklick soll der Zähler auf 0 springen.</p></div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 class="auto-cursor-target" id="Systemvariablen-Zusammenfassung">Zusammenfassung</h1><ul style="list-style-type: square;"><li class="auto-cursor-target"><strong>Systemvariablen</strong> sind Variablen, die vom System (in unserem Fall Processing) zur Verfügung gestellt und berechnet werden.</li><li class="auto-cursor-target">Systemvariablen sollten nur <strong>verwendet</strong> und <strong>niemals selber gesetzt werden</strong>.</li><li class="auto-cursor-target"><strong>Eigene</strong> <strong>Variablen</strong> sollten <strong>niemals den selben Namen</strong> wie eine Systemvariable haben.</li></ul></div></div><h1 id="Systemvariablen-"><strong class="auto-cursor-target"><br class="auto-cursor-target"/></strong></h1>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

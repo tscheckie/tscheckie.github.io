@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Einfache Arrays</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Einfache Arrays
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In diesem Kapitel lernen wir, wie man viele Informationen in <em>einem</em> Konstrukt abspeichert. Zum Beispiel wollen wir in einem Spiel 10 Bälle fliegen lassen und wollen für alle Bälle die x-Koordinate speichern. Wir wollen aber nicht 10 verschiedene Variablen anlegen, sondern lieber eine Variable, in der alle Daten drin sind.</p><h1 id="EinfacheArrays-Becherhalter">Becherhalter</h1><p>Jeder von uns war bestimmt schonmal bei McDonalds und Co. und hat sich dort ein Getränk zum mitnehmen geholt. Das zu transportieren ist kein Problem - immerhin hast du ja zwei Hände und ein Getränk. Also immer noch eine Hand frei. Aber was ist, wenn du deinem Kumpel ein Getränk mitbringen möchtest? 2 Hände, 2 Getränke - geht schon noch. Aber was ist, wenn du 3, 4, 5, etc. Getränke mitnehmen möchtest? Dann bekommst du einen schönen Becherhalter mit. Der macht es dir um einiges leichter viele Getränke zu transportieren.</p><p>Mit <strong>Arrays</strong> ist das ganz ähnlich. Wir haben schon gelernt, dass Variablen <strong>Container</strong> sind - also in unserem Beispiel sowas wie <strong>Becher</strong>. Das was in der Variable drin ist, ist ihr <strong>Wert</strong>. Bei uns wäre das Cola, Fanta, Kaffee, etc. Ein <strong>Array</strong> ist dann sowas wie ein <strong>Becherhalter</strong> - es hält <strong>mehrere</strong> <strong>Variablen</strong> <strong>der selben Art</strong> in einer Konstruktion - und ist dabei <strong>selber eine Variable</strong> (also eine Art Container).</p><p><span class="confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-right" draggable="false" width="100" src="attachments/24610785/40862951.png" data-image-src="attachments/24610785/40862951.png" data-unresolved-comment-count="0" data-linked-resource-id="40862951" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="kaffee.png" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24610785" data-linked-resource-container-version="12" alt=""></span></p><h1 id="EinfacheArrays-Arrayerzeugen">Array erzeugen</h1><p>So ein Array lässt sich ganz leicht erzeugen. Das geschieht - wie immer - in zwei Schritten, der <strong>Deklaration</strong> und der <strong>Initialisierung</strong>.</p><p>Ein Array wird ähnlich, wie auch andere Variablen deklariert - wir verwenden nur einen anderen Datentyp. Wenn wir z.B. ein Array für <code>Integer</code> Werte erstellen möchten, dann brauchen wir den Datentyp <code>int[]</code>. Also den &quot;normalen&quot; Datentypen plus 2 eckige Klammern - das &quot;Zeichen für den Becherhalter.&quot;</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray; // Arrayvariable deklarieren</pre>
+</div></div><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Man beachte, dass der Becherhalter an sich noch nicht existiert! Wir haben bisher nur die Variable deklariert, aber den Becherhalter noch nicht gebaut. Die Variable <code>xarray</code> hat momentan den Wert <code>null</code>. Dieser steht in der Programmierung nicht für die Zahl 0, sondern für &quot;nichts&quot;.</div></div><p>Jetzt müssen wir noch den Becherhalter erzeugen. Hier müssen wir uns festlegen, wie viele Becher genau das Array halten kann. Stell dir das Array wie ein Muffin-Backblech vor, da musst du dich bei der Herstellung auch entscheiden, wieviele Muffin-Löcher du reinstanzen willst. Wir nehmen mal 5 Becher:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">xarray = new int[5]; // Array mit 5 Elementen erzeugen</pre>
+</div></div><p>Häufig macht man beides in einem Schritt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray = new int[5];</pre>
+</div></div><p>Unseren Becherhalter kann man sich wie ein Gitter vorstellen, eine Batterie von Behältern. Die Variable <code>
+            xarray</code> zeigt jetzt auf dieses Gebilde:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" height="150" src="https://michaelkipp.de/processing/img/array3.png" data-image-src="https://michaelkipp.de/processing/img/array3.png"></span></p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Beachte, dass der <strong>Datentyp</strong> dieser Variable <code>
+            int[]</code> ist, also ein <strong>Integer-Array</strong>, angedeutet durch die eckigen Klammern. Die Variable <code>
+            xarray</code> kann also nicht etwa eine einzelne Zahl speichern, sondern eben nur diesen kuriosen Becherhalter.</div></div><h1 id="EinfacheArrays-Elementezugreifen">Elemente zugreifen</h1><p>Jetzt haben wir plötzlich 5 Becher statt nur einen. Wir nennen die Becher auch Array-Elemente. Wie kommen wir an so ein Element ran? Ganz einfach: die Elemente sind durchnummeriert, und zwar von <strong> 0 bis 4</strong>. Diese Zahlen nennt man auch <strong>Indizes</strong> bzw. im Singular <strong>Index</strong>.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" height="150" src="https://michaelkipp.de/processing/img/array4.png" data-image-src="https://michaelkipp.de/processing/img/array4.png"></span></p><p>Diese fünf Elemente können wir mit folgender Syntax abrufen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(xarray[0]); // Element 0 ausgeben
+println(xarray[1]); // Element 1 ausgeben
+println(xarray[2]);
+println(xarray[3]);
+println(xarray[4]); // letztes Element ausgeben</pre>
+</div></div><p>Zu Beginn haben wir da überall Nullen drin, weil jeder einzelne Becher vom Typ <code>Integer </code>ist und 0 der Standardwert von <code>Integer </code>Variablen ist. Wenn wir das ändern wollen, schreiben wir zum Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">xarray[3] = 42; // Zuweisung</pre>
+</div></div><p>Intern sieht das Array jetzt so aus:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/array5.png" data-image-src="https://michaelkipp.de/processing/img/array5.png"></span></p><p>Wenn du genau hinschaust, wirst du feststellen, dass sich ein einzelnes Element wie <code>
+            xarray[0]</code> ganz genau so verhält wie eine handelsübliche <code>Integer</code>-Variable. Man muss sich nur an diese eckigen Klammern gewöhnen. Du kannst z.B. auch mit Array-Elementen rechnen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int result = xarray[0] + xarray[3] - 10;
+println(result); // 32</pre>
+</div></div><h1 id="EinfacheArrays-GrößedesArray">Größe des Array</h1><p>Wir haben oben ein Array mit 5 Elementen geschaffen. Diese Zahl ist eine <strong>Eigenschaft</strong> des Array-Objekts, die wir per Punktnotation abrufen können und zwar mit <code>
+            xarray.length</code> .</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray = new int[555];
+println(xarray.length);</pre>
+</div></div><pre>555</pre><h2 id="EinfacheArrays-BeliebterFehler(Exception)">Beliebter Fehler (Exception)</h2><p>Der beliebteste Anfängerfehler bei Arrays ist es, nicht zu beachten, dass Informatiker <strong>immer bei Null anfangen zu zählen</strong>. Ist ja auch merkwürdig. Versuche mal:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] xarray = new int[10];
+xarray[10] = 23; // Index 10 existiert nicht!</pre>
+</div></div><p>Processing sagt zu recht: <strong>ArrayIndexOutOfBoundsException</strong>. Eine '<em>Exception</em>' (engl. <em>Ausnahme</em>) bedeutet beim Programmieren 'Fehler'. In diesem Fall ist der Fehler, dass das Element 10 nicht existiert. Es existieren nur Elemente mit Namen 0 bis 9.</p><h1 id="EinfacheArrays-Kurzschreibweise:Arrayerzeugenundbefüllen">Kurzschreibweise: Array erzeugen und befüllen</h1><p>Wenn du schnell ein Array erzeugen und gleich mit konkreten Werten befüllen möchtest, schreibst du:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] zahlen = {8, 42, -3, 200};</pre>
+</div></div><p>Dieses Konstrukt erzeugt eine neue Array-Variable <code>
+            zahlen</code> der Länge 4 mit den entsprechenden Werten. Die ausführliche Variante wäre:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] zahlen = new int[4];
+zahlen[0] = 8;
+zahlen[1] = 42;
+zahlen[2] = -3;
+zahlen[3] = 200;</pre>
+</div></div><p><strong>Vorsicht:</strong> Die Kurzschreibweise darfst du nur dann verwenden, wenn die Variable deklariert wird, also ganz am Anfang der Lebensdauer einer Array-Variablen. Die Kurzschreibweise ist später nicht mehr erlaubt. Das hier geht <strong>nicht</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] zahlen = new int[3];
+zahlen = { 5, 20, 8 }; // FEHLER! Nur bei Deklaration erlaubt.</pre>
+</div></div><h1 id="EinfacheArrays-Arrayausgeben">Array ausgeben</h1><p>In Processing können wir übrigens mit</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(zahlen);</pre>
+</div></div><p>sehr bequem die Inhalte eines Arrays betrachten, die jeweilige Indexzahl wird in Klammern mit ausgegeben:</p><pre class="console">[0] 8
+[1] 42
+[2] -3
+[3] 200
+</pre><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Diese besondere Art der Ausgabe gibt es nur in Processing, nicht in Java.</div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="EinfacheArrays-CodingStyle">Coding Style</h1><p>Bitte achte darauf, wo Leerzeichen und Zeilenumbrüche gemacht werden, und wo nicht.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int[] zahlen; 
+zahlen = new int[10]; 
+zahlen[2] = zahlen[0] + zahlen[1];</pre>
+</div></div><p><br/></p><p>Denk auch daran, deinen Code mit <strong>Bearbeiten &gt; Autoformatierung</strong> von Processing korrekt einrücken zu lassen (Tastenkürzel STRG+T bzw. CMD+T).</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="EinfacheArrays-Übungsaufgaben">Übungsaufgaben</h1><h4 id="EinfacheArrays-Arrayserstellen">Arrays erstellen</h4><p>Erstelle je einen Array für</p><ul><li>5 ganze Zahlen</li><li>3 Strings</li><li>4 Kommazahlen</li><li>3 boolesche Werte</li></ul><p>Befülle anschließend die Arrays mit beliebigen Werten und gib einige Werte <em>einzeln</em> aus, d.h. für ein einzelnes Element eine Print-Anweisung.</p><p>Probiere anschließend auch folgende Befehle (foo sei ein Array, aber <strong>kein</strong> String-Array):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(foo); print(foo);</pre>
+</div></div><p><br/></p><h4 id="EinfacheArrays-Arraysverwenden1">Arrays verwenden 1</h4><p>Erstelle einen int-Array namens <strong>foo</strong> mit den Zahlen 5, 45, -10, 20 (in dieser Reihenfolge). Addiere die ersten zwei Zahlen und lege das Ergebnis in einer neuen int-Variablen <strong>a</strong> ab. Addiere die letzten zwei Zahlen und lege das Ergebnis einer neuen int-Variablen <strong>b</strong> ab.</p><p>Printe <strong>a</strong> und <strong>b</strong> auf die Konsole und überprüfe die Werte.</p><h4 id="EinfacheArrays-Arraysverwenden2">Arrays verwenden 2</h4><p>Erstelle einen int-Array namens <strong>bar</strong> mit den Zahlen 2, 4, 6 (in dieser Reihenfolge).</p><p>Multipliziere die ersten zwei Zahlen und lege das Ergebnis in der dritten Zelle des Arrays ab. Du solltest also {2, 4, 8} in <strong>bar</strong> haben. Schreibe <strong>bar</strong> mit println() auf die Konsole, um dies zu prüfen.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="EinfacheArrays-Zusammenfassung">Zusammenfassung</h1><p>Ein Array kann <strong>mehrere</strong> Dinge <strong>vom gleichen Typ</strong> speichern. Man kann sich einen Array als Schrank mit durchnummerierten Fächern vorstellen.</p><ul><li>Der Datentyp eines Array ist der Typ der enthaltenen Element und dahinter eckige Klammern, z.B. <code>int[]</code> für einen Integer-Array oder <code>String[]</code> für einen String-Array</li><li>Array mit 5 Fächern erzeugen: <code>new int[5]</code></li><li>Elemente sind durchnummeriert, beginnend bei Null. Diese Nummer nennt man <strong>Index</strong> eines Elements.</li><li>Zugriff auf ein Element über den Index: <code>foo[3]</code> greift auf das 4. Element zu</li><li>Länge des Array <code>foo</code> mit <code>foo.length</code>.</li><li>Schnelles Erzeugen und Befüllen eines Array: <code>int[] foo = { 3, 42, -50 };</code></li></ul></div></div><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610785/40862951.png">kaffee.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610785/40867846.png">image.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610785/40867845.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

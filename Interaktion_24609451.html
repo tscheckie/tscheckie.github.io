@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Interaktion</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Interaktion
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Interaktion-StatischerundAktiverModus">Statischer und Aktiver Modus</h1><p>Bevor wir uns ansehen, wie Interaktion genau möglich ist, sollten wir uns mit den zwei verschiedenen Modi beschäftigen, die Processing hat. Dabei handelt es sich um den statischen und den aktiven Modus. In den jeweiligen Modi wird dein Code von Processing unterschiedlich verarbeitet:</p><h2 id="Interaktion-StatischerModus">Statischer Modus</h2><p>Du kannst in Processing einfach mehrere Befehle untereinander aufschreiben und Processing arbeitet dann einen nach dem anderen ab. Hat Processing die letzte Zeile abgearbeitet passiert nichts mehr. Dieser Modus ist der <strong>statische Modus</strong>. Hier ein Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;Hello, world!&quot;); 
+ellipse(50, 50, 40, 40);</pre>
+</div></div><p>Noch ein Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;1&quot;); 
+println(&quot;2&quot;); 
+println(&quot;3&quot;); </pre>
+</div></div><p>... ergibt folgendes in der Konsole:</p><pre class="console">1
+2
+3
+</pre><p>Hier wird nochmal deutlich, dass die Code-Zeilen <strong>von oben nach unten</strong> abgearbeitet werden. Wenn das Programm ganz unten ankommt, hält es an.</p><h2 id="Interaktion-AktiverModus">Aktiver Modus</h2><p>Sobald sich irgendetwas bewegen soll oder du Interaktion einbauen möchtest, müsst du den <strong>aktiven Modus</strong> verwenden. Dazu schreibe zunächst mal diese Codezeilen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+   print(&quot;und &quot;);
+}
+
+void draw() {
+   print(&quot;hopp &quot;);
+}</pre>
+</div></div><p>Diese Zeilen definieren zwei so genannte <strong>Funktionen</strong>: <code>setup</code> und <code>draw</code>. Sobald Processing <u>mindestens</u> eine davon sieht, schaltet es in den<strong> aktiven Modus</strong>.</p><p>Was heißt hier aktiver Modus? Ganz einfach: Du schreibst deinen Code zwischen die geschweiften Klammern von jeweils <code>setup</code> und <code>draw</code>. Processing arbeitet dann deinen Code in folgender Weise ab:</p><ol><li>zunächst alle Zeilen in setup</li><li>dann alle Zeilen in draw</li><li>dann alle Zeilen in draw</li><li>dann alle Zeilen in draw</li><li>usw.</li></ol><p>Processing wiederholt also die Abarbeitung der draw-Zeilen und zwar so lange, bis du den Stop-Knopf drückst. Das ist es letztlich, was Animation und Interaktion möglich macht. Warum? Wenn du einen Kreis von links nach rechts wandern lassen willst (Animation), dann machst du das, indem du den Kreis immer wieder zeichnest, jedes mal ein Stückchen weiter rechts. Ähnlich wie in einem Daumenkino. Das passiert dann eben in diesen draw-Zeilen.</p><p>Bei unserem Beispiel oben würdest du in der konsole somit folgende Ausgabe bekommen:</p><pre>und hopp hopp hopp hopp ..</pre><p>Wir sehen: Die draw-Funktion soltle im aktiven Modus nicht fehlen, da sie das Kernstück des aktiven Modus ist, da sie Code immer wieder wiederholt.</p><h2 id="Interaktion-Code-Block">Code-Block</h2><p>Der Teil, der von den geschweiften Klammern eingeschlossen wird, nennt man einen <strong>Code-Block</strong>. So ein Code-Block kannst du dir so vorstellen, dass die enthaltenen Zeilen zusammengepackt werden und wie eine Einheit &quot;gesehen&quot; werden. Alle Zeilen, die zum aktuellen Code-Block gehören, sind <em>eingerückt</em>, damit man den Code besser lesen kann.</p><pre><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {  // hier beginnt der Code-Block
+   println(&quot;wir&quot;); // alles eingerückt!
+   println(&quot;sind&quot;);
+   println(&quot;ein Block&quot;);
+}  // hier endet er</pre>
+</div></div><p><span style="color: rgb(0,0,0);">Verwende die <strong>Auto Format</strong> Funktion (Menu Edit) von Processing häufig, dann werden die Zeilen automatisch korrekt eingerückt (Tastenkürzel STRG-T bzw. CMD-T).</span></p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Achte immer darauf, dass deine Code-Blöcke richtig eingerückt sind. Wenn der Code komplexer wird, macht fehlerhafte Einrückung den Code teils unleserlich.</div></div><h2 id="Interaktion-MischenImpossible">Mischen Impossible</h2><p>Man darf aktiven und statischen Modus nicht mischen. Konkret heißt das: sobald eines der beiden Konstrukte (setup oder draw) hingeschrieben sind, darf man keine Befehle außerhalb von setup und draw hinschreiben. Das hier z.B. funktioniert nicht:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// aktiver Modus?
+void setup() {
+   println(&quot;so geht das&quot;);
+}
+
+println(&quot;eher nicht&quot;); // statischer Modus!</pre>
+</div></div><p>Schreibe stattdessen deinen  Code entweder im statischen Modus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;so geht das&quot;);
+println(&quot;richtig!&quot;);</pre>
+</div></div><p>Oder im aktiven Modus, wo nur ein setup() steht. Auch hier wird der Code nur einmal ausgeführt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+   println(&quot;so geht das&quot;);
+   println(&quot;richtig!&quot;);
+}</pre>
+</div></div><h2 id="Interaktion-AktivenModusanhalten?">Aktiven Modus anhalten?</h2><p>Es gibt auch die Möglichkeit den aktiven Modus anzuhalten. Hierfür gibt es den Befehl <code>noLoop()</code>. Dieser Befehl sorgt dafür, das <code>draw</code> nicht immer und immer wieder druchgeführt wird, sondern nur einmal. Du kannst ihn gleich am Anfang in <code>setup</code> aufrufen oder aber auch an anderen Stellen in deinem Programm.</p><h1 id="Interaktion-InteraktionmitderMaus">Interaktion mit der Maus</h1><p>Interaktion bedeutet, dass der Benutzer <strong>während</strong> des Programmlaufs einen Einfluss auf das Programm nehmen kann. Das passiert über <strong>Eingabegeräte</strong>, also Tastatur und Maus, später vielleicht auch über Bluetooth, Sprache, Kamera, Spielecontroller und andere Sensorik. In diesem Abschnitt beschäftigen wir uns mit der Maus.  Processing ist so freundlich, uns zwei <em>Platzhalter </em>(sogenannte <a href="Systemvariablen_24609547.html">Systemvariablen</a>) zur Verfügung zu stellen, die immer durch die aktuellen Mausposition (x und y) ersetzt werden. Diese <strong>Variablen </strong>heißen <code>
+            mouseX</code> und <code>
+            mouseY</code>  und werden im Code immer durch die Mausposition ersetzt werden. So wie hier:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  size(200,200);
+}
+
+void draw() {
+  ellipse(mouseX, mouseY, 20, 20);
+}</pre>
+</div></div><p>Du siehst, dass der Kreis immer der Maus folgt, weil eine Urpsrungskoordinaten mit der Mausposition verbunden sind.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" width="120" src="https://michaelkipp.de/processing/img/interaktion1.png" data-image-src="https://michaelkipp.de/processing/img/interaktion1.png"></span></p><p>Wenn wir die Illusion erwecken wollen, dass der Kreis sich bewegt und nicht immer neu gezeichnet wird, müssen wir den Hintergrund immer neu befüllen und somit den &quot;alten&quot; Kreis (aus dem vorigen draw()- Aufruf) übermalen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  size(200,200);
+}
+
+void draw() {
+  background(200); // Bild löschen durch Übermalen
+  ellipse(mouseX, mouseY, 20, 20);
+}</pre>
+</div></div><p>Jetzt sehen wir immer nur einen Kreis:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" width="120" src="https://michaelkipp.de/processing/img/interaktion2.png" data-image-src="https://michaelkipp.de/processing/img/interaktion2.png"></span></p><p>Jetzt malen wir nur Punkte, ohne das Bild zu löschen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  strokeWeight(2);
+}
+
+void draw() {
+  point(mouseX, mouseY);
+}</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/interaktion3.png" data-image-src="https://michaelkipp.de/processing/img/interaktion3.png"></span></pre><p>Wenn wir statt Punkten Linien zeichnen wollen, damit keine Lücken entstehen, brauchen wir noch mehr Infos, nämlich die Mausposition aus der jeweils <em>vorherigen</em> draw()-Runde. Die stellt uns Processing netterweise auch zur Verfügung und zwar mit <code>pmouseX</code> und <code>pmouseY</code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  strokeWeight(2);
+}
+
+void draw() {
+  line(pmouseX, pmouseY, mouseX, mouseY);
+}</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/interaktion4.png" data-image-src="https://michaelkipp.de/processing/img/interaktion4.png"></span></pre><p>In diesem Beispiel zeichnet das Programm eine Linie zwischen der Mausposition aus der <strong>vorherigen</strong> draw()-Runde <strong>und</strong> <strong>der</strong> <strong>aktuellen</strong> <strong>Position</strong>. Auf diese Weise entsteht eine geschlossene Linie.</p><h1 id="Interaktion-InteraktionmitTasten">Interaktion mit Tasten</h1><p>Als nächstes sehen wir uns an, wie wir auf den Druck einer Taste auf der Tastatur oder mit der Maustaste reagieren können. </p><p>Um auf eine Taste auf der Tastatur reagieren zu können benötigen wir die Funktion <code>keyPressed()</code>, die Processing uns zur Verfügung stellt (Das draw() benötigen wir, damit wir im aktiven Modus sind):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {} // nichts tun
+
+ // Auf Taste reagieren (egal welche)
+void keyPressed() {
+   background(0);
+} </pre>
+</div></div><p>Der Teil mit &quot;<code>void keyPressed()</code> ...&quot;  erinnert an den Aufbau von <code>setup()</code> und <code>draw()</code>. Es handelt sich dabei ebenfalls um eine Funktion. Das bedeutet, dass aller Code, der sich innerhalb der geschweiften Klammern (dem Code-Block) befindet, aufgeführt wird, wenn eine Taste gedrückt wird.</p><p>Das Code, den wir benötigen, um auf das Klicken mit der <strong>Maustaste </strong>zu reagieren sieht fast gleich aus - die Funktion hat nur einen etwas anderen Namen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void mousePressed() { 
+   background(0, 255, 0); // Hintergrund wird grün, wenn die Maustaste gedrückt wird
+}</pre>
+</div></div><p class="important"><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Interaktion-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Interaktion-Mauskoordinaten">Mauskoordinaten</h4><p>Schreibe ein Programm, dass ständig die aktuelle x-Koordinate der Maus auf der Konsole ausgibt. Das sieht z.B. so aus:</p><pre class="console">69
+71
+72
+72
+72
+</pre><h4 id="Interaktion-InteraktiveLinie">Interaktive Linie</h4><p>Programmiere eine Linie, deren eines Ende der Maus folgt.</p><h4 id="Interaktion-WachsendesQuadrat">Wachsendes Quadrat</h4><p>Programmiere ein Quadrat in der Mitte des Bildschirms, dessen Höhe &amp; Breite den x-Koordinaten der Maus entspricht.</p><h4 id="Interaktion-Fadenkreuz">Fadenkreuz</h4><p>Zeichne zwei Linien, die parallel zur x- bzw. y-Achse sind und immer der Maus folgen. Der Schnittpunkt liegt genau auf dem Mauszeiger.</p><p>Programmiere zunächst eine der beiden Linien, dann wird es dir leicht fallen, die zweite hinzuzufügen.</p><h4 id="Interaktion-LinieundKreis">Linie und Kreis</h4><p>Zeichne eine Linie, die parallel zur y-Achse verläuft und immer der Maus folgt. Im Bereich zwischen der Linie und dem linken Rand soll mittig ein Kreis gezeichnet werden, der den Bereich zwischen linkem Rand und Linie ganz ausfüllt.</p><h4 id="Interaktion-Radiergummi">Radiergummi</h4><p>Schreibe ein Programm, wo ein schwarzes Quadrat in der Mitte steht und die Maus als Radiergummi (Durchmesser 15) fungiert.</p><h4 id="Interaktion-SymmetrischeLinie">Symmetrische Linie</h4><p>Programmiere eine Linie, deren eines Ende der Maus folgt, das andere Ende liegt immer punktgespiegelt auf der anderen Seite des Mittelpunkts.</p><h4 id="Interaktion-Rechteck-Ecke">Rechteck-Ecke</h4><p>Zeichne ein Rechteck in die Mitte des Fensters, wo immer eine Ecke der Maus folgt.</p><p>Tipp: Überlege, welcher Zeichenmodus für Rechtecke hier am besten geeignet ist (es ist nicht CENTER)</p><h4 id="Interaktion-PositionzuGraustufe">Position zu Graustufe</h4><p>Ein mittig positioniertes Quadrat soll seinen Grauwert ändern, je nachdem, wo sich die Maus befindet. Ist die Maus ganz links, ist das Quadrat schwarz. Ist sie recht, wird das Quadrat weiß.</p><p><strong>Hinweis:</strong> Bei einer Division mit einer ganzen Zahl (z.B. 10) müsst du <strong>10.0</strong> schreiben, um zu signalisieren, dass das Ergebnis eine Kommazahl sein soll (sonst wird das Ergebnis zu einer ganzen Zahl gerundet).</p><h4 id="Interaktion-Quadraterscheinenlassen">Quadrat erscheinen lassen</h4><p>Schreibe ein Programm, bei dem zunächst nichts zu sehen ist. Wenn man eine Taste auf der Tastatur klickt, soll in der Mitte des Fensters ein Quadrat erscheinen.</p><h4 id="Interaktion-Löschen">Löschen</h4><p>Erweitere das Programm von oben so, dass das Quadrat wirder verschwindet, wenn mit der Maus geklickt wird.</p><p><br/></p></div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Interaktion-Zusammenfassung">Zusammenfassung</h1><ul><li><strong>Statischer Modus</strong>: Code wird zeilenweise von oben nach unten abgearbeitet. Ist die letzte Zeile verarbeitet, ist das Programm zu Ende.</li><li><strong>Aktiver Modus</strong>: Sobald du eines der Konstrukte setup() oder draw() hinzufügst, startet Processing das Programm im aktiven Modus. Das bedeutet, dass zunächst der Code in setup() 1x abgearbeitet wird (von oben nach unten). Dann wird der Code in draw() immer wieder abgearbeitet, auch jeweils von oben nach unten. Die Häufigkeit, mit der draw() pro Sekunde durchlaufen wird, nennt man <strong>Frame Rate</strong> und lässt sich mit dem Befehl frameRate() ändern.</li><li><strong>Modus nicht mischen</strong>: Wenn du den aktiven Modus anstrebst, darf außerhalb der Code-Blöcke von setup() und draw() kein Code stehen.</li><li><strong>Mausposition</strong>: Die aktuelle Mausposition steht, sofern die Maus sich über dem Grafikfenster befindet in den Variablen <code>mouseX</code> und <code>mouseY</code>.<ul><li>Man muss sich vorstellen, dass die beiden Wörter in dem Moment, wo die Code-Zeile verarbeitet wird, durch den aktuellen Zahlenwert ersetzt werden.</li><li>Die beiden Variablen erlauben es, interaktive Zeichnungen zu programmieren, wo die Mausposition beispielsweise zur Bestimmung von Position, Größe oder Farbe eingesetzt wird.</li></ul></li><li><strong>Interaktion mit Tasten</strong>: Möchtest du auf den Druck einer beliebigen Taste auf der Tastatur reagieren, dann verwendest du die Funktion <code>keyPressed()</code>. Der Code dieser Funktion wird immer dann ausgeführt, wenn eine Taste gedrückt wird. In gleicher Weise kannst du die Funktion <code>mousePressed()</code> schreiben. Dieser Code wird immer dann ausgeführt, wenn eine Maustaste gedrückt wird. </li></ul></div></div><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

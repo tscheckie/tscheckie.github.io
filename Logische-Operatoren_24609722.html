@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Logische Operatoren</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Logische Operatoren
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Um komplexere Sachverhalte auszudrücken, reichen of &quot;einfache&quot; if-Abfragen nicht aus, da mehrere Dinge abgefragt und miteinander verglichen werden müssen. Solche Kombinationen sind wieder<strong> boolesche Ausdrücke</strong> und können also als <strong>Bedingung</strong> für das If verwendet werden. Die genannten Kombinationen werden über sogenannte <strong>logische Operatoren</strong> hergestellt.</p><h1 id="LogischeOperatoren-LogischesUND">Logisches UND</h1><p>Nehmen wir an, du möchtest prüfen, ob die Variable x zwischen 10 und 20 liegt. In der Schule schreibt man einfach 10 &lt; x &lt; 20. In Processing muss dies in zwei Vergleiche zerlegt werden, nämlich in 10 &lt; x <strong>und</strong> x &lt; 20. Damit &quot;10 &lt; x &lt; 20&quot; wirklich gilt, müssen <strong>beide</strong> Vergleich wahr sein. Diese Kombination nennt man das <strong>logische UND</strong> (engl. <em>AND</em>). Das logische UND nennt man auch einen logischen <strong>Operator</strong>. Im Code schreibt man für den UND-Operator ein doppeltes &quot;käufmännisches Und&quot;, also <code>
+            &amp;&amp;
+        </code> :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 5;
+
+if (10 &lt; x &amp;&amp; x &lt; 20) {
+   println(&quot;Yes!&quot;);
+}</pre>
+</div></div><h1 id="LogischeOperatoren-LogischesODER">Logisches ODER</h1><p>Der zweite wichtige Operator ist das logische ODER (engl. <em>OR</em>). Nehmen wir an, du willst testen, ob die x-Koordinate eines Objekts den Bildschirmbereich verlässt, der 1024 Pixel breit ist. Dann testest du, ob <code>x &lt; 0</code> ist <strong>oder</strong> <code>x &gt;= 1024</code>.</p><p>Das logische ODER schreibt man im Code mit zwei <a href="http://de.wikipedia.org/wiki/Senkrechter_Strich" class="external-link" rel="nofollow">senkrechten Strichen</a> <code>||</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 5;
+
+if (x &lt; 0 || x &gt;= 1024) {
+   println(&quot;Oops!&quot;);
+}</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Und wo ist dieses Zeichen | auf meiner Tastatur...?</strong> Auf dem Mac mit <strong>ALT+7</strong>, unter Windows mit <strong>Alt Gr + &lt;</strong>.</div></div><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Hinweis:</strong> Das logische ODER ist ein UND/ODER. Das bedeutet, wenn beide Seiten true sind, dann ist der gesamte Ausdruck <code>true</code>. </div></div><h1 id="LogischeOperatoren-Negation">Negation</h1><p>Mit dem Ausrufezeichen <em>negiert</em> man einen Ausdruck, d.h. du kehrst den Wert um (<em>true</em> statt <em>false</em> bzw. <em>false</em> statt <em>true</em>). Das Ausrufezeichen nennt man auch den logischen Negationsoperator oder das logische NICHT (engl. NOT). Im Unterschied zu UND/ODER steht dieser Operator nicht zwischen zwei Ausdrücken, sondern <strong>vor</strong> einem einzigen Ausdruck.</p><p>Wenn du z.B. den Vergleich <code>
+            x &lt; 10
+        </code> negieren wilst, schreibst du  <code>!(x &lt; 10)
+        </code> . Das entspricht dann offensichtlich <code>
+            x &gt;= 10
+        </code>, d.h. das könnte man eigentlich auch direkt so (ohne Negation) hinschreiben, aber für komplexere Ausdrücke ist die Negation manchmal bequemer oder lesbarer.</p><p>Nehmen wir an, du willst das Beispiel oben &quot;Objekt verlässt Bildschirm&quot; einfach negieren. Das heißt, du willst Code ausführen für den Fall, dass das Objekt noch auf dem Bildschirm ist, dann schreibst du:</p><pre><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 5;
+
+if (! (x &lt; 0 || x &gt;= 1024)) {
+   println(&quot;Bin auf dem Schirm!&quot;);
+}</pre>
+</div></div><p>Solltest du dich fragen, wie man die obige Bedingung ohne Negation schreibt, kommst du auf diesen Ausdruck: <code>
+            x &gt;= 0 &amp;&amp; x &lt; 1024
+        </code>. Das heißt, wenn man einen Ausdruck mit logischem ODER negiert, dann negiert man beide Einzelteile und man &quot;dreht den Operator um&quot;, d.h. aus ODER wird UND und umgekehrt.</p><pre class="general"><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">! (x &lt; 0 || x &gt;= 1024)</pre>
+</div></div><p class="general">entspricht</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">! (x &lt; 0) &amp;&amp; ! (x &gt;= 1024)</pre>
+</div></div><p class="auto-cursor-target">entspricht</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x &gt;=0 &amp;&amp; x &lt;1024</pre>
+</div></div><h1 id="LogischeOperatoren-KomplexeAusdrückeundPräzedenz">Komplexe Ausdrücke und Präzedenz</h1><p>Du kannst beliebig viele logische Ausdrücke mit UND/ODER kombinieren und mit NICHT negieren.</p><p>Wie wird ein solcher Ausdruck <strong>ausgewertet</strong>? Nehmen wir ein Beispiel mit <strong>zwei</strong> logischen Operatoren:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int k = 5;
+float f = 2.5;
+int t = 30;
+
+if (k &gt; 0 &amp;&amp; f &lt; 10.0 || t &gt; 100) {
+  println(&quot;hurra&quot;);
+}</pre>
+</div></div><p>Processing nimmt sich die Bedingung:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">k &gt; 0 &amp;&amp; f &lt; 10.0 || t &gt; 100</pre>
+</div></div><p>Und setzt zunächst die Variablenwerte ein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">5 &gt; 0 &amp;&amp; 2.5 &lt; 10.0 || 30 &gt; 100</pre>
+</div></div><p>Dann werden die einzelnen Vergleiche aufgelöst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true &amp;&amp; true || false</pre>
+</div></div><p>Jetzt gehen wir <strong>von links nach rechts</strong> vor und lösen einen Operator nach dem nächsten, also zunächst das <code>true &amp;&amp; true</code>, das wird zu <code>true</code>. Anschließend haben wir noch:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true || false</pre>
+</div></div><p>Dies wird wiederum aufgelöst zum Ergebnis:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true</pre>
+</div></div><p><br/></p><p>In unserem Beispiel konnten wir von links nach rechts rechnen, aber das gilt nicht immer, denn <strong>der UND-Operator hat Priorität vor ODER.</strong></p><p>Sehen wir uns das obige Beispiel leicht modifiziert an: das UND steht jetzt hinten, das ODER vorn:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">k &gt; 0 || f &lt; 10.0 &amp;&amp; t &gt; 100</pre>
+</div></div><p>Wir setzen die Variablenwerte ein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">5 &gt; 0 || 2.5 &lt; 10.0 &amp;&amp; 30 &gt; 100</pre>
+</div></div><p>Und lösen die Vergleiche auf:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true || true &amp;&amp; false</pre>
+</div></div><p>Jetzt kommt der entscheidende Unterschied: Statt von links nach rechts zu rechnen, <strong>müssen wir das UND vorziehen</strong> (das wird Präzedenz genannt):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true || true &amp;&amp; false</pre>
+</div></div><p>Wir lösen als zunächst <code>true &amp;&amp; false</code> auf zu <code>false</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true || false</pre>
+</div></div><p>Dies wird wiederum aufgelöst zum Ergebnis:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true</pre>
+</div></div><p>Allgemein gesprochen verwendet Java bei booleschen (logischen) Ausdrücken ähnliche Regeln wie bei arithmetischen Ausdrücken (also Rechnungen mit +, -, *, /). Dabei gelten folgende Regeln:</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Operator</th><th class="confluenceTh">Priorität</th><th class="confluenceTh">entspricht</th></tr><tr><td class="confluenceTd">!</td><td class="confluenceTd">3</td><td class="confluenceTd">unäres - (wie bei -3)</td></tr><tr><td class="confluenceTd">&amp;&amp;</td><td class="confluenceTd">2</td><td class="confluenceTd">*, /</td></tr><tr><td class="confluenceTd">||</td><td class="confluenceTd">1</td><td class="confluenceTd">+, -</td></tr></tbody></table></div><p>In der Tabelle bedeutet eine höhere Priorität, dass der Operator als erstes ausgewertet wird. Das bedeutet: der Negationsoperator wird immer zuerst ausgewertet. Ferner gilt: ein UND wird immer vor ODER ausgewertet.</p><p>Wenn du folgenden Ausdruck hast:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">a || b &amp;&amp; !c || d</pre>
+</div></div><p>Wird dieser so ausgewertet, als gäbe es folgende Klammern:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">(a || (b &amp;&amp; (!c))) || d</pre>
+</div></div><h1 id="LogischeOperatoren-Anwendungsbeispiel:Ping-Pong">Anwendungsbeispiel: Ping-Pong</h1><p>Stelle dir ein Programm vor, bei dem ein Ball von links nach rechts fliegt, an der rechten Seite abprallt, zur linken Seite zurück fliegt, dort abprallt, usw. Der <code>speed</code> ist dabei immer 1 bzw. -1, wenn der Ball die Richtung ändert.</p><p>Das Basisprogramm sieht zunächst mal so aus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+
+void draw() {
+  background(0);
+  ellipse(x, 50, 20, 20);
+  x++;
+}</pre>
+</div></div><p>In dieser Version fliegt der Ball genau einmal über den Bildschirm und verschwindet dann auf Nimmerwiedersehen ...</p><p>Die Logik, die hinter dem <strong>Abprallen</strong> steht, könnte man so formulieren:</p><pre class="general">Wenn der Ball den rechten Rand erreicht,
+soll er nach links weiterfliegen.
+</pre><p>Der erste Teilsatz übersetzt sich zu der Bedingung <code>x &gt; width</code>. Der zweite Satz &quot;nach links weiterfliegen&quot; lässt sich realisieren, indem man die Geschwindigkeit auf -1 setzt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">if (x &gt; width) {
+    speed = -1;
+}</pre>
+</div></div><p>Analog für den linken Rand:</p><pre class="general">Wenn der Ball den linken Rand erreicht,
+soll er nach rechts weiterfliegen.
+</pre><p>Im Code:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">if (x &lt; 0) {
+    speed = 1
+}</pre>
+</div></div><h4 id="LogischeOperatoren-Verallgemeinerung">Verallgemeinerung</h4><p>Wenn wir die Lösung allgemeiner betrachten, sehen wir, dass in beiden Fällen einfach das Vorzeichen der Geschwindigket umgedreht wird. Aus 1 wird -1 und aus -1 wird 1. Im Code lässt sich das Umdrehen des Vorzeichens ganz elegant formulieren:</p><pre>speed = -speed;</pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">true || false</pre>
+</div></div><p>Das schöne an dieser Formulierung ist, dass es egal ist, welcher Wert in speed steht, egal ob 1 oder 3000. Wenn der Wert negativ ist, wird er positiv. Ist er positiv, wird er negativ.</p><p>Der Code würde also wie folgt aussehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+int speed = 1;
+
+void draw() {
+  background(255);
+  ellipse(x, 50, 20, 20);
+  x = x + speed;
+
+  if (x &gt; width) {
+    speed = -speed;
+  }
+
+  if (x &lt; 0) {
+    speed = -speed;
+  }
+}</pre>
+</div></div><p>Es fällt auf, dass in <em>beiden If-Fällen der exakt gleiche Code</em> ausgeführt wird, also man könnte auch sagen: wenn x &gt; width <strong>oder</strong> x &lt; 0 der Fall ist, dann drehe das Vorzeichen um. Klarer Fall für eine boolesche Verknüpfung:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+int speed = 3;
+
+void draw() {
+  background(255);
+  ellipse(x, 50, 20, 20);
+  x = x + speed;
+
+  if (x &lt; 0 || x &gt; width) {
+      speed = -speed;
+  }
+}</pre>
+</div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="LogischeOperatoren-Übungsaufgaben">Übungsaufgaben</h1><h3 id="LogischeOperatoren-Fingerübungen">Fingerübungen</h3><h4 id="LogischeOperatoren-Enthalten1">Enthalten 1</h4><p>Erstelle drei float-Variablen a, b und x. Gehe davon aus, dass a immer kleiner als b ist. Schreibe &quot;x innerhalb&quot; auf die Konsole, wenn x zwischen a und b liegt, sonst &quot;x außerhalb&quot;. Teste dein Programm mit entsprechenden Werten.</p><h4 id="LogischeOperatoren-Enthalten2">Enthalten 2</h4><p>Erweitere dein obiges Programm so, dass es auch funktioniert, wenn b kleiner als a ist.</p><h4 id="LogischeOperatoren-Extrem">Extrem</h4><p>Erstelle drei float-Variablen a, b und x. Gehe davon aus, dass a immer kleiner als b ist. Schreibe &quot;x extrem&quot; auf die Konsole, wenn x außerhalb des <em>Intervals</em> a und b liegt. Versuche die Bedingung so zu formulieren, dass der Fall &quot;x extrem&quot; direkt nach dem &quot;if&quot; folgt und nicht nach dem &quot;else&quot;.</p><h4 id="LogischeOperatoren-HumanResources">Human Resources</h4><p>Du bist Personaler und möchtest jemanden einstellen, der/die nicht zu jung ist (min. 20 Jahre) und nicht zu alt (max. 60 Jahre). Außerdem soll die Abschlussnote stimmen (besser als 3.0). Ergänze den Code so, dass dein Programm &quot;Einstellen!&quot; ausgibt, wenn die obigen Bedingungen stimmen oder &quot;Lieber nicht.&quot;, wenn nicht.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Ändere die Werte zum Testen
+int alter = 21;
+float note = 1.7;</pre>
+</div></div><pre><br/></pre><p>Teste dein Programm auch mit anderen Werten (alter=61, note=2.0 oder alter=33, note=3.3).</p><h4 id="LogischeOperatoren-HumanResources2">Human Resources 2</h4><p>Du bist Personaler bei einer Softwarefirma. Du möchtest die Sichtung der Bewerbungen automatisieren. Du schaust dir die Abschlussnote (z.B. 1,7 oder 2,3) an und die Programmiererfahrung (zwischen 1 für &quot;keine&quot; und 5 für &quot;hohe&quot;).</p><ul><li>Bewerber mit der Note 1 werden direkt eingestellt. Bewerber mit Programmiererfahrung der Stufe 5 werden auch direkt eingestellt, sofern sie mindestens die Note 3 haben.</li><li>Bewerber mit Note 2 werden zum Gespräch eingeladen. Wenn Programmiererfahrung der Stufe 4 vorhanden ist, werden sie auch - unabhängig von der Note - eingeladen.</li><li>Alle anderen werden abgelehnt</li></ul><p>Schreibe Code, der &quot;einstellen&quot; oder &quot;zum Gespräch einladen&quot; oder &quot;ablehnen&quot; ausgibt. Nutze die folgenden Variablen, deren Werte du natürlich mehrfach ändern musst, um die Korrektheit deines Codes zu testen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Ändere die Werte zum Testen
+float note = 2.3;
+int programmiererfahrung = 5;</pre>
+</div></div><pre><br/></pre><h4 id="LogischeOperatoren-Pulsieren">Pulsieren</h4><p>Ein Kreis mit Durchmesser 50 wird stetig größer, bis er den Rand des Fensters erreicht, dann verkleinert er sich bis Durchmesser 50 usw. Schau dir oben im Skript das Anwendungsbeispiel mit dem &quot;an der Wand abprallen&quot; an. Beim Abprallen hast du die x-Koordinate, die entweder größer oder kleiner wird. Bei der Aufgabe hier hast du genau das gleiche mit dem Durchmesser.</p><p><strong>Wichtig:</strong> Achte darauf, dass der Durchmesser nicht negativ wird. Gib deine Variable für den Durchmesser zur Kontrolle auf der Konsole aus. Sie sollte nie negativ werden. Wenn du diesen Hinweis ignorierst, kann es sein, dass dein Programm nur aufgrund eines Artefakts &quot;funktioniert&quot;, aber eigentlich falsch ist (und z.B. bei zukünftigen Versionen von Processing nicht mehr funktioniert).</p><h4 id="LogischeOperatoren-PulsierendeFarbe">Pulsierende Farbe</h4><p>Ein schwarzer Kreis wird stetig weißer bis er ganz weiß ist, dann wieder schwärzer, bis er ganz schwarz ist usw. Auch hier ist das Schema wie in der vorigen Aufgabe: ein veränderlicher Wert (Grauwert) und eine Geschwindigkeit, die sich &quot;umdreht&quot;.</p><h4 id="LogischeOperatoren-RoteZone1">Rote Zone 1</h4><p>Verwende folgenden Basiscode und verändere ihn so, dass der Ball in der markierten Zone in der Mitte rot wird.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 0;
+
+void draw() {
+  background(0);
+
+  // Linien zum Markieren der Zone
+  stroke(255);
+  line(25, 0, 25, height);
+  line(75, 0, 75, height);
+
+  // hier wird animiert...
+  ellipse(x, 50, 20, 20);
+  x++;
+  if (x &gt; width) {
+    x = 0;
+  }
+}</pre>
+</div></div></div></div><pre>
+</pre><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="LogischeOperatoren-Zusammenfassung">Zusammenfassung</h1><ul><li>Zwei boolesche Ausdrücke (wie z.B. die Vergleiche <code>x &gt; 5</code> und <code>x &lt; 10</code>) lassen sich mit den <strong>logischen Operatoren</strong> UND bzw. ODER kombinieren. Das Gesamte ist wieder ein boolescher Ausdruck.</li><li>Wir haben drei logische Operatoren kennen gelernt:<ul><li><strong>UND</strong>: Der Ausdruck <strong>A &amp;&amp; B</strong> (A und B) ist genau dann wahr, wenn sowohl A als auch B wahr sind.</li><li><strong>ODER</strong>: Der Ausdruck <strong>A || B</strong> (A oder B) ist genau dann wahr, wenn entweder A oder B (oder beide) wahr sind.</li><li><strong>NICHT</strong>: Der Ausdruck <strong>!A</strong> ist genau dann wahr, wenn A falsch ist.</li></ul></li><li>Ein <strong>boolescher Ausdrucks</strong> ist also entweder<ul><li>das Schlüsselwort <code>true</code> oder <code>false</code></li><li>ein Vergleich von Werten (z.B. <code>==</code> oder <code>&lt;=)</code></li><li>die logische Verknüpfung von zwei booleschen Ausdrücken mit <code>&amp;&amp;</code> oder <code>||</code></li><li>die Negation eines booleschen Ausdrucks mit <code>!</code></li></ul>Interessant an dieser Definition ist, dass boolesche Ausdrücke innerhalb von booleschen Ausdrücken vorkommen können (wie z.B. in <code>foo &amp;&amp; (bar || doo)</code>). Das ist sehr praktisch, weil man mit wenigen Regeln auch sehr komplexe, verschachtelte Konstrukte erfassen kann. Man nennt eine solche Definition <strong>rekursiv</strong>.</li></ul></div></div><pre class="auto-cursor-target">
+</pre>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

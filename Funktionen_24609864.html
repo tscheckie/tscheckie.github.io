@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Funktionen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Funktionen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Stell dir vor, du könntest ein paar Zeilen Code in ein Paket packen und ein Schild mit <strong>foo</strong> aufs Paket kleben. Jedesmal, wenn du diese Zeilen in deinem Code ausführen willst, brauchst du nur <strong>foo</strong> hinschreiben. <strong>foo</strong> ist eine Funktion!</p><p>Funktionen haben 2 große Vorteile:</p><ul style="list-style-type: square;"><li><strong>Wiederverwendbarkeit </strong>(Reuseability)<br/>Code, den du einmal irgendwo geschrieben hast, kann du so oft du willst an anderen Stellen wieder verwenden - das spar Zeilen, vermeidet Fehler und macht den Code übersichtlicher!</li><li><strong>Modularität bzw. Baukastenprinzip </strong>(Modularity)<br/>Durch Funktionen kannst du deinen Code in einzelne Bausteine oder auch Komponenten aufteilen, an denen auch separat gearbeitet werden kann und zu einem großen Programm zusammengesetzt werden.</li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Du hast übrigens schon Funktionen benutzt, in der Form von &quot;Befehlen&quot; wie <code>size()</code>, <code>ellipse()</code> und <code>rect() </code>sind Funktionen, die das Processing-Team für dich geschrieben hat. In diesem Kapitel lernst du, wie du selbst solche Befehle erstellst.</div></div><h1 id="Funktionen-Funktiondefinieren">Funktion definieren</h1><p>Bevor du eine neue Funktion verwenden kannst, musst du Processing sagen, was diese Funktion genau tun soll. Da machst du mit der <strong>Definition</strong> der Funktion.</p><p>Allgemein definiert man eine (einfache) Funktion wie folgt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void NAME() {
+   CODE
+}</pre>
+</div></div><pre class="general">
+</pre><p>Wobei CODE für eine beliebige Anzahl von Codezeilen stehen kann. Diese Funktion hier zeichnet zum Beispiel ein Gesicht mit zwei schwarzen Knopfaugen an der Stelle (x, y), wobei x und y bereits oben im Code deklariert sein müssen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void ZeichneGesicht() {
+   fill(255); // weiß
+   ellipse(x, y, 80, 80); // Gesicht
+   fill(0); // schwarz
+   ellipse(x-15, y-15, 20, 20); // Auge
+   ellipse(x+15, y-15, 20, 20); // Auge
+}</pre>
+</div></div><pre>
+</pre><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Funktionen schreibt man am Anfang<strong> immer groß</strong> - das ist gute Konvention. (Processing ignoriert diese Konvention, bei seinen eigenen Funktionen, wie setup, draw oder background.) Funktionen können <strong>nur im aktiven Modus</strong> definiert werden, d.h. du musst entweder setup oder draw in deinem Code haben.</div></div><p>  </p><p>Etwas merkwürdig sehen noch die runden Klammern hinter dem Funktionsnamen aus, diese bekommen im Abschnitt Parameter Sinn.</p><h2 id="Funktionen-Funktionaufrufen">Funktion aufrufen</h2><p>Wir haben oben die Funktion <code>ZeichneGesicht</code> definiert. Diese steht uns ab sofort als <strong>Befehl</strong> zur Verfügung, genauso wie die &quot;eingebauten&quot; Befehle <code>ellipse</code>, <code>size</code>, <code>stroke </code>usw.</p><p>Du rufst den Befehl dann so auf:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">ZeichneGesicht();</pre>
+</div></div><pre>
+</pre><p>Sehen wir uns das vollständige Programm an:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x = 50;
+int y = 50;
+
+void setup() { // nichts zu tun
+}
+
+void draw() {
+   // sehr übersichtlich :)
+   background(255);
+   ZeichneGesicht(); // Funktionsaufruf
+   x++;
+}
+
+// Funktionsdefinition:
+void ZeichneGesicht() {
+   fill(255);
+   ellipse(x, y, 80, 80);
+   fill(0);
+   ellipse(x-15, y-15, 20, 20);
+   ellipse(x+15, y-15, 20, 20);
+}</pre>
+</div></div><pre>
+</pre><p>Der Vorteil hier ist zunächst mal, dass dein Programm <strong>übersichtlicher</strong> wird. Wenn man in <code>draw()</code> hineinschaut, sieht man direkt, dass offenbar etwas entlang der x-Achse bewegt wird. Der Name der Funktion <code>zeichneGesicht</code> sagt klar, was bei Aufruf des Befehls zu erwarten ist. Das heißt: Funktionen helfen, Code übersichtlicher und lesbarer zu gestalten. Man spricht auch von <strong>selbsterklärendem Code</strong>, d.h. der Code spricht für sich selbst und muss nicht (oder kaum) durch Kommentare ergänzt werden. Dabei ist wichtig, <strong>aussagekräftige Namen für die Funktionen</strong> zu wählen.</p><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Funktionen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Funktionen-Hello,world!">Hello, world!</h4><p>Schreibe die Funktion H<code>ello()</code>, die einfach &quot;hello, world&quot; auf die Konsole schreibt.</p><p><strong>Hinweis:</strong> Denk dran, dass du ein <code>setup()</code> oder <code>draw()</code> benötigst, um Funktionen definieren zu dürfen.</p><p>Teste deinen Code mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  Hello();
+  Hello();
+  Hello();
+}</pre>
+</div></div><p><br/></p><p>Du solltest sehen:</p><pre class="console">hello, world
+hello, world
+hello, world
+</pre><h4 id="Funktionen-Mauszeiger">Mauszeiger</h4><p>Schreibe eine Funktion <code>mauszeiger()</code>, welche an Position der Maus einen Kreis mit Durchmesser 20 zeichnet.</p><p>Teste deinen Code mit</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  background(255);
+  Mauszeiger();
+}</pre>
+</div></div><p><br/></p><h4 id="Funktionen-CodedurchFunktionersetzen">Code durch Funktion ersetzen</h4><p>Du sollst folgenden Code &quot;aufräumen&quot;. Im Code werden ein Haus und eine Sonne gezeichnet. Definiere eine neue Funktion <code>zeichneHaus()</code>, in dem das Haus gezeichnet wird und rufen diese Funktion in <code>draw()</code> auf. Mach das gleiche für die Sonne mit einer Funktion <code>zeichneSonne()</code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(#31F0FF);
+  noStroke();
+  fill(#FF3134);
+  rect(80, 200, 80, 80);
+  triangle(80, 200, 160, 200, 120, 150);
+  fill(#FFF931);
+  ellipse(200, 100, 80, 80);
+}</pre>
+</div></div><p><br/></p><h4 id="Funktionen-Dreierlei">Dreierlei</h4><p>Schreibe drei Funktionen one(), two(), three(). Die Funktionen geben jeweils die Zahl 1, 2 und 3 auf der Konsole aus.</p><p>Rufe in setup() die Funktion one() auf. In der Funktion one() rufst du two() auf. In der Funktion two() rufst du three() auf.</p><p>Testen deine Code unbedingt genau mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  One();
+}</pre>
+</div></div><p><br/></p><p>Du solltest sehen:</p><pre class="console">1
+2
+3
+</pre><p>Wenn du deinen Code wie folgt testest, hast du was falsch gemacht. (Lies nochmal die Aufgabenbeschreibung...)</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  One();
+  Two();
+  Three();
+}</pre>
+</div></div></div></div><pre>
+</pre><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Funktionen-Zusammenfassung">Zusammenfassung</h1><p>Du kannst eigene Funktionen <strong>definieren</strong>, die du dann im Code beliebig oft <strong>aufrufen</strong> kannst. Allgemein sieht eine Funktionsdefinition so aus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void NAME() {
+  CODE
+}</pre>
+</div></div><p class="general"><br/></p><p>Funktionen dienen dazu, den Code übersichtlicher und lesbarer zu gestalten. Dazu sollten die gewählten <strong>Funktionsnamen möglichst aussagekräftig</strong> sein.</p><p>Eigene Funktionen kann man nur im <strong>aktiven Modus</strong> definieren.</p><p><strong>Funktionsnamen</strong> schreibt man immer <strong>groß</strong> (auch wenn Processing es selber nicht macht)</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

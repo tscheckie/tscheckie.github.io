@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Text-Ausgabe</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Text-Ausgabe
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Damit du auch über Text mit deinem Benutzer kommunizieren kannst, gibt es den Befehl <code>
+            text()</code>. Dieser setzt einen Text (nennt man auch <strong>String</strong>) an die angegebene Stelle.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(200, 200);
+fill(0); // Textfarbe schwarz
+text(&quot;sei gegrüßt!&quot;, 100, 100);
+
+// Orientierungskreuz
+stroke(255);
+line(100,0,100,200);
+line(0,100,200,100);</pre>
+</div></div><p>Ergibt:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/text.png" data-image-src="https://michaelkipp.de/processing/img/text.png"></span></p><p>Allgemein lautet der Befehl also:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">text(text, basisX, basisY);</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Beachte, dass die <strong>Textfarbe mit</strong> <code>fill()</code> <strong>gesetzt wird</strong> (nicht etwa mit stroke).</div></div><p>Anhand des Beispiels, wo die Positionsangabe für den Text genau die Mitte des Fensters ist, kannst du sehen, dass sich diese Koordinatenangabe auf den <strong>linken Startpunkt der Grundlinie</strong> bezieht. Diese Ausrichtung (<em>Alignment</em>) kann man mit dem Befehl <code>textAlign</code> in Kombination mit den Werten CENTER, LEFT, RIGHT ändern, z.B. mittig mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">textAlign(CENTER);
+text(&quot;sei gegrüßt!&quot;, 100, 100);</pre>
+</div></div><p>Mit <code>textSize</code> gibt man die Punktgröße an:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">textSize(32);
+textAlign(CENTER);
+text(&quot;sei gegrüßt!&quot;, 100, 100);</pre>
+</div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="TextAusgabe-Übungsaufgaben">Übungsaufgaben</h1><h4 id="TextAusgabe-Text:Textmauszeiger">Text: Textmauszeiger</h4><p>An der aktuellen Mausposition soll der Schriftzug &quot;maus&quot; erscheinen (mittig über Maus, Schriftgröße 20).</p><h4 id="TextAusgabe-TextmitSchatten">Text mit Schatten</h4><p>Schreibe ein Programm, bei dem in der Mitte des Bildschirms dein Name in weiß steht und leicht schräg versetzt darunter dein Name nochmal in schwarz und leicht transparent - so, dass es aussieht, als wäre der zweite Text ein leichter Schlagschatten. Welchen Text musst du zuerst zeichenen?</p></div></div><p><br/></p><p><em><br/></em></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="TextAusgabe-Zusammenfassung">Zusammenfassung</h1><ul style="list-style-type: square;"><li><strong>Text</strong> kann mit dem Befehl <code>text()</code> angezeigt werden</li><li>Die <strong>Farbe</strong> des Texts wird mit <code>fill()</code> gesetzt.</li><li>Die <strong>Ausrichtung</strong> des Texts kann mit <code>textAlign()</code> angepasst werden.</li></ul></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

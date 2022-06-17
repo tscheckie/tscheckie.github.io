@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Parameter</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Parameter
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Du hast in <a href="Funktionen_24609864.html">Funktionen</a> nur die einfachste Variante einer Funktion gesehen. Wenn du dir den Befehl <code>rect</code> ansiehst, dann bekommt der Befehl noch einige Infos mit auf den Weg, nämlich Eckpunkt, Breite und Höhe:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(50, 50, 100, 80); </pre>
+</div></div><p>Diese Zusatzinformationen nennt man <strong>Parameter</strong>. Parameter geben dir die Möglichkeit, viele Varianten einer Aufgabe (&quot;zeichne ein Rechteck!&quot;) mit der selben Funktion (rect) zu erfassen, indem die jeweils spezifische Ausprägung (Position x:50 y:50, Breite 100, Höhe 80) in den Parametern gesetzt wird.</p><h1 id="Parameter-ParameterinderFunktionsdefinition">Parameter in der Funktionsdefinition</h1><p>Damit deine Funktion Parameter entgegennehmen kann, musst du diese bei der Funktionsdefinition mitdefinieren. Zum Beispiel willst du der Gesichtsfunktion (aus <a href="Funktionen_24609864.html">Funktionen</a>) die Augenfarbe mitgeben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void ZeichneGesicht(int augenfarbe) {
+   fill(255); // weiß
+   ellipse(x, y, 80, 80); // Gesicht
+   fill(augenfarbe);
+   ellipse(x-15, y-15, 20, 20); // Auge
+   ellipse(x+15, y-15, 20, 20); // Auge
+}</pre>
+</div></div><pre>
+</pre><p>Du fügst in den Klammern 2 Dinge hinzu: den <strong>Typ</strong> des Parameters und den <strong>Namen</strong>. Im Grunde ist das exakt das gleiche wie bei einer Variable, die man im Code deklariert.</p><p>Und tatsächlich: der Parameter <code>
+										augenfarbe</code> <strong>ist</strong> eine Variable.</p><h1 id="Parameter-ParameteristlokaleVariable">Parameter ist lokale Variable</h1><p>Ein Parameter ist eine <strong><a href="Lokale-Variablen_24609867.html">lokale Variable</a></strong> innerhalb der Funktion. Das heißt, dass diese Variable eine begrenzte Lebensdauer hat. Sie beginnt bei der öffnenden geschweiften Klammer und endet bei der schließenden. Außerhalb des Funktionskörpers kann auf Parameter nicht zugegriffen werden.</p><p>Du kannst - durch Komma getrennt - <strong>mehrere Parameter</strong> definieren, z.B. die Farbe von sowohl Gesicht als auch Augen von außen bestimmen lassen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void ZeichneGesicht2(int gesichtsfarbe, int augenfarbe) {
+   fill(gesichtsfarbe);
+   ellipse(x, y, 80, 80); // Gesicht
+   fill(augenfarbe);
+   ellipse(x-15, y-15, 20, 20); // Auge
+   ellipse(x+15, y-15, 20, 20); // Auge
+}</pre>
+</div></div><pre>
+</pre><p>Die allgemeine Form der Funktionsdefinition mit Parametern ist:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void NAME(TYP1 PARAM1, TYP2 PARAM2, ...) {
+   CODE
+}</pre>
+</div></div><pre class="general">
+</pre><p>Im folgenden Beispiel sind die Parameter <code>
+										a</code> und <code>
+										b</code> nur im Code der Funktion <code>printMittelwert</code> gültig.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  printMittelwert(5.0, 12.5);
+}
+
+void printMittelwert(float a, float b) {
+  float summe = a + b;
+  println(summe / 2);
+}</pre>
+</div></div><pre>
+</pre><p>Jeder Versuch, die Parameter <code>a</code> und <code>b</code> z.B. in <code>setup </code>zu verwenden, wird mit einer Fehlermeldung bestraft, denn die Variablen existieren nur innerhalb der Funktionsdefinition.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  printlnMittelwert(5.0, 12.5);
+  println(a); // Fehler! Variable a ist hier nicht gültig.
+}  
+
+void printMittelwert(float a, float b) {
+  float summe = a + b;
+  println(summe / 2);
+}</pre>
+</div></div><pre class="wrong">
+</pre><h2 id="Parameter-Wasbefindetsich&quot;in&quot;demParameter?">Was befindet sich &quot;in&quot; dem Parameter?</h2><p>Eine gar nicht mal so unwichtige Frage ist, was sich genau in dem Parameter befindet, wenn die Funktion aufgerufen wird. Stell dir vor, wir wollen eine Funktion schreiben, die den Wert zweier Variablen vertauscht:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int wert1 = 1;
+int wert2 = 2;
+
+void setup() {
+   println(&quot;wert1: &quot; + wert1 + &quot; wert2: &quot; + wert2);
+   Swap(wert1, wert2);
+   println(&quot;wert1: &quot; + wert1 + &quot; wert2: &quot; + wert2);
+}
+
+void Swap (int x, int y) {
+   int temp = x;
+   x = y;
+   y = temp;
+}</pre>
+</div></div><pre><br/></pre><p>Was denkst du wird in der Konsole stehen? Die richtige Antwort lautet:</p><pre>wert1: 1 wert2: 2<br/>wert1: 1 wert2: 2</pre><p>Zweimal das gleiche! Die Funktion hat also nicht unsere Variablen vertauscht. Warum ist das so? In dem Moment, in dem <code>wert1</code> und <code>wert1</code> an die Funktion <code>swap</code> als Parameter übergeben werden, wird lediglich deren <strong>Wert</strong> übergeben (also 1 und 2), <strong>nicht</strong> die Variable selber! Dies wird auch als <strong>Call-by-Value</strong> bezeichnet. Das mag für den ein oder anderen nun logisch erscheinen, da innerhalb der Funktion <code>swap</code> die Variablen <code>x</code> und <code>y</code> lokal sind und sogesehen nichts mit <code>wert1</code> und <code>wert2</code> zu tun haben. Allerdings geht es auch anders: Das Gegenstück zu Call-by-Value ist <em>Call-by-Reference</em>. Das Thema <a href="24613435.html">Referenztypen &amp; Wertetypen</a> schauen wir uns in Sprint 3 an.</p><p>In Processing verwenden wird nur Call-by-Value. Du musst dir also keine Sorgen machen, diese beiden Dinge ausversehen zu vertauschen. Es ist erstmal nur wichtig, dass du verstanden hast, welcher Mechanismus dahinter steckt.</p><h1 id="Parameter-Parameternichtverändern">Parameter nicht verändern</h1><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>WICHTIG:</strong> Verändere niemals einen Parameter innerhalb einer Funktion! Dies ist zwar möglich, aber schlechter Stil, da bei längerem Code unklar ist, ob der Parameter noch den ursprünglichen Wert hat.</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Schlechter Stil!
+
+void ZeichneFigur(int x, int y) {
+  rect(x, y, 20, 40);
+  x = x + 10; // Parameter x wird verändert!
+  y = y - 10; // Parameter y wird verändert!
+  ellipse(x, y, 20, 20);
+}</pre>
+</div></div><pre class="wrong">
+</pre><p>Führe stattdessen jeweils eine <strong>neue lokale Variable</strong> ein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Stattdessen lokale Variablen:
+
+void ZeichneFigur(int x, int y) {
+  rect(x, y, 20, 40);
+  int x2 = x + 10; // OK
+  int y2 = y - 10; // OK
+  ellipse(x2, y2, 20, 20);
+}</pre>
+</div></div><pre>
+</pre><h1 id="Parameter-AufrufmitParametern">Aufruf mit Parametern</h1><p>Beim Aufruf einer Funktion mit Parametern, musst du darauf achten, dass du genau die Information mitgibst, die deine Definition verlangt. Das heißt, <strong>die Anzahl, Reihenfolge und Datentypen der Parameter müssen mit den Angaben Ihrer Funktionsdefinition übereinstimmten</strong>.</p><p>Schauen wir uns nochmal die zwei Funktionen von oben an. Zunächst nochmal die Definitionen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void ZeichneGesicht(int augenfarbe) {
+  fill(255);
+  ellipse(x, y, 80, 80);
+  fill(augenfarbe);
+  ellipse(x-15, y-15, 20, 20);
+  ellipse(x+15, y-15, 20, 20);
+}
+
+void ZeichneGesicht2(int gesichtsfarbe, int augenfarbe) {
+  fill(gesichtsfarbe);
+  ellipse(x, y, 80, 80);
+  fill(augenfarbe);
+  ellipse(x-15, y-15, 20, 20);
+  ellipse(x+15, y-15, 20, 20);
+}
+</pre>
+</div></div><p>Diese Aufrufe sind falsch:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">ZeichneGesicht(36.5); // falscher Typ, muss int sein
+ZeichneGesicht(50, 100); // falsche Anzahl, nur 1 Param.
+ZeichneGesicht2(50, &quot;hallo&quot;); // falsche Anzahl, falscher Typ</pre>
+</div></div><pre>
+</pre><p>So ist es richtig:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">ZeichneGesicht(0);
+ZeichneGesicht2(255, 0);
+
+// Du kannst auch Variablen verwenden ...
+int farbe1 = 0;
+int farbe2 = 255;
+
+ZeichneGesicht(farbe1);
+ZeichneGesicht2(farbe1, farbe2);
+</pre>
+</div></div><h1 id="Parameter-Überladung">Überladung</h1><p>Es gibt auch die Möglichkeit die Definition eine Funktion zu <em>überladen</em>. Was soll das denn heißen?  Eine Funktionsdefintion ist dann überladen, wenn es <strong>mehr als eine Definition für eine Funktion</strong> gibt. Ein Beispiel ...</p><p>Wir möchten eine Funktion, die einen Quadrat zeichnet. Wenn die x- und y-Koordinaten an die Funktion übergeben werden, dann soll das Quadrat an dieser Stelle gezeichnet werden. Werden allerdings keine Parameter übergeben, dann soll das Quadrat in der Mitte des Bildschirms gezeichnet werden. Der Code hierfür sieht folgendermaßen aus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup()  {
+  // Je nach Parameter wird die jeweilige Version der Funktion verwendet
+  ZeichneQuadrat(); // Version 1
+  ZeichneQuadrat(20, 20); // Version 2
+}
+
+// Version 1: ohne Parameter
+void ZeichneQuadrat () {
+  rect(width/2, height/2, 10, 10);
+}
+
+// Version 2: mit Parameter
+void ZeichneQuadrat (int x, int y) {
+  rect(x, y, 10, 10);
+}</pre>
+</div></div><p>Mithilfe von Überladungen können somit verschiedene Versionen einer Funktion erstellt werden. Sie werden häufig eingesetzt, um z.B. Standardwerte einzusetzen, wenn keine Daten vorliegen - also in unserem Fall, wenn keine x-/y-Koordinaten vorliegen.</p><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Parameter-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Parameter-Pluseins">Plus eins</h4><p>Schreibe die Funktion <code>PlusEins</code>, die als Parameter eine Zahl x als <code>int</code> bekommt und x+1 auf die Konsole schreibt.</p><p>Der Aufruf <code>PlusEins(5);</code> würde also folgendes produzieren:</p><pre class="console">6
+</pre><h4 id="Parameter-Summeausgeben">Summe ausgeben</h4><p>Schreibe eine Funktion <code>Pr<strong>intSum</strong></code>, die drei Parameter vom Typ <code>float</code> bekommt und die Summe dieser drei übergebenen Zahlen auf die Konsole schreibt. Der Aufruf <code>PrintSum(3, 2, 5);</code> würde also folgendes produzieren:</p><pre class="console">10.0
+</pre><h4 id="Parameter-Mauszeiger">Mauszeiger</h4><p>Schreibe eine Funktion <code>Mauszeiger</code>, mit fünf Parametern: x, y, r, g, b. Die Funktion zeichnet einen Kreis an der Position (x, y) mit der Farbe (r, g, b) gefüllt.</p><p>Teste deinen Code mit</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void draw() {
+  background(255);
+  Mauszeiger(mouseX, mouseY, 255, 0, 0);
+}</pre>
+</div></div><p><br/></p><p>Du solltest einen rot gefüllten Kreis sehen, der der Maus folgt.</p><h4 id="Parameter-Begrüßung">Begrüßung</h4><p>Schreibe die Funktion <code>Greeting()</code>, die einen Parameter <code>name</code> vom Typ <code>String</code> bekommt und dann &quot;Servus, &lt;name&gt;&quot; ausgibt.</p><p>Zum Beispiel beim Aufruf von <code>Greeting(&quot;Helmut&quot;);</code> ergibt:</p><pre class="console">Servus, Helmut
+</pre><h4 id="Parameter-BegrüßungII">Begrüßung II</h4><p>Schreibe eine neue Funktion <code>Greet()</code>, diesmal mit zwei Parametern, einen String und einen boolean. Der zweite Parameter gibt an, ob die Person weiblich ist.</p><p>Beim Aufruf <code>Greet(&quot;Schmidt&quot;, true);</code> soll kommen:</p><pre class="console">Hallo Frau Schmidt
+</pre><p>Bei <code>Greet(&quot;Huber&quot;, false);</code> soll kommen:</p><pre class="console">Hallo Herr Huber
+</pre><h4 id="Parameter-Variablenvertauschen">Variablen vertauschen</h4><p>Schreibe ein Programm, welches den Wert von 2 <code>int</code>-Variablen <code>wert1</code> und <code>wert2</code> vertauscht. Lass dir zunächst die beiden Variablen ausgeben und danach ein weiteres mal, nachdem du sie vertauscht hast.</p><p><strong>Tip</strong>: Das Beispiel oben in der Lektion zeigt dir, wie es <strong>nicht</strong> geht.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Parameter-Zusammenfassung">Zusammenfassung</h1><p>Du kannst einer Funktion <strong>Parameter</strong> geben - das sind Informationen, die das Verhalten der Funktion bestimmen, z.B. Farbwerte oder Koordinaten.</p><p>In der <strong>Definition</strong> der Funktion gibst du den Parametern Namen und nennen den Typ. Im Prinzip deklarierst du hier eine Reihe von lokalen Variablen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void NAME(TYP1 PARAM1, TYP2 PARAM2, ...) {
+  CODE
+}</pre>
+</div></div><pre class="general">
+</pre><p>Beim <strong>Aufruf</strong> einer Funktion must du die konkreten Parameterwerte angeben (hierbei dürfen natürlich auch Variablen im Spiel sein). Dabei muss <strong>die Anzahl, Reihenfolge und Datentypen der Parameter</strong> mit den Angaben Ihrer Funktionsdefinition übereinstimmen.</p><p>Du kennst Funktionsaufrufe zur Genüge - jede Zeile des folgenden Codes ruft eine Funktion auf, die jeweils von Processing selbst zur Verfügung gestellt wurde.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(200, 200);
+background(0);
+fill(255);
+ellipse(50, 40, 20, 20);
+println(&quot;fertig&quot;);</pre>
+</div></div><pre>
+</pre><p>Häufiger Fehler ist, dass bei der Definition einer Funktion die Typen vergessen werden oder dass umgekehrt beim Aufruf einer Funktion der Typ mit angegeben wird.</p></div></div><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

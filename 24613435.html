@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Referenztypen &amp; Wertetypen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-3_24609610.html">Sprint 3</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Referenztypen &amp; Wertetypen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 24, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Nun beschäftigen wir uns ein wenig damit wie die CPU Daten speichert, abruft und verwendet.</p><p>Wir haben das Thema ganz am Anfang einmal kurz gestreift und dann angefangen mit Variablen zu arbeiten, aber haben wir uns wirklich Gedanken gemacht, was da eigentlich in dieser &quot;Blackbox&quot; namens &quot;Computer&quot; vor sich geht?</p><h1 id="Referenztypen&amp;Wertetypen-Variablen">Variablen</h1><p>Denken wir nochmal zurück: Was genau ist eine Variable eigentlich? An Anfang haben wir das der Einfachheit halber einen &quot;Container&quot; für Daten genannt. Gehen wir aber mal einen Schritt weiter:</p><ul style="list-style-type: square;"><li>Eine Variable besteht aus einem <strong>Datentyp</strong>, ein <strong>Bezeichner</strong> und ein <strong>Literal</strong>.<ul style="list-style-type: square;"><li>Zur Wiederholung: Bezeichner = Variablennamen und Literal = Wert.</li></ul></li><li>Der <strong>Literal</strong> ist ein <strong>irgendwo im Speicher abgespeicherter Wert</strong> für eine Variable.</li></ul><p>Eine <strong>Variable</strong> ist sozussagen eine <strong>Referenz</strong>, ein <strong>Verweis</strong> auf diese Stelle im Speicher. Du kannst dir das vorstellen wie eine URL. Eine URL ist eine Adresse, eine Referenz, ein Verweis auf eine Webseite, die irgendwo in diesem &quot;Neuland&quot; namens Internet gespeichert ist. Um dir die Webseite ansehen zu können brauchst du nicht den Code der Webseite selbst, es reicht einfach den Link zur Webseite zu haben.</p><h2 id="Referenztypen&amp;Wertetypen-Null">Null</h2><p>Eine Referenz kann auch auf &quot;nichts&quot; zeigen. Bei Webseiten kennen wir alle den <strong>404-Error</strong> bzw. den <strong>Page-not-found-Error</strong>. Wenn in Java eine Referenz auf &quot;nichts&quot; zeigt, dann zeigt sie auf <code>null</code>. Das bedeutet in diesem Fall &quot;nichts&quot;. Dieser Begriff ist dir aber schon begegnet. Zum Beispiel beim <a href="24609901.html">Debugging 🐞</a>, wenn du eine <strong><code><span class="ILfuVd"><span class="e24Kjd">NullPointerException </span></span></code></strong>hattest, weil du eine Variable verwendet hast, der du keinen Wert zugewiesen hast.</p><h1 id="Referenztypen&amp;Wertetypen-KopieoderReferenz?">Kopie oder Referenz?</h1><p>Wenn wir mit Variablen arbeiten stellt sich die Frage, womit der Computer eigentlich arbeitet. Arbeitet der Computer mit einer<strong> Kopie unseres Wertes </strong>oder mit der <strong>Referenz</strong>? Lass dir mal folgendes durch den Kopf gehen:</p></div>
+</div>
+</div>
+<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p>Wir erstellen eine Variable <code>varA</code>:</p><ul style="list-style-type: square;"><li><code> int varA = 10;</code></li><li>Stell dir das vor wie ein Koffer mit dem Namen <code>varA</code> und dem Inhalt 10.</li></ul><p>Jetzt erstellen wir eine Variable <code>varB</code> und weisen ihr <code>varA</code> zu:</p><ul style="list-style-type: square;"><li><code>int varB = varA;</code></li></ul><p>Nun könnten folgende zwei Dinge wahr sein:</p><ul style="list-style-type: square;"><li><code>varB</code> ist ein zweiter <strong>Koffer</strong> mit den Namen varB und dem Inhalt 10 <strong>(= Kopie)</strong>.</li><li><code>varB</code> ist ein zweiter <strong>Name</strong> für den <em>vorhandenen</em> Koffer <code>varA</code> <strong>(=Referenz)</strong>.</li></ul><p><br/></p></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" draggable="false" width="700" src="attachments/24613435/24613438.png" data-image-src="attachments/24613435/24613438.png" data-unresolved-comment-count="0" data-linked-resource-id="24613438" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="kopeundrerferenz.PNG" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24613435" data-linked-resource-container-version="6" alt=""></span></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Was stimmt? Und wie können wir das herausfinden?</p><p>→ Ganz einfach: Indem wir <code>varB</code> verändern. Wenn dann auch <code>varA</code> verändert ist, handelte es sich um einen Koffer (also eine Referenz). Wenn <code>varA</code> unverändert bleibt, handelt es sich um zwei Koffer (also eine Kopie).</p><h1 id="Referenztypen&amp;Wertetypen-Werte-undReferenztypen">Werte- und Referenztypen</h1><p>In Java gibt es verschiedene Arten von Datentypen: <strong>Wertetypen </strong>und <strong>Referenztypen</strong>.</p><ul style="list-style-type: square;"><li>Bei den <strong>Wertetypen</strong> wird in dem obigen Beispiel der Wert verwendet, sprich eine Kopie erstellt.</li><li>Bei den <strong>Referenztypen</strong> wird in dem obigen Beispiel eine Referenz erstellt.</li></ul><p>Welcher Datentyp in welche Kategorie gehört, haben wir bereits im Abschnitt <a href="24609995.html">Primitive Datentypen &amp; Objekttypen</a> gesehen. Hier haben wir allerdings von <strong>primitiven</strong> <strong>Datentypen</strong> und <strong>Objekttypen</strong> geredet. Die Einteilung ist aber dieselbe. Dabei sind die primitiven Datentypen Wertetypen und die Objekttypen sind Referenztpyen.  Somit gibt es <strong>acht Wertetypen</strong>:</p><ul><li>byte, short, integer, long, float, double, char, boolean</li></ul><p>Alle anderen Datentypen sind Referenztypen (inklusive Arrays).</p><h1 id="Referenztypen&amp;Wertetypen-Call-By-Value&amp;Call-By-Reference">Call-By-Value &amp; Call-By-Reference</h1><p>Diese beiden Begriffe sollten dir schonmal begegnet sein. Wir haben sie in <a href="Parameter_24609866.html">Parameter</a> ganz kurz thematisiert. Sie beschreiben, ob bei einem Funktionsaufruf die Parameter als Wert (also eine Kopie) oder Referenz übergeben werden.</p><ul style="list-style-type: square;"><li><strong>Call-By-Value</strong>: Wenn nur der Wert übergeben wird, dann hat das, was innerhalb der Funktion passiert keine Auswirkung auf die &quot;Außenwelt&quot;, da ja nur die <em>Kopie </em>verändert wird, nicht das Original.<strong> Es gilt das Las-Vegas-Prinzip</strong>: What happens inside the function, stays inside the function.</li><li><strong>Call-By-Reference</strong>: Wenn die Referenz übergeben wird, die sozusagen auf das <em>Original </em>zeigt, dann hat alles, was innerhalb der Funktion mit der Parameter-Variablen passiert, Auswirkung auf die Außenwelt.</li></ul><p>Im Abschnitt zu den Parametern einer Funktion haben wir uns gefragt, was &quot;in&quot; einem Parameter gespeichert ist. Schau dir das Beispiel dort nochmal an. Wir haben eine Funktion geschrieben, die zwei Integer-Variablen übergeben bekommt und diese vertauschen soll. Dabei haben wir festgestellt, dass sie nicht vertauscht wurden. Die Funktion hat nur mit einer Kopie der Werte gearbeitet, aber nicht mit der tatsächlichen Variablen bzw. Referenz.</p><p>In diesem Fall ist das auch klar, da es sich bei den Variablen ja um Integer-Werte handelte, sprich um einen Wertetyp.</p><p>Was würde passieren, wenn wir dieselbe Funktion umschreiben, so dass sie zwei Strings miteinander vertauscht? Also so:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String wert1 = &quot;1&quot;;
+String wert2 = &quot;2&quot;;
+
+void setup() {
+   println(&quot;wert1: &quot; + wert1 + &quot; wert2: &quot; + wert2);
+   swap(wert1, wert2);
+
+   println(&quot;wert1: &quot; + wert1 + &quot; wert2: &quot; + wert2);
+}
+
+void swap (String x, String y) {
+   String temp = x;
+   x = y;
+   y = temp;
+}</pre>
+</div></div><p><br/></p><p>Auch dann werden die Werte nicht vertausch. Warum ist das so? Auch wenn es sich bei einem String um ein Referenztyp handelt, gilt in Java:</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Bei Funktionsaufrufen werden die Parameter <u>immer</u> <strong>kopiert</strong> und die <strong>Kopien</strong> werden an die Funktionen <strong>weitergegeben</strong>. Java macht also <u>immer</u> <strong>Call-By-Value</strong>. Java unterscheidet hier nicht zwischen Wertetyp und Referenztyp.</div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Referenztypen&amp;Wertetypen-Zusammenfassung">Zusammenfassung</h1><ul style="list-style-type: square;"><li>Bei Java werden Datentypen unterschieden zwischen Wertetypen und Referenztypen<br/><ul style="list-style-type: square;"><li>Die primitiven Datentypen sind allesamt Wertetypen</li><li>Objekttypen sind Referenztypen</li></ul></li><li>Variablen sind Referenzen auf Stellen im Speicher, wo Werte gespeichert sind. Je nach Typ ist in der Variable aber entweder der Wert selber oder aber die Referenz auf die Stelle im speicher gespeichert.</li><li>Call-By-Value bedeutet, dass bei einem Funktionsaufruf die Parameter in Form einer Kopie des Wertes übergeben werden.<ul style="list-style-type: square;"><li>Veränderungen der Parameter innerhalb der Funktion haben keine Auswirkung auf die übergebenen Variablen außerhalb der Funktion.</li></ul></li><li>Call-By-Reference bedeutet, dass bei einem Funktionsaufruf die Parameter als Referenz übergeben werden.<ul style="list-style-type: square;"><li>Veränderungen der Parameter innerhalb der Funktion verändern auch die Variablen außerhalb</li></ul></li><li>Obwohl es in Java Werte- und Referenztypen gibt, verwendet Java und Call-By-Value.</li></ul></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/><br/></p></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24613435/24613436.jpg">error.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24613435/24613437.png">image2019-11-6_17-58-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24613435/40863420.png">kopeundrerferenz.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24613435/24613438.png">kopeundrerferenz.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24613435/40868327.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

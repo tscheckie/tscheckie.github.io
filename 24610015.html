@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Mathem. Funktionen &amp; Konstanten</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-3_24609610.html">Sprint 3</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Mathem. Funktionen &amp; Konstanten
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified on Okt 20, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Mathematische Berechnung machen einen großen Teil der Programmierung aus. Processing liefert dir einige Funktionen &amp; Konstanten mit, die gewisse Berechnungen für dich übernehmen. Hier findest du eine Auswahl der wichtigsten:</p><h1 class="auto-cursor-target" id="Mathem.Funktionen&amp;Konstanten-Konstanten">Konstanten</h1><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 49.4277%;"><colgroup><col style="width: 11.4458%;"/><col style="width: 20.5773%;"/><col style="width: 22.0817%;"/><col style="width: 22.0817%;"/><col style="width: 23.8889%;"/></colgroup><tbody><tr><th class="confluenceTh">Name</th><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-PI">PI</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-TWO_PI">TWO_PI</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-HALF_PI">HALF_PI</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-QUARTER_PI">QUARTER_PI</h4></td></tr><tr><th class="confluenceTh">Beispiel</th><td colspan="4" class="confluenceTd"><pre class="margin">float x = width/2;
+float y = height/2;
+float d = width * 0.8;
+arc(x, y, d, d, 0, QUARTER_PI);
+arc(x, y, d-20, d-20, 0, HALF_PI);
+arc(x, y, d-40, d-40, 0, PI);
+arc(x, y, d-60, d-60, 0, TWO_PI);</pre></td></tr><tr><th class="confluenceTh"><p>Beschreibung</p></th><td colspan="1" class="confluenceTd"><code>PI</code> ist eine mathem. Konstante mit dem Wert 3.1415927.</td><td colspan="1" class="confluenceTd"><code>TWO_PI</code> ist eine mathem. Konstante mit dem Wert 6.2831855.</td><td colspan="1" class="confluenceTd"><code>HALF_PI</code> ist eine mathem. Konstante mit dem Wert 1.5707964.</td><td colspan="1" class="confluenceTd"><code>QUARTER_PI</code> ist eine mathem. Konstante mit dem Wert 0.7853982.</td></tr><tr><th class="confluenceTh">Syntax</th><td colspan="1" class="confluenceTd"><pre>PI</pre></td><td colspan="1" class="confluenceTd"><pre>TWO_PI</pre></td><td colspan="1" class="confluenceTd"><pre>HALF_PI</pre></td><td colspan="1" class="confluenceTd"><pre>QUARTER_PI</pre></td></tr></tbody></table></div><h1 class="auto-cursor-target" id="Mathem.Funktionen&amp;Konstanten-Exponentialrechnung">Exponentialrechnung</h1><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 65.1858%;"><colgroup><col style="width: 8.75444%;"/><col style="width: 32.3237%;"/><col style="width: 34.8554%;"/><col style="width: 24.1197%;"/></colgroup><tbody><tr><th class="confluenceTh">Name</th><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-epx()">epx()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-pow()">pow()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-sqrt()">sqrt()</h4></td></tr><tr><th class="confluenceTh">Beispiel</th><td colspan="1" class="confluenceTd"><pre>float v1 = exp(1.0); <br/>println(v1); // Prints &quot;2.7182817&quot;</pre></td><td colspan="1" class="confluenceTd"><pre>float a = pow( 1, 3);  // a = 1*1*1 = 1
+float b = pow( 3, 5);  // b = 3*3*3*3*3 = 243
+float c = pow( 3,-5);  // c = 1 / 3*3*3*3*3  = .0041
+float d = pow(-3, 5);  // d = -3*-3*-3*-3*-3 = -243</pre></td><td colspan="1" class="confluenceTd"><pre class="margin">noStroke();
+float a = sqrt(6561);  // a = 81
+float b = sqrt(625);   // b = 25
+float c = sqrt(1);     // c = 1
+rect(0, 25, a, 10);
+rect(0, 45, b, 10);
+rect(0, 65, c, 10);</pre></td></tr><tr><th class="confluenceTh"><p>Beschreibung</p></th><td colspan="1" class="confluenceTd">Liefert das Ergebnis der <em>Eulerischen Zahl e</em> hoch den Exponenten, der angegeben wird.</td><td colspan="1" class="confluenceTd">Berechnet n (Zahl) hoch e (Exponent)</td><td colspan="1" class="confluenceTd">Berechnet die Quadratwurzel einer Zahl</td></tr><tr><th class="confluenceTh">Syntax</th><td colspan="1" class="confluenceTd"><pre>exp(n);</pre></td><td colspan="1" class="confluenceTd"><pre>pow( n, e);</pre></td><td colspan="1" class="confluenceTd"><pre>sqrt(n);</pre></td></tr><tr><th class="confluenceTh">Parameter</th><td colspan="1" class="confluenceTd">n: float Exponent</td><td colspan="1" class="confluenceTd">n: float Basiszahl, e: float Exponent</td><td colspan="1" class="confluenceTd">n: float Zahl, nicht negativ!</td></tr><tr><th class="confluenceTh">Rückgabewert</th><td colspan="1" class="confluenceTd"><pre>float</pre></td><td colspan="1" class="confluenceTd"><pre>float</pre></td><td colspan="1" class="confluenceTd"><pre>float</pre></td></tr></tbody></table></div><h1 id="Mathem.Funktionen&amp;Konstanten-Zahlenrunden">Zahlen runden</h1><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 81.3404%;"><colgroup><col style="width: 7.01423%;"/><col style="width: 26.2724%;"/><col style="width: 27.7937%;"/><col style="width: 19.2642%;"/><col style="width: 19.6951%;"/></colgroup><tbody><tr><th class="confluenceTh">Name</th><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-round()">round()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-ceil()">ceil()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-floor()">floor()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-abs()">abs()</h4></td></tr><tr><th class="confluenceTh">Beispiel</th><td colspan="1" class="confluenceTd"><pre>float x = 9.2;  
+int rx = round(x);  // rx = 9
+
+float y = 9.5;
+int ry = round(y);  // ry = 10
+
+float z = 9.9;
+int rz = round(z);  // rz = 10</pre></td><td colspan="1" class="confluenceTd"><pre>float x = 8.22;  
+int a = ceil(x);  // a = 9</pre></td><td colspan="1" class="confluenceTd"><pre>float x = 2.88; <br/>int a = floor(x); // a = 2</pre></td><td colspan="1" class="confluenceTd"><pre>int a = abs(153);      // a = 153
+int b = abs(-15);      // b = 15
+float c = abs(12.234); // c = 12.234
+float d = abs(-9.23);  // d = 9.23 </pre></td></tr><tr><th class="confluenceTh"><p>Beschreibung</p></th><td colspan="1" class="confluenceTd">Berechnet die Ganzzahl, die am nächsten liegt</td><td colspan="1" class="confluenceTd">Berechnet die nächst größere Ganzzahl</td><td colspan="1" class="confluenceTd">Berechnet die nächst kleinere Ganzzahl</td><td colspan="1" class="confluenceTd">Berechnet den absoluten Wert einer Zahl. <br/>Dieser Wert ist immer positiv.</td></tr><tr><th class="confluenceTh">Syntax</th><td colspan="1" class="confluenceTd"><code>round(n)</code></td><td colspan="1" class="confluenceTd"><code>ceil(n)</code></td><td colspan="1" class="confluenceTd"><code>floor(n)</code></td><td colspan="1" class="confluenceTd"><code>abs(n)</code></td></tr><tr><th class="confluenceTh">Parameter</th><td colspan="1" class="confluenceTd">n: float Zahl, die gerundet werden soll</td><td colspan="1" class="confluenceTd">n: float Zahl, die gerundet werden soll</td><td colspan="1" class="confluenceTd">n: float Zahl, die gerundet werden soll</td><td colspan="1" class="confluenceTd">n: float Zahl, die gerundet werden soll</td></tr><tr><th class="confluenceTh">Rückgabewert</th><td colspan="1" class="confluenceTd"><code>int</code></td><td colspan="1" class="confluenceTd"><code>int</code></td><td colspan="1" class="confluenceTd"><code>int</code></td><td colspan="1" class="confluenceTd"><code>int</code></td></tr></tbody></table></div><h1 id="Mathem.Funktionen&amp;Konstanten-Trigonometrie&amp;Winkel">Trigonometrie &amp; Winkel</h1><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 65.3345%;"><colgroup><col style="width: 8.7345%;"/><col style="width: 32.6373%;"/><col style="width: 34.7633%;"/><col style="width: 23.918%;"/></colgroup><tbody><tr><th class="confluenceTh">Name</th><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-sin()">sin()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-cos()">cos()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-tan()">tan()</h4></td></tr><tr><th class="confluenceTh">Beispiel</th><td colspan="1" class="confluenceTd"><pre class="margin">float a = 0.0;
+float inc = TWO_PI/25.0;
+
+for (int i = 0; i &lt; 100; i=i+4) {
+  line(i, 50, i, 50+sin(a)*40.0);
+  a = a + inc;
+}</pre></td><td colspan="1" class="confluenceTd"><pre class="margin">float a = 0.0;
+float inc = TWO_PI/25.0;
+for (int i = 0; i &lt; 25; i++) {
+  line(i*4, 50, i*4, 50+cos(a)*40.0);
+  a = a + inc;
+}</pre></td><td colspan="1" class="confluenceTd"><pre class="margin">float a = 0.0;
+float inc = TWO_PI/50.0;
+
+for (int i = 0; i &lt; 100; i = i+2) {
+  line(i, 50, i, 50+tan(a)*2.0);
+  a = a + inc;
+}</pre></td></tr><tr><th class="confluenceTh"><p>Beschreibung</p></th><td colspan="1" class="confluenceTd">Berechnet den Sinus-Wert eines Winkels. Nimmt Werte im Bogenmaß (0 bis 2*PI).</td><td colspan="1" class="confluenceTd">Berechnet den Cosinus-Wert eines Winkels. Nimmt Werte im Bogenmaß (0 bis 2*PI).</td><td colspan="1" class="confluenceTd">Berechnet das Verhältnis des Sinus und des Cosinnus eines Winkels. Nimmt Werte im Bogenmaß (0 bis 2*PI).</td></tr><tr><th class="confluenceTh">Syntax</th><td colspan="1" class="confluenceTd"><code>sin(angle)</code></td><td colspan="1" class="confluenceTd"><pre><code>cos(angle)</code></pre></td><td colspan="1" class="confluenceTd"><code>tan(angle)</code></td></tr><tr><th class="confluenceTh">Parameter</th><td colspan="1" class="confluenceTd">angle: float im Bogenmaß</td><td colspan="1" class="confluenceTd">angle: float im Bogenmaß</td><td colspan="1" class="confluenceTd">angle: float im Bogenmaß</td></tr><tr><th class="confluenceTh">Rückgabewert</th><td colspan="1" class="confluenceTd"><code>float</code></td><td colspan="1" class="confluenceTd"><code>float</code></td><td colspan="1" class="confluenceTd"><code>float</code></td></tr></tbody></table></div><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 49.6754%;"><colgroup><col style="width: 11.4918%;"/><col style="width: 43.1718%;"/><col style="width: 45.4113%;"/></colgroup><tbody><tr><th class="confluenceTh">Name</th><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-radians()">radians()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-degree()">degree()</h4></td></tr><tr><th class="confluenceTh">Beispiel</th><td colspan="1" class="confluenceTd"><pre>float deg = 45.0;
+float rad = radians(deg);
+println(deg + &quot; degrees is &quot; + rad + &quot; radians&quot;);</pre></td><td colspan="1" class="confluenceTd"><pre>float rad = PI/4; <br/>float deg = degrees(rad); <br/>println(rad + &quot; radians is &quot; + deg + &quot; degrees&quot;);</pre></td></tr><tr><th class="confluenceTh"><p>Beschreibung</p></th><td colspan="1" class="confluenceTd">Konvertiert eine Gradzahl ins Bogenmaß. Gradzahl und Bogenmaß sind 2 verschiedene Arten dasselbe zu messen. Ein Kreis besteht 360° oder 2*PI im Bogenmaß.</td><td colspan="1" class="confluenceTd">Konvertiert eine Zahl im Bogenmaß in eine Gradzahl.</td></tr><tr><th class="confluenceTh">Syntax</th><td colspan="1" class="confluenceTd"><code>radians(degrees)</code></td><td colspan="1" class="confluenceTd"><pre>degree(radians)</pre></td></tr><tr><th class="confluenceTh">Parameter</th><td colspan="1" class="confluenceTd">degrees: float Gradzahl die in Bogenmaß konvertiert werden soll</td><td colspan="1" class="confluenceTd">radians: float Zahl im Bogenmaß die in Grad konvertiert werden soll</td></tr><tr><th class="confluenceTh">Rückgabewert</th><td colspan="1" class="confluenceTd"><code>float</code></td><td colspan="1" class="confluenceTd"><code>float</code></td></tr></tbody></table></div><h1 class="auto-cursor-target" id="Mathem.Funktionen&amp;Konstanten-SonstigehilfreicheFunktionen">Sonstige hilfreiche Funktionen</h1><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 72.9163%;"><colgroup><col style="width: 7.8254%;"/><col style="width: 29.4331%;"/><col style="width: 31.2925%;"/><col style="width: 31.4943%;"/></colgroup><tbody><tr><th class="confluenceTh">Name</th><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-random()">random()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-dist()">dist()</h4></td><td colspan="1" class="confluenceTd"><h4 id="Mathem.Funktionen&amp;Konstanten-atan2()">atan2()</h4></td></tr><tr><th class="confluenceTh">Beispiel</th><td colspan="1" class="confluenceTd"><pre>float grayscale = random(255);<br/>background(grayscale);<br/><br/>float r = random(255);<br/>float g = random(255);<br/>float b = random(255);<br/><br/>background(r, g, b);</pre></td><td colspan="1" class="confluenceTd"><pre>// Setzt den Hintergrund-Grauwert basierend auf den 
+// Abstand der Maus zur Mittel des Bildschirms
+void draw() {
+  noStroke();
+  float d = dist(width/2, height/2, mouseX, mouseY);
+  float maxDist = dist(0, 0, width/2, height/2);
+  float gray = map(d, 0, maxDist, 0, 255);
+  fill(gray);
+  rect(0, 0, width, height);
+}</pre></td><td colspan="1" class="confluenceTd"><pre>void draw() {
+  background(204);
+  translate(width/2, height/2);
+  float a = atan2(mouseY-height/2, mouseX-width/2);
+  rotate(a);
+  rect(-30, -5, 60, 10);
+}</pre></td></tr><tr><th class="confluenceTh"><p>Beschreibung</p></th><td colspan="1" class="confluenceTd"><p>Generiert Zufallszahlen. Kann einen oder zwei Parameter annehmen. Wird nur <code>high</code> angegeben, werden Zahlen &gt;= 0 und &lt; <code>high</code>. Werden <code>high </code>und <code>low</code> angegeben, werden Zahlen &gt;<span class="inline-comment-marker" data-ref="32360367-ea97-40d5-9a9e-d24a4cfcac87">=</span> <code>low</code> und &lt; <code>high</code> generiert.</p></td><td colspan="1" class="confluenceTd">Berechnet den Abstand zwischen zwei Punkten</td><td colspan="1" class="confluenceTd"><p>Berechnet den Winkel (im Bogenmaß) von einem bestimmten Punkt zum Koordinatenursprung, gemessen von der positiven x-Achse. Werte werden als Float im Bereich von PI bis -PI zurückgegeben. Die Funktion atan2 () wird am häufigsten verwendet, um die Geometrie an der Position des Cursors auszurichten.</p><p><strong>Hinweis</strong>: Die y-Koordinate des Punkts ist der erste Parameter und die x-Koordinate ist der zweite Parameter, da die Berechnung der Tangente so strukturiert ist.</p></td></tr><tr><th class="confluenceTh">Syntax</th><td colspan="1" class="confluenceTd"><pre>random(high);<br/>random(low, high)</pre></td><td colspan="1" class="confluenceTd"><pre>dist(x1, y1, x2, y2)</pre></td><td colspan="1" class="confluenceTd"><pre>atan2(y, x)</pre></td></tr><tr><th class="confluenceTh">Parameter</th><td colspan="1" class="confluenceTd">high: float obere Grenze<br/>low: float untere Grenze</td><td colspan="1" class="confluenceTd">x1, y1, x2, y2: float Werte der Positionen</td><td colspan="1" class="confluenceTd">y,x: float Werte</td></tr><tr><th class="confluenceTh">Rückgabewert</th><td colspan="1" class="confluenceTd"><pre>float</pre></td><td colspan="1" class="confluenceTd"><pre>float</pre></td><td colspan="1" class="confluenceTd"><pre>float</pre></td></tr></tbody></table></div>
+                    </div>
+
+                                        
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-40868495"></a>
+                                    <font class="smallfont"><p>Bei Trigonometrie &amp; Winkel: <strong>degrees()</strong> wird immer mit <strong>s</strong> hinten (und nicht degree()) geschrieben! Im Beispiel ist es korrekt, bei Name und Syntax steht es falsch.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by annabelle.j.kokocinski@student.fh-kiel.de at Jan 17, 2021 13:49
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Variablen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Variablen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Variablen sind Container für Informationen, zum Beispiel für eine Zahl oder für einen Text. Der Inhalt einer Variable kann sich jederzeit ändern, ist also variabel.</p><p>Variablen können Daten speichern. Um dies sinnvoll zu tun, benötigen wir für jede Variable:</p><ul><li>einen <a href="Datentypen_24609468.html"><strong>Typ</strong></a>, der bestimmt, was man in der Variable speichern kann, z.B. eine ganze Zahl, eine Kommazahl oder einen Buchstaben.</li><li>einen <strong>Namen </strong>(Bezeichner), damit man später darauf zurückgreifen kann und verschiedene Variablen auseinander halten kann.</li></ul><h1 id="Variablen-Deklaration">Deklaration</h1><p>Um eine Variable zu verwenden, muss man zunächst die Variable erstellen. Das nennt man <strong>deklarieren</strong>. Hier deklarieren wir eine Variable mit Namen foo vom Typ int (steht für <em>integer</em>, engl. für &quot;ganze Zahl&quot;):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int foo; // Deklaration</pre>
+</div></div><p>Allgemein sieht eine Deklaration wie folgt aus:</p><pre class="general">TYP NAME;</pre><p>Die Deklaration reserviert Platz im Speicher, um den Wert einer Variablen zu abzulegen. Das ist auch einer der Gründe, warum ein Typ angegeben wird: unterschiedliche Typen verbrauchen unterschiedlichen Speicherplatz.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>WICHTIG:</strong> Variablenamen am Anfang immer klein schreiben!</div></div><h1 id="Variablen-Zuweisung">Zuweisung</h1><p>Im nächsten Schritt legt man den Inhalt der Variable fest, das nennt man <em>Zuweisung</em>. Man kann einer Variablen immmer wieder verschiedene Werte zuweisen. Die Zuweisung des ersten Werts (in der Regel direkt nach der Deklaration) nennt man auch <strong>Initialisierung</strong>.</p><p>Um einer Variablen einen Wer zuzuweisen, verwendet man das Gleichheitszeichen, welches in diesem Fall als Zuweisungsoperator bezeichnet wird.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>WICHTIG</strong>: Es handelt sich nicht um die Gleichheit aus der Mathematik!</div></div><p>Bei der Zuweisung steht links vom Zuweisungsoperator immer ein Variablenname und rechts steht z.B. eine Zahl oder ein mathematischer Ausdruck wie 3 + 2. Die rechte Seite wird ausgewertet und das Ergebnis in die Variable hineingeschrieben.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">foo = 5; // einfache Zuweisung</pre>
+</div></div><p>Auf der rechten Seite kann ein beliebig komplexer arithmetischer Ausdruck stehen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">foo = 5 + 2 * (10 - 5);</pre>
+</div></div><p>Dieser wird zunächst gemäß der bekannten Regeln (Punkt vor Strich, Klammerung) ausgewertet.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">foo = 15</pre>
+</div></div><p>Erst wenn die rechte Seite fertig ausgewertet ist, wird der Variablen <code>foo</code> der Wert, hier also 15, zugewiesen.</p><h1 id="Variablen-Verwendung">Verwendung</h1><p>Schließlich kann man die Variabe verwenden. Hier wird der Variablenname durch den Inhalt der Variable ersetzt, das nennt man auch <strong>Substitution</strong>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(foo); // Verwendung im Befehl println
+rect(foo, 40, 30, 30); // Verwendung im Befehl rect</pre>
+</div></div><p>Stell dir vor, dass Processing <strong>vor</strong> der <strong>Verarbeitung</strong> einer Zeile zunächst alle Variablen durch den jeweils aktuellen Wert der Variable <strong>ersetzt</strong>.</p><p>In unserem Bespiel hat die Variable <code>foo</code> den Wert 5. Aus der Zeile</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(foo, 40, 30, 30);</pre>
+</div></div><p>macht Processing also zunächst</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(5, 40, 30, 30);</pre>
+</div></div><p>Jetzt wird die Zeile &quot;normal&quot; ausgewertet.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Wichtig: Die Verwendung von Variablen (meistens) teilt sich in 3 Schritte auf:</p><ol><li><strong>Subsitution</strong> der Variable(n) <em>mit dem tatsächlichen Wert</em></li><li><strong>Verarbeitung/Auswertung</strong> der Variable(n), z.B. <em>in</em> <em>Befehlen</em> oder auch die <em>Addition</em> <em>zweier</em> <em>Variablen</em>.</li><li><strong>Zuweisung</strong> des Ergebnis zu einer (anderen Variable).</li></ol></div></div><p>Es kommen nicht immer <em>zwingend </em> alle Schritte vor. Manchmal gibt es auch keine Verarbeitung, z.B. wenn ich eine Variable einfach nur einer anderen Variable zuweise (z.B.  <code>xNeu = xAlt</code> ). <em>Wenn </em>die Schritt allerdings vorkommen,<em> dann </em>in dieser Reihenfolge.</p><h1 id="Variablen-ZuweisungmitVariablen">Zuweisung mit Variablen</h1><p>Variablen können auch <strong>auf der rechten Seite</strong> von Zuweisungen stehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boo = foo + 10;</pre>
+</div></div><p>Bevor die Addition (oder andere Operationen) ausgewertet wird, werden alle Variablen auf der rechten Seite ersetzt (<strong>substituiert</strong>) durch ihre jeweils aktuellen Werte.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boo = 5 + 10;</pre>
+</div></div><p>Im nächsten Schritt wird der arithmetische Ausdruck auf der rechten Seite <strong>ausgewertet</strong>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boo = 15;</pre>
+</div></div><p><strong>Jetzt kann die Zuweisung erfolgen:</strong> <code>boo</code> erhält den Wert 15.</p><h1 id="Variablen-Variablenwerterhöhen">Variablenwert erhöhen</h1><p>Wie du später noch sehen wirst, kommt es sehr häufig vor, dass du den Wert einer Variablen um einen Betrag erhöhen möchtest. Zum Beispiel: Variable <code>x</code> speichert eine x-Koordinate und hat den Wert 10, diesen möchstes du um 1 erhöhen. Zunächst deklarieren wir die Variable:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int x;
+x = 10;</pre>
+</div></div><p>Häufiger Fehler:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x + 1; // falsch</pre>
+</div></div><p>In diesem Code wird aber der Wert der Variable <code>x</code> nicht verändert. Stattdessen musst du schreiben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x = x + 1; // richtig</pre>
+</div></div><p>Hier passiert folgendes. Im ersten Schritt wird der Wert von <code>x</code> eingesetzt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x = 10 + 1;</pre>
+</div></div><p>Im nächsten Schritt wird die Addition aufgelöst:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">x = 11;</pre>
+</div></div><p>Erst jetzt wird das Gleichheitszeichen, also die <em>Zuweisung</em>, ausgeführt, und <code>x</code> erhält den neuen Wert 11.</p><h1 id="Variablen-DeklarationundZuweisungaufeinerZeile">Deklaration und Zuweisung auf einer Zeile</h1><p>Du kannst Deklaration und Zuweisung auch verkürzt auf eine Zeile schreiben. Beachten Sie dennoch, dass hier zwei Dinge passieren:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int bla = 50; // zwei auf einen Streich
+</pre>
+</div></div><p>Die allererste Zuweisung bei einer Variable nennt man auch die <strong>Initialisierung</strong> der Variable.</p><h1 id="Variablen-GlobaleVariablen">Globale Variablen</h1><p>Wo steht die Deklaration im Code? Wir beschäftigen uns hier mit sogenannten <strong>globalen Variablen</strong>. Alle diese Variablen sollten im <em>aktiven Modus</em> immer ganz oben im Code stehen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Alle Variablen ganz oben,
+// also vor setup und draw
+int x = 0;
+int y = 0;
+
+void setup() {}
+
+void draw() {
+   ellipse(x, y, 20, 20);
+   x = x + 1;
+   y = y + 1;
+}</pre>
+</div></div><p class="important">Globale Variablen stehen im aktiven Modus immer ganz oben im Code, außerhalb von setup, draw und anderen Funktionen.</p><h1 id="Variablen-WelcheNamensinderlaubt?">Welche Namen sind erlaubt?</h1><p>Wenn du eigene Variablen definierst, musst du ein paar <strong>Regeln beachten</strong>, harte und weiche. Wichtig ist zunächst, <strong>dass Groß- und Kleinschreibung unterschieden wird</strong>, d.h. dass <code>
+                meineVariable
+            </code> und <code>
+                meinevariable
+            </code> <strong>zwei unterschiedliche</strong> Variablen sind, die auch gern im selben Code ko-existieren dürfen.</p><h2 id="Variablen-HarteRegeln(Syntax)">Harte Regeln (Syntax)</h2><p>Die Verletzung einer harten Regel führt zu einer Fehlermeldung, d.h. diese Regeln sind Teil der <em>Syntax</em> von Processing bzw. Java:</p><p>Die Syntaxregeln findest du im Abschnitt <a href="24609473.html">Syntax &amp; Konventionen</a></p><h2 id="Variablen-WeicheRegeln(Konventionen)">Weiche Regeln (Konventionen)</h2><p>Neben den harten Regeln gibt es einige Konventionen, die du einhalten solltest, um nicht direkt als Programmieranfänger ertappt zu werden.</p><p>Variablennamen...</p><ul><li>beginnen immer mit Kleinbuchstaben</li><li>folgen der CamelCase-Regelung, wenn Einzelwörter verbunden sind (z.B. meineNeueVariable)</li><li>sind möglichst aussagekräftig (z.B. hintergrundFarbe statt hg)</li></ul><p>Beispiele:</p><p><br/><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// verletzt Konventionen (obwohl syntaktisch korrekt): 
+int MeineVariable;    // groß geschrieben am Anfang 
+int MEINEVARIABLE;    // GROSS GESCHRIEBEN! 
+int meine_variable;   // kein CamelCase
+int mv;               // nicht aussagekräftig
+
+// entspricht Konventionen: 
+int meineVariable;</pre>
+</div></div><h1 id="Variablen-Konstanten">Konstanten</h1><p>Die Daten oder Werte, die in Variablen gespeichert sind, können jederzeit verändert werden - sie sind variabel. Soll der Wert einer Variable allerdings nicht veränderbar sein, dann kann sie als Konstante angelegt werden. Wichtig bei der Deklaration einer Konstanten ist zum einen, dass das Schlüsselwort final verwendet werden muss. Zum anderen müssen Konstanten bei der Deklaration auch direkt initialisiert werden, sprich es muss ihnen direkt ein Startwert zugewiesen werden, da der Wert einer Konstante später nicht verändert werden kann.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">final int meineHausnummer; 
+meineHausnummer = 34;            // FALSCH
+
+final int meineSchuhgroesse = 41; // RICHTIG</pre>
+</div></div><p>Konstanten können dann sehr hilreich sein, wenn Programme etwas größer und komplexer werden. Da kann es schonmal passieren, dass man vergisst, dass der Wert Variable XY nicht verändert werden darf. Indem man die Variable als Konstante anlegt kann man diesen ungewollten Fehler vermeiden.</p><h1 id="Variablen-Literale">Literale</h1><p>Nun haben wir uns bereits die verschiedenen Elemente einer Variablen angeschaut. Da wäre der Typ (int, ...), der Bezeichner (der Name der Variablen), der Zuweisungsoperator (=) und das Schlüsselwort final. Das letzte Element sind Literale. <strong>Bei Literalen handelt es sich um feste Werte, die einer Variable zugewiesen werden. </strong></p><p>Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int anzahlHaende = 2;                              // Literal = 2
+int fingerProHand = 5;                             // Literal = 5
+int anzahlFinger = anzahlHaende * fingerProHand;   // KEIN Literal</pre>
+</div></div><p>In diesem Fall sind 2 und 5 jeweils Literale. Literale sind feste Werte - warum? Weil diese fest in deinen Quellcode eingetragen sind und somit unveränderlich sind. In den Zeilen oben wird immer 2 und 5 stehen und das wird sich auch nicht verändern. Auch, wenn die Variable <em>später</em> einen <em>anderen </em>Wert hat. In der dritten Zeile steht allerings kein <em>fester </em>Wert, sondern die Multiplikation zweier <em>Variabeln. </em>Somit handelt es sich hier <em>nicht </em>um ein Literal.</p><p>Wichtig ist, dass es <strong>verschiedene Arten von Literalen</strong> gibt. Welche Arten von Literalen eine Variable verwenden kann, hängt vom Datentyp der Variablen ab. Mehr zum Thema Datentypen findest du im Abschnitt <a href="Datentypen_24609468.html">Datentypen</a>. </p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Variablen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Variablen-Durchschnitt">Durchschnitt</h4><p>Erzeuge drei Variablen a, b und c vom Typ <code>float</code>. Setze a und b auf beliebige Werte, z.B. auf 1 und 2. In Variable c soll der Durchschnitt von a und b berechnet werden. Gib c mit <code>println()</code> auf der Konsole aus.</p><h4 id="Variablen-VariablenfürPosition">Variablen für Position</h4><p>Zeichne ein 30x30-Quadrat an der Position (50, 50). Ersetze die Position durch zwei Variablen <code>x</code> und <code>y</code>. Setze die Variablen auf verschiedene Werte und teste, ob dein Quadrat an der richtigen Stelle gezeichnet wird.</p><h4 id="Variablen-VariablenfürPosition2">Variablen für Position 2</h4><p>Erstelle zwei Variablen <code>x</code> und <code>y</code> und belege sie mit jeweils <code>10</code>. Zeichne ein 30x30-Quadrat an ebendiese Position. Zeichnen ein zweites Quadrat an eine Position, die 50 Pixel weiter rechts und 50 Pixel weiter unten liegt. Benutze für das zweite Quadrat <strong>auch die beiden Variablen</strong>!</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/var-ue1.png" data-image-src="https://michaelkipp.de/processing/img/var-ue1.png"></span></p><h4 id="Variablen-Smiley">Smiley</h4><p>Erstelle zwei Variablen <code>x</code> und <code>y</code> und belege sie mit jeweils <code>50</code>. Zeichne einen Smiley aus entsprechenden Grundformen. Verwende für die Positionen der Formen immer die Variablen x und y zusammen mit Addition/Subtraktion. Ändere aber nie die Werte von x und y.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/var-ue3.png" data-image-src="https://michaelkipp.de/processing/img/var-ue3.png"></span></p><p>Ersetze jetzt die Variablen x und y gegen mouseX und mouseY und überführe das Programm in den aktiven Modus (mit setup und draw). Der Smiley sollte der Maus folgen.</p><p><br/></p><h4 id="Variablen-Dreisatz">Dreisatz</h4><p>In dem folgenden Programm hast du Preis (in Euro) und Größe (in Gramm) einer Müslipackung gegeben und (nur) die Größe einer zweiten Müslipackung. Unter der Voraussetzung, dass beide Müsli gleich viel kosten, ergänze den Code so, dass der Preis für die zweite Packung ausgerechnet und ausgegeben wird.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float muesliGroesse1 = 700; 
+float muesliPreis1 = 3.99; 
+float muesliGroesse2 = 500; 
+float muesliPreis2 = 0;      // Ersetze die 0 durch eine Rechnung 
+
+println(muesliPreis2);</pre>
+</div></div><p class="auto-cursor-target">Um zu sehen, ob dein Programm korrekt ist, teste es mit Werten mit offensichtlichem Ergebnis, z.B.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float muesliGroesse1 = 1000; 
+float muesliPreis1 = 2; 
+float muesliGroesse2 = 500;</pre>
+</div></div><pre class="auto-cursor-target"><br/></pre></div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Variablen-Zusammenfassung">Zusammenfassung</h1><ul><li><strong>Variable als Container (Speicher)</strong>: Eine Variable speichert etwas, z.B. einen Wert zur späteren Verwendung. Was genau sie speichern kann, sagt ihr <strong>Datentyp</strong> (kurz: Typ).</li><li><strong>Erzeugen</strong>: Eine neue Variable erzeugt man mit TYP NAME;</li><li><strong>Zuweisung</strong>: Hat man eine Variable foo, so kann man mit foo = 5 den Wert 5 dort hinein tun.</li><li><strong>Verwendung</strong>: Steht eine Variable wie foo im Code - z.B. in dem Befehl rect(foo, foo, 10, 10) - so wird &quot;foo&quot; durch den aktuellen Wert von foo ersetzt (Substitution).</li><li><strong>Konstanten</strong>: Konstanten sind Variablen, deren Wert nicht mehr verändert werden kann. Sie müssen bei der Deklaration auch direkt initialisiert werden.</li><li><strong>Literale</strong>: Literale sind die fest in den Quellecode eingetragenen Werte, die einer Variablen zugewiesen werden.</li><li><strong>Syntax</strong>: Beschreibt sie harten Regeln, an die man sich bei dem Wählen eines Variablennamens halten muss:<ul><li>Groß- &amp; Kleinschreibung beachten</li><li>keine Schlüsselworte verwenden</li><li>bestehen aus Ziffern (0-9), Buchstaben (a-z, A-Z), '_' und '$'</li><li>nicht mit einer Ziffer beginnen</li><li>keine Leerzeichen und auch keinen Bindestrich</li></ul></li><li><strong>Konventionen</strong>: Beschreiben weiche Regeln, also Regeln an die es <em>sinnvoll</em> ist sich zu halten.<ul><li>kleiner Anfangsbuchstabe</li><li>verwenden CamelCase</li><li>sind möglichst aussagekräftig gewählt</li></ul></li></ul></div></div><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

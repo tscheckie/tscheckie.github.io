@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Datentypen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Datentypen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Okt 04, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Der (Daten-)Typ einer Variable bestimmt, welche Inhalte die Variable speichern kann.</p><p>Die meisten der folgenden Datentypen werden <strong>primitive Datentypen</strong> genannt (Ausnahme: String). Die primitiven Typen erkennt man daran, dass sie <strong>klein geschrieben</strong> sind (int, float, ...), wohingegen nicht-primitive Datentypen (hier: String) groß geschrieben werden. Den genauen Unterschied lernen wir erst später kennen. Für dich liegt der Unterschied lediglich in der Groß-/Kleinschreibung.</p><h1 id="Datentypen-DieGrundlage:Bits">Die Grundlage: Bits</h1><p>Bits bilden die Grundlage des Maschinencodes. Das bedeutet: Alles, was du programmierst, wird im Endeffekt auf Bits runtergerechnet.</p><p>Ein <strong>Bit</strong> (engl. Abk. für: binary digit; dt.: Binärziffer) ist die kleinste Informationseinheit eines Rechners und entspricht den Zuständen &quot;Strom an&quot; (1) und &quot;Strom aus&quot; (0). Bits basieren somit auf dem binären Zahlensystem.</p><p><strong>Acht</strong> <strong>Bits</strong> werden zu einem <strong>Byte</strong> zusammengefasst. Ein Byte kann damit 2<sup>8</sup> = 256 Zustände wiedergeben.</p><pre>0000 0001 = 1<br/>0000 0010 = 2<br/>0000 0011 = 3<br/>usw.</pre><p>(Das binäre Zahlensystem schauen wir uns nochmal genauer in <a href="Zahlensysteme_24609999.html">Zahlensysteme</a> an.)</p><p>Andere Datentypen benötigen mehr Bits und haben somit einen größeren Wertebereich. <strong>Der Wertebereich bezeichnet die Spanne an Werten, die mit dem jeweiligen Datentyp dargestellt werden kann.</strong> Je mehr Bits ein Datentyp verwendet, desto mehr Speicher nimmt dieser ein.</p><p>Ein Byte kann 256 Zustände wiedergeben. Man <em>könnte </em>also sagen, ein Byte hat einen Wertebereich von 0 bis 256. Das ist allerdings nicht sinnvoll, da man ja auch in der Lage sein möchte <em>negative Werte </em>anzugeben. Daher wird der Wertebereich so verschoben, dass die 0 die Mitte bildet und je eine Hälfte des Bereichs für die negativen und die andere Hälfte für die positiven Werte zur Verfügung steht. Somit hat ein Byte einen Wertebereich von -128 bis 127.</p><h1 id="Datentypen-Zahlen">Zahlen</h1><p>In Programmiersprachen unterscheidet man zwischen <em>ganzen</em> Zahlen (z.B. -2 oder -3 oder 42 oder 0) und <em>rellen </em>Zahlen<em> (z.B. 3,1415 oder 1.3e-7). </em>Reelle Zahlen werden auch Kommazahlen oder Gleitkommazahlen genannt.</p><h2 id="Datentypen-GanzeZahlen">Ganze Zahlen</h2><p>Ganze Zahlen sind Zahlen ohne Nachkommestellen, im Englischen <em>integer</em> genannt. Es gibt mehrere Typen, die ganze Zahlen speichern, je nachdem wie groß/klein die Zahlen sind, die man speichern möchte.</p><p><strong>→ </strong> In der Regel verwendet man <code>
+                int</code>.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Typ</th><th class="confluenceTh">Beschreibung</th><th class="confluenceTh">Wertebereich</th></tr><tr><td class="confluenceTd"><code>
+                        byte
+                    </code></td><td class="confluenceTd">sehr kleine Zahl (8 Bit)</td><td class="confluenceTd">-128 bis 127</td></tr><tr><td class="confluenceTd"><code>
+                        short
+                    </code></td><td class="confluenceTd">kleine Zahl (16 Bit)</td><td class="confluenceTd">-32768 bis 32767</td></tr><tr><td class="confluenceTd"><strong><code>
+                        int
+                    </code></strong></td><td class="confluenceTd"><strong>große Zahl (32 Bit)</strong></td><td class="confluenceTd"><strong>-2 147 483 648 bis 2 147 483 647</strong></td></tr><tr><td class="confluenceTd"><code>
+                        long
+                    </code></td><td class="confluenceTd">noch größere Zahl (64 Bit)</td><td class="confluenceTd">ca. -9 * 10^18 bis 9 * 10^18</td></tr></tbody></table></div><p>Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int foo;
+foo = 50;
+rect(foo, foo, 20, 20);</pre>
+</div></div><p class="general">Bei Zahlen muss Processing manchmal &quot;raten&quot;, ob du eine ganze Zahl meinst oder eine Gleitkommazahl. Prinzipiell gilt: Wenn du eine Zahl ohne Komma (bzw. Punkt) schreibst, interpretiert Processing die Zahl als ganze Zahl vom Typ <code>int</code>.</p><h2 id="Datentypen-Gleitkommazahlen">Gleitkommazahlen</h2><p>Gleitkommazahlen sind Zahlen mit Nachkommastellen (auch reelle Zahlen genannt). In Processing verwendest du meistens <code>
+                float</code> , später in Java wirst du meistens <code>
+                double</code> verwenden.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>WICHTIG</strong>: Schreibe Gleitkommazahlen - so wie in England und USA üblich - mit einem Punkt. Also <code>1.5</code> statt <code>1,5</code>.</div></div><p>Bei Gleitkommazahlen unterscheiden sich die beiden Typen nicht darin, dass der Wertebereich größer ist, sondern in der Anzahl der Dezimalstellen, die gespeichert werden können. Stell dir die Rechnung 10/3 vor. Der Rechner kann nicht &quot;3 Komma Periode 3&quot; darstellen, indem er unendlich viele Nachkommastellen speichert. In der Tabelle sehst du, wie viele Stellen insgesamt gespeichert werden können.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Typ</th><th class="confluenceTh">Beschreibung</th><th class="confluenceTh">Wertebereich</th><th class="confluenceTh">Stellen</th></tr><tr><td class="confluenceTd"><code>
+                        float
+                    </code></td><td class="confluenceTd">Zahl mit Nachkommastellen (32 Bit)</td><td class="confluenceTd">z.B. -0.5, 0, 109.333</td><td class="confluenceTd">7 bis 8</td></tr><tr><td class="confluenceTd"><code>
+                        double
+                    </code></td><td class="confluenceTd">Zahl mit mehr Nachkommastellen (64 Bit)</td><td class="confluenceTd">wie oben</td><td class="confluenceTd">15 bis 16</td></tr></tbody></table></div><p>Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float x;
+x = 75.0 / 2;
+ellipse(x, 50, 30, 30);</pre>
+</div></div><p>Auch hier muss Processing oft &quot;raten&quot;, ob du eine ganze oder eine Gleitkommazahl meinst. Prinzipiell gilt: Wenn du eine Zahl mit Nachkommastellen schreibst, interpretiert Processing die Zahl als Gleitkommazahl vom Typ <code>float</code>.</p><p>Wenn du z.B. die Zahl 2 als Gleitkommazahl interpretiert haben möchten, musst du 2.0 schreiben.</p><p>Eine weitere Schreibweise ist, ein &quot;f&quot; für float oder ein &quot;d&quot; für double an die Zahl anzuhängen. Zum Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(10/3f); // 3 als float
+println(10/3d); // 3 als double</pre>
+</div></div><p><code>3.3333333</code><br/><code>3.3333333333333335</code></p><h1 id="Datentypen-Wahrheitswerte,Buchstaben,Text">Wahrheitswerte, Buchstaben, Text</h1><h2 id="Datentypen-Wahrheitswerte(boolean)">Wahrheitswerte (boolean)</h2><p>Wahrheitswerte lernst du in Zusammenhang mit If-Anweisungen kennen. Ein Wahrheitswert ist entweder wahr (true) oder falsch (false). Es gibt also zwei mögliche Werte für eine solche Variable. Der Typ heißt <code>boolean</code>. Dabei ist boolean ein Adjektiv, also wie im Deutschen &quot;eine boole'sche Variable&quot;.</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Typ</th><th class="confluenceTh">Beschreibung</th><th class="confluenceTh">Wertebereich</th></tr><tr><td class="confluenceTd"><code>
+                        boolean
+                    </code></td><td class="confluenceTd">Wahrheitswert</td><td class="confluenceTd"><code>
+                    true
+                </code> und <code>
+                    false
+                </code></td></tr></tbody></table></div><p>Beispiele:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean iLikeCheese;
+boolean iLikeIceCream;
+iLikeCheese = false;
+iLikeIceCream = true;
+println(&quot;Cheese: &quot; + iLikeCheese);
+println(&quot;Ice Cream: &quot; + iLikeIceCream);</pre>
+</div></div><pre>Cheese: false<br/>Ice Cream: true</pre><h2 id="Datentypen-Zeichen(char)">Zeichen (char)</h2><p>In Processing gibt es einen Datentyp für einzelne Zeichen. Ein Zeichen ist z.B. ein Buchstabe wie a, A, m, Z oder auch ein Sonderzeichen wie #, ! oder /. Im Englischen heißt Zeichen <em>character</em>, daher heißt der Datentyp <code>
+            char
+        </code> .</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Typ</th><th class="confluenceTh">Beschreibung</th><th class="confluenceTh">Wertebereich</th></tr><tr><td class="confluenceTd"><code>
+                        char
+                    </code></td><td class="confluenceTd">einzelnes Zeichen (z.B. Buchstabe)</td><td class="confluenceTd">z.B. <code>
+                    'a' </code>oder <code>'%'
+                </code></td></tr></tbody></table></div><p>Du kannst ein einzelnes Zeichen in einer Variable abspeichern. Das Zeichen wird immer mit <strong>einfachen</strong> Anführungszeichen umgeben:</p><pre class="general"><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">char c1 = &#39;a&#39;;
+char c2 = &#39;5&#39;;
+char c3 = &#39;%&#39;;
+println(c1 + c2 + c3);</pre>
+</div></div><pre>a5%</pre><p>Intern wird ein Zeichen als ganze Zahl repräsentiert. Diese Zahl entspricht einer standardisierten Tabelle. Für die handelsüblichen Buchstaben ist das zum Beispiel der <a href="http://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange" class="external-link" rel="nofollow">ASCII-Code</a> (ohne Umlaute). ASCII steht für &quot;American Standard Code for Information Interchange&quot; und ist ganz einfach eine Tabelle, wo für jeden Buchstaben/Zeichen eine Zahl zugeordnet wird.</p><h2 id="Datentypen-Zeichenketten(String)">Zeichenketten (String)</h2><p>String ist englisch für &quot;Schnur&quot; oder &quot;Kette&quot;. Das deutet darauf hin, dass ein String eine Aneinanderreihung von <em>Zeichen</em> (engl. character) ist. Man sagt deshalb auch <em>Zeichenkette</em>. Der Typ <strong>String wird </strong>im Gegensatz zu int, float, char ... <strong>groß geschrieben</strong>.</p><p>In String-Variablen können Texte ablegt werden. Der Text wird mit <strong>doppelten</strong> Anführungszeichen gekennzeichnet:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String foo = &quot;Dies ist ein Text!&quot;;</pre>
+</div></div><p>Du hast Strings bereits im Zusammenhang mit println() gesehen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;hallo&quot;);</pre>
+</div></div><pre class="console">hallo</pre><p>Genauso könntest du schreiben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;hallo&quot;;
+println(message);</pre>
+</div></div><p>Du kannst Strings zusammenkleben, dies nennt man <strong>String-Verkettung </strong>und funktioniert mit dem normalen Plus-Zeichen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;hallo&quot;;
+println(message + &quot; bob&quot;);</pre>
+</div></div><pre>hallo bob</pre><p>Das Plus-Zeichen <strong>bekommt also im Zusammenhang mit Strings eine andere Bedeutung</strong>. Wenn du eine Zahl mit einem String &quot;addierst&quot;, wird die Zahl in einen String verwandelt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;high&quot; + 5;
+println(message);</pre>
+</div></div><pre>high5
+</pre><p>Du kannst Strings auch direkt in das print schreiben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;high&quot; + 5);</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h1 id="Datentypen-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Datentypen-Mauspositionausgeben">Mausposition ausgeben</h4><p>Schreibe ein Programm, das in jedem draw-Zyklus die aktuelle Mausposition in folgender Weise ausgibt (eine Zeile pro Zyklus):</p><pre class="console">x=48 y=47
+x=48 y=52
+x=48 y=56
+x=48 y=60
+x=52 y=65
+x=52 y=65
+x=55 y=70
+</pre><p><strong>Tipp</strong>: Verlangsame den draw-Zyklus mithilfe von <code>frameRate()</code>.</p><h4 id="Datentypen-HalbePixel?">Halbe Pixel?</h4><p>Kopiere folgendes Programm</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float x = 0;
+
+void draw() {
+  background(255);
+  ellipse(x, 50, 30, 30);
+}</pre>
+</div></div><p><br/></p><p>Ergänze den Code, so dass x bei jedem draw-Zyklus um 0.5 erhöht wird. Wie verhält sich der Kreis?</p><h4 id="Datentypen-Zeichenverkettung">Zeichenverkettung</h4><p>Kopiere folgendes Programm:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;la&quot;;
+
+void setup() {
+  println(message);
+}
+
+void draw() {
+}</pre>
+</div></div><pre>
+</pre><p>Ergänze den Code, so dass bei bei jedem draw-Zyklus genau eine neue Zeile auf die Konsole geschrieben wird, so dass die Konsole nach Zyklen wie folgt aussieht:</p><pre class="console">la
+la la
+la la la
+la la la la
+</pre></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Datentypen-Zusammenfassung">Zusammenfassung</h1><p>Du hast die folgenden <strong>primitiven Datentypen</strong> kennengelernt:</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Typ</th><th class="confluenceTh">Beschreibung</th><th class="confluenceTh">Wertebereich</th></tr><tr><td class="confluenceTd"><code>
+                        byte
+                    </code></td><td class="confluenceTd">sehr kleine ganze Zahl (8 Bit)</td><td class="confluenceTd">-128 bis 127</td></tr><tr><td class="confluenceTd"><code>
+                        short
+                    </code></td><td class="confluenceTd">kleine ganze Zahl (16 Bit)</td><td class="confluenceTd">-32768 bis 32767</td></tr><tr><td class="confluenceTd"><code>
+                        int
+                    </code></td><td class="confluenceTd"><strong>große ganze Zahl (32 Bit)</strong></td><td class="confluenceTd"><strong>-2 147 483 648 bis 2 147 483 647</strong></td></tr><tr><td class="confluenceTd"><code>
+                        long
+                    </code></td><td class="confluenceTd">noch größere ganze Zahl (64 Bit)</td><td class="confluenceTd">ca. -9 * 10^18 bis 9 * 10^18</td></tr><tr><td class="confluenceTd"><code>
+                        float
+                    </code></td><td class="confluenceTd"><strong>Zahl mit Nachkommastellen (32 Bit)</strong></td><td class="confluenceTd"><strong>z.B. -0.5, 0, 109.333</strong></td></tr><tr><td class="confluenceTd"><code>
+                        double
+                    </code></td><td class="confluenceTd">Zahl mit mehr Nachkommastellen (64 Bit)</td><td class="confluenceTd">wie oben</td></tr><tr><td class="confluenceTd"><code>
+                        boolean
+                    </code></td><td class="confluenceTd">Wahrheitswert</td><td class="confluenceTd"><code>
+                    true
+                </code> und <code>
+                    false
+                </code></td></tr><tr><td class="confluenceTd"><code>
+                        char
+                    </code></td><td class="confluenceTd">einzelnes Zeichen (z.B. Buchstabe)</td><td class="confluenceTd">z.B. <code>
+                    'a' </code>oder <code>'%'
+                </code></td></tr></tbody></table></div><p><br/></p><p>Des weiteren hast du den Typ <strong>String</strong> kennengelernt, der es erlaubt, Zeichenketten (= Text) abzuspeichern. Strings können mit dem Plus-Zeichen verbunden werden. Diese Operation nennt man <strong>String-Konkatenation</strong>.</p></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Schleifen im aktiven Modus</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Schleifen im aktiven Modus
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Wichtig</strong>: In Processing benutzt man Schleifen normalerweise <strong>nicht für Animation</strong>.</div></div><p>Du könntest z.B. auf die Idee kommen, einen Ball innerhalb von einer For-Schleife zu animieren:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// (vergeblicher) Versuch einer Animation
+
+int x = 0;
+
+void setup() {
+  frameRate(1); // 1x pro Sek. draw() aufrufen
+}
+
+void draw() {
+  for (int i = 0; i &lt; 100; i++) {
+    background(255);
+    ellipse(x, 50, 10, 10);
+    x++;
+  }
+  // erst jetzt wird das Werk sichtbar!
+}</pre>
+</div></div><pre>
+</pre><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/schleife2.png" data-image-src="https://michaelkipp.de/processing/img/schleife2.png"></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/schleife1.png" data-image-src="https://michaelkipp.de/processing/img/schleife1.png"></span></p><p>Hier haben wir die Framerate auf 1 gesetzt, d.h.<code> draw() </code>wird jede Sekunde aufgerufen. Du siehst für eine Sekunde den Ball in seiner &quot;Endposition&quot; und dannach wird es weiß. Warum? Weil Processing erst am Ende von <code>draw()</code> die Zeichnung sichtbar macht. Alles, was innerhalb von <code>draw()</code> passiert, ist somit unsichtbar, bis die schließende geschweifte Klammer von <code>draw()</code> erreicht ist. Du musst bedenken, dass du dich mit dem <code>draw() </code>bereits in einer Art Schleife befinden. Diese <code>draw()</code>-Schleife regelt alles, was mit sichtbaren Veränderungen zu tun hat. Schleifen im aktiven Modus werden daher eher dazu benutzt, um mehrere Schritte <em>innerhalb eines draw()-Aufrufs</em> zu erledigen.</p><p>Du kannst z.B. drei Rechtecke gleichzeitig malen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Drei Rechtecke mit Schleife
+
+int x = 0;
+
+void draw() {
+  background(255);
+
+  // zeichne drei Rechtecke, i läuft von 1..3
+  for (int i = 1; i &lt;= 3; i++) {
+    rect(x, i * 20, 10, 10); // jedes hat andere y-Position
+  }
+
+  // passe x-Wert an für Animation
+  x++;
+}</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/schleife3.png" data-image-src="https://michaelkipp.de/processing/img/schleife3.png"></span></p><p>Schau dir das unbedingt in einer Tabelle an! Nehmen wir den allerersten Durchlauf von <code>
+        draw()</code>. Jetzt ist <code>x = 0</code>. Wie entwickelt sich <code>
+        i</code> und welcher Code wird in jeder der drei Schleifendurchläufe ausgeführt?</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Druchlauf</th><th class="confluenceTh">i</th><th class="confluenceTh">i &lt;=3</th><th colspan="1" class="confluenceTh">Ausgeführter Code</th></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">1</td><td class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>rect(0 ,20, 10, 10);</code></td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">2</td><td class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>rect(0 ,40, 10, 10);</code></td></tr><tr><td class="confluenceTd">3</td><td class="confluenceTd">3</td><td class="confluenceTd">true</td><td colspan="1" class="confluenceTd"><code>rect(0 ,60, 10, 10);</code></td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">false</td><td colspan="1" class="confluenceTd"><code>rect(0 ,80, 10, 10);</code></td></tr></tbody></table></div><p><br/></p><p>Die drei Befehle der rechten Spalte werden letztlich <em>innerhalb</em> diesen einen (ersten) Durchlaufs von <code>draw()</code>ausgeführt. Das heißt, jedes Mal wenn <code>draw()</code> aufgerufen wird, werden drei Rechtecke gezeichnet, wobei das x jedes Mal ein anderes ist - daher die scheinbare Bewegung nach rechts.</p><p>Du kannst auch ein einziges Rechteck aus 20 Linien zusammenbauen. Das machst du auch mit einer Schleife im <code>draw()</code>. Im jeden Schleifendurchlauf musst du die Linie genau rechts neben die vorige Linie setzen. Dazu benutzen wir die Laufvariable <code>i</code> und addieren sie aufs <code>x</code> drauf.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// fliegendes Rechteck im Eigenbau (Linien)
+
+int x = 0;
+
+void draw() {
+  background(255);
+
+  // zeichne &quot;Rechteck&quot; mit Linien
+  for (int i = 0; i &lt; 20; i++) {
+    line(x + i, 40, x + i, 60);
+  }
+
+  // bewege Rechteck
+  x++;
+}</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/schleife4.png" data-image-src="https://michaelkipp.de/processing/img/schleife4.png"></span></p><p>Da ich die Linien des Rechtecks selbst zeichne, kann ich auch einen Graustufenverlauf herstellen, indem ich mit <code>
+        stroke()</code> die Graustufe jeder Linie festlege. Wieder verwende ich die Laufvariable <code>
+        i</code> - diesmal für die Graustufe.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Rechteck mit Graustufen
+
+int x = 0;
+
+void draw() {
+  background(255);
+
+  // zeichne &quot;Rechteck&quot; mit Linien
+  for (int i = 0; i &lt; 20; i++) {
+  	stroke(i*10); // lege Graustufe fest
+    line(x + i, 40, x + i, 60);
+  }
+
+  // bewege Rechteck
+  x++;
+}</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/schleife5.png" data-image-src="https://michaelkipp.de/processing/img/schleife5.png"></span></p><p>Im aktiven Modus hast du es mit einer Schleife in einer Schleife zu tun. Insofern verdeutliche dir bitte immer wieder, dass die For-Schleife in den obigen Beispielen innerhalb eines einzigen draw()-Aufrufs komplett durchlaufen wird.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="SchleifenimaktivenModus-Übungsaufgaben">Übungsaufgaben</h1><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 28.4767%;"/><col style="width: 30.095%;"/><col style="width: 41.4283%;"/></colgroup><tbody><tr><th class="confluenceTh"><h4 id="SchleifenimaktivenModus-Kringel-Cursor">Kringel-Cursor</h4></th><th class="confluenceTh"><h4 id="SchleifenimaktivenModus-LiniezumMauszeiger">Linie zum Mauszeiger</h4></th><th class="confluenceTh"><h4 id="SchleifenimaktivenModus-Gitter-Cursor">Gitter-Cursor</h4></th></tr><tr><td class="confluenceTd"><p>Zeichne an der Stelle des Mauszeigers drei konzentrische Kreise um den Mauspunkt, die die Durchmesser 30, 40, 50 haben. Schreibe den Code so, dass du auch 5 oder 2 Kreise (oder mehr oder weniger) zeichnen kannst ...</p></td><td class="confluenceTd"><p>Male (im aktiven Modus) eine Reihe von Punkten mit folgenden Eigenschaften:</p><ul><li>Die Punkte gehen von links nach rechts auf der y-Mitte</li><li>Zwischen zwei Punkten sind 2 Pixel &quot;leer&quot; (Abstand)</li><li>Die Punkte gehen immer bis zur aktuellen x-Mausposition</li></ul></td><td class="confluenceTd"><p>An der Stelle des Mauszeigers soll ein quadratisches Gitter erscheinen. Die Anzahl der Gitterzellen in eine Richtung soll durch eine globale Variable &quot;num&quot; geregelt werden können.</p><p>Beispiel für num = 5</p><p><strong>Hinweis:</strong> Eine einfachere Variante zeichnet das Gitter immer mit dem linken oberen Punkt an der Stelle des Mauszeigers.</p></td></tr><tr><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="115" src="attachments/24610753/24610760.png" data-image-src="attachments/24610753/24610760.png" data-unresolved-comment-count="0" data-linked-resource-id="24610760" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Unbenannt.PNG" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24610753" data-linked-resource-container-version="8" alt=""></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="115" src="attachments/24610753/24610762.png" data-image-src="attachments/24610753/24610762.png" data-unresolved-comment-count="0" data-linked-resource-id="24610762" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Unbenannt2.PNG" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24610753" data-linked-resource-container-version="8" alt=""></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" draggable="false" width="115" src="attachments/24610753/24610765.png" data-image-src="attachments/24610753/24610765.png" data-unresolved-comment-count="0" data-linked-resource-id="24610765" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Unbenannt3.PNG" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24610753" data-linked-resource-container-version="8" alt=""></span></p></div></td></tr></tbody></table></div><p><br/></p><h4 id="SchleifenimaktivenModus-AnimierteStreifen">Animierte Streifen</h4><p>Zeichne parallele, horizontale Streifen (y-Abstand 10 Pixel), die sich nach unten bewegen.</p><h4 id="SchleifenimaktivenModus-Kreise">Kreise</h4><p>Zeichne eine variable Anzahl von konzentrischen Kreisen (Abstand zwischen den Kreisen sind 10 Pixel) deren Mittelpunkt in der Mitte des Fensters liegt.</p><p>Schreibe das Programm so, dass ein Klick mit der linken Maustaste einen weiteren Kreis hinzufügt. Ein Klick mit der rechten Maustaste entfernt einen Kreis. Es sollten immer mindestens drei Kreise da sein.</p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="SchleifenimaktivenModus-Zusammenfassung">Zusammenfassung</h1><p>Im aktiven Modus wird eine <strong>&quot;unsichtbare&quot; Schleife</strong> durchlaufen, die immer wieder Ihr draw() aufruft.</p><p>Wenn du eine Schleife in draw() benutzt, hast du es im Grunde mit einer <strong>verschachtelten Schleife</strong> zu tun.</p><p>Verwende auf keinen Fall eine Schleife in draw(), um ein Objekt zu <strong>animieren</strong>. Dies wird nicht funktionieren, weil immer am <em>Ende</em> von draw() gezeichnet wird und nicht <em>während</em> des Durchlaufs von draw().</p><p>Ein sinnvolles Beispiel, um eine Schleife in draw() zu benutzen ist, mehrere Objekte zu zeichnen, die einen systematischen Zusammenhang aufweisen (z.B. eine Reihe von Punkten, ein Gitter von Punkten oder ein Kreis von Punkten).</p></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/24610761.png">Unbenannt.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/24610760.png">Unbenannt.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/24610763.png">Unbenannt2.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/24610762.png">Unbenannt2.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/24610765.png">Unbenannt3.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/40862948.png">punkte.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610753/40866432.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

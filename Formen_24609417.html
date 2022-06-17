@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Formen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Formen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Formen-EinfacheFormen(GrafischePrimitive)">Einfache Formen (Grafische Primitive)</h1><p>Der Punkt ist die einfachste Form in Processing. Es gibt aber auch noch andere Formen. Jede Form hat ihren eigenen Befehl und ihre eigenen Parameter, die übergeben werden müssen. Hier eine Liste der einfachen Grundformen:</p><h2 id="Formen-Linie">Linie</h2><p>Um eine Linie zu zeichnen, gibt man den Startpunkt (x1, y1) und den Endpunkt (x2, y2) der Linie an, also vier Parameter.</p><p>Allgemein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">line(x1, y1, x2, y2); // Allgemein
+line(20, 10, 100, 10); // Beispiel</pre>
+</div></div><h2 id="Formen-Dreieck">Dreieck</h2><p>Wenn du ein Dreieck zeichnen möchtest, musst du noch einen dritten Punkt (x3, y3) angeben.</p><p>Allgemein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">triangle(x1, y1, x2, y2, x3, y3); // Allgemein
+triangle(0, 100, 80, 100, 40, 20); // Beispiel</pre>
+</div></div><h2 id="Formen-Rechteck">Rechteck</h2><p>Bei einem Rechteck gibst du den linken, oberen Eckpunkt (x, y), die Breite und die Höhe an. Genau dieser Reihenfolge. Allgemein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(x, y, breite, hoehe); // Allgemein
+rect(10, 10, 100, 50); // Beispiel</pre>
+</div></div><h2 id="Formen-Ellipse">Ellipse</h2><p>Bei Ellipsen geben wir den Mittelpunkt (x, y) an, dann den Durchmesser in der Breite und den Durchmesser in der Höhe.</p><p>Allgemein:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">ellipse(x, y, durchmesserBreite, durchmesserHoehe); // Allgemein
+ellipse(50, 50, 80, 50); // Beispiel</pre>
+</div></div><h1 id="Formen-KomplexereFormen">Komplexere Formen</h1><h2 id="Formen-Ellipsen-Segment">Ellipsen-Segment</h2><p>Um nur einen Teil der Ellipse zu zeichnen, gibst du <em>zusätzlich </em>den Startwinkel <em>alpha</em> und den Endwinkel <em>beta</em> an. Die Winkel sind im Bogenmaß anzugeben (360° entspricht 2*PI). Das <code>PI</code> ist als Konstante in Processing gespeichert, so dass du damit rechnen können. Allgemein sieht der Befehl <code>arc </code>so aus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">arc(x, y, b, h, alpha, beta); // Allgemein</pre>
+</div></div><p>Die Winkel werden relativ zu einer gedachten Linie vom Mittelpunkt nach rechts gemessen. Das ist die <strong>Referenzlinie</strong>:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/arc-angle.png" data-image-src="https://michaelkipp.de/processing/img/arc-angle.png"></span></p><p>Zum Beispiel bei einem <em>Startwinkel</em> von 30°, gemessen <strong>im Uhrzeigersinn</strong> in Bezug auf die Referenzlinie.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/arc-angle1.png" data-image-src="https://michaelkipp.de/processing/img/arc-angle1.png"></span></p><p>Ein <em>Endwinkel</em> von 330° sieht dann so aus:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/arc-angle2.png" data-image-src="https://michaelkipp.de/processing/img/arc-angle2.png"></span></p><p>Du musst die Winkel dabei  im <strong>Bogenmaß</strong> angeben. Wem das zu kompliziert ist, kann die Funktion <code>radians()</code> verwenden, um in Grad zu denken. Hier das gleiche wie oben mit Grad:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">arc(50, 50, 80, 50, PI/6, 2*PI - PI/6); // Bogenmaß
+arc(50, 50, 80, 50, radians(30), radians(330)); // Umrechnung von Grad mit radians()</pre>
+</div></div><h2 id="Formen-AllgemeinesViereck">Allgemeines Viereck</h2><p>Wenn du eine Form mit vier Ecken zeichnen willst, das nicht notwendigerweise ein Rechteck ist, dann verwende den Befehl <code>
+            quad
+        </code> und übergib diesem die vier Eckpunkte (x1, y1), (x2, y2), (x3, y3) und (x4, y4) hintereinander weg.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">quad(x1, y1, x2, y2, x3, y3, x4, y4); // Allgemein
+quad(10, 10, 80, 20, 90, 80, 15, 50); // Beispiel</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/quad.png" data-image-src="https://michaelkipp.de/processing/img/quad.png"></span></p><h2 id="Formen-Polygone">Polygone</h2><p>Du kannst auch Formen definieren, indem du eine Reihe von Punkten definierst, die dann mit Linien verbunden werden. Das nennt man auch <strong>Polygon</strong> (Vieleck). Schauen wir mal, wie das funktioniert:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">beginShape();
+vertex(50, 10);
+vertex(80, 80);
+vertex(5, 35);
+endShape(CLOSE);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/shape1.png" data-image-src="https://michaelkipp.de/processing/img/shape1.png"></span></p><p>Jetzt erweitern wir das noch um zwei Ecken links oben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">beginShape();
+vertex(50, 10);
+vertex(80, 80);
+vertex(5, 35);
+vertex(10, 0);  // neue Ecke
+vertex(30, 30); // neue Ecke
+endShape(CLOSE);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/shape2.png" data-image-src="https://michaelkipp.de/processing/img/shape2.png"></span></p><p>Du musst  also Processing zunächst mit <code>
+            beginShape
+        </code> sagen, dass du ein Vieleck definieren möchtest. Dann definierst du die Eckpunkte mit <code>
+            vertex
+        </code> (engl. für <em>Knotenpunkt</em>). Mit <code>
+            endShape
+        </code> gibst du das Signal zum Zeichnen. Deshalb steht dort in Klammern noch eine weitere Angabe, nämlich, ob der letzte Punkt mit dem ersten verbunden sein soll, dann gib <code>CLOSE
+        </code> an. Wenn du es weglässt, wird die Form nicht geschlossen:</p><pre><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">beginShape();
+vertex(50, 10);
+vertex(80, 80);
+vertex(5, 35);
+vertex(10, 0);
+vertex(30, 30);
+endShape(); // nicht schließen</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/shape3.png" data-image-src="https://michaelkipp.de/processing/img/shape3.png"></span></p><h1 id="Formen-Zeichenmodus">Zeichenmodus</h1><div class="table-wrap"><table class="relative-table confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 25.1034%;"/><col style="width: 23.3111%;"/><col style="width: 24.2329%;"/><col style="width: 27.3561%;"/></colgroup><tbody><tr><th class="confluenceTh"><h2 id="Formen-Corner">Corner</h2></th><th class="confluenceTh"><h2 id="Formen-Center">Center</h2></th><th class="confluenceTh"><h2 id="Formen-Radius">Radius</h2></th><th class="confluenceTh"><h2 id="Formen-Corners">Corners</h2></th></tr><tr><td class="confluenceTd"><div class="content-wrapper"><p>Wir haben gesehen, dass bei einem Rechteck immer der linke obere Punkt angeben wird. Stell dir nun vor du willst ein 10x10 Pixel großes Quadrat auf einer 30x30 Pixel großen Fläche zeichnen. Das Quadrat befindet sich genau in der Mitte des Bildschirms und <em>du musst die linke, obere Ecke &quot;ausrechnen&quot;:</em></p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(10,10,10,10);</pre>
+</div></div><p class="auto-cursor-target"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen-rectmode1.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-rectmode1.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p>Einfacher wäre es, wenn man den Mittelpunkt angeben könnte, denn man sieht sofort, dass das (15, 15) ist. Processing erlaubt dies mit dem Befehl<strong> <code>rectMode(CENTER)</code>. </strong>Dieser Befehl stellt die Art und Weise um, wie rect() seine Parameter interpretiert.<strong><br/></strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rectMode(CENTER);
+rect(15,15,10,10);</pre>
+</div></div><p class="auto-cursor-target"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen-rectmode1.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-rectmode1.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p>Ähnlich wie <code>CENTER</code> funktioniert <strong><code>RADIUS</code></strong>. Hier geben die ersten beiden Parameter wieder die Mitte des Rechtecks an und die letzten beiden jeweils <strong>die Hälfte</strong> der Breite bzw. Höhe.</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rectMode(RADIUS); 
+rect(15,15,10,10); // Das Rechteck ist 20X20 groß</pre>
+</div></div></div><p><br/></p></td><td class="confluenceTd"><div class="content-wrapper"><p>Mit <strong><code>rectMode(CORNERS)</code></strong> bringst du Processing dazu, die Parameter als <strong>zwei Eckpunkte</strong> (links-oben, rechts-unten) zu interpretieren. Das wäre für ein Rechteck interessant, dass unbedingt rechts unten am Mittelpunkt sein soll. Im Code gibst du also die zwei Eckpunkte (5,5) und (15,15) an:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rectMode(CORNERS);
+rect(5,5,15,15);</pre>
+</div></div></div><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen-rectmode2.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-rectmode2.png"></span></td></tr></tbody></table></div><p><br/></p><p><br/></p><p><strong>Wichtig:</strong> Sobald du <code>rectMode</code> verwendest, gilt der neue Modus so lange bis wieder rectMode aufgerufen wird.</p><p>Wenn du z.B. wieder den ursprünglichen Modus herstellen möchtest (linke-obere Ecke + Breite + Höhe), gib <code>rectMode(CORNER)</code> an:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rectMode(CORNERS); // Zwei-Ecken-Modus
+rect(5, 5, 15, 15);
+rectMode(CORNER); // &quot;normaler&quot; Modus
+rect(15, 15, 2.5, 2.5);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen-rectmode3.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-rectmode3.png"></span></p><p>Wenn du eine Ellipse zeichnest, dann ist das einem Rechteck sehr ähnlich. Man kann sich auch vorstellen, dass man ein Rechteck als Außenmaß für die Ellipse angibt.</p><p>Entsprechend gibt es auch <strong>vier</strong> Zeichenmodi für Ellipsen:</p><ul><li><code>ellipseMode(CENTER)</code> ist der Standardmodus; hier werden der Mittelpunkt, dann x-<strong>Durchmesser</strong> und y-<strong>Durchmesser</strong> angegeben</li><li><code>ellipseMode(RADIUS)</code> ist der Standardmodus; hier werden der Mittelpunkt, dann x-<strong>Radius</strong> und y-<strong>Radius</strong> angegeben, sprich die Hälfte der Breite bzw. Höhe</li><li><code>ellipseMode(CORNER)</code> hier wird das umgebende Rechteck angegeben und zwar mit linken, oberen Punkt, dann Breite, dann Höhe</li><li><code>ellipseMode(CORNERS)</code> hier wird auch das umgebende Rechteck angegeben, allerdings mit zwei Punkten: den linken, oberen und den rechten, unteren</li></ul><h1 id="Formen-ReihenfolgederZeichnungen">Reihenfolge der Zeichnungen</h1><p>Wenn du mehrere Formen zeichnest, verdecken die später gezeichneten alle früheren.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">ellipse(40, 40, 35, 35);
+rect(40, 40, 40, 30);
+triangle(60, 60, 20, 90, 60, 90);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichenfolge.png" data-image-src="https://michaelkipp.de/processing/img/zeichenfolge.png"></span></p><p>Das kannst du nutzen, um komplexere Figuren durch Überlagerung zu erschaffen.</p><p>Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(10, 10, 80, 60);
+// Kreissegment ein Pixel runter, damit untere Linie verdeckt
+arc(50, 71, 80, 80, radians(180), radians(360));</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/overlay.png" data-image-src="https://michaelkipp.de/processing/img/overlay.png"></span></p><p><br/></p><hr/><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Formen-Übungsaufgaben">Übungsaufgaben</h1><p>Zeichne die folgenden Figuren zunächst auf <strong>Papier</strong> und schreibe dann die entsprechende Befehlsfolge auf.</p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 63.636%;"><colgroup><col style="width: 27.9078%;"/><col style="width: 26.1879%;"/><col style="width: 21.8508%;"/><col style="width: 24.0616%;"/></colgroup><tbody><tr><th class="confluenceTh">Haus</th><th class="confluenceTh">Halbkreis</th><th class="confluenceTh">Stern</th><th class="confluenceTh">Gesicht</th></tr><tr><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource confluence-content-image-border image-center" draggable="false" width="115" src="https://michaelkipp.de/processing/img/zeichnen-haus.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-haus.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource confluence-content-image-border image-center" draggable="false" height="97" width="180" src="https://michaelkipp.de/processing/img/zeichnen-halbkreis.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-halbkreis.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource confluence-content-image-border image-center" draggable="false" height="113" width="115" src="https://michaelkipp.de/processing/img/zeichnen-druden.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-druden.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource confluence-content-image-border image-center" draggable="false" height="134" width="150" src="https://michaelkipp.de/processing/img/zeichnen-gesicht.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-gesicht.png"></span></p></div></td></tr><tr><td colspan="1" class="confluenceTd"><p>Zeichne die Figur ...</p><ul style="list-style-type: square;"><li>indem du Grundformen kombinierst.</li><li>mit Hilfe von beginShape und endShape.</li></ul></td><td colspan="1" class="confluenceTd">Zeichne die Form mithilfe eines Segments</td><td colspan="1" class="confluenceTd">Zeichne die Figur mit Hilfe von beginShape und endShape.</td><td colspan="1" class="confluenceTd">Zeichne die Figur Gesicht Grundformen. <br/>Achte darauf auf die Reihenfolge der Befehle, damit alle Teile sichtbar sind.</td></tr></tbody></table></div></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Formen-Zusammenfassung">Zusammenfassung</h1><ul><li><strong>Grundformen</strong>: Processing stellt Befehle zum Zeichnen vieler Grundformen bereit. Anfangs- und Endpunkte oder andere Informationen zum Zeichnen werden als Parameter übergeben. Du hast folgende Befehle kennen gelernt: line, triangle, rect, ellipse, arc und quad.</li><li><strong>Polygone</strong>: Beliebige Polygone (Vielecke) zeichnet man mit einer Reihe von vertex-Befehlen (Eckpunkte), die von beginShape() und endShape() umschlossen sind.</li><li><strong>Zeichenreihenfolge</strong>: Eine Zeichnung entsteht in der Reihenfolge, wie die Befehle im Code stehen (von oben nach unten). Wenn du mehrere Formen zeichnest, verdecken die später gezeichneten alle früheren.</li><li><strong>Zeichenmodus:</strong> RectMode und ellipseMode bestimmen, wie die From gezeichnet werden soll. Es gibt <code>CORNER, RADIUS, CENTER, </code>und <code>CORNERS</code>.</li></ul></div></div><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><br/><p><br/></p><p><br/></p><p><br/></p><br/><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><br/><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><br/>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609417/40863764.png">image.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="comments" class="pageSectionTitle">Comments:</h2>
+                        </div>
+
+                        <table border="0" width="100%">
+                                                        <tr>
+                                <td >
+                                    <a name="comment-30148451"></a>
+                                    <font class="smallfont"><p>Da fehlt doch RADIUS :O</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by oliver.rebizant@student.fh-kiel.de at Jan 21, 2020 13:08
+                                    </div>
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td  style="border-top: 1px dashed #666666">
+                                    <a name="comment-30148453"></a>
+                                    <font class="smallfont"><p>Fixed.</p></font>
+                                    <div align="left" class="smallfont" style="color: #666666; width: 98%; margin-bottom: 10px;">
+                                        <img src="images/icons/contenttypes/comment_16.png" height="16" width="16" border="0" align="absmiddle"/>
+                                        Posted by jacqueline.dittrich@fh-kiel.de at Jan 21, 2020 13:34
+                                    </div>
+                                </td>
+                            </tr>
+                                                    </table>
+                    </div>
+                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

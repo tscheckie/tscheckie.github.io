@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Farbe</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Farbe
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 21, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Farbe-Graustufenundfill">Graustufen und fill</h1><p>Du kannst deine Figuren variieren, indem du bestimmst, mit welchem Grauwert das Innere gefüllt werden soll. Grauwerte werden von 0 (schwarz) bis 255 (weiß) angegeben. Stellen dir vor, du würdest die &quot;Lichtmenge&quot; angeben (0 = keins, 255 = alles). Es gibt 256 Werte, weil das der Wertumfang ist, den ein Byte (8 Bit) speichern kann. Der Befehl, um die Farbe festzulegen, mit der Figuren gefüllt werden, lautet <code>fill</code>. Sobald du diesen Befehl verwendest, gilt er für alle weiteren Zeichenbefehle bis zum nächsten <code>fill</code>. Zum Beispiel alles schwarz füllen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">fill(0);
+ellipse(40, 40, 35, 35);
+rect(40, 40, 40, 30);
+triangle(60, 60, 20, 90, 60, 90);</pre>
+</div></div><pre>Oder drei Figuren jeweils unterschiedlich füllen:</pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">fill(0);
+ellipse(40, 40, 35, 35);
+fill(100);
+rect(40, 40, 40, 30);
+fill(255);
+triangle(60, 60, 20, 90, 60, 90);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/graustufen.png" data-image-src="https://michaelkipp.de/processing/img/graustufen.png"></span></pre><h1 id="Farbe-Konturundstroke">Kontur und stroke</h1><p>Die Umrandung/Kontur einer Form kann man mit dem Befehl <code>stroke</code> (engl. für Pinselstrich) einfärben. Die Dicke der Umrandung kontrolliert man mit dem Befehl <code>strokeWeight</code> (weight ist engl. für Gewicht). Zum Beispiel weißer Rand, schwarze Füllung:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">strokeWeight(4);
+stroke(255);
+fill(0);
+ellipse(40, 40, 35, 35);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/kontur-stroke.png" data-image-src="https://michaelkipp.de/processing/img/kontur-stroke.png"></span></p><p>Mit dem Befehl <code>noStroke</code> schaltest du das Zeichnen der Kontur vollständig aus (solange bis wieder der Befehl <code>stroke</code> kommt).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">noStroke();
+ellipse(20, 20, 35, 35);
+rect(60, 60, 35, 35);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-noStroke.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-noStroke.png"></span></pre><p>Hier wird die Kontur beim zweiten Objekt wieder eingeschaltet:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">noStroke();
+ellipse(20, 20, 35, 35);
+stroke(0); // schwarze Kontur
+rect(60, 60, 35, 35);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-noStroke2.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-noStroke2.png"></span></pre><p>Auf ähnliche Weise kannst du <strong>das Füllen von Figuren ausschalten</strong>. Mit <code>noFill</code> werden Figuren nicht gefüllt, d.h. unter anderem, dass darunterliegende Objekte sichtbar sind:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(20,20,60,60);
+noFill();
+ellipse(20, 20, 35, 35);
+rect(60, 60, 35, 35);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-noFill.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-noFill.png"></span></pre><h1 id="Farbe-ZeichenflächeundHintergrund">Zeichenfläche und Hintergrund</h1><p>Mit dem Befehl <code>
+            size
+        </code> legt man die Größe (Breite und Höhe) des Zeichenfensters fest, das normalerweise 100x100 Pixel groß ist. Beispiel, um ein 800x600-Pixel großes Fenster zu erhalten:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(800, 600);</pre>
+</div></div><p>Die Hintergrundfarbe setzt man mit <code>background</code>. Hier z.B. auf schwarz...</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">background(0);     // hier auf schwarz
+background(255);   // hier auf weiß</pre>
+</div></div><p>Der Hintergrund ist auf ein Grau voreingestellt.</p><p><strong>Wichtig:</strong> Der Befehlt background <strong>übermalt</strong> das gesamte Fenster mit der angegebenen Farbe. Es ist also wichtig, dass background <u>vor</u> allem anderen Zeichencode gesetzt wird.</p><p>Richtig:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">background(50); // Bild wird mit Grau übermalt
+rect(25,25,50,50);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-bg1.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-bg1.png"></span></pre><p>Falsch:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">rect(25,25,50,50);
+background(50); // Bild wird mit Grau übermalt</pre>
+</div></div><pre class="wrong"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-bg2.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-bg2.png"></span></pre><h1 id="Farbe-Farbe">Farbe</h1><p>Um bei <code>stroke</code> oder <code>fill</code> eine Farbe anzugeben, gibt man nicht einen, sondern <em>drei</em> Werte an: jeweils für <strong>Rot, Grün und Blau (deshalb auch RGB-Farbe)</strong>. Jeder Wert kann zwischen 0 und 255 (inklusive) liegen. Wenn man einen der Werte auf 255 setzt und die anderen auf 0, bekommt man also reines Rot oder Grün oder Blau:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">strokeWeight(4);
+background(255, 0, 0);
+stroke(0, 255, 0);
+fill(0, 0, 255);
+rect(20, 20, 60, 60);</pre>
+</div></div><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/farbe.png" data-image-src="https://michaelkipp.de/processing/img/farbe.png"></span></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Merkhilfe: <strong>R - G - B</strong>. Das heißt: Rot - Grün - Blau. Das ist genau die Reihenfolge der Zahlen bei allen Farbbefehlen.</div></div><p>Für eine rote Füllung, setzen nur den ersten Wert aufs Maximum (= 255):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">fill(255, 0, 0); // rot
+fill(0, 255, 0); // grün
+fill(0, 0, 255); // blau</pre>
+</div></div><p>Auch der Befehl background() funktioniert mit drei RGB-Werten.</p><h1 id="Farbe-Transparenz">Transparenz</h1><p>Überall dort, wo du einen Grauwert oder eine Farbe einsetztst, also bei <code>fill</code> oder <code>stroke</code>, kannst du die Linie/Fläche auch transparent schalten. Transparent bedeutet, dass die darunter liegende Farbe durchscheint. Transparenz steuerst du, indem dudie <em>Deckkraft</em> mit einem Wert zwischen 255 (voll deckend) bis 0 (voll transparent) einstellen. Man nennt diesen Wert auch den <strong>Alpha-Wert</strong>. Bei den Befehlen <code>fill</code> oder <code>stroke</code> wird die Deckkraft einfach durch einen <em>zweiten Wert</em> (neben der Graustufe) bzw. einen <em>vierten Wert</em>, wenn du Farbe verwendest, angegeben.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">fill(0); // schwarz
+ellipse(40, 40, 35, 35);
+
+fill(100, 230); // grau, sehr deckend
+rect(40, 40, 40, 30);
+
+fill(255, 50); // weiß, sehr transparent
+triangle(60, 60, 20, 90, 60, 90);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Objekte mit Transparenz" src="https://michaelkipp.de/processing/img/zeichnen-alpha1.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-alpha1.png"></span></pre><p>Beispiel mit Farben und Alpha-Wert:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">fill(255, 0, 0); // rot
+ellipse(40, 40, 35, 35);
+
+fill(0, 255, 0, 230); // grün, sehr deckend
+rect(40, 40, 40, 30);
+
+fill(0, 0, 255, 50); // blau, sehr transparent
+triangle(60, 60, 20, 90, 60, 90);</pre>
+</div></div><pre><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Objekte mit Transparenz und Farbe" src="https://michaelkipp.de/processing/img/zeichnen-alpha2.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen-alpha2.png"></span></pre><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Farbe-Übungsaufgaben">Übungsaufgaben</h1><p><strong>Zeichnen</strong></p><p>Zeichne folgende Figuren:</p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 44.3616%;"><colgroup><col style="width: 21.5174%;"/><col style="width: 21.1705%;"/><col style="width: 21.0523%;"/><col style="width: 36.2907%;"/></colgroup><tbody><tr><th class="confluenceTh"><strong>Halb-halb</strong></th><th class="confluenceTh"><h4 id="Farbe-Gesicht">Gesicht</h4></th><th class="confluenceTh"><h4 id="Farbe-Mund">Mund</h4></th><th class="confluenceTh"><h4 id="Farbe-Regenbogen">Regenbogen</h4></th></tr><tr><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-halbhalb.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-halbhalb.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-gesicht.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-gesicht.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-gesicht2.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-gesicht2.png"></span></p></div></td><td class="confluenceTd"><div class="content-wrapper"><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/zeichnen2-regenbogen.png" data-image-src="https://michaelkipp.de/processing/img/zeichnen2-regenbogen.png"></span></p><p>Arbeite ausschließlich mit <code>fill</code> und schalte die Kontur mit <code>noStroke</code> aus.</p></div></td></tr></tbody></table></div></div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Farbe-Zusammenfassung">Zusammenfassung</h1><ul><li><strong>Graustufen</strong>: Eine Graustufe wird als Zahl zwischen 0 und 255 (inklusive) angegeben, je kleiner desto schwärzer. Merkhilfe: Zahl gibt Lichtmenge an.</li><li><strong>Befehle</strong>: Mit fill() legst du die Farbe im Innern einer Form fest, mit stroke() die Farbe der Kontur. Mit noFill() und noStroke() verhinderst du das Malen der Füllung bzw. der Kontur. Mit strokeWeight() legst  du die Dicke der Kontur fest (in Pixeln).</li><li><strong>Zeichenfenster</strong>: Mit size() legst du die Größe des Fensters fest, mit background() übermalest du das gesamte Fenster mit der angegebenen Graustufe.</li><li><strong>Farbe</strong>: Farbe wird erzeugt, indem man drei Werte statt einem Wert angibt. Die drei Werte (je zwischen 0 und 255) bestimmen die drei Farbanteile Rot, Grün, Blau (RGB). Alle Befehle, die eine Graustufe akzeptieren (ein Wert), akzeptieren auch eine Farbe (drei Werte, also drei Parameter), z.B. fill(), stroke() und background().</li></ul></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

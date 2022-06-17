@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Debugging 🐞</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Debugging 🐞
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Beim Schreiben von Code treten zwangsläufig Fehler auf. Das kann frustrierend sein, aber es ist ein großer Teil davon, Programmierer zu sein. Jeder Programmierer stößt jedes Mal, wenn er sich hinsetzt, um Code zu schreiben, auf Fehler. Fehler können aus verschiedenen Gründen auftreten. Diese werden auch als <strong>Bug</strong> (= engl. für Käfer, Wanze) bezeichnet. Das beheben von diesen Fehler wird als <strong>Debugging</strong> bezeichnet. In dieser Lektion erfahrst du, wie du deinen Code debuggen kannst.</p><h1 id="Debugging🐞-Fehlerarten">Fehlerarten</h1><p>Es gibt 3 verschiedene Fehlerarten: <strong>Compilerfehler</strong>, <strong>Laufzeitfehler</strong> und <strong>Logikfehler</strong>. Die ersten beiden sind noch harmlos, da Processing uns in der Regel darauf aufmerksam macht, wo genau der Fehler ist. Anders ist das bei den Logikfehlern - hier muss man genauer suchen.</p><h2 id="Debugging🐞-Compilerfehler">Compilerfehler</h2><p>Die erste Art von Fehler, die du wahrscheinlich sehen wirst, sind <strong>Compilerfehler</strong>. Grundsätzlich tritt ein Compilerfehler auf, wenn du Code schreibst, den der Computer nicht versteht. In diesem Fall kann Processing deinen Code nicht einmal ausführen, da es nicht weiß, was es tun soll.</p><p>Die Regeln einer Sprache werden als ihre <a href="24609473.html">Syntax &amp; Konventionen</a> bezeichnet. Compilerfehler werden auch als <strong>Syntaxfehler</strong> bezeichnet, da sie bedeuten, dass dein Code die Regeln der Sprache verletzt hat. Compilerfehler können sich auf vergessene Semikolons oder falsch geschriebene Variablen beziehen, aber auch auf Verstöße gegen die Verarbeitungsregeln, z. B. auf den Versuch, einen String-Wert in einer int-Variablen zu speichern.</p><p>Hier ist ein Beispiel, das einen Syntaxfehler enthält. Kannst du es erkennen?</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(200, 200);
+background(black);
+ellipse(width/2, height/2, 100, 100);</pre>
+</div></div><p class="highlight"><code><span class="o"><br/></span>
+</code>Siehst du den Syntaxfehler? Kopiere diesen Code in deinen Processing Editor und du wirst eine Reihe von Dingen feststellen:</p><ul><li>Der Processing Editor zeigt eine rote Linie unter <code class="highlighter-rouge">black</code>.</li><li>Wenn du mit der Maus über die rote Linie fährst, erscheint ein Tooltip in dem steht  <code class="highlighter-rouge">The variable &quot;black&quot; does not exist</code>.</li><li>Wenn du versuchst den Code auszuführen, indem du auf Play drückst, dann zeigt dir der Editor eine rote Meldung in der steht <code class="highlighter-rouge">black cannot be resolved to a variable</code>.</li></ul><p><br/></p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="compiler error in Processing editor" height="400" src="https://happycoding.io/tutorials/processing/images/debugging-1.gif" data-image-src="https://happycoding.io/tutorials/processing/images/debugging-1.gif"></span></p><p><br/></p><p><span class="tlid-translation translation" lang="de"><span title="">In diesem Fall wird der Fehler dadurch verursacht, dass wir das Wort <code><span class="n">black</span> </code>verwenden, das Processing nicht versteht.</span> <span title="">Wir müssen entweder eine Variable mit dem Namen black erstellen:</span></span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(200, 200);
+float black = 0;
+background(black);
+ellipse(width/2, height/2, 100, 100);</pre>
+</div></div><p class="highlight"><code>
+</code></p><p>Oder wir überwegen den Farbwert direkt in die  <code class="highlighter-rouge">background()</code> Funktion:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(200, 200);
+background(0);
+ellipse(width/2, height/2, 100, 100);</pre>
+</div></div><p class="highlight"><code>
+</code></p><p><span class="tlid-translation translation" lang="de"><span title="">In beiden Fällen wird der Fehler dadurch beseitigt, sodass der Code jetzt ausgeführt werden kann.</span> <span title="">Wenn du also einen Compilerfehler siehst, solltest du Folgendes tun:</span></span></p><ul><li><span class="tlid-translation translation" lang="de"><span title="">Schau dir sich die unterstrichene Linie an.</span></span></li><li><span class="tlid-translation translation" lang="de"><span title="">Schau dir die Informationen im Tooltip an.<br/></span></span></li><li>Schau dir die Meldung an, wenn du versucht den Code auszuführen.</li></ul><p>Wenn du das Problem nicht herausfinden kannst, schau in die <a href="https://processing.org/reference/" class="external-link" rel="nofollow">Referenz von Processing</a>, um zu erfahren, was dein Code in dieser Zeile bewirkt. Vergleichen deinen Code mit den Informationen in den Beispiel in den Referenz und suche nach Unterschieden.</p><h2 id="Debugging🐞-Laufzeitfehler">Laufzeitfehler</h2><p>Du kannst Code schreiben, von dem der Computer weiß, wie er ausgeführt wird, der jedoch einen Fehler verursacht, <em>während </em>der Computer versucht, ihn auszuführen. Diese Art von Fehler wird als <strong>Laufzeitfehler </strong>bezeichnet und führt normalerweise dazu, dass dein Programm mit einer Fehlermeldung abstürzt. Hier ist ein Beispiel:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message;
+
+void setup() {
+  size(300, 100);
+  textSize(36);
+}
+
+void draw() {
+  background(64);
+  text(message, 20, 50);
+}</pre>
+</div></div><p class="highlight"><code>
+
+</code></p><p>Dieses Programm deklariert eine Variable <code class="highlighter-rouge">message</code> und nutzt die <code class="highlighter-rouge">text()</code> Funktion, um diese auf dem Bildschirm anzuzeigen. Kopiere diesen Code in Prodessing und du wirst feststellen, dass du keine Compilerfehler hast. Wenn du das Programm ausführst, öffnet sich zwar ein Fenster, aber es wird kein Text angezeigt. Und du bekommst einen Fehler:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="NullPointerException in the Processing editor" height="400" src="https://happycoding.io/tutorials/processing/images/debugging-2.png" data-image-src="https://happycoding.io/tutorials/processing/images/debugging-2.png"></span></p><p>Processing hebt die Zeile <code class="highlighter-rouge">text(message, 20, 50);</code> farblich hervor und zeigt unten in der Fehlerleiste <code class="highlighter-rouge">NullPointerException</code> an. <strong>Die <code class="highlighter-rouge">NullPointerException</code> ist einer der häufigsten Laufzeitfehler</strong> und wird dadruch ausgelöst, dass du versucht eine Variable zu verwenden, die noch keinen Wert hat. Wir erinnern uns: Variablen sind Referenzen, die auf eine gewisse Stelle im Speicher verweisen (sie &quot;zeigen&quot; drauf → to point → Pointer), wo ein Wert gespeichert ist. Eine Variable, der noch kein Wert zugewiesen wurde zeigt somit &quot;ins Leere&quot; → <code class="highlighter-rouge">NullPointerException</code> ( = die &quot;Kein-Verweis-Ausnahme&quot;).</p><p>In diesem Fall haben wir vergessen der Variable <code class="highlighter-rouge">message</code> einen Wert zu geben, was aber ziemlich einfach zu reparieren ist:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message;
+
+void setup() {
+  size(300, 100);
+  textSize(36);
+  message = &quot;Happy Coding&quot;;
+}
+
+void draw() {
+  background(64);
+  text(message, 20, 60);</pre>
+</div></div><p class="highlight"><code>
+</code></p><p>Jetzt wird der Variable in <code class="highlighter-rouge">setup()</code> ein Wert zugewiesen. Dieser Code läuft problemlos!</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Happy Coding" width="192" src="https://happycoding.io/tutorials/processing/images/debugging-3.png" data-image-src="https://happycoding.io/tutorials/processing/images/debugging-3.png"></span></p><h2 id="Debugging🐞-Logikfehler">Logikfehler</h2><p>Manchmal schreibst du Code, der keine Fehler generiert, aber dennoch nicht so funktioniert, wie du es erwartest. Dies wird fast immer durch einen <strong>logischen Fehler</strong> verursacht und ist normalerweise darauf zurückzuführen, dass der oder die ProgrammiererIn <em>(das bist du!)</em> eine ungültige Annahme oder einen Tippfehler macht. Nehmen wir an, wir wollten ein Programm erstellen, das die Drehrichtung anzeigt: Es beginnt oben, dann rechts, dann unten, dann links und schließlich wieder oben. Wir könnten diesen Code schreiben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String direction = &quot;UP&quot;;
+
+void setup(){
+  frameRate(2);
+  textSize(24);
+  textAlign(CENTER);
+}
+
+void draw(){
+  background(32);
+  text(direction, 50, 60);
+  rotateDirection();
+}
+
+void rotateDirection() {
+  if (direction.equals(&quot;UP&quot;)) { 
+    direction = &quot;RIGHT&quot;;
+  }
+  if (direction.equals(&quot;RIGHT&quot;)) {
+    direction = &quot;DOWN&quot;;
+  }
+  if (direction.equals(&quot;DOWN&quot;)) {
+    direction = &quot;LEFT&quot;;
+  }
+  if (direction.equals(&quot;LEFT&quot;)) {
+    direction = &quot;UP&quot;;
+  }
+}</pre>
+</div></div><p class="highlight"><code>
+</code></p><p>Dieses Programm definiert eine Variable <code class="highlighter-rouge">direction</code>, welche auf dem Bildschirm angezeigt wird. Am Ende eines jeden Frames ruft es die Funktion <code class="highlighter-rouge">rotateDirection()</code> auf. Die <code class="highlighter-rouge">rotateDirection()</code> Funktion verwendet <code class="highlighter-rouge">if</code> Anweisungen, um den Wert von  <code class="highlighter-rouge">direction</code> in die nächste Richtung in der Folge zu verändern. Aber wenn du das Programm ausführst, dann wirst du feststellen, dass nur <code class="highlighter-rouge">UP</code> auf dem Bildschirm angezeigt wird. <strong>Es werden keine Fehler angezeigt, aber der Code macht dennoch nicht, was er soll.</strong></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><code>.equals() </code>ist eine besondere Methode, um Strings zu vergleichen. Wir werden diese Methode noch in späteren Sprints kennenlernen</p></div></div><p><br/></p><h1 id="Debugging🐞-Debugging-Methoden(beiLogikfehlern)">Debugging-Methoden (bei Logikfehlern)</h1><h2 id="Debugging🐞-DebuggingmitdeinemGehirn">Debugging mit deinem Gehirn</h2><p>Wenn du einen Compiler- oder Logikfehler erhaltst, müssst du zuerst deinen Code <strong>im Kopf durchgehen</strong>. Lies den Code Zeile für Zeile durch und vergewissere sich, dass es sich bei dem von dir geschriebenen Code um den Code handelt, den du schreiben wolltest - genau wie beim Korrekturlesen von allem, was du geschrieben haben.</p><p>Verwende <strong>Papier und Bleistift</strong>, um Variablenwerte aufzuschreiben oder Dinge auf den „Bildschirm“ zu zeichnen, während du deinen Code liest. Versuche, deinen Code durchzulesen und dir vorzustellen, wie er funktioniert, wenn er andere Werte erhält. Durchlaufe einzelne Funktionen mit imaginären Parametern, um sicherzustellen, dass sie in jedem Fall funktionieren.</p><p>Eine weitere Möglichkeit ist das Zeichnen eine <a href="Programmablaufplan_24611342.html">Programmablaufplans</a>. Er visualisiert den Ablauf deines Programmes und hilft dir zu verstehen, was nacheinander passiert. Man kann den <strong>Programmablaufplan </strong>entweder zur V<strong>orbereitung und Konzeption</strong> (also vor dem Coden) verwenden oder später zum <strong>Debugging</strong>.</p><p>Lies im obigen Beispiel die Funktion <code class="highlighter-rouge">rotateDirection()</code> durch und überlege dir sich genau, was die einzelnen Zeilen bewirken. Stelle sicher, dass du den Code richtig gelesen hast! Versuche nicht anzunehmen, dass du weißt, was der Code tut, und nimm dir einfach eine Zeile nach der anderen vor. Lautes Vorlesen kann helfen. Es kann auch helfen mit einem <strong>Partner</strong> zusammenzuarbeiten. Erkläre deinem Partner den Code. Dabei wirst entweder du - während du erklärst - feststellen, was der Fehler ist oder deinem Partner fällt der Fehler auf.</p><h2 id="Debugging🐞-Print-Debugging">Print-Debugging</h2><p>Wenn du den Fehler beim Durchlesen deines Codes nicht erkennen kannst, musst du herausfinden, was der Code tut und wo genau dies von dem abweicht, was du erwartet hast. Eine einfache Möglichkeit ist das Verwenden von  <code class="highlighter-rouge">println()</code> an entscheidenden Stellen im Code. Du kannst <code class="highlighter-rouge">println()</code> Befehle verwenden, um die Werte deiner Variablen zu erfahren oder um herauszufinden in welcher Reihenfolge Funktionen aufgerufen werden, etc. Diese Vorgehensweise wird als <strong>Print-Debugging</strong> bezeichnet.</p><p>Vielleicht können wir mithilfe von  <code class="highlighter-rouge">println()</code> Befehlen heraufinden, was unser Code macht:</p><p class="highlight"><code>
+</code></p></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String direction = &quot;UP&quot;;
+
+void setup() {
+  frameRate(2);
+  textSize(24);
+  textAlign(CENTER);
+  println(&quot;in setup, direction: &quot; + direction);
+}
+
+void draw() {
+  println(&quot;in draw, direction: &quot; + direction);
+  background(32);
+  text(direction, 50, 60);
+  rotateDirection();
+  println(&quot;nach rotateDirection, direction: &quot; + direction);
+}
+
+void rotateDirection() {
+  println(&quot;in rotateDirection, direction: &quot; + direction);
+  if (direction.equals(&quot;UP&quot;)) {
+    println(&quot;Erste if Anweisung.&quot;);
+    direction = &quot;RIGHT&quot;;
+    println(&quot;Direction ist jetzt: &quot; + direction);
+  }
+  if (direction.equals(&quot;RIGHT&quot;)) {
+    println(&quot;Zweite if Anweisung.&quot;);
+    direction = &quot;DOWN&quot;;
+    println(&quot;Direction ist jetzt: &quot; + direction);
+  }
+  if (direction.equals(&quot;DOWN&quot;)) {
+    println(&quot;Dritte  if Anweisung.&quot;);
+    direction = &quot;LEFT&quot;;
+    println(&quot;Direction ist jetzt: &quot; + direction);
+  }
+  if (direction.equals(&quot;LEFT&quot;)) {
+    println(&quot;Vierte if Anweisung.&quot;);
+    direction = &quot;UP&quot;;
+    println(&quot;Direction ist jetzt: &quot; + direction);
+  }
+}</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p class="auto-cursor-target">Wenn wir das Programm durchführen, lesen wir in der Konsole:</p><pre>in setup, direction: UP<br/>in draw, direction: UP<br/>in rotateDirection, direction: UP<br/>Erste if Anweisung.<br/>Direction ist jetzt: RIGHT<br/>Zweite if Anweisung.<br/>Direction ist jetzt: DOWN<br/>Dritte if Anweisung.<br/>Direction ist jetzt: LEFT<br/>Vierte if Anweisung.<br/>Direction ist jetzt: UP<br/>nach rotateDirection, direction: UP</pre></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Wir können diese Ausgabe verwenden, um unseren Code erneut zu lesen und diesmal zu vergleichen, was von uns erwartet wird und was tatsächlich gedruckt wird. Siehst du, wo der Unterschied liegt?</p><h2 id="Debugging🐞-Logging">Logging</h2><p>Eine andere, aber <em>ähnliche</em> Version des Print-Debuggings ist das <strong>Logging</strong>. Beim Loggin werden - wie beim Print-Debugging - Variablenwerte, Funktionsreihenfolgen, etc. in Textform ausgegeben. Der Unterschied ist aber, dass beim Logging diese Daten <strong>in einem Textdokument gespeichert</strong> werden, das man später nochmal durchlesen und auswerten kann. Damit werden wir uns jetzt nicht genauer beschäftigen, aber du solltest wissen, dass es sowas gibt.</p><h2 id="Debugging🐞-DebuggingmitdemDebugger">Debugging mit dem Debugger</h2><p>Wenn alles andere fehlschlägt, kannst du den Debugger verwenden, der in Processing integriert ist. Der Debugger ist ein Tool, mit dem du beobachten kannst, wie dein Code zeilenweise ausgeführt wird. Um den Debugger zu aktivieren, klickst du auf die Schaltfläche Debuggen - den schmetterlingsartigen Kreis in der rechten oberen Ecke des Processing Editors. Daraufhin wird ein neues Variablenfenster geöffnet, das vorerst leer ist. Nachdem der Debugger aktiviert wurde, kannst du ihn folgendermaßen verwenden:</p><ul><li>Setzte als erstes einen <strong>Breakpoint</strong>, indem du auf eine Zeilennummer klickst. Die Zeilennummer sollte zu einer Raute werden.</li><li>Nun kannst du auf <strong>Play</strong> klicken, um den Code mit dem Debugger auszuführen.<ul><li>Der Debugger wird die Ausführung des Codes <em>anhalten</em>, sobald er den <em>Breakpoint</em> erreicht hat.</li></ul></li><li>Dann kannst du den <strong>Schritt</strong> Button verwenden, um Zeile für Zeile deinen Code auszuführen.</li><li>Im <strong>Variablenfenster</strong> kannst du den Wert von jeder Variablen sehen.</li></ul><p>Der gesamte Prozess sieht wiefolgt aus:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" draggable="false" alt="Processing debugger gif" height="400" src="https://happycoding.io/tutorials/processing/images/debugging-5.gif" data-image-src="https://happycoding.io/tutorials/processing/images/debugging-5.gif"></span></p><p>Mit dem Debugger können wir den Code in „Zeitlupe“ ausführen und beobachten, wie sich die Werte von Variablen ändern, während der Code ausgeführt wird. Ziel ist es, genau herauszufinden, wo der Code etwas anderes tut als erwartet.</p><p>In diesem Fall teilen uns die <code class="highlighter-rouge">println()</code>-Anweisungen und der Debugger mit, dass der Code jede if-Anweisung durchläuft. Die Funktion <code class="highlighter-rouge">rotateDirection()</code> erreicht also die erste if-Anweisung, weil <code class="highlighter-rouge">direction</code> mit &quot;<code class="highlighter-rouge">UP</code>&quot; beginnt. Hier bekommt <code class="highlighter-rouge">direction</code> den neuen Wert &quot;<code class="highlighter-rouge">RIGHT</code>&quot;, was bis jetzt korrekt ist. Dann wird bei der nächsten if-Anweisung geprüft, ob <code class="highlighter-rouge">direction</code> &quot;<code class="highlighter-rouge">RIGHT</code>&quot; ist! Da dies der Fall ist, bekommt <code class="highlighter-rouge">direction</code>  den Wert &quot;<code class="highlighter-rouge">DOWN</code>&quot;. Dieser Vorgang wird wiederholt für alle if-Anweisungen, bis die letzte if Anweisung <code class="highlighter-rouge">direction</code>  neu zuweist, mit dem Wert &quot;<code class="highlighter-rouge">UP</code>&quot;.</p><p>Um das zu beheben, verwenden wir <code class="highlighter-rouge">else if</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">if (direction.equals(&quot;UP&quot;)) {
+  direction = &quot;RIGHT&quot;;
+}
+else if (direction.equals(&quot;RIGHT&quot;)) {
+  direction = &quot;DOWN&quot;;
+}
+else if (direction.equals(&quot;DOWN&quot;)) {
+  direction = &quot;LEFT&quot;;
+}
+else if (direction.equals(&quot;LEFT&quot;)) {
+  direction = &quot;UP&quot;;
+}</pre>
+</div></div><p class="highlight"><code>
+</code></p><p>Wenn eine der if-Anweisungen eingegeben wird, wird keine der anderen if-Anweisungen ausgewertet. Dadurch wird die Richtung nur einmal gedreht, was unser ursprüngliches Ziel war!</p><h2 id="Debugging🐞-Ausschlussverfahren">Ausschlussverfahren</h2><p>Eine weitere Möglichkeit zu Debuggen kann das Ausschlussverfahren sein. Das kann gerade dann hilfreich sein, wenn du keine Ahnung hast, in welchem Programmteil der Fehler auftritt. Ausschlussverfahren bedeutet, ich entferne gewisse Teile aus meinem Programm und schaue, ob es dann läuft, oder ob der Fehler immernoch vorhanden ist. Das kann man machen, in dem man gewisse Codezeilen oder Funktionsaufrufe <strong>auskommentiert</strong>. Wenn du zum Beispiel einen Funktions-Aufruf auskommentierst, so dass diese Funktion nicht mehr ausgeführt wird und der Fehler dann verschwindet, dann weißt du dass der Fehler mit dieser Funktion zusammenhängt.</p><h2 id="Debugging🐞-ArbeiteinkleinenSchritten">Arbeite in kleinen Schritten</h2><p>Du solltest <strong>nicht</strong> dein gesamtes Programm schreiben und erst ausführen, nachdem den gesamten Code geschrieben hast.<strong> Teste stattdessen jeden einzelnen Teil, während du ihn schreibst</strong>. Stelle sicher, dass jede Zeile so funktioniert, wie du es erwartst. Auf diese Weise kannst du Fehler finden, sobald sie auftreten. Es ist sehr schwer, hundert Codezeilen zu debuggen, die nicht das tun, was du erwartet hast. Es ist viel einfacher, nur ein paar Codezeilen zu debuggen.</p><p>Wenn du auf einen Fehler stößt, kannst du mit den oben beschriebenen Methoden den Fehler auf wenige Zeilen eingrenzen, die nicht das tun, was du erwartest. Wenn du es immer noch nicht herausfinden kannst, erstelle eine kleineres Beispielprogramm, das <strong>nur</strong> genügend Code enthält, um dasselbe Verhalten zu erkennen.</p><p>Wenn dein Code beispielsweise 100 Bilder lädt, ihnen zufällige Positionen und Geschwindigkeiten gibt und sie alle voneinander abprallen, aber du das Abprallen nicht richtig zum Laufen bringen kannst, musst du mit einer einfacheren Skizze beginnen:</p><ul><li>Verwende anstelle von Bildern einfache Rechtecke.</li><li>Anstatt 100 von ihnen zu zeigen, zeigen nur 2 von ihnen.</li><li>Anstatt ihnen zufällige Positionen und Geschwindigkeiten zuzuweisen, verwende fest codierte Werte.</li></ul><p>Das kleine Beispielprogramm sollte jedoch immer noch das gleiche Problem aufweisen wie dein Hauptprogramm. Das Debuggen ist jetzt viel einfacher, da du dir keinen Code ansehen musst, der nichts mit dem Problem zu tun hat. Wenn alles andere fehlschlägt, ist es manchmal das Beste, eine Pause zu machen. Gehe spazieren, trinke einen Kaffee, streichel deine Katze und versuche, den Kopf frei zu bekommen. Du wirst erstaunt sein, an wie viele Lösungen du in der Dusche denkst. <img class="emoticon emoticon-wink" src="images/icons/emoticons/wink.svg" data-emoticon-name="wink" alt="(Zwinkern)"/></p><br/><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Debugging🐞-Zusammenfassung">Zusammenfassung</h1><ul><li>Fehler werden in der Programmierung als Bugs bezeichnet, das Beheben von Fehlern wird Debugging genannt.</li><li><strong>Compilerfehler</strong> entstehen, wenn die Syntaxregeln missachtet werden und Processing den Code nicht versteht. Das Programm kann nicht ausgeführt werden.</li><li><strong>Laufzeitfehler</strong> treten auf, während das Programm läuft. Einer der häufigsten Laufzeitfehler sind Variablen, denen kein Wert zugwiesen wurde.</li><li><strong>Logikfehler</strong> treten auf, wenn der Programmierer falsche Annahmen aufstellt. Logikfehler können wiefolgt behoben werden:<ul><li><strong>Debuggen mit dem Gehirn</strong> - lies den Code Zeile für Zeile. Allein oder mit einem <em>Partner</em> oder einer Partnerin.</li><li><strong>Print-Debugging</strong> - lasst dir z.B. Variablenwerte mithilfe von println() ausgeben, um zu sehen, welche Werte diese annehmen.</li><li><strong>Logging</strong> - wie das Print Debugging, nur dass die Daten in einem Textdokument gespeichert werden und später verwendet werden können.</li><li><strong>Breakpoints</strong> - unter Verwendung des Debuggers in Processing, kannst du Breakpoints setzten - Stellen an denen dein Code angehalten wird und du ihn Zeile für Zeile ausführen lassen kannst. Dabei kannst du die Variablenwerte in einem separaten Fenster überprüfen.</li><li><strong>Ausschlussverfahren</strong> - hier werden einzelne Teile des Codes Stück für Stück auskommentiert, um herauszufinden in welchem Programmteil der Fehler auftritt.</li></ul></li></ul><p><br/></p></div></div></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24609901/40869412.zip">DebuggingDemo.zip</a> (application/zip)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

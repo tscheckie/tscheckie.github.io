@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Strings verarbeiten</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-4_24609612.html">Sprint 4</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Strings verarbeiten
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Jan 09, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Bevor wir komplexere Daten laden und speichern, sollten wir unser Wissen über Strings vertiefen. &quot;String&quot; ist englisch für &quot;Schnur&quot; oder &quot;Kette&quot;. Das deutet darauf hin, dass ein String eine Aneinanderreihung von <em>Zeichen</em> (engl. <em>character</em>) ist. Man sagt deshalb auch <em>Zeichenkette</em>.</p><h1 id="Stringsverarbeiten-String-Methoden">String-Methoden</h1><p>Wenn man mehrere Zeichen zusammensetzt, hat man eine <em>Zeichenkette</em>, auch genannt <em>String</em>. Wir wissen auch, dass es sich bei einer Variable vom Typ String um einen <strong>Objekttypen</strong> handelt (anders als bei den <a href="24609995.html">Primitiven Datentypen</a>). Das liegt daran, dass der Typ String  eine <em>Klasse</em> ist. Bei einer <strong>Klasse</strong> handelt es sich um eine Art &quot;<strong>Bauplan</strong>&quot; für ein <strong>Objekt</strong> - in diesem Fall eine Zeichenkette.</p><p><span class="confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-right" draggable="false" height="150" src="attachments/24610226/40868435.png" data-image-src="attachments/24610226/40868435.png" data-unresolved-comment-count="0" data-linked-resource-id="40868435" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="shelf.png" data-base-url="https://confluence.iue.fh-kiel.de" data-linked-resource-content-type="image/png" data-linked-resource-container-id="24610226" data-linked-resource-container-version="17" alt=""></span></p><p>Das kannst du dir so vorstellen, wie die Aufbau-Anleitung für ein Billy-Regal von IKEA und ein tatsächliches Billy-Regal. Mit der Aufbau-Anleitung (Klasse) kannst du nicht viel machen. Du kannst da z.B. keine Bücher reinstellen oder Türen auf und zu machen, <em>aber </em>du kannst dir dein eigenes <em>tatsächliches </em>Billiy-Regal daraus bauen. In das fertige Billy-Regal (Objekt), kannst du dann Bücher reinstellen (also sowas wie ein Wert zuweisen) oder Türen auf und zu machen (Funktionen ausführen).</p><p><br/></p><p><br/></p><p>Aufgrund dessen, dass es sich bei einer String-Variable um ein Objekt handelt, kannst du auf das Objekt (also den String) Methoden anwenden. <strong>Methoden</strong> sind eigentlich nichts anderes als Funktionen, aber es sind nicht <em>irgendwelche </em>Funktionen, sondern Funktionen, die zu einer bestimmten Klasse gehören (in unserem Fall String) und nur von einem Objekt dieser Klasse aufgerufen werden können. Das geschieht, indem du die Methode mit einem <strong>Punkt</strong> an die String-Variable bzw. den String ranhängst. So kannst du auf die Methoden zugreifen, die zur Klasse String gehören.</p><p><br/></p><p>Um  die Länge eines Strings zu bekommen, gibt es z.B. die Methode <code>length()</code>. Diese können wir einfach an unsere Variable mit einem Punkt ranhängen:</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;hallo&quot;;
+println(message.length());
+
+// Ausgabe:
+// 5</pre>
+</div></div><p>Etwas gewöhnungsbedürftig - aber korrekt - ist das Ausführen von Methoden auf dem String direkt, ohne dass eine Variable definiert wird:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;hallo&quot;.length());
+
+// Ausgabe:
+// 5</pre>
+</div></div><p>Diese Form wird tatsächlich empfohlen für den Fall, dass eine String-Variable <code>null</code> sein könnte, wie in dem folgenden Fall:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void testFoo(String s) {
+  if (&quot;foo&quot;.equals(s)) 
+    println(&quot;Foo!&quot;);
+  else 
+    println(&quot;Bar!&quot;);  
+}</pre>
+</div></div><p>Da Strings aus Zeichen (character) zusammengesetzt sind, kannst du die einzelnen Zeichen auch rausziehen, und zwar mit der String-Methode <code>
+										charAt()</code> :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;hallo&quot;;
+
+println(message.charAt(0));
+println(message.charAt(1));
+println(message.charAt(2));
+println(message.charAt(3));
+println(message.charAt(4));
+
+// Ausgabe:
+// h
+// a
+// l
+// l
+// o</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>Hinweis</strong>: Schau dir die Zahlen oben genau an - was fällt dir auf? Richtig, die Zahlen beginnen bei 0! Denke immer daran, dass der vorderste Buchstabe (also der an 1. Stelle) den Index 0 hat!</div></div><p><br/></p><h2 id="Stringsverarbeiten-ÜbersichtüberhäufigeString-Methoden">Übersicht über häufige String-Methoden</h2><p>Mithilfe von String-Verarbeitungs-Methoden kannst du deine Zeichenfolgen be- und verarbeiten. Zum Beispiel kannst du deinen String durchsuchen nach einzelnen Buchstaben oder Wörtern, du kannst deinen String in mehrere Teile aufteilen, Worte bzw. Buchstaben austauschen etc. Es gibt <strong>sehr viele</strong> dieser Methoden. <strong>Unten siehst du eine Tabelle derjenigen Methoden, welche du für dieses Modul kennen sollst.</strong></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In der <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html" class="external-link" rel="nofollow">Dokumentation für die Klasse String</a> findest du <strong>alle </strong>Methoden, die zu Strings gehören. Du musst sie nicht alle können - schau sie dir aber mal an, damit du weißt was alles mit Strings möglich ist.</p></div></div><p><br/></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col style="width: 323.0px;"/><col style="width: 630.0px;"/><col style="width: 474.0px;"/></colgroup><tbody><tr><th class="confluenceTh">Funktion</th><th class="confluenceTh">Beschreibung</th><th class="confluenceTh">Beispiel</th></tr><tr><th class="confluenceTh"><pre>charAt(int index)</pre></th><td class="confluenceTd">Liefert den Buchstaben an der angegeben Stelle. Index beginnt bei 0 </td><td class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.charAt(6)); // Ausgabe: W</pre></td></tr><tr><th class="confluenceTh"><pre>contains(String part)</pre></th><td class="confluenceTd">Liefert <code>true</code> zurück, wenn der String den angegebenen String enthält</td><td class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.contains(&quot;ello&quot;)); // Ausgabe: true</pre></td></tr><tr><th colspan="1" class="confluenceTh"><code class="w3-codespan">indexOf(String part)</code></th><td colspan="1" class="confluenceTd">Liefert den Index des ersten Vorkommens des angegeben Strings</td><td colspan="1" class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.indexOf(&quot;ello&quot;)); // Ausgabe: 1</pre></td></tr><tr><th class="confluenceTh"><pre>length()</pre></th><td class="confluenceTd">Liefert die Länge des Strings</td><td class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.length()); // Ausgabe: 12</pre></td></tr><tr><th class="confluenceTh"><pre>replace(String find, String replace)</pre></th><td class="confluenceTd">Tauscht jedes Vorkommen von <code>find</code> mit <code>replace</code> aus.</td><td class="confluenceTd"><pre>String txt = &quot;I love you as much as I love ice cream&quot;;<br/>println(txt.replace(&quot;love&quot;, &quot;hate&quot;)); <br/>// Ausgabe: I hate you as much as I hate ice cream</pre></td></tr><tr><th class="confluenceTh"><pre>split(String trennzeichen)</pre></th><td class="confluenceTd">Trennt einen String anhand eines Trennzeichens auf und liefert einen Array zurück (Typ <code>String[]</code>).</td><td class="confluenceTd"><pre>String txt = &quot;I love you&quot;;<br/>String [] parts = txt.split(&quot; &quot;); // Leerzeichen<br/>printArray(parts); <br/><br/>// Ausgabe:<br/>// [0] &quot;I&quot;<br/>// [1] &quot;love&quot;<br/>// [2] &quot;you&quot;</pre></td></tr><tr><th class="confluenceTh"><pre>startsWith(String start)</pre></th><td class="confluenceTd">Überprüft, ob der String mit dem angegeben String beginnt.<br/>Hinweis: Das Gegenteil hiervon ist <code>endsWith()</code></td><td class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.startsWith(&quot;Hello&quot;)); // Ausgabe: true</pre></td></tr><tr><th class="confluenceTh"><pre>substring(int start, int end)</pre></th><td class="confluenceTd">Liefert einen Teil-String zurück, der <strong>mit</strong> <code>start</code> beginnt und <strong>vor</strong> <code>end</code> endet.</td><td class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.substring(2, 4)); // Ausgabe: ll</pre></td></tr><tr><th class="confluenceTh"><pre>toLowerCase()</pre></th><td class="confluenceTd"><p>Konvertiert einen String in Kleinbuchstaben.</p><p>Hinweis: Das Gegenteil hiervon ist <code>toUpperCase()</code></p></td><td class="confluenceTd"><pre>String txt = &quot;Hello World!&quot;;<br/>println(txt.toLowerCase()); <br/>// Ausgabe: hello world!</pre></td></tr><tr><th class="confluenceTh"><pre>trim()</pre></th><td class="confluenceTd">Entfernt Leerzeichen am Anfang und am Ende des Strings.</td><td class="confluenceTd"><pre>String txt = &quot;      Hello World!      &quot;;<br/>println(txt.trim()); // Ausgabe: Hello World!</pre></td></tr></tbody></table></div><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h3 id="Stringsverarbeiten-Hinweis:UnterschiedeProcessingundJava">Hinweis: Unterschiede Processing und Java</h3><p>Bei der Verarbeitung von Strings gibt es <em>kleine</em> Unterschiede zwischen Java und Processing. Darauf musst du achten, wenn du programmierst. Bei Processing ist das erstmal egal, da Processing beides versteht: den Processing- und den Java-Code. Später, wenn du allerdings nur noch in Java programmierst, funktioniert der Processing-Code nicht mehr. Daher empfehlen wir: Verwende direkt die Java-Schreibweise (so wie hier im Skript auch verwendet).</p><p><strong>Die Funktionen für die String-Verarbeitung heißen in Processing und Java gleich, nur werden sie manchmal anders verwendet.</strong></p><p>Hier ein Beispiel für die Funktion <code>trim()</code>. Trim entfernt Leerzeichen am Anfang und am Ende eines Strings:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Code für Processing
+String textInProcessing = &quot;     Hier sind Leerzeichen am Anfang!&quot;;
+println(trim(textInProcessing));  // In Processing wird der String als Parameter übergeben
+
+// Code in Java
+String textInJava = &quot;Hier sind Leerzeichen am Ende!     &quot;;
+println(textInJava.trim());      // In Java wird die Methode direkt auf den String angewendet</pre>
+</div></div><p>Die Funktionen/Methoden, die in diesem Abschnitt erläutert werden, werden in <strong>Java</strong> erklärt.</p></div></div><h2 id="Stringsverarbeiten-Beispiele">Beispiele</h2><p>Oben haben wir die wichtigsten und häufigsten Methoden einmal aufgelistet. Im Folgenden findest du nochmal etwas ausführlichere Beispiele zu den einzelnen Methoden.</p><p>Die Methode <code>
+										equals()
+									</code> vergleicht zwei Strings und gibt true oder false zurück. Man beachte, dass Groß- und Kleinschreibung bedeutungsunterscheidend ist!</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;hallo&quot;;
+String name = &quot;bob&quot;;
+
+if (message.equals(&quot;hallo&quot;)) 
+  println(&quot;guten tag&quot;);
+else 
+  println(&quot;wie bitte?&quot;);
+
+println(name.equals(&quot;Bob&quot;));
+
+// Ausgabe:
+// guten tag
+// false</pre>
+</div></div><p>Die Methoden <code>
+										toLowerCase()
+									</code> und <code>
+										toUpperCase()
+									</code> wandeln einen String in Kleinbuchstaben (lower) bzw. Großbuchenstaben (upper) um.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;Hallo&quot;;
+String name = &quot;Bob&quot;;
+
+println(message.toLowerCase());
+println(name.toUpperCase());
+
+// Ausgabe:
+// hallo
+// BOB</pre>
+</div></div><p class="auto-cursor-target"><strong>Tipp: Groß-/Kleinschreibung ignorieren.</strong> Wenn man feststellen möchte, ob zwei Strings &quot;gleich&quot; sind und dabei Groß-/Kleinschreibung ignorieren will, der verwende z.B. toLowerCase() wie folgt:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;hAllo BOB&quot;;
+
+if (message.toLowerCase().equals(&quot;hallo bob&quot;)) 
+  println(&quot;erkannt&quot;);
+else 
+  println(&quot;nicht erkannt&quot;);
+
+// Ausgabe:
+// erkannt</pre>
+</div></div><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">Wichtig zu verstehen ist hier, dass die Methode<code> toLowerCase()</code> wieder ein <code>String</code>-Objekt zurückgibt (nämlich den <code>String</code> in Kleinbuchstaben) und dass man auf diesem Objekt direkt weiterarbeiten kann: in unserem Fall mit <code>equals().</code></div></div><p><br/></p><p>Die Methode <code>
+										indexOf()
+									</code> erlaubt es, einen String <code>a</code> in einem anderen String <code>b</code> zu suchen. Die Methode gibt eine Zahl zurück. Bei -1 wurde der String <code>a</code> nicht gefunden. Eine nicht-negative Zahl n besagt, dass String <code>a</code> an Stelle n in <code>b</code> beginnt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String a = &quot;all&quot;;
+String b = &quot;hallo&quot;;
+
+println(b.indexOf(a)); // suche a in b
+
+// Ausgabe:
+// 1</pre>
+</div></div><p class="console"><br/></p><p>Im Beispiel suche ich String <code>a = &quot;all&quot;</code> in String <code>b = &quot;hallo&quot;</code>. Dann bekomme ich n = 1 zurück, weil &quot;all&quot; an Stelle 1 in &quot;hallo&quot; beginnt. Nicht vergessen, dass die erste Stelle bei 0 beginnt.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;Hallo Bob&quot;;
+
+println(message.indexOf(&quot;foo&quot;));
+println(message.indexOf(&quot;Bob&quot;));
+println(message.indexOf(&quot;Ha&quot;));
+println(message.indexOf(&quot;ha&quot;));
+
+// Ausgabe:
+// -1
+// 6
+// 0
+// -1</pre>
+</div></div><p><strong>Auch hier ist Groß-/Kleinschreibung bedeutungsunterscheidend.</strong> Kannst du den Trick von oben anwenden, wenn du einen String durchsuchen willst und dabei Groß-/Kleinschreibung ignorieren möchtest?</p><p><br/></p><p>Die Methode <code>
+										substring()</code>erlaubt dir das gezielte Zerschneiden eines Strings. Willst du die Zahl aus dem String &quot;Heidi (24)&quot; herausschneiden, dann gibst du die Startposition an, das wäre die 7, und die <em>exklusive</em> Endposition, d.h. die Position, die <strong>nicht mehr</strong> rausgeschnitten werden soll, also die 9.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;Heidi (24)&quot;;
+println(message.substring(7, 9)); // zweite Position exklusive
+
+// Ausgabe:
+// 24</pre>
+</div></div><p><code>
+										</code></p><p><br/></p><p><code>substring()</code>gibt es auch mit <strong>einem</strong> Argument. Dann wird nur vorn abgeschnitten und nach hinten raus der ganze Rest genommen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String message = &quot;Hallo Bob&quot;;
+println(message.substring(6)); // nur ein Argument
+
+// Ausgabe:
+// Bob</pre>
+</div></div><h1 id="Stringsverarbeiten-Stringsumwandeln">Strings umwandeln</h1><p>Wie wir noch im Abschnitt <a href="Dateien-erzeugen-und-lesen_24612479.html">Dateien erzeugen und lesen</a> sehen werden, bekommen wir Daten, die wir einlesen, in Form von <strong>Strings</strong>. Das heißt, auch <strong>Zahlen</strong> oder <strong>Wahrheitswerte</strong> werden zunächst als <strong>Strings</strong> eingelesen.</p><p>Für Processing/Java ist der String &quot;401&quot; keine Zahl, sondern eine Folge von drei Zeichen. Da der String &quot;401&quot; keine Zahl ist, kann er auch nicht für Berechnungen verwendet werden. Daher gibt es Funktionen, um den String einer Zahl in eine &quot;echte&quot; Zahl (Datentyp int oder float) umzuwandeln. Dasselbe gibt es auch für Wahrheitswerte, die in einen <code>boolean</code> umgwandelt werden sollen. Man nennt das auch <strong>Konvertieren</strong> bzw. <strong>&quot;Parsen&quot;</strong> (engl. to parse = analysieren). Beim Parsen wird der String gelesen, analysiert, interpretiert und dann in den entsprechenden Datentyp <strong>konvertiert</strong>.</p><p>Diese Funktionen heißen <code>int()</code>, <code>float()</code> und <code>boolean()</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int zahl = int(&quot;401&quot;);
+println(zahl + 20);
+
+float dez = float(&quot;-1.5&quot;);
+println(dez * 10);
+
+println(boolean(&quot;true&quot;));
+
+// Ausgabe:
+// 421
+// -15.0
+// true</pre>
+</div></div><p><br/></p><p>Eine weitere wichtige Funktion ist <code>nf()</code>. Diese Funktion macht im Endeffekt genau das Gegenteil: Sie wandelt Zahlen in Strings um. Dabei kann man an die Funktion verschiedene Parameter übergeben, wie der String formatiert sein soll bzw. auch ein Arrays an Zahlen, die formatiert werden sollen:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int a = 500;
+println( nf(a, 5) );      // 5 steht dafür wieviele Stellen die Zahl haben soll
+println( nf(a, 5, 4) );   // 4 steht hier dafür, wieviele Stellen nach dem Komma sein sollen 
+
+// Ausgabe:
+// 00500
+// 00500,0000</pre>
+</div></div><h2 id="Stringsverarbeiten-Java">Java</h2><p>In Java gibt es die oben genannten Funktionen nicht. Hier verwendet man die Methoden <code>Integer.parseInt()</code>, <code>Float.parseFloat()</code> und <code>Boolean.parseBoolean()</code>. Die Macher von Processing wollen dir offenbar diese sperrige Syntax ersparen. <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.svg" data-emoticon-name="smile" alt="(Lächeln)"/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(Integer.parseInt(&quot;401&quot;));
+println(Float.parseFloat(&quot;-1.5&quot;));
+println(Boolean.parseBoolean(&quot;false&quot;));
+
+// Ausgabe:
+// 401
+// -1.5
+// false</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Fällt dir bei <code>Integer</code>, <code>Float</code> und <code>Boolean</code> irgendwas auf?</strong> Richtig, sie werden <strong>anders</strong> <strong>geschrieben</strong>. Bisher haben wir immer <code>int</code>, <code>float</code> und <code>boolean</code> verwendet. Was ist hier nun der Unterschied? Bei <code>Integer</code>, <code>Float</code> und <code>Boolean</code> handelt es sich (wie bei String auch) um <strong>Klassen</strong>. Daher werden sie auch <strong>groß</strong> geschrieben. Und aus diesem Grund können wir auch hier auf die <strong>Methoden</strong> der jeweiligen Klassen zugreifen (z.B. <code>Integer.parseInt()</code>). Es gibt in Java also einmal <code>int</code>, <code>float</code> und <code>boolean</code> als primitive Datentypen bzw. <strong>Wertetypen</strong> und weiteres mal als <code>Integer</code>, <code>Float</code> und <code>Boolean</code> als Klassen bzw. <strong>Objekttypen</strong>.</p></div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Stringsverarbeiten-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Stringsverarbeiten-Teilstringsuchenundfinden">Teilstring suchen und finden</h4><p>Gegeben sei der String:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String str = &quot;Hier ist die Info: James Bond&quot;;</pre>
+</div></div><p>Schreibe Code, der &quot;James Bond&quot; auf der Konsole ausgibt. Der Code soll auch bei anderen Agenten funktionieren, z.B.:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String str = &quot;Hier ist die Info: Spiderman&quot;;</pre>
+</div></div><h4 id="Stringsverarbeiten-DerCodesollauchfunktionieren,wennsichderTextvordemDoppelpunktändert.TesteimAnschlussdenCodemit:">Der Code soll auch funktionieren, wenn sich der Text vor dem Doppelpunkt ändert. Teste im Anschluss den Code mit:</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String str = &quot;      Codename:    James Bond  &quot;;</pre>
+</div></div><pre><br/></pre><h4 id="Stringsverarbeiten-Suchenundersetzen">Suchen und ersetzen</h4><p>Gegeben sei der String-Array:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String[] lines = {&quot;Hello FOO&quot;, &quot;Guten Tag, FOO&quot;, &quot;Bonjour FOO&quot;};</pre>
+</div></div><p><br/></p><p>Schreibe Code, der alle Array-Elemente ausgibt, wobei das Wort &quot;FOO&quot; durch &quot;James Bond&quot; ersetzt werden soll.</p><p><strong>Hinweis:</strong> Du kannst die Aufgabe entweder mit replace oder mit den Funktionen indexOf/substring lösen. Ich empfehle, auf jeden Fall die Lösung mit indexOf/substring zu probieren.</p><p>Eine Alternativaufgabe ist, statt nur zu printen ein zweites Array zu erstellen, wo - wie oben - alle FOO durch &quot;James Bond&quot; ersetzt sind. Eine leichte Erweiterung der Aufgabe ist es, Sätze wie &quot;Hey FOO, you will die!&quot; aufzunehmen und dort FOO wie oben zu ersetzen (ohne das Satzende zu verlieren).</p><h4 id="Stringsverarbeiten-Suchenundfinden">Suchen und finden</h4><p>Gegeben sei der String-Array:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String[] lines = {&quot;This is it&quot;, &quot;DO NOT DO THIS&quot;, &quot;Why not&quot;, &quot;This is right&quot;, &quot;That not&quot;, &quot;What is this&quot;};</pre>
+</div></div><p>Schreibe Code, der alle Array-Elemente ausgibt, die mit &quot;this&quot; beginnen oder enden. Dabei soll Groß-/Kleinschreibung <strong>keine Rolle spielen</strong>.</p><h4 id="Stringsverarbeiten-Booleanparsen">Boolean parsen</h4><p>Schreibe eine Funktion <code>parseBool()</code>, die boolesche Werte, die als String vorliegen (also &quot;true&quot; oder &quot;false&quot;), in einen echten booleschen Wert umwandelt (also <code>true</code> oder <code>false</code>). Deine Funktion hat also einen Parameter vom Typ String und gibt einen booleschen Wert zurück.</p><p>Teste deinen Code mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  if (parseBool(&quot;true&quot;)) 
+    println(&quot;hat geklappt!&quot;);  
+}</pre>
+</div></div><p class="auto-cursor-target"><strong>Wörter zählen</strong></p><p class="auto-cursor-target">Gegeben sei folgender Text:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">String str = &quot;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&quot;;</pre>
+</div></div><p class="auto-cursor-target">Schreibe eine Funktion <code>countWords()</code> die zählt, wie viele Wörter in einem String enthalten sind, der dieser Funktion als Parameter übergeben wird. Das Ergebnis (die Anzahl der Wörter) soll als Rückgabewert zurückgegeben werden.</p><p class="auto-cursor-target">Teste deinen Code mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  println(&quot;Der Text hat &quot; + countWords(str) + &quot; Wörter.&quot;);
+}</pre>
+</div></div><p class="auto-cursor-target"><strong>Text umkehren</strong></p><p class="auto-cursor-target">Schreibe eine Funktion swap(), welche einen String, welcher dieser Funktion als Parameter übergeben wird, umkehrt und zurückgibt. Der erste Buchstabe soll quasi nach der Umkehrung der letzte sein und der letzte der erste.</p><p class="auto-cursor-target">Teste deinen Code mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup () {
+  println(swap(&quot;Hallo&quot;));
+  println(swap(&quot;Fachhochschule&quot;));  
+}
+
+// Ausgabe:
+// ollaH
+// eluhcshcohhcaF</pre>
+</div></div></div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Stringsverarbeiten-Zusammenfassung">Zusammenfassung</h1><p><strong>String-Methoden</strong></p><p>In Java und in Processing gibt es die Möglichkeit einen String mithilfe der Methoden der String-Klasse zu ver- bzw, bearbeiten. In Java werden diese Methoden mit einem Punkt an den String bzw. die String-Variable rangehängt. In Processing gibt es hierfür eigene Befehle. Sie heißen meist gleich, haben aber teilweise andere Parameter.</p><p><strong>Eine Liste der wichtigsten String-Methoden</strong></p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 17.2626%;"/><col style="width: 27.6322%;"/><col style="width: 16.8129%;"/><col style="width: 38.2924%;"/></colgroup><tbody><tr><th class="confluenceTh">Funktion</th><th class="confluenceTh">Beschreibung</th><th colspan="1" class="confluenceTh">Funktion</th><th colspan="1" class="confluenceTh">Beschreibung</th></tr><tr><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" data-highlight-colour="grey"><pre title="">charAt(int index)</pre></td><td class="confluenceTd">Liefert den Buchstaben an der angegeben Stelle. Index beginnt bei 0 </td><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" colspan="1" data-highlight-colour="grey"><pre title="">split(String trennzeichen)</pre></td><td colspan="1" class="confluenceTd">Trennt einen String anhand eines Trennzeichens auf und liefert einen Array zurück (Typ <code>String[]</code>).</td></tr><tr><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" data-highlight-colour="grey"><pre title="">contains(String part)</pre></td><td class="confluenceTd">Liefert <code>true</code> zurück, wenn der String den angegebenen String enthält</td><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" colspan="1" data-highlight-colour="grey"><pre title="">startsWith(String start)</pre></td><td colspan="1" class="confluenceTd">Überprüft, ob der String mit dem angegeben String beginnt. Das Gegenteil hiervon ist <code>endsWith()</code></td></tr><tr><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" colspan="1" data-highlight-colour="grey"><code class="w3-codespan" title="">indexOf(String part)</code></td><td colspan="1" class="confluenceTd">Liefert den Index des ersten Vorkommens des angegeben Strings</td><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" colspan="1" data-highlight-colour="grey"><pre title="">substring(int start, int end)</pre></td><td colspan="1" class="confluenceTd">Liefert einen Teil-String zurück, der <strong>mit</strong> <code>start</code> beginnt und <strong>vor</strong> <code>end</code> endet.</td></tr><tr><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" data-highlight-colour="grey"><pre title="">length()</pre></td><td class="confluenceTd">Liefert die Länge des Strings</td><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" colspan="1" data-highlight-colour="grey"><pre title="">toLowerCase()</pre></td><td colspan="1" class="confluenceTd"><p>Konvertiert einen String in Kleinbuchstaben. Das Gegenteil hiervon ist <code>toUpperCase()</code></p></td></tr><tr><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" data-highlight-colour="grey"><pre title="">replace(String find, String replace)</pre></td><td class="confluenceTd">Tauscht jedes Vorkommen von <code>find</code> mit <code>replace</code> aus.</td><td class="highlight-grey confluenceTd" title="Hintergrundfarbe : Grau" colspan="1" data-highlight-colour="grey"><pre title="">trim()</pre></td><td colspan="1" class="confluenceTd">Entfernt Leerzeichen am Anfang und am Ende des Strings.</td></tr></tbody></table></div><p class="auto-cursor-target"><strong>Strings umwandeln</strong></p><p class="auto-cursor-target">Außerdem können Strings in andere Datentypen umgewandelt bzw. konvertiert werden. Dies wird als Konvertieren oder auch Parsen bezeichnet. In diesem Abschnitt haben wir das Parsen eines Strings in int, float und boolean angesehen. Hierfür gibt es bei Java und Processingen unterschiedliche Funktionen:</p><ul style="list-style-type: square;"><li class="auto-cursor-target"><strong>Processing</strong>:<code> int(), float(), boolean()</code></li><li class="auto-cursor-target"><strong>Java</strong>:<code> Integer.parseInt(), Float.parseFloat(), Boolean.parseBoolean()</code></li></ul><p><br/></p><p>Mithilfe der Funktion <code>nf()</code> kann ich Processing eine Zahl in einen String umgewandelt und formatiert werden.</p></div></div><p><br/></p><pre>
+</pre><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p>
+                    </div>
+
+                                                            <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/24610226/40868435.png">shelf.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

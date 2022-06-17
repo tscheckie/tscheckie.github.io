@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Transformationen speichern</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-3_24609610.html">Sprint 3</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Transformationen speichern
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 23, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Jetzt lernen wir, wie wir bei all den Transformationen einen &quot;Zwischenzustand&quot; speichern und später wiederherstellen können.</p><p>Transformationen werden mithilfe von Matrizen beschrieben bzw. berechnet. Bei einer Matrix handelt es sich um eine rechteckige Anordnung von Zahlen. Wir können uns zu jedem Zeitpunkt die aktuelle Matrix unsere Zeichenfensters mit dem Befehl <code>printMatrix()</code> in der Konsole ausgeben lassen. Wenn wir noch keine Transformation durchgeführt haben, gibt Processing folgendes aus:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence"> 1,0000  0,0000  0,0000
+ 0,0000  1,0000  0,0000</pre>
+</div></div><p>Das ist der &quot;Grundzustand&quot; unseres Koorinatenfensters. Wenn wir jetzt Transformationen durchführen, werden sich diese Werte ändern:</p><ul><li>Wenn du gar <strong>keine Transformationen</strong> ausführst, ist diese Matrix die Identität(-smatrix). Wir nennen diese <em>Matrix M0</em> und unser Ausgangs-Koordinatensystem nennen wir &quot;System 0&quot;. M ist jetzt M0.</li><li>Wenn du z.B. <strong>eine Translation</strong> um (50, 0) durchführst, dann nennen wir die entsprechende <em>Matrix M1</em>. Jetzt wird M zu M0 * M1 (das ist wieder M1, da M0 die Identität ist).</li><li>Wenn du z.B. <strong>eine zweite Translation</strong>, z.B. um (0, 50) durchführst, dann nennen wir diese <em>Matrix M2</em> und M wird zu M0 * M1 * M2.</li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Hier werden drei Koordinatensysteme gezeigt
+// System 0: Ausgangssystem (rotes Rechteck)
+// System 1: um 50px nach rechts verschoben (grünes Rechteck)
+// System 2: um 50px nach rechts, 50px nach unten verschoben (blaues R.)
+
+background(150);
+
+printMatrix(); // Matrix M = M0 (Identität)
+
+fill(255,0,0);
+rect(0,0,30,20); // rotes Rechteck
+
+translate(50,0); // Matrix M1
+
+printMatrix();  // Matrix M = M0 * M1 (System 1)
+
+fill(0,255,0);
+rect(0,0,30,20); // grünes Rechteck
+
+translate(0,50); // Matrix M2
+
+printMatrix(); // Matrix M = M0 * M1 * M2 (System 2)
+
+fill(0,0,255);
+rect(0,0,30,20); // blaues Rechteck</pre>
+</div></div><p><br/></p><p>Auf der Konsole sieht man die Matrix M zu den drei Zeitpunkten (Ausgangssystem, nach erster Translation, nach zweiter Translation):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">1,0000  0,0000  0,0000
+0,0000  1,0000  0,0000
+
+01,0000  00,0000  50,0000
+00,0000  01,0000  00,0000
+
+01,0000  00,0000  50,0000
+00,0000  01,0000  50,0000</pre>
+</div></div><p>Die Rechtecke sind jeweils am Ursprung von System 0 (rot), System 1 (grün) und System 2 (blau).</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/matrix1.png" data-image-src="https://michaelkipp.de/processing/img/matrix1.png"></span></p><p>Jetzt wollen wir am Ende des Codes wieder etwas in System 1 (grün) zeichnen, z.B. ein weißes Quadrat. Wie kannst du das tun, wenn es unbedingt am Ende des Codes sein muss? Ganz einfach: Du speicherst die Matrix M, nachdem du die erste Translation ausgeführt hast. Das geht mit <code>
+									pushMatrix()</code>. Wenn du diese Matrix später wieder benötigst, rufst du <code>
+									popMatrix()
+								</code> auf und schon bist du in System 1.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">background(150);
+
+// Matrix M0 (Identität)
+
+fill(255,0,0);
+rect(0,0,30,20); // rotes Rechteck
+
+translate(50,0); // Matrix M1 (System 1)
+pushMatrix(); // System 1 speichern
+
+fill(0,255,0);
+rect(0,0,30,20); // grünes Rechteck
+
+translate(0,50); // Matrix M2 (System 2)
+
+fill(0,0,255);
+rect(0,0,30,20); // blaues Rechteck
+
+popMatrix(); // System 1 zurückholen
+printMatrix();
+
+fill(255);
+rect(0,0,10,10); // NEU: weißes Quadrat</pre>
+</div></div><p><br/></p><p>Das weiße Quadrat wird in System 1 (grün) gezeichnet:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/matrix2.png" data-image-src="https://michaelkipp.de/processing/img/matrix2.png"></span></p><p>Auf der Konsole siehst du die Matrix nach dem <code>popMatrix()</code>: Es ist die Matrix von System 1 (vgl. mit Konsolenoutput oben).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">01,0000  00,0000  50,0000
+00,0000  01,0000  00,0000</pre>
+</div></div><pre class="console">
+</pre><h1 id="Transformationenspeichern-Stack/Stapel">Stack / Stapel</h1><p>Die Befehle <code>pushMatrix</code> und <code>popMatrix</code> haben diese seltsamen Namen nicht ohne Grund. Dahinter verbirgt sich ein wichtiges Speichermodell der Informatik: <strong>der Stack (deutsch. <em>Stapel</em>). </strong>Ein Stack ist ein Speicher, der so funktioniert wie ein Stapel Bücher: Es kann immer nur etwas <strong>oben</strong> drauf gelegt werden und es kann immer nur von <strong>oben</strong> weggenommen werden. Das bedeutet ich kann immer nur das &quot;Buch&quot; herausholen, das ich zuletzt hineingelegt habe und somit ganz oben liegt. Dieses Prinzip nennt man auch &quot;Last in - First out&quot;, abgekürzt: LiFo. </p><p>Nehmen wir an, du kaufst Buch A. Dann legst du es auf einen leeren Stapel. Es liegt ganz &quot;oben&quot;. Dein Stapel sieht wie folgt aus:</p><pre class="general">A &lt;-- oben
+</pre><p>Man sagt auch, du <strong>pushst</strong> A auf den Stapel. Du kaufst jetzt Buch B und speicherst es. Dein Stapel ist gewachsen. Jetzt liegt B oben:</p><pre class="general">B &lt;-- oben
+A
+</pre><p>Beachte, dass du derzeit nicht an Buch A herankommst! Jetzt bekommst du ein drittes Buch C:</p><pre class="general">C &lt;-- oben
+B
+A
+</pre><p>Wenn du Buch C lesen willst, dann holst du es vom Stapel. Man nennt diese Vorgang auch <strong>pop</strong>. Dein neuer Stapel ist also:</p><pre class="general">B &lt;-- oben
+A
+</pre><p>Du möchtest Buch A lesen? Dann musst du erst Buch B holen:</p><pre class="general">A &lt;-- oben
+</pre><p>Erst jetzt darfst du ein weiteres Mal pop ausführen und hast A. Dein Stapel ist dann leer.</p><h2 id="Transformationenspeichern-DerMatrix-Stapel">Der Matrix-Stapel</h2><p>Die Befehle <code>pushMatrix</code> und <code>popMatrix</code> machen nichts anderes, als <strong>die aktuelle Matrix M</strong> auf einen Stapel zu legen und wieder zu holen. Dadurch ist es möglich, mehrere Matrizen zu speichern.</p><p>Nehmen wir an, du willst im obigen Beispiel auch ein weißes Quadrat in System 0 zeichnen, und zwar auch am Ende des Codes. Wie machst du das?</p><p>Antwort: Du nutzt den Matrix-Stapel. Du speicherst die Matrix M ganz am Anfang auf dem Stapel (mit pushMatrix):</p><pre class="general">M (System 0) &lt;-- oben
+</pre><p>Dann speicherst du die Matrix M nach der ersten Translation (wieder pushMatrix):</p><pre class="general">M (System 1) &lt;-- oben
+M (System 0)
+</pre><p>Wenn du wie im alten Code popMatrix aufrufst, wird System 1 wiederhergestellt und der Stapel sieht so aus:</p><pre class="general">M (System 0) &lt;-- oben
+</pre><p>Das heißt, ganz zum Schluss machenst ein weiteres popMatrix(), um System 0 wiederherzustellen. Jetzt kannst du erneut ein weißes Quadrat zeichnen und der Matrix-Stapel ist leer.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">background(150);
+
+// Matrix M0 (Identität)
+pushMatrix(); // System 0 speichern
+
+fill(255,0,0);
+rect(0,0,30,20); // rotes Rechteck
+
+translate(50,0); // Matrix M1 (System 1)
+pushMatrix(); // System 1 speichern
+
+fill(0,255,0);
+rect(0,0,30,20); // grünes Rechteck
+
+translate(0,50); // Matrix M2 (System 2)
+
+fill(0,0,255);
+rect(0,0,30,20); // blaues Rechteck
+
+popMatrix(); // System 1 zurückholen
+
+fill(255);
+rect(0,0,10,10); // weißes Quadrat
+
+popMatrix(); // System 0 zurückholen (wieder Ausgangssystem)
+printMatrix();
+
+fill(255);
+rect(0,0,10,10); // weißes Quadrat</pre>
+</div></div><p><br/></p><p>Das weiße Quadrat wird jetzt auch in System 0 (rot) gezeichnet:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" draggable="false" src="https://michaelkipp.de/processing/img/matrix3.png" data-image-src="https://michaelkipp.de/processing/img/matrix3.png"></span></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Transformationenspeichern-Übungsaufgaben">Übungsaufgaben</h1><h4 id="Transformationenspeichern-ZweirotierendeQuadrate">Zwei rotierende Quadrate</h4><p>Bring zwei Quadrate an den Positionen (25,50) und (75,50) zum rotieren. Verwende dazu <code>translate</code> und <code>rotate</code> sowie push/popMatrix.</p><h4 id="Transformationenspeichern-RotierenderKnochen">Rotierender Knochen</h4><p>Lass einen Balken (Breite 60, Höhe 5) rotieren. An den beiden Enden des Balkens rotiert jeweils ein Quadrat (Höhe/Breite 20). Arbeite mit push/popMatrix:</p><h4 id="Transformationenspeichern-RotationenundgeradeBewegung">Rotationen und gerade Bewegung</h4><p>Hier kombinieren wir eine Drehung mit einer &quot;geraden&quot; Bewegung mit Abprallen und dann nochmal einer Drehung.</p><p>Zeichne ein großes Quadrat (Höhe/Breite 40) in der Mitte des Bildschirms, das rotiert. <br/>Zeichne ein weiteres Quadrat (Höhe/Breite 10), dass sich entlang einer der Kanten des weißen Quadrats hin und her bewegt und ebenfalls rotiert. <br/>Zeichne ein weiteres Quadrat (Höhe/Breite 10), dass entlang einer anderen Kante das gleiche Verhalten aufzeigt, wie das andere kleine Quadrat, nur mit halber Geschwindigkeit.</p><p>Gehe am besten in Teilschritten vor.</p><p>Beim Programmieren ist es oft sinnvoll, Teile der Bewegung kurzzeitig auszuschalten (durch Auskommentieren), z.B. um die Elemente korrekt zu positionieren.</p><p>Verwende <code>pushMatrix</code> und <code>popMatrix</code> nur so oft wie nötig.</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

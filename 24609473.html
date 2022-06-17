@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Syntax &amp; Konventionen</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-1_24609456.html">Sprint 1</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Syntax &amp; Konventionen
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Syntax&amp;Konventionen-Syntax">Syntax</h1><p>Mit einfachen Worten erklärt beschreibt der Syntax einer Sprache, wie diese aufgebaut ist, welche Konstruktionen oder Verbindungen es gibt, wie (Satz-)Zeichen gesetzt werden, usw. Damit der Compiler deinen Code (richtig) übersetzen kann, musst du dich an die Syntaxvorgaben der jeweiligen Sprache halten. In diesem Fall ist das Java &amp; Processing (welches auf Java aufbaut).</p><h2 id="Syntax&amp;Konventionen-Allgemein">Allgemein</h2><h3 id="Syntax&amp;Konventionen-Groß-undKleinschreibung">Groß- und Kleinschreibung</h3><p>Die groß- und Kleinschreibung muss beachtet werden.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">Background(150); // FALSCH
+background(150); // RICHTIG</pre>
+</div></div><p>Die beiden oberen Zeilen sind nicht identisch. Die Obere Zeile wirft einen Fehler aus!</p><h3 id="Syntax&amp;Konventionen-Kommentare">Kommentare</h3><p>Du kannst - und solltest auch - deinen Code mit Kommentaren versehen. Das ist Text, der vom Compiler und dem Computer ignoriert wird. Du kannst Kommentare verwenden, um zu erklären, was du an welcher Stelle im Code machst. Das hilft anderen und dir selber deinen Code zu verstehen. </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">background(0); // Hintergrund auf schwarz setzen
+
+/* Du kannst auch Kommentare über
+mehrere Zeilen machen, wenn du
+mehr zu erklären hast. */
+background(255); // Hintergrund auf weiß setzen</pre>
+</div></div><h3 id="Syntax&amp;Konventionen-Bezeichner">Bezeichner</h3><p>Bezeichner sind die &quot;Namen&quot; von Funktionen, Befehlen, Variablen, etc. Sie sind im besten Fall so gewählt, dass sie klar ausdrücken, was der Befehl macht bzw. wozu die Variable da ist. Bei der Wahl des Bezeichners gibt es Regeln zu beachten.</p><p>Bezeichner ...</p><ul><li>dürfen nicht mit einem Schlüsselwort der Sprache Java identisch sein, z.B. dürfen Sie nicht <code>
+                        int
+                    </code> oder <code>
+                        float
+                    </code> als Variablenname verwenden</li><li>bestehen aus Ziffern (0-9), Buchstaben (a-z, A-Z) und zwei weiteren Zeichen (Unterstrich und $)</li><li>dürfen nicht mit einer Ziffer beginnen</li><li>dürfen keine Leerzeichen enthalten und auch keinen Bindestrich (würde als Minus interpretiert werden)</li></ul><pre>// Syntaktisch falsch: <br/>007 <br/>meine variable <br/>float <br/>meine-variable <br/><br/>// Syntaktisch korrekt: <br/>take5 <br/>this_is_for_you <br/>iam007 <br/>MEINEVARIABLE</pre><h2 id="Syntax&amp;Konventionen-Befehle,FunktionenundVariablen">Befehle, Funktionen und Variablen</h2><h3 id="Syntax&amp;Konventionen-Befehle">Befehle</h3><p>Programmieren besteht zu einem großen Teil aus dem Schreiben von Befehlen. Befehle bestehen immer aus dem <strong>Bezeichner </strong>für den jeweilgen Befehl, gefolgt von<strong> 2</strong> <strong>Klammern</strong>, gefolgt von einem <strong>Semikolon am Ende der Zeile</strong>. In den Klammern können je nach Befehl <strong>einer oder mehrere Werte mit Kommata getrennt</strong> stehen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">size(400, 400);
+background(192, 64, 0);
+stroke(255);
+line(150, 25, 270, 350);</pre>
+</div></div><p>Befehle können auch verschiedene Werte aufnehmen, zum Beispiel der Befehl <code>stroke</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">stroke(255);               // setzt die Linienfarbe auf weiß
+stroke(255, 255, 255);     // dasselbe, wie die obere Zeile
+stroke(255, 128, 0);       // hell orange (rot 255, grün 128, blau 0)
+stroke(255, 128, 0, 128);  // hell orange mit 50% Transparenz</pre>
+</div></div><h3 id="Syntax&amp;Konventionen-Funktionen">Funktionen</h3><p>Funktionen sind sozusagen die Blaupause von Befehlen. Jeder Befehl ist irgendwo als Funktion einmal festgelegt worden. Funktionen bestehen aus dem <strong>Datentyp</strong> oder dem <strong>Schlüsselwort</strong> <code>void</code>, wenn die Funktion keinen Datentyp zurückgibt, gefolgt von dem <strong>Bezeichner</strong>, gefolgt von <strong>2 Klammern</strong> (welche eine oder mehrere Variablennamen mit Datentyp enthalten können), gefolgt von <strong>2 geschweiften Klammern</strong>. Innerhalb dieser geschweiften Klammern können Codezeilen geschrieben werden, welche die Funktion ausführen soll. <strong>WICHTIG</strong>: Am Ende von einer Funktion steht <strong>kein</strong> Semikolon!</p><p>Zu Beginn dieses Projekts werdert ihr zunächst nur bereits vorhandene Funktionen bzw. Befehle verwenden. Später werdet ihr auch eure eigenen Funktionen erstellen. 2 Funktionen, die euch direkt im ersten Sprint begegnen werden sind <code>setup</code> und <code>draw</code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+   // Hier wird der Code geschrieben
+   size(400, 400);
+   stroke(255);
+}
+		  
+void draw() {
+   line(150, 25, mouseX, mouseY);
+}</pre>
+</div></div><h3 id="Syntax&amp;Konventionen-Variablen">Variablen</h3><p>Variablen (dazu gehören auch Konstanten) sind Objekte, in den Daten gespeichert werden können, ähnlich wie Register. Die <strong>Deklaration</strong> einer Variable besteht aus dem <strong>Datentyp</strong> gefolgt von dem <strong>Bezeichner</strong> gefolgt von einem <strong>Semikolon</strong>. Deklaration bedeutet, dass die Variable zunächst nur &quot;angelegt&quot; wird, ihr aber noch keine Wert zugewiesen wird. Das Zuweisen des ersten Wertes für eine Variable wird als <strong>Initialisierung</strong> bezeichnet. Variablen können innerhalb einer Zeile deklariert und initialisiert werden. In disem Fall besteht die Zeile aus dem <strong>Datentyp</strong>, gefolgt von dem <strong>Bezeichner</strong>, gefolgt von dem <strong>Zuweisungsoperator</strong> &quot;=&quot;, gefolgt von dem <strong>Wert</strong> für die Variable, gefolgt von einem <strong>Semikolon</strong>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int myAge;         // Diese Variable ist nur deklariert
+int yourAge = 21;  // Diese Variable ist deklariert und initialisiert</pre>
+</div></div><h1 id="Syntax&amp;Konventionen-Konventionen">Konventionen</h1><p>Wie bereits erwähnt, hat jede Programmiersprache ihre eigene Syntax-Vorgaben, an die sich jeder Programmierer halten muss, damit der Compiler bzw. der Interpreter den Code lesen und übersetzen kann. Darüber hinaus gibt es noch sowas wie Programmierstil. Das ist die Art und Weise wie jeder Programmierer - oder auch jedes Team aus Programmierern - seinen Code schreibt. Hier gibt es natürlich <em>guten</em> Stil und <em>schlechten</em> Stil. Natürlich kann jeder selberentscheiden, wie er seinen Code schreibt, allerdings haben sich in den letzten Jahren sogenannte Konventionen gebildet, wie Programmcode zu schreiben ist, damit ihn möglichst jeder versteht und der Code immer ähnlich aussieht.</p><p><strong>Konvetionen </strong>beschreiben einen guten Programmierstil, der sich in der Regel seit Jahren etabliert hat und somit als eine Art &quot;Standard&quot; gilt. Anders als beim Syntax, müssen Konventionen nicht eingehalten werden, da sie nicht dazu beitragen, dass der Compiler oder Interpreter den Code lesen kann, sondern die EntwicklerInnen. Also du selber und auch andere Personen, die deinen Code lesen und verstehen möchten.</p><p>Konventionen für Programmcode sind häufig universell - sprich unabhängig von der Programmiersprache. Allerdings gibt es auch einige Konventionen, die nur auf bestimmte Programmiersprachen zutreffen. Hier findest du zum Beispiel den <a href="https://google.github.io/styleguide/javaguide.html" class="external-link" rel="nofollow">Java Styleguide von Google</a>. Das ist ein ziemlich langes Dokument mit sehr vielen Vorgaben. Die muss man aber nicht alle kennen. Für den Anfang reichen ein paar wenige:</p><h2 id="Syntax&amp;Konventionen-Einrückungen">Einrückungen</h2><p>Ein wichtige Konvention, die dafür sorgt, dass dein Code übersichtlicher wird, ist es Code in geschweiften Klammern einzurücken.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+size(200, 200);       // schlechter Stil
+}
+void draw() {
+     background(100); // guter Stil
+}</pre>
+</div></div><pre><br/></pre><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><strong>TIP</strong>: Processing liefert hierfür eine Funktion, die es dir einfacher macht deine Code einzurücken: Die Autoformatierung. Du findest sie in Processing unter <em>Bearbeiten </em>→ <em>Autoformatierung</em> oder unter dem Tastaturkürzel STR + T.</div></div><h2 id="Syntax&amp;Konventionen-SprechendeNamen">Sprechende Namen</h2><p>Namensgebung ist ein wichtiges Thema in der Programmierung. Wichtig ist, das die Namen von Variablen, Konstanten, etc. möglichs klar vermitteln, was das jeweilige Element macht. Funktionen sind dabei häufig in Verbform (Beispiel</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int a = 21;      // SCHLECHT
+int b = 170;     // SCHLECHT
+
+int myAge = 21;                // GUT
+int heightInCentimeters = 170; // GUT
+
+void draw() {    // diese Funktion Zeichnet etwas
+
+}</pre>
+</div></div><h2 id="Syntax&amp;Konventionen-Schreibweise">Schreibweise</h2><p>Ebenfalls wichtig ist, dass dein Code gut lesbar ist. Gerade, wenn Variablennamen etwas länger werden, kann das schwierig sein. Hierfür gibt es auch ein paar Vorgaben:</p><p><strong>Variablen  </strong>werden am Anfang klein geschrieben und jedes neue Wort innerhalb des Variablennamens beginnt mit einem Großbuchstaben. Das wird auch als <strong>CamelCase</strong> bezeichnet.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">int thisIsMyAge= 34;</pre>
+</div></div><p><strong>Konstanten </strong>werden nur in Großbuchstaben geschrieben und neue Wörter werden durch einen Unterstrich markiert.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">final int THIS_IS_MY_SCHOESIZE = 41;</pre>
+</div></div><p><strong>Funktionen</strong>, werden genauso geschrieben, wie Variablen, sind aber meistens in Verbform. Manchmal werden Funktionen am Anfang auch groß geschrieben.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void sayHello () { // richtig
+}
+void SayHi () { // auch richtig
+}</pre>
+</div></div><h2 id="Syntax&amp;Konventionen-Kommentare.1">Kommentare</h2><p>Kommentare sind ein wichtiges Element in der Programmierung. Spare nicht mit Kommenaren. Was für dich zum aktuellen Zeitpunkt sonnenklar ist, kannst du vielleicht zu einem späteren Zeitpunkt nicht mehr nachvollziehen. Also schreibe in deinen Code ruhig rein, was du warum machst. Einzeilige Kommentare können entweder oberhalb der Codezeile stehen oder hinter der Codezeile. Hier ist beides richtig:</p><pre><br/></pre><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// change background color - RICHTIG
+background(255);
+stroke(0); //change stroke color - AUCH RICHTIG</pre>
+</div></div><div class="confluence-information-macro has-no-icon confluence-information-macro-information"><div class="confluence-information-macro-body"><h1 id="Syntax&amp;Konventionen-CodeQualität">Code Qualität</h1><p>Wenn du bzw. ihr als Team einen guten Programmierstil habt, dann sorgt das dafür, dass euer Code eine gute Qualität hat. Eine gute Code Qualität zeichnet sich folgendermaßen aus:</p><ul><li>Der Code ist übersichtlich und gut strukturiert.</li><li>Auch andere - fremde - ProgrammiererInnen können deinen Code (schnell) verstehen.</li><li>Du selber kannst deinen Code auch noch verstehen, wenn du mal länger nicht draufgeschaut hast.</li><li>Fehler können leicht gefunden werden.</li></ul><p>Welchen Programmierstil du oder ihr euch als Team aussucht, ist relativ egal. Wichtig ist nur, dass die Regeln, für die ihr euch entscheidet <em>sinnvoll</em> sind und, dass sich jeder <em>konsistent</em> daran hält.</p><p><br/></p></div></div><p><br/></p><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Syntax&amp;Konventionen-Zusammenfassung">Zusammenfassung</h1><h4 id="Syntax&amp;Konventionen-Syntax.1">Syntax</h4><p>Der <strong>Syntax</strong> einer Programmiersprache legt fest, wie diese geschrieben werden muss und welche Regeln beachtet werden müssen. Die <strong>wichtigsten Syntax-Regel für Java</strong> sind:</p><ul><li><strong>Groß- &amp; Kleinschreibung</strong> beachten</li><li><strong>Kommentare</strong>: Werden entweder mit // begonnen, wenn der Kommenater einzeilig ist oder von /* ... */ eingeschlossen, wenn der Kommentar sich über mehrere Zeilen erstreckt</li><li><strong>Bezeichner</strong>: sind die &quot;Namen&quot; von Funktionen, Befehlen, Variablen, etc. Bezeichner ...<ul><li>dürfen nicht mit einem Schlüsselwort der Sprache Java identisch sein, z.B. dürfen Sie nicht <code>
+                        int
+                    </code> oder <code>
+                        float
+                    </code> als Variablenname verwenden</li><li>bestehen aus Ziffern (0-9), Buchstaben (a-z, A-Z) und zwei weiteren Zeichen (Unterstrich und $)</li><li>dürfen nicht mit einer Ziffer beginnen</li><li>dürfen keine Leerzeichen enthalten und auch keinen Bindestrich</li></ul></li><li><strong>Befehle</strong> bestehen aus einem <strong>Bezeichner</strong>, <strong>zwei runden Klammern ()</strong> und einem <strong>Semikolon</strong> am Ende der Zeile: z.B. noStroke();</li><li><strong>Funktionen</strong> bestehen aus dem <strong>Datentyp</strong> oder dem <strong>Schlüsselwort</strong> <code>void</code>, dem <strong>Bezeichner</strong>, <strong>2 runden Klammern</strong> (ggf. inkl. Parameter), <strong>2 geschweiften Klammern</strong>.</li><li><strong>Variablen</strong> können entweder nur zunächst nur deklariert oder auch direkt auch initialisiert werden.<ul><li><strong>Nur Deklaration</strong>: Besteht aus dem <strong>Datentyp</strong>, dem <strong>Bezeichner</strong> und einem <strong>Semikolon </strong>(z.B. int myAge;).</li><li><strong>Deklaration</strong> <strong>&amp; Initialisierung</strong>: Besteht aus dem <strong>Datentyp</strong>, dem <strong>Bezeichner, </strong>dem <strong>Zuweisungsoperator</strong>, einem <strong>Wert</strong> und einem <strong>Semikolon </strong>(z.B. int myAge = 21;).</li></ul></li></ul><h4 id="Syntax&amp;Konventionen-Konventionen.1">Konventionen</h4><p>Konventionen sind weiche Regeln, wie Programmcode zu schreiben ist. Es ist nicht zwingend notwendig sich an Konventionen zu halten, damit der Prgrammcode funktioniert. Allerdings steigert das Einhalten der Konventionen die Qualität des Codes, da</p><ul><li>er leichter zu lesen und zu verstehen ist - auch nach langer Zeit.</li><li>Fehler im Code schneller zu finden sind</li><li>auch andere ProgrammiererInnen den Code lesen und verstehen können</li></ul><p><strong>Wichtige Konventionen</strong> sind:</p><ul><li><strong>Einrückung </strong>von Codeblöcken</li><li><strong>Sprechende Namen</strong> wählen</li><li>Einhalten von <strong>Schreibweisen </strong><ul><li><strong>Variablen</strong>: Am Anfang klein und in CamelCase</li><li><strong>Konstanten</strong>: in Großbuchstaben und mit Unterstrichen</li><li><strong>Funktionen</strong>: Am Anfang groß, in CamelCase und in Verbform</li></ul></li><li><strong>Kommentare </strong>verwenden</li></ul><p><br/></p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PRG Ming  : Rückgabewert</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">PRG Ming </a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="24609398.html">PRG Ming Übersicht</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Sprint-2_24609607.html">Sprint 2</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            PRG Ming  : Rückgabewert
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+    
+        
+    
+        
+        
+            Created by <span class='author'> Unbekannter Benutzer (jacqueline.dittrich@fh-kiel.de)</span>, last modified by <span class='editor'> Jacqueline Rähse</span> on Sep 22, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Du kannst nicht nur einer Funktion Infos mit auf den Weg geben, sondern kannst auch eine Info (und zwar <u>genau</u> eine) zurückbekommen. Das ist der <strong>Rückgabewert</strong>.</p><h1 id="Rückgabewert-Rückgabetypdefinieren">Rückgabetyp definieren</h1><p>Nehmen wir an, du möchtest eine komplexe Rechnung mit einer Funktion abhandeln, z.B. die Qudratzahl einer Zahl zu berechnen. Dann definierst du:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float Quadratzahl(float x) {
+   float erg = x * x;
+   return erg;
+}</pre>
+</div></div><pre>
+</pre><p>Du siehst hier zwei neue Dinge. Erstens steht da statt &quot;void&quot; jetzt &quot;float&quot;. Zweitens steht da das Wort &quot;return&quot;.</p><p>Das <code>
+										float</code> bedeutet, dass diese Funktion einen Wert vom Typ <code>
+										float</code> zurückgibt. Wohingegen <code>
+										void</code> (engl. für &quot;nichts&quot;) bedeutet, dass eine Funktion <em>keinen</em> Wert zurückgibt.</p><p>Damit du Processing sagen kannst, was genau zurückgegeben werden soll (und wann), gibt es das Schlüsselwort <code>
+										return</code> . Im Beispiel definierst du eine neue <strong>lokale Variable</strong> namens <code>
+										erg</code>. Dies ist eine lokale Variable und nur gültig bis zur nächsten schließenden geschweiften Klammer (auf ihrer Ebene). Sobald Processing auf das Wort <code>
+										return</code> trifft, wird der Wert von <code>
+										erg</code> zurückgegeben und es werden <strong>keine weiteren Zeilen mehr verarbeitet</strong>.</p><p>Das heißt, jeglicher Code unterhalb von <code>
+										return</code> ist sinnlos:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float Quadratzahl(float x) {
+   float erg = x * x;
+   return erg; // Processing gibt Wert zurück und bricht ab
+   println(&quot;bin ich jetzt dran?&quot;); // wird nie ausgeführt
+}</pre>
+</div></div><pre>
+</pre><p><strong>Tipp:</strong> Hinter <code>
+										return</code> können auch ganze Ausdrücke stehen, d.h. in kurz wäre es so:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float Quadratzahl(float x) {
+   return x * x;
+}</pre>
+</div></div><pre>
+</pre><p>Vielleicht noch ein zweites Code-Beispiel, das etwas interessanter ist: Du möchtest testen, ob ein Punkt <code>
+										(px, py)</code> innerhalb eines Rechtecks <code>
+										(rx, ry, rw, rh)</code> liegt (die vier Werte definieren Eckpunkt, Breite und Höhe), z.B. um eine <em>Kollision</em> in einem Spiel zu gestalten. Du definierst dazu eine Funktion, die das testet und wahr/falsch zurückgibt, also einen <code>
+										boolean</code> :</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean ImRechteck(int px, int py, int rx, int ry, int rw, int rh) {
+   if (px &gt; rx &amp;&amp; px &lt; rx + rw &amp;&amp; py &gt; ry &amp;&amp; py &lt; ry + rh) {
+      return true;
+   } else {
+      return false;
+   }
+}</pre>
+</div></div><pre>
+</pre><p>Wieder der Tipp, dass hinter <code>
+										return</code> auch Ausdrücke stehen können. Die If-Bedingung ist nichts anderes als ein boolescher Ausdruck, der zu true oder false ausgewertet wird. Das heißt, du kannst direkt schreiben:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean ImRechteck(int px, int py, int rx, int ry,
+                   int rw, int rh)
+{
+   return (px &gt; rx &amp;&amp; px &lt; rx + rw &amp;&amp; py &gt; ry &amp;&amp; py &lt; ry + rh);
+}</pre>
+</div></div><pre>
+</pre><h2 id="Rückgabewert-Returngarantieren">Return garantieren</h2><p>Processing <em>besteht </em>darauf, dass eine Funktion mit Rückgabewert <strong>immer</strong> auf ein <code>return</code> trifft. Das wird dann wichtig, wenn du z.B. ein <code>if</code> im Code hast, denn hier werden ja mitunter Code-Teile übersprungen, d.h. dein <code>return</code> wird vielleicht nie erreicht.</p><p>Schauen wir uns eine einfache Funktion an, die prüft, ob eine Zahl positiv ist:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean IsPositive(int num) {
+  if (num &gt;= 0) {
+    return true;
+  }
+}</pre>
+</div></div><pre class="wrong">
+</pre><p>Processing weigert sich, diesen Code auszuführen, denn es ist nicht garantiert, dass das <code>return</code> erreicht ist. Was, wenn die Zahl negtiv ist? Den Mangel beheben wir entweder so:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean IsPositive(int num) {
+  if (num &gt;= 0) {
+    return true;
+  } else {
+    return false;
+  }
+}</pre>
+</div></div><pre>
+</pre><p>Oder so:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">// Alterantive Lösung ohne Else
+
+boolean IsPositive(int num) {
+  if (num &gt;= 0) {
+    return true;
+  }
+  return false;
+}</pre>
+</div></div><p>In beiden Fällen wird immer ein <code>return</code> erreicht. Und jetzt schauen wir uns an, wie du diese Funktionen aufrufst.</p><h1 id="Rückgabewert-RückgabewerteimCodeverwenden">Rückgabewerte im Code verwenden</h1><p>Beim <strong>Aufruf</strong> einer Funktion mit Rückgabewert wird der Aufruf durch den Rückgabewert <strong>ersetzt</strong>. Insofern ähnelt dies dem Prinzip einer Variable, die durch ihren Inhalt ersetzt wird.</p><p>Aus</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(Quadratzahl(5));</pre>
+</div></div><pre>
+</pre><p>wird im nächsten Schritt also</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(25);</pre>
+</div></div><pre>
+</pre><p>Rückgabewerte werden häufig zunächst an Variablen gebunden und dann weiter verarbeitet:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float z = Quadratzahl(5);
+println(&quot;Ergebnis: &quot; + z);</pre>
+</div></div><pre>
+</pre><p>Du kannst aber den Funktionsaufruf auch direkt als Parameter für eine andere Funktion (hier wäre das <code>
+										println</code>) einbinden:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">println(&quot;Ergebnis: &quot; + Quadratzahl(5));</pre>
+</div></div><pre>
+</pre><p>Hier ein Beispiel mit der zweiten Funktion:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">boolean collision = ImRechteck(25, 40, 20, 30, 100, 100);
+if (collision) {
+   println(&quot;kaputt!&quot;);
+}</pre>
+</div></div><pre>
+</pre><p>Auch hier könntest du den Funktionsaufruf direkt in die If-Bedingung hineinsetzen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">if (ImRechteck(25, 40, 20, 30, 100, 100)) {
+   println(&quot;kaputt!&quot;);
+}</pre>
+</div></div><pre>
+</pre><p>Allgemein solltest du einen Funktionsaufruf mit Rückgabewert genauso betrachten wie eine Variable. Eine Variable vom Typ <code>
+										int</code> kann überall auftreten, wo ein <code>
+										int</code> -Wert stehen könnte. Genauso kann ein Funktionsaufruf mit Rückgabetyp <code>
+										int</code> überall dort stehen, wo ein <code>
+										int</code> -Wert stehen könnte.</p><p>Beachte die syntaktische Ähnlichkeit von Variablendeklaration und Funktionsdefinition:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float foo;
+
+float Quadratzahl(float x) {
+   return x * x;
+}</pre>
+</div></div><pre>
+</pre><p>Beide Konstrukte, Variable und Funktion, stehen stellvertretend für einen Wert von einem bestimmten Typ. Daher können beide an den gleichen Stellen stehen.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><div class="confluence-information-macro-body"><h1 id="Rückgabewert-Übungsaufgaben">Übungsaufgaben</h1><p>Denk daran, deine Funktion immer zu testen.</p><h4 id="Rückgabewert-EinfacheFunktion">Einfache Funktion</h4><p>Schreibe eine Funktion <strong>foo</strong>, die immer den Wert 42 zurückgibt. Die Funktion hat keine Parameter und den Rückgabtyp <strong>int</strong>. Teste deine Funktion mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+    int num = foo();
+    println(num);
+}</pre>
+</div></div><p>Du solltest sehen:</p><pre class="console">42
+</pre><h4 id="Rückgabewert-Addition">Addition</h4><p>Schreibe eine Funktion <strong>plus</strong>, die zwei Zahlen vom Typ float als Parameter hat und die Summe der Zahlen zurückgibt (ebenfalls Typ float). Teste deine Funktion mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+    println(plus(10, 20));
+}</pre>
+</div></div><pre>
+</pre><p>Du solltest sehen:</p><pre class="console">30.0
+</pre><h4 id="Rückgabewert-Intervall-Check">Intervall-Check</h4><p>Schreibe eine Funktion <code>Bereich</code>, die drei Zahlen a, b, c vom Typ float als Parameter hat. Die Rückgabe ist eine boolescher Wert: true, wenn a zwischen b und c liegt und false sonst.</p><p>Gehen davon aus, dass b immer kleiner als c ist. Teste deine Funktion mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+    println(Bereich(10, 0, 100));
+    println(Bereich(-10, 0, 100));
+}</pre>
+</div></div><pre>
+</pre><p>Du solltest sehen:</p><pre class="console">true
+false
+</pre><h4 id="Rückgabewert-Quadrat">Quadrat</h4><p>Schreibe die Funktion <code>Quadrat</code> mit einem Parameter des Typs <code>float</code>. Die Funktion gibt die Quadratzahl des Parameters zurück. Teste deine Funktion mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+    println(Quadrat(3));
+    println(Quadrat(5));
+}</pre>
+</div></div><pre>
+</pre><p>Du solltest sehen:</p><pre class="console">9.0
+25.0
+</pre><p>Verwende <strong>nicht</strong> die Processing-Funktion <code>pow()</code>.</p><h4 id="Rückgabewert-Maximum">Maximum</h4><p>Schreibe die Funktion <code>Max2</code>, die zwei float-Werte bekommt und den größeren der beiden zurückgibt.<br/>Schreibe die Funktion <code>Max3</code>, die <strong>drei</strong> float-Werte bekommt und den größten zurückgibt. Teste unbedingt auch Fälle mit zwei gleichen Werten wie (5, 5, 1) oder (5, 1, 5).</p><p>Verwende <strong>nicht</strong> die Processing-Funktion <code>max()</code>. <br/><br/></p><h4 id="Rückgabewert-Abstand">Abstand</h4><p>Schreibe die Funktion <code>Difference</code>, die zwei float-Werte bekommt und den Abstand zwischen den beiden Werten <strong>als postive Zahl</strong> zurückgibt. Teste deine Funktion mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  println(Difference(5.5, 10.5));
+  println(Difference(1.5, 0));
+}</pre>
+</div></div><pre>
+</pre><p>Du solltest sehen:</p><pre class="console">5.0
+1.5
+</pre><p>Verwende <strong>nicht</strong> die Processing-Funktion <code>abs()</code>.</p><h4 id="Rückgabewert-Gerade/Ungerade">Gerade/Ungerade</h4><p>Schreibe die Funktion <code>IstGerade</code>, die eine ganze Zahl bekommt und einen Wahrheitswert zurückgibt, nämlich true, wenn die Zahl gerade ist, false wenn ungerade.</p><h4 id="Rückgabewert-Primzahl">Primzahl</h4><p>Schreibe die Funktion <code>IstPrim</code>, die eine ganze Zahl bekommt und einen Wahrheitswert zurückgibt, nämlich true, wenn die Zahl eine Primzahl ist, false sonst.</p><p>Eine Primzahl ist eine Zahl, die nur durch 1 und durch sich selbst teilbar ist. Teste deine Funktion mit:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">void setup() {
+  println(IstPrim(7));
+  println(IstPrim(15));
+  println(IstPrim(97));
+}
+
+true
+false
+true</pre>
+</div></div><pre class="auto-cursor-target"><br/></pre></div></div><pre class="console">
+</pre><div class="confluence-information-macro has-no-icon confluence-information-macro-tip"><div class="confluence-information-macro-body"><h1 id="Rückgabewert-Zusammenfassung">Zusammenfassung</h1><p>Funktionen können einen Wert <strong>zurückgeben</strong> und somit ihrer Benennung als &quot;Funktion&quot; gerecht werden, denn auch mathematische Funktionen erzeugen einen Wert, wenn man ihnen einen Parameter übergibt.</p><p>Bei der <strong>Definition</strong> einer Funktion mit Rückgabewert muss man den <strong>Typ des Rückgabewerts</strong> angeben. Dieser Typ steht vor dem Funktionsnamen.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float Quadratzahl(float x) {
+  // ...
+}</pre>
+</div></div><pre>
+</pre><p>Im Code der Funktion muss <strong>jeder mögliche Verlauf</strong> in einer Zeile enden, die ein <code>return</code> ausführt. Hier wird spezifiziert, welcher Wert zurückgeliefert wird. Der Typ des Werts muss natürlich mit dem Typ übereinstimmen, der in der Kopfzeile angegeben ist.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float Quadratzahl(float x) {
+  float erg = x * x;
+  return erg;
+}</pre>
+</div></div><pre>
+</pre><p>Häufiger Fehler ist, dass bei Verwendung von z.B. <code>if</code> vergessen wird, dass der Code verschiedene Wege nehmen kann.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: true; theme: Confluence" data-theme="Confluence">float Never42(float x) {
+  if (x != 42) {
+    return x;
+  }
+  // FEHLER: kein return für den Fall x == 42
+}</pre>
+</div></div><pre class="wrong">
+</pre><p>Beim <strong>Aufruf</strong> einer Funktion mit Rückgabewert wird der Aufruf durch den Rückgabewert <strong>ersetzt</strong> ähnlich einer Variable, deren Aufruf durch ihren Wert ersetzt wird.</p></div></div>
+                    </div>
+
+                                        
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jun 17, 2022 11:20</p>
+                    <div id="footer-logo"><a href="https://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
